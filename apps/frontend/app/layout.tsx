@@ -1,4 +1,5 @@
-import "./globals.css";
+import { AppWrapper } from '../components/ui/wrapper/app-wrapper';
+import './globals.css';
 
 export default function RootLayout({
   children,
@@ -6,8 +7,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className="max-h-screen bg-carnival_yellow overflow-y-hidden">
+      <body className="h-full">
+        <AppWrapper>
+          {children}
+        </AppWrapper>
+      </body>
     </html>
   );
 }
