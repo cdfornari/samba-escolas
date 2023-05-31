@@ -1,0 +1,30 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Escola {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+type Query {
+  escolas: [Escola!]!
+  escola(id: Int!): Escola!
+}
+
+type Mutation {
+  createEscola(createEscolaInput: CreateEscolaInput!): Escola!
+  updateEscola(updateEscolaInput: UpdateEscolaInput!): Escola!
+  removeEscola(id: Int!): Escola!
+}
+
+input CreateEscolaInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateEscolaInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
