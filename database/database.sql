@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS habilidades (
   id SERIAL NOT NULL PRIMARY KEY,
   nombre VARCHAR(40) NOT NULL UNIQUE, 
-  descripcion TEXT NOT NULL,
+  descripcion TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS integrantes (
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS integrantes (
   fecha_nacimiento DATE NOT NULL,
   nacionalidad VARCHAR(25) NOT NULL DEFAULT 'brasilero',
   genero CHAR NOT NULL CHECK (genero IN ('M', 'F')),
-  rg VARCHAR(15) UNIQUE,
+  rg VARCHAR(15) UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS integrantes_habilidades (
