@@ -1,10 +1,10 @@
 'use client';
 import { Fragment, useState } from 'react';
+import Link from 'next/link';
 import { Dialog, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { classNames } from '../../utils';
 import { useSidebar } from '../../hooks';
-import Link from 'next/link';
 
 export function AppWrapper({ children }: { children: React.ReactNode }) {
   const navigation = useSidebar();
