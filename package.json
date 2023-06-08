@@ -6,7 +6,8 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "db": "cd database && docker-compose up -d && cd ..",
-    "resetdb": "cd database && docker-compose down -v && docker-compose up -d && cd .."
+    "resetdb": "cd database && docker-compose down -v && docker-compose up -d && cd ..",
+    "dbseed": "cd database && docker-compose exec db psql -U postgres -d samba_escolas -f seed.sql && cd .."
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
