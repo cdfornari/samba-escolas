@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS escuelas_samba(
   resumen_hist VARCHAR(500) NOT NULL,
   id_ciudad INTEGER NOT NULL REFERENCES lugares_geo(id),
   gres BOOLEAN;
-  descrip VARCHAR(500)
+  descripcion VARCHAR(500)
 );
 
 CREATE TABLE IF NOT EXISTS colores(
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS historicos_titulos(
   id_escuela INTEGER NOT NULL REFERENCES escuelas_samba(id),
   grupo VARCHAR(10),
   monto INTEGER,
-  PRIMARY KEY (anuel,id_escuela)
+  PRIMARY KEY (anual,id_escuela)
 );
 
 CREATE TABLE IF NOT EXISTS patroc_juridicos(
