@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS escuelas_samba(
   fecha_fundacion DATE NOT NULL,
   resumen_historico VARCHAR(500) NOT NULL,
   id_ciudad INTEGER NOT NULL REFERENCES lugares_geo(id),
-  gres BOOLEAN;
+  gres BOOLEAN,
   descripcion VARCHAR(500)
 );
 
