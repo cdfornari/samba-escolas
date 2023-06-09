@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS historicos_integrantes(
   id_escuela INTEGER NOT NULL REFERENCES escuelas_samba(id),
   autoridad CHAR(2) NOT NULL,
   fecha_fin DATE,
-  PRIMARY KEY (fecha_inicio,id_integrante)
+  PRIMARY KEY (fecha_inicio,id_integrante,id_escuela)
 );
 
 CREATE TABLE IF NOT EXISTS historicos_titulos(
@@ -144,8 +144,9 @@ CREATE TABLE IF NOT EXISTS sambas(
 CREATE TABLE IF NOT EXISTS autores(
   id_integrante INTEGER,
   fecha_inicio DATE,
+  id_escuela INTEGER,
   id_samba INTEGER REFERENCES sambas(id),
-  FOREIGN KEY (id_integrante,fecha_inicio) REFERENCES historicos_integrantes(id_integrante,fecha_inicio),
+  FOREIGN KEY (id_integrante,fecha_inicio,id_escuela) REFERENCES historicos_integrantes(id_integrante,fecha_inicio,id_escuela),
   PRIMARY KEY (id_integrante,fecha_inicio,id_samba)
 );
 
@@ -158,8 +159,9 @@ CREATE TABLE IF NOT EXISTS roles(
 CREATE TABLE IF NOT EXISTS org_carnavales(
   id_integrante INTEGER,
   fecha_inicio DATE,
+  id_escuela INTEGER,
   id_rol INTEGER REFERENCES roles(id),
-  FOREIGN KEY (id_integrante,fecha_inicio) REFERENCES historicos_integrantes(id_integrante,fecha_inicio),
+  FOREIGN KEY (id_integrante,fecha_inicio,id_escuela) REFERENCES historicos_integrantes(id_integrante,fecha_inicio,id_escuela),
   PRIMARY KEY (id_integrante,fecha_inicio,id_rol)
 );
 
@@ -188,8 +190,9 @@ CREATE TABLE IF NOT EXISTS ganadores(
   anual INTEGER,
   id_premio INTEGER REFERENCES premios_especiales(id),
   id_escuela INTEGER REFERENCES escuelas_samba(id),
+  id_escuela_integrante INTEGER,
   id_integrante INTEGER,
   fecha_inicio DATE,
-  FOREIGN KEY (id_integrante,fecha_inicio) REFERENCES historicos_integrantes(id_integrante,fecha_inicio),
+  FOREIGN KEY (id_integrante,fecha_inicio,id_escuela_integrante) REFERENCES historicos_integrantes(id_integrante,fecha_inicio,id_escuela),
   PRIMARY KEY(anual,id_premio)
 );
