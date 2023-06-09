@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS historicos_integrantes(
   id_escuela INTEGER NOT NULL REFERENCES escuelas_samba(id),
   autoridad CHAR(2) NOT NULL,
   fecha_fin DATE,
-  PRIMARY KEY (fecha_inic,id_integrante)
+  PRIMARY KEY (fecha_inicio,id_integrante)
 );
 
 CREATE TABLE IF NOT EXISTS historicos_titulos(
