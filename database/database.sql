@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS escuelas_samba(
   dir_sede VARCHAR(20) NOT NULL,
   numero INTEGER NOT NULL,
   cep VARCHAR(9) NOT NULL,
-  fecha_fund DATE NOT NULL,
-  resumen_hist VARCHAR(500) NOT NULL,
+  fecha_fundacion DATE NOT NULL,
+  resumen_historico VARCHAR(500) NOT NULL,
   id_ciudad INTEGER NOT NULL REFERENCES lugares_geo(id),
   gres BOOLEAN;
   descripcion VARCHAR(500)
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS escuelas_colores(
 );
 
 CREATE TABLE IF NOT EXISTS historicos_integrantes(
-  fecha_inic DATE NOT NULL,
+  fecha_inicio DATE NOT NULL,
   id_integrante INTEGER NOT NULL REFERENCES integrantes(id),
   id_escuela INTEGER NOT NULL REFERENCES escuelas_samba(id),
   autoridad CHAR(2) NOT NULL,
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS sambas(
   id SERIAL PRIMARY KEY,
   titulo INTEGER NOT NULL UNIQUE,
   letra VARCHAR(500),
-  anuel_carnv INTEGER NOT NULL,
+  anual_carnv INTEGER NOT NULL,
   tipo INTEGER NOT NULL
 );
 
