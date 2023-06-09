@@ -19,16 +19,16 @@ CREATE TABLE IF NOT EXISTS integrantes (
 );
 
 CREATE TABLE IF NOT EXISTS integrantes_habilidades (
-  id_integrante INTEGER NOT NULL REFERENCES integrantes(id),
-  id_habilidad INTEGER NOT NULL REFERENCES habilidades(id),
+  id_integrante INTEGER REFERENCES integrantes(id),
+  id_habilidad INTEGER REFERENCES habilidades(id),
   PRIMARY KEY (id_integrante, id_habilidad)
 );
 
 CREATE TABLE IF NOT EXISTS parentescos(
-  id_integrante_1 INTEGER NOT NULL REFERENCES integrantes(id),
-  id_integrante_2 INTEGER NOT NULL REFERENCES integrantes(id),
+  id_integrante_1 INTEGER REFERENCES integrantes(id),
+  id_integrante_2 INTEGER REFERENCES integrantes(id),
   tipo VARCHAR(7) NOT NULL,
-  PRIMARY KEY (id_integrante_1,id_integrante_2 ),
+  PRIMARY KEY (id_integrante_1,id_integrante_2),
   CONSTRAINT tipo_parentesco CHECK (tipo IN ('padre','hermano','pareja'))
 );
 
@@ -59,14 +59,14 @@ CREATE TABLE IF NOT EXISTS colores(
 );
 
 CREATE TABLE IF NOT EXISTS escuelas_colores(
-  id_escuela INTEGER NOT NULL REFERENCES escuelas_samba(id),
-  id_color INTEGER NOT NULL REFERENCES colores(id),
+  id_escuela INTEGER REFERENCES escuelas_samba(id),
+  id_color INTEGER REFERENCES colores(id),
   PRIMARY KEY (id_escuela,id_color)
 );
 
 CREATE TABLE IF NOT EXISTS historicos_integrantes(
-  fecha_inicio DATE NOT NULL,
-  id_integrante INTEGER NOT NULL REFERENCES integrantes(id),
+  fecha_inicio DATE,
+  id_integrante INTEGER REFERENCES integrantes(id),
   id_escuela INTEGER NOT NULL REFERENCES escuelas_samba(id),
   autoridad CHAR(2) NOT NULL,
   fecha_fin DATE,
@@ -74,8 +74,8 @@ CREATE TABLE IF NOT EXISTS historicos_integrantes(
 );
 
 CREATE TABLE IF NOT EXISTS historicos_titulos(
-  anual INTEGER NOT NULL,
-  id_escuela INTEGER NOT NULL REFERENCES escuelas_samba(id),
+  anual INTEGER,
+  id_escuela INTEGER REFERENCES escuelas_samba(id),
   grupo VARCHAR(10),
   monto INTEGER,
   PRIMARY KEY (anual,id_escuela)
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS patroc_naturales(
 
 CREATE TABLE IF NOT EXISTS historicos_patrocinios(
   id SERIAL,
-  id_escuela INTEGER NOT NULL REFERENCES escuelas_samba(id),
+  id_escuela INTEGER REFERENCES escuelas_samba(id),
   fecha_inicio DATE NOT NULL,
   id_jur INTEGER REFERENCES patroc_juridicos(id),
   id_nat INTEGER REFERENCES patroc_naturales(id),
@@ -115,17 +115,18 @@ CREATE TABLE IF NOT EXISTS historicos_patrocinios(
 
 CREATE TABLE IF NOT EXISTS donaciones(
   id SERIAL,
-  id_patroc INTEGER NOT NULL REFERENCES historicos_patrocinios(id),
-  id_escuela INTEGER NOT NULL REFERENCES historicos_patrocinios(id_escuela),
+  id_patroc INTEGER,
+  id_escuela INTEGER,
   fecha DATE NOT NULL,
-  cantidad INTEGER NOT NULL,
+  monto FLOAT(2) NOT NULL,
+  FOREIGN KEY (id_patroc,id_escuela) REFERENCES historicos_patrocinios(id,id_escuela),
   PRIMARY KEY (id,id_patroc,id_escuela)
 );
 
 CREATE TABLE IF NOT EXISTS telefonos(
-  cod_int INTEGER NOT NULL,
-  cod_area INTEGER NOT NULL,
-  numero INTEGER NOT NULL,
+  cod_int INTEGER,
+  cod_area INTEGER,
+  numero INTEGER,
   id_escuela INTEGER REFERENCES escuelas_samba(id),
   id_jur INTEGER REFERENCES patroc_juridicos(id),
   id_nat INTEGER REFERENCES patroc_naturales(id),
@@ -135,16 +136,17 @@ CREATE TABLE IF NOT EXISTS telefonos(
 CREATE TABLE IF NOT EXISTS sambas(
   id SERIAL PRIMARY KEY,
   titulo INTEGER NOT NULL UNIQUE,
-  letra VARCHAR(500),
+  letra VARCHAR(500) NOT NULL,
   anual_carnv INTEGER NOT NULL,
-  tipo INTEGER NOT NULL
+  tipo VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS autores(
-  id_integrante INTEGER NOT NULL REFERENCES historicos_integrantes(id_integrante),
-  fecha_inicio DATE NOT NULL REFERENCES historicos_integrantes(fecha_inic),
-  id_samba INTEGER NOT NULL REFERENCES samba(id),
-  PRIMARY KEY (id_integrante,fecha_inicio)
+  id_integrante INTEGER,
+  fecha_inicio DATE,
+  id_samba INTEGER REFERENCES sambas(id),
+  FOREIGN KEY (id_integrante,fecha_inicio) REFERENCES historicos_integrantes(id_integrante,fecha_inicio),
+  PRIMARY KEY (id_integrante,fecha_inicio,id_samba)
 );
 
 CREATE TABLE IF NOT EXISTS roles(
@@ -154,20 +156,21 @@ CREATE TABLE IF NOT EXISTS roles(
 );
 
 CREATE TABLE IF NOT EXISTS org_carnavales(
-  id_integrante INTEGER NOT NULL REFERENCES historicos_integrantes(id_integrante),
-  fecha_inicio DATE NOT NULL REFERENCES historicos_integrantes(fecha_inic),
-  id_rol INTEGER NOT NULL REFERENCES roles(id),
+  id_integrante INTEGER,
+  fecha_inicio DATE,
+  id_rol INTEGER REFERENCES roles(id),
+  FOREIGN KEY (id_integrante,fecha_inicio) REFERENCES historicos_integrantes(id_integrante,fecha_inicio),
   PRIMARY KEY (id_integrante,fecha_inicio,id_rol)
 );
 
 CREATE TABLE IF NOT EXISTS eventos_anuales_sems(
   id SERIAL,
-  id_escuela INTEGER NOT NULL REFERENCES escuelas_samba(id),
+  id_escuela INTEGER REFERENCES escuelas_samba(id),
   fecha_inicio DATE NOT NULL,
   fecha_fin DATE NOT NULL,
   tipo VARCHAR(9) NOT NULL,
   nombre VARCHAR(30) NOT NULL,
-  costo_unit INTEGER NOT NULL,
+  costo_unit FLOAT(2) NOT NULL,
   descripcion VARCHAR(500),
   asist_total INTEGER,
   PRIMARY KEY(id,id_escuela)
@@ -182,10 +185,11 @@ CREATE TABLE IF NOT EXISTS premios_especiales(
 );
 
 CREATE TABLE IF NOT EXISTS ganadores(
-  anual INTEGER NOT NULL,
-  id_premio INTEGER NOT NULL REFERENCES premios_especiales(id),
-  id_escuela REFERENCES escuelas_samba(id),
-  id_intg INTEGER REFERENCES historicos_integrantes(id_integrante),
-  fecha_inicio DATE REFERENCES historicos_integrantes(fecha_inic),
+  anual INTEGER,
+  id_premio INTEGER REFERENCES premios_especiales(id),
+  id_escuela INTEGER REFERENCES escuelas_samba(id),
+  id_integrante INTEGER,
+  fecha_inicio DATE,
+  FOREIGN KEY (id_integrante,fecha_inicio) REFERENCES historicos_integrantes(id_integrante,fecha_inicio),
   PRIMARY KEY(anual,id_premio)
 );
