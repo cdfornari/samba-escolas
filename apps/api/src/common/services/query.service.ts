@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 import { PaginationArgs } from '../dto/args/pagination.args';
-import { PaginationInfo } from '../types/pagination-info.type';
 
 @Injectable()
 export class QueryService {
