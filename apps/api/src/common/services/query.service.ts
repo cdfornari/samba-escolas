@@ -37,7 +37,7 @@ export class QueryService {
     values: string[],
   ): Promise<T> {
     return await this.dataSource.query(
-      `INSERT INTO ${table} (${fields.join(',')}) VALUES (${values.join(',')})`,
+      `INSERT INTO ${table} (${fields.join(',')}) VALUES (${values.join(',')}) RETURNING *`,
     );
   }
 
@@ -50,7 +50,7 @@ export class QueryService {
     return await this.dataSource.query(
       `UPDATE ${table} SET (${fields.join(',')}) VALUES (${values.join(',')}) ${
         where ? `WHERE ${where}` : ''
-      }`,
+      } RETURNING *`,
     );
   }
 
