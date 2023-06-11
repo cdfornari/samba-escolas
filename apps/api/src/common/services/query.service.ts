@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 import { PaginationArgs } from '../dto/args/pagination.args';
+import { PaginationInfo } from '../types/pagination-info.type';
 
 @Injectable()
 export class QueryService {
@@ -20,7 +21,11 @@ export class QueryService {
       `SELECT ${fields.join(',') ?? '*'} FROM ${table} ${
         where ? `WHERE ${where}` : ''
       } ${
-        pagination ? `LIMIT ${pagination.limit} OFFSET ${pagination.skip}` : ''
+        pagination
+          ? `LIMIT ${pagination.perPage} OFFSET ${
+              (pagination.page - 1) * pagination.perPage
+            }`
+          : ''
       }`,
     );
   }
@@ -45,6 +50,12 @@ export class QueryService {
       `UPDATE ${table} SET (${fields.join(',')}) VALUES (${values.join(',')}) ${
         where ? `WHERE ${where}` : ''
       }`,
+    );
+  }
+
+  async count(table: string, where?: string): Promise<number> {
+    return this.dataSource.query(
+      `SELECT COUNT(*) FROM ${table} ${where ? `WHERE ${where}` : ''}`,
     );
   }
 }
