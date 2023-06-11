@@ -6,6 +6,5 @@ export const getPaginatioInfo = (
   count: number,
 ): PaginationInfo => ({
   hasNextPage: count > pagination.page * pagination.perPage,
-  hasPreviousPage: pagination.page > 1,
   numberOfPages: Math.ceil(count / pagination.perPage),
 });
