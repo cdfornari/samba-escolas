@@ -17,11 +17,11 @@ export class LugaresService {
   }
 
   async findOne(id: number): Promise<Lugar> {
-    return this.queryService.select(
+    return (await this.queryService.select(
       'lugares_geo',
       null,
       `id = ${id}`
-    )
+    ))[0]
   }
 
   update(id: number, updateLugareInput: UpdateLugareInput) {
