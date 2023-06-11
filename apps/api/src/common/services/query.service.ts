@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { DataSource } from 'typeorm';
+import { PaginationArgs } from '../dto/args/pagination.args';
 
 @Injectable()
 export class QueryService {
@@ -13,10 +14,13 @@ export class QueryService {
     table: string,
     fields?: string[],
     where?: string,
+    pagination?: PaginationArgs,
   ): Promise<T> {
     return await this.dataSource.query(
       `SELECT ${fields.join(',') ?? '*'} FROM ${table} ${
         where ? `WHERE ${where}` : ''
+      } ${
+        pagination ? `LIMIT ${pagination.limit} OFFSET ${pagination.skip}` : ''
       }`,
     );
   }
