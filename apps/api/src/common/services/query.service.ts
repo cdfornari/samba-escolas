@@ -18,7 +18,7 @@ export class QueryService {
     pagination?: PaginationArgs,
   ): Promise<T> {
     return await this.dataSource.query(
-      `SELECT ${fields.join(',') ?? '*'} FROM ${table} ${
+      `SELECT ${fields ? fields.join(',') : '*'} FROM ${table} ${
         where ? `WHERE ${where}` : ''
       } ${orderBy ? `ORDER BY ${orderBy}` : ''} ${
         pagination
@@ -36,7 +36,9 @@ export class QueryService {
     values: string[],
   ): Promise<T> {
     return await this.dataSource.query(
-      `INSERT INTO ${table} (${fields.join(',')}) VALUES (${values.join(',')}) RETURNING *`,
+      `INSERT INTO ${table} (${fields.join(',')}) VALUES (${values.join(
+        ',',
+      )}) RETURNING *`,
     );
   }
 
