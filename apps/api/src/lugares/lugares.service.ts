@@ -1,9 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { CreateLugareInput } from './dto/create-lugare.input';
 import { UpdateLugareInput } from './dto/update-lugare.input';
+import { QueryService } from 'src/common/services/query.service';
+import { Lugar } from './entities/lugar.entity';
 
 @Injectable()
 export class LugaresService {
+  constructor(private readonly queryService: QueryService) {}
+
   create(createLugareInput: CreateLugareInput) {
     return 'This action adds a new lugare';
   }
@@ -12,8 +16,12 @@ export class LugaresService {
     return `This action returns all lugares`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} lugare`;
+  async findOne(id: number): Promise<Lugar> {
+    return this.queryService.select(
+      'lugares_geo',
+      null,
+      `id = ${id}`
+    )
   }
 
   update(id: number, updateLugareInput: UpdateLugareInput) {
