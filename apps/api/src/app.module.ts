@@ -7,6 +7,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EscolasModule } from './escolas/escolas.module';
 import { CommonModule } from './common/common.module';
+import { LugaresModule } from './lugares/lugares.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { CommonModule } from './common/common.module';
     }),
     CommonModule,
     EscolasModule,
+    LugaresModule,
   ],
   controllers: [],
   providers: [],
