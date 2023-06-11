@@ -15,12 +15,13 @@ export class QueryService {
     table: string,
     fields?: string[],
     where?: string,
+    orderBy?: string,
     pagination?: PaginationArgs,
   ): Promise<T> {
     return await this.dataSource.query(
       `SELECT ${fields.join(',') ?? '*'} FROM ${table} ${
         where ? `WHERE ${where}` : ''
-      } ${
+      } ${orderBy ? `ORDER BY ${orderBy}` : ''} ${
         pagination
           ? `LIMIT ${pagination.perPage} OFFSET ${
               (pagination.page - 1) * pagination.perPage
