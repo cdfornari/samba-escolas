@@ -29,5 +29,5 @@ export class Escola {
   @Field(() => Boolean, { nullable: true })
   gres: boolean;
 
-  //TODO: CIUDAD 
+  id_ciudad: number;
 }
