@@ -11,10 +11,10 @@ export const EscolasTable = () => {
     <Table
       columns={['id', 'Nombre', 'Fecha de fundación']}
       rows={[
-        ...data.escolas.map((escola: any) => [
+        ...data.escolas.items.map((escola: any) => [
           escola.id,
           escola.nombre,
-          escola.fechaFundacion,
+          new Date(escola.fecha_fundacion).toLocaleDateString(),
         ]),
       ]}
     />
