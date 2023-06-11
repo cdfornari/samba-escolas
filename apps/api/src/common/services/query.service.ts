@@ -56,8 +56,10 @@ export class QueryService {
   }
 
   async count(table: string, where?: string): Promise<number> {
-    return this.dataSource.query(
-      `SELECT COUNT(*) FROM ${table} ${where ? `WHERE ${where}` : ''}`,
-    );
+    return (
+      await this.dataSource.query(
+        `SELECT COUNT(*) FROM ${table} ${where ? `WHERE ${where}` : ''}`,
+      )
+    )[0].count;
   }
 }
