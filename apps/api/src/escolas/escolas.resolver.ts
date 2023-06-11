@@ -13,7 +13,7 @@ import { CreateEscolaInput } from './dto/create-escola.input';
 import { UpdateEscolaInput } from './dto/update-escola.input';
 import { EscolasPaginationType } from './types/escolas-pagination.type';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
-import { getPaginatioInfo } from 'src/common/pagination/getPaginationInfo';
+import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { Lugar } from 'src/lugares/entities/lugar.entity';
 import { LugaresService } from '../lugares/lugares.service';
 
@@ -41,7 +41,7 @@ export class EscolasResolver {
     ]);
     return {
       items,
-      paginationInfo: getPaginatioInfo(pagination, count),
+      numberOfPages: getNumberOfPages(pagination, count),
     };
   }
 
