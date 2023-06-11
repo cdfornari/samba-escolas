@@ -1,4 +1,12 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import {
+  Resolver,
+  Query,
+  Mutation,
+  Args,
+  Int,
+  ResolveField,
+  Parent,
+} from '@nestjs/graphql';
 import { EscolasService } from './escolas.service';
 import { Escola } from './entities/escola.entity';
 import { CreateEscolaInput } from './dto/create-escola.input';
@@ -6,10 +14,15 @@ import { UpdateEscolaInput } from './dto/update-escola.input';
 import { EscolasPaginationType } from './types/escolas-pagination.type';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { getPaginatioInfo } from 'src/common/pagination/getPaginationInfo';
+import { Lugar } from 'src/lugares/entities/lugar.entity';
+import { LugaresService } from '../lugares/lugares.service';
 
 @Resolver(() => Escola)
 export class EscolasResolver {
-  constructor(private readonly escolasService: EscolasService) {}
+  constructor(
+    private readonly escolasService: EscolasService,
+    private readonly lugaresService: LugaresService,
+  ) {}
 
   @Mutation(() => Escola)
   createEscola(
@@ -47,5 +60,10 @@ export class EscolasResolver {
   @Mutation(() => Escola)
   removeEscola(@Args('id', { type: () => Int }) id: number) {
     return this.escolasService.remove(id);
+  }
+
+  @ResolveField(() => Lugar, { name: 'ciudad' })
+  async getCity(@Parent() escola: Escola): Promise<Lugar> {
+    return this.lugaresService.findOne(escola.id_ciudad);
   }
 }
