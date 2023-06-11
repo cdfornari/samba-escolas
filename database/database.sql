@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS lugares_geo(
 CREATE TABLE IF NOT EXISTS escuelas_samba(
   id SERIAL PRIMARY KEY,
   nombre VARCHAR(50) NOT NULL,
-  dir_sede VARCHAR(20) NOT NULL,
+  direccion_sede VARCHAR(20) NOT NULL,
   numero INTEGER NOT NULL,
   cep VARCHAR(9) NOT NULL,
   fecha_fundacion DATE NOT NULL,
