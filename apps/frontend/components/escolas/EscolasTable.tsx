@@ -2,10 +2,11 @@
 import { useQuery } from '@apollo/client';
 import { Table } from '../ui/Table';
 import { ESCOLAS } from '../../graphql';
+import Loader from '../ui/Loader';
 
 export const EscolasTable = () => {
   const { data, loading, error } = useQuery(ESCOLAS);
-  if (loading) return <p>Cargando...</p>;
+  if (loading) return <Loader />;
   if (error) return <p>Error</p>;
   return (
     <Table
