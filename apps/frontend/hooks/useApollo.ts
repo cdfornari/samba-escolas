@@ -7,6 +7,7 @@ export const useApollo = () => {
       new ApolloClient({
         uri: process.env.NEXT_PUBLIC_API_URL,
         cache: new InMemoryCache(),
+        ssrMode: typeof window === 'undefined',
       }),
     []
   );
