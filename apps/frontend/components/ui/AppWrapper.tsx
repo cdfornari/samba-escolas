@@ -154,7 +154,7 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
         </div>
         <div className="bg-carnival_green pb-96 w-full hidden md:block" />
         <div className="bg-carnival_yellow h-[calc(100vh-4.25rem)] md:h-[calc(100vh-6rem)] w-full mx-auto px-6 py-4 sm:px-6 md:px-8">
-          <div className="md:-mt-80 bg-blue-50 rounded-lg h-full">
+          <div className="md:-mt-80 bg-white rounded-3xl h-full">
             {children}
           </div>
         </div>

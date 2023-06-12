@@ -1,5 +1,6 @@
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+'use client';
 import { FC } from 'react';
+import { Pagination as NextUIPagination } from '@nextui-org/react';
 
 interface Props {
   page: number;
@@ -44,7 +45,11 @@ export const Pagination: FC<Props> = ({
             className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"
             aria-label="Pagination"
           >
-            
+            <NextUIPagination
+              page={page}
+              total={totalPages}
+              onChange={setPage}
+            />
           </nav>
         </div>
       </div>
