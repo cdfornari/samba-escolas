@@ -6,7 +6,6 @@ import { ESCOLAS } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Escola } from '../../interfaces';
 import { Pagination } from '../ui/Pagination';
-import { classNames } from '../../utils/classnames';
 
 const columns = [
   {
