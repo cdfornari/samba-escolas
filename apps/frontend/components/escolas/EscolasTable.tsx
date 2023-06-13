@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { Loading, Table } from '@nextui-org/react';
+import { Loading, SortDescriptor, Table } from '@nextui-org/react';
 import { ESCOLAS } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Escola } from '../../interfaces';
@@ -24,6 +24,7 @@ const columns = [
 
 export const EscolasTable = () => {
   const [page, setPage] = useState(1);
+  const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error } = useQuery<{
     escolas: PaginationType<Escola>;
   }>(ESCOLAS, {
@@ -47,11 +48,8 @@ export const EscolasTable = () => {
         shadow={false}
         selectionMode="single"
         onSelectionChange={(row) => console.log(row)}
-        onSortChange={(descriptor: {
-          column: string;
-          direction: 'ascending' | 'descending';
-        }) => console.log(descriptor)}
-        sortDescriptor={{ column: 'nombre', direction: 'ascending' }}
+        onSortChange={(descriptor: SortDescriptor) => setSortDescriptor(descriptor)}
+        sortDescriptor={sortDescriptor}
       >
         <Table.Header>
           {columns.map((column) => (
