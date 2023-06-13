@@ -14,6 +14,7 @@ import { UpdateLugareInput } from './dto/update-lugare.input';
 import { LugaresPaginationType } from './types/lugares-pagination.type';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
+import { LugaresFilterArgs } from './types/lugares-filter.args';
 
 @Resolver(() => Lugar)
 export class LugaresResolver {
@@ -27,9 +28,12 @@ export class LugaresResolver {
   }
 
   @Query(() => LugaresPaginationType, { name: 'lugares' })
-  async findAll(@Args() pagination: PaginationArgs) {
+  async findAll(
+    @Args() pagination: PaginationArgs,
+    @Args() filter: LugaresFilterArgs,
+  ) {
     const [items, count] = await Promise.all([
-      this.lugaresService.findAll(pagination),
+      this.lugaresService.findAll(pagination, filter),
       this.lugaresService.count(),
     ]);
     return {

@@ -4,6 +4,7 @@ import { UpdateLugareInput } from './dto/update-lugare.input';
 import { QueryService } from 'src/common/services/query.service';
 import { Lugar } from './entities/lugar.entity';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
+import { LugaresFilterArgs } from './types/lugares-filter.args';
 
 @Injectable()
 export class LugaresService {
@@ -13,11 +14,14 @@ export class LugaresService {
     return 'This action adds a new lugare';
   }
 
-  async findAll(pagination: PaginationArgs): Promise<Lugar[]> {
+  async findAll(
+    pagination: PaginationArgs,
+    filter: LugaresFilterArgs,
+  ): Promise<Lugar[]> {
     return this.queryService.select<Lugar[]>(
       'lugares_geo',
       null,
-      null,
+      `${filter.tipo ? `tipo = '${filter.tipo}'` : ''}`,
       null,
       pagination,
     );
