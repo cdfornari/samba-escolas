@@ -3,6 +3,7 @@ import { CreateLugareInput } from './dto/create-lugare.input';
 import { UpdateLugareInput } from './dto/update-lugare.input';
 import { QueryService } from 'src/common/services/query.service';
 import { Lugar } from './entities/lugar.entity';
+import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 
 @Injectable()
 export class LugaresService {
@@ -12,8 +13,18 @@ export class LugaresService {
     return 'This action adds a new lugare';
   }
 
-  findAll() {
-    return `This action returns all lugares`;
+  async findAll(pagination: PaginationArgs): Promise<Lugar[]> {
+    return this.queryService.select<Lugar[]>(
+      'lugares_geo',
+      null,
+      null,
+      null,
+      pagination,
+    );
+  }
+
+  async count(): Promise<number> {
+    return this.queryService.count('lugares_geo');
   }
 
   async findOne(id: number): Promise<Lugar> {

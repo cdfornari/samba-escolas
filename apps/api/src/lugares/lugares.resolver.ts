@@ -3,6 +3,9 @@ import { LugaresService } from './lugares.service';
 import { Lugar } from './entities/lugar.entity';
 import { CreateLugareInput } from './dto/create-lugare.input';
 import { UpdateLugareInput } from './dto/update-lugare.input';
+import { LugaresPaginationType } from './types/lugares-pagination.type';
+import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
+import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 
 @Resolver(() => Lugar)
 export class LugaresResolver {
@@ -13,9 +16,18 @@ export class LugaresResolver {
     return this.lugaresService.create(createLugareInput);
   }
 
-  @Query(() => [Lugar], { name: 'lugares' })
-  findAll() {
-    return this.lugaresService.findAll();
+  @Query(() => LugaresPaginationType, { name: 'lugares' })
+  async findAll(
+    @Args() pagination: PaginationArgs,
+  ) {
+    const [items, count] = await Promise.all([
+      this.lugaresService.findAll(pagination),
+      this.lugaresService.count(),
+    ]);
+    return {
+      items,
+      numberOfPages: getNumberOfPages(pagination, count),
+    };
   }
 
   @Query(() => Lugar, { name: 'lugare' })
