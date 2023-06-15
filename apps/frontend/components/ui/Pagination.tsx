@@ -7,6 +7,7 @@ interface Props {
   perPage: number;
   setPage: (page: number) => void;
   totalPages: number;
+  totalItems: number;
 }
 
 export const Pagination: FC<Props> = ({
@@ -14,6 +15,7 @@ export const Pagination: FC<Props> = ({
   perPage,
   setPage,
   totalPages,
+  totalItems,
 }) => {
   return (
     <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
@@ -36,8 +38,10 @@ export const Pagination: FC<Props> = ({
           <p className="text-sm text-gray-700">
             Mostrando{' '}
             <span className="font-medium">{(page - 1) * perPage + 1}</span> a{' '}
-            <span className="font-medium">{page * perPage}</span> de{' '}
-            <span className="font-medium">{totalPages}</span> resultados
+            <span className="font-medium">
+              {page === totalPages ? totalItems : page * perPage}
+            </span>{' '}
+            de <span className="font-medium">{totalItems}</span> resultados
           </p>
         </div>
         <div>

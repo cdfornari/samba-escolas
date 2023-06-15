@@ -85,6 +85,7 @@ export const EscolasTable = () => {
         perPage={page === 1 ? data?.escolas.items.length : 5}
         setPage={setPage}
         totalPages={data?.escolas.numberOfPages ?? 0}
+        totalItems={data?.escolas.items.length ?? 0}
       />
     </>
   );

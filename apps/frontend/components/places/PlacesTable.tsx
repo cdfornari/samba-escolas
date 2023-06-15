@@ -87,6 +87,7 @@ export const PlacesTable = () => {
         perPage={page === 1 ? data?.lugares.items.length : 5}
         setPage={setPage}
         totalPages={data?.lugares.numberOfPages ?? 0}
+        totalItems={data?.lugares.items.length ?? 0}
       />
     </>
   );
