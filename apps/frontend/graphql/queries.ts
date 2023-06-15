@@ -9,6 +9,7 @@ export const ESCOLAS = gql`
       }
       numberOfPages
     }
+    escolasCount
   }
   ${EscolaFragment}
 `;
@@ -24,6 +25,7 @@ export const LUGARES = gql`
       }
       numberOfPages
     }
+    lugaresCount
   }
   ${LugaresFragment}
 `;
