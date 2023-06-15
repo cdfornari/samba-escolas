@@ -47,6 +47,11 @@ export class LugaresResolver {
     return this.lugaresService.findOne(id);
   }
 
+  @Query(() => Int, { name: 'lugaresCount' })
+  count() {
+    return this.lugaresService.count();
+  }
+
   @Mutation(() => Lugar)
   updateLugare(
     @Args('updateLugareInput') updateLugareInput: UpdateLugareInput,
