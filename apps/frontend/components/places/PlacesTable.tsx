@@ -22,7 +22,7 @@ const columns = [
   },
 ];
 
-export const EscolasTable = () => {
+export const PlacesTable = () => {
   const [page, setPage] = useState(1);
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error } = useQuery<{
