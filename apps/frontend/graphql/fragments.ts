@@ -8,3 +8,11 @@ export const EscolaFragment = gql`
     gres
   }
 `;
+
+export const LugaresFragment = gql`
+  fragment LugaresFragment on Lugar {
+    id
+    nombre
+    tipo
+  }
+`;
