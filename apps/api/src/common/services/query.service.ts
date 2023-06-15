@@ -33,12 +33,12 @@ export class QueryService {
   async insert<T>(
     table: string,
     fields: string[],
-    values: string[],
+    values: (string | number | Date)[],
   ): Promise<T> {
     return await this.dataSource.query(
-      `INSERT INTO ${table} (${fields.join(',')}) VALUES (${values.join(
-        ',',
-      )}) RETURNING *`,
+      `INSERT INTO ${table} (${fields.join(',')}) VALUES (${values
+        .map((v) => `'${v}'`)
+        .join(',')}) RETURNING *`,
     );
   }
 
