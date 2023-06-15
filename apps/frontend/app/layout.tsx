@@ -1,8 +1,10 @@
 'use client';
-import { ApolloProvider } from '@apollo/client';
 import { NextUIProvider } from '@nextui-org/react';
+import { ApolloProvider } from '@apollo/client';
+import { ToastContainer } from 'react-toastify';
 import { AppWrapper } from '../components/ui/AppWrapper';
 import { useApollo } from '../hooks';
+import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
 
 export default function RootLayout({
@@ -17,6 +19,7 @@ export default function RootLayout({
         <body className="h-full">
           <NextUIProvider>
             <AppWrapper>{children}</AppWrapper>
+            <ToastContainer />
           </NextUIProvider>
         </body>
       </html>
