@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-import { EscolaFragment } from './fragments';
+import { EscolaFragment, LugaresFragment } from './fragments';
 
 export const ESCOLAS = gql`
   query ESCOLAS($page: Int, $perPage: Int) {
@@ -11,4 +11,19 @@ export const ESCOLAS = gql`
     }
   }
   ${EscolaFragment}
+`;
+
+export const LUGARES = gql`
+  query LUGARES($page: Int, $perPage: Int) {
+    lugares(page: $page, perPage: $perPage) {
+      items {
+        ...LugaresFragment
+        padre {
+          nombre
+        }
+      }
+      numberOfPages
+    }
+  }
+  ${LugaresFragment}
 `;
