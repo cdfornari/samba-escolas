@@ -10,15 +10,17 @@ import { LugaresFilterArgs } from './types/lugares-filter.args';
 export class LugaresService {
   constructor(private readonly queryService: QueryService) {}
 
-  create(createLugaresInput: CreateLugaresInput) {
-    const { nombre, tipo, id_padre_lugar } = createLugaresInput;
+  async create(createLugaresInput: CreateLugaresInput) {
+    const fields = Object.keys(createLugaresInput);
+    const values = Object.values(createLugaresInput);
+    const { tipo, id_padre_lugar } = createLugaresInput;
     if (tipo !== 'region' && !id_padre_lugar)
       throw new BadRequestException('id del padre requerido');
-    return this.queryService.insert(
+    return (await this.queryService.insert(
       'lugares_geo',
-      ['nombre', 'tipo', 'id_padre_lugar'],
-      [nombre, tipo, id_padre_lugar],
-    );
+      fields,
+      values,
+    ))[0];
   }
 
   async findAll(

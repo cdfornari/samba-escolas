@@ -21,10 +21,10 @@ export class LugaresResolver {
   constructor(private readonly lugaresService: LugaresService) {}
 
   @Mutation(() => Lugar)
-  createLugares(
-    @Args('createLugaresInput') createLugareInput: CreateLugaresInput,
+  async createLugares(
+    @Args('createLugaresInput') createLugaresInput: CreateLugaresInput,
   ) {
-    return this.lugaresService.create(createLugareInput);
+    return this.lugaresService.create(createLugaresInput);
   }
 
   @Query(() => LugaresPaginationType, { name: 'lugares' })
