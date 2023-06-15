@@ -42,16 +42,14 @@ export const PlaceForm = () => {
           selected={parent}
           setSelected={setParent}
         />
-        {
-            type && type !== 'region' && (
-                <Select
-                    options={['ciudad', 'estado', 'region']}
-                    label="Padre"
-                    selected={type}
-                    setSelected={setType}
-                />
-            )
-        }
+        {type && type !== 'region' && (
+          <Select
+            options={['ciudad', 'estado', 'region']}
+            label="Padre"
+            selected={type}
+            setSelected={setType}
+          />
+        )}
       </div>
       <div className="flex justify-center">
         <Button type="submit">Enviar</Button>
