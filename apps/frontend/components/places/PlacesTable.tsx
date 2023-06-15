@@ -35,7 +35,7 @@ export const PlacesTable = () => {
   }>(LUGARES, {
     variables: {
       page,
-      perPage: 5,
+      perPage: 15,
     },
     fetchPolicy: 'network-only',
   });
