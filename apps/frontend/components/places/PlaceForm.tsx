@@ -12,7 +12,7 @@ interface DTO {
   id?: number;
   nombre: string;
   tipo: string;
-  padre?: number;
+  id_padre_lugar?: number;
 }
 
 interface Props {
@@ -49,7 +49,7 @@ export const PlaceForm: FC<Props> = ({ action, initialValues }) => {
       clearErrors('padre');
     }
   }, [parent]);
-  const onSubmit = (data: { nombre: string }) => {
+  const onSubmit = async (data: { nombre: string }) => {
     if (!type) {
       setError('tipo', {
         type: 'manual',
@@ -64,10 +64,10 @@ export const PlaceForm: FC<Props> = ({ action, initialValues }) => {
       });
       return;
     }
-    action({
+    await action({
       nombre: data.nombre,
       tipo: type as PlaceType,
-      padre: Number(parent),
+      id_padre_lugar: Number(parent),
     });
   };
   return (
