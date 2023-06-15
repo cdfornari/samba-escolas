@@ -11,16 +11,14 @@ export class LugaresService {
   constructor(private readonly queryService: QueryService) {}
 
   async create(createLugaresInput: CreateLugaresInput) {
-    const fields = Object.keys(createLugaresInput);
-    const values = Object.values(createLugaresInput);
+    let fields = Object.keys(createLugaresInput);
+    let values = Object.values(createLugaresInput);
+    fields = fields.filter((field) => !!createLugaresInput[field]);
+    values = values.filter((value) => !!value);
     const { tipo, id_padre_lugar } = createLugaresInput;
     if (tipo !== 'region' && !id_padre_lugar)
       throw new BadRequestException('id del padre requerido');
-    return (await this.queryService.insert(
-      'lugares_geo',
-      fields,
-      values,
-    ))[0];
+    return (await this.queryService.insert('lugares_geo', fields, values))[0];
   }
 
   async findAll(
