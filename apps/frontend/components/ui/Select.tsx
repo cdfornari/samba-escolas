@@ -14,7 +14,7 @@ export const Select: FC<Props> = ({ selected, setSelected, options, label }) => 
   return (
     <Listbox value={selected} onChange={setSelected}>
       {({ open }) => (
-        <div>
+        <div className='w-full'>
           <Listbox.Label className="block text-sm font-medium leading-6 text-gray-900">
             {label}
           </Listbox.Label>
