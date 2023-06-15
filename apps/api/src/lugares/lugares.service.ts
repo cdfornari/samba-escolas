@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common';
-import { CreateLugareInput } from './dto/create-lugare.input';
+import { BadRequestException, Injectable } from '@nestjs/common';
+import { CreateLugaresInput } from './dto/create-lugares.input';
 import { UpdateLugareInput } from './dto/update-lugare.input';
 import { QueryService } from 'src/common/services/query.service';
 import { Lugar } from './entities/lugar.entity';
@@ -10,8 +10,15 @@ import { LugaresFilterArgs } from './types/lugares-filter.args';
 export class LugaresService {
   constructor(private readonly queryService: QueryService) {}
 
-  create(createLugareInput: CreateLugareInput) {
-    return 'This action adds a new lugare';
+  create(createLugaresInput: CreateLugaresInput) {
+    const { nombre, tipo, id_padre_lugar } = createLugaresInput;
+    if (tipo !== 'region' && !id_padre_lugar)
+      throw new BadRequestException('id del padre requerido');
+    return this.queryService.insert(
+      'lugares_geo',
+      ['nombre', 'tipo', 'id_padre_lugar'],
+      [nombre, tipo, id_padre_lugar],
+    );
   }
 
   async findAll(

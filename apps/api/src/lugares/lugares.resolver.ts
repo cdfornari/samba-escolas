@@ -9,7 +9,7 @@ import {
 } from '@nestjs/graphql';
 import { LugaresService } from './lugares.service';
 import { Lugar } from './entities/lugar.entity';
-import { CreateLugareInput } from './dto/create-lugare.input';
+import { CreateLugaresInput } from './dto/create-lugares.input';
 import { UpdateLugareInput } from './dto/update-lugare.input';
 import { LugaresPaginationType } from './types/lugares-pagination.type';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
@@ -21,8 +21,8 @@ export class LugaresResolver {
   constructor(private readonly lugaresService: LugaresService) {}
 
   @Mutation(() => Lugar)
-  createLugare(
-    @Args('createLugareInput') createLugareInput: CreateLugareInput,
+  createLugares(
+    @Args('createLugaresInput') createLugareInput: CreateLugaresInput,
   ) {
     return this.lugaresService.create(createLugareInput);
   }
