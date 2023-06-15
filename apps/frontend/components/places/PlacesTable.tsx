@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { Loading, SortDescriptor, Table } from '@nextui-org/react';
 import { LUGARES } from '../../graphql';
 import { PaginationType } from '../../types';
-import { Escola } from '../../interfaces';
+import { Place } from '../../interfaces';
 import { Pagination } from '../ui/Pagination';
 
 const columns = [
@@ -30,7 +30,7 @@ export const PlacesTable = () => {
   const [page, setPage] = useState(1);
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error } = useQuery<{
-    lugares: PaginationType<any>;
+    lugares: PaginationType<Place>;
   }>(LUGARES, {
     variables: {
       page,

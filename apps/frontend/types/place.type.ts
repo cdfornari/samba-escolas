@@ -1,0 +1,1 @@
+export type PlaceType = 'ciudad' | 'estado' | 'region';
