@@ -13,6 +13,9 @@ module.exports = {
         carnival_red: '#FF4D4D',
         carnival_orange: '#FFA500',
         carnival_purple: '#A020F0',
+        success: '#17C964',
+        warning: '#F5A524',
+        error: '#F31260',
       }
     },
   },
