@@ -50,6 +50,11 @@ export class EscolasResolver {
     return this.escolasService.findOne(id);
   }
 
+  @Query(() => Int, { name: 'escolasCount' })
+  count() {
+    return this.escolasService.count();
+  }
+
   @Mutation(() => Escola)
   updateEscola(
     @Args('updateEscolaInput') updateEscolaInput: UpdateEscolaInput,
