@@ -23,7 +23,7 @@ const columns = [
   {
     key: 'padre',
     label: 'Pertenece a',
-  }
+  },
 ];
 
 export const PlacesTable = () => {
@@ -31,6 +31,7 @@ export const PlacesTable = () => {
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error } = useQuery<{
     lugares: PaginationType<Place>;
+    lugaresCount: number;
   }>(LUGARES, {
     variables: {
       page,
@@ -51,16 +52,22 @@ export const PlacesTable = () => {
         bordered
         selectionMode="single"
         onSelectionChange={(row) => console.log(row)}
-        onSortChange={(descriptor: SortDescriptor) => setSortDescriptor(descriptor)}
+        onSortChange={(descriptor: SortDescriptor) =>
+          setSortDescriptor(descriptor)
+        }
         sortDescriptor={sortDescriptor}
       >
         <Table.Header>
           {columns.map((column) => (
-            <Table.Column key={column.key} allowsSorting css={{ 
-              '& > svg': {
-                right: 10,
-              }
-            }}>
+            <Table.Column
+              key={column.key}
+              allowsSorting
+              css={{
+                '& > svg': {
+                  right: 10,
+                },
+              }}
+            >
               {column.label}
             </Table.Column>
           ))}
@@ -87,7 +94,7 @@ export const PlacesTable = () => {
         perPage={page === 1 ? data?.lugares.items.length : 5}
         setPage={setPage}
         totalPages={data?.lugares.numberOfPages ?? 0}
-        totalItems={data?.lugares.items.length ?? 0}
+        totalItems={data?.lugaresCount ?? 0}
       />
     </>
   );

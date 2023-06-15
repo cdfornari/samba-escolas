@@ -27,6 +27,7 @@ export const EscolasTable = () => {
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error } = useQuery<{
     escolas: PaginationType<Escola>;
+    escolasCount: number;
   }>(ESCOLAS, {
     variables: {
       page,
@@ -47,16 +48,22 @@ export const EscolasTable = () => {
         bordered
         selectionMode="single"
         onSelectionChange={(row) => console.log(row)}
-        onSortChange={(descriptor: SortDescriptor) => setSortDescriptor(descriptor)}
+        onSortChange={(descriptor: SortDescriptor) =>
+          setSortDescriptor(descriptor)
+        }
         sortDescriptor={sortDescriptor}
       >
         <Table.Header>
           {columns.map((column) => (
-            <Table.Column key={column.key} allowsSorting css={{ 
-              '& > svg': {
-                right: 10,
-              }
-            }}>
+            <Table.Column
+              key={column.key}
+              allowsSorting
+              css={{
+                '& > svg': {
+                  right: 10,
+                },
+              }}
+            >
               {column.label}
             </Table.Column>
           ))}
@@ -85,7 +92,7 @@ export const EscolasTable = () => {
         perPage={page === 1 ? data?.escolas.items.length : 5}
         setPage={setPage}
         totalPages={data?.escolas.numberOfPages ?? 0}
-        totalItems={data?.escolas.items.length ?? 0}
+        totalItems={data?.escolasCount ?? 0}
       />
     </>
   );
