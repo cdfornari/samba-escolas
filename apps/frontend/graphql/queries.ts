@@ -15,8 +15,8 @@ export const ESCOLAS = gql`
 `;
 
 export const LUGARES = gql`
-  query LUGARES($page: Int, $perPage: Int) {
-    lugares(page: $page, perPage: $perPage) {
+  query LUGARES($page: Int, $perPage: Int, $tipo: PlaceType) {
+    lugares(page: $page, perPage: $perPage, tipo: $tipo) {
       items {
         ...LugaresFragment
         padre {
