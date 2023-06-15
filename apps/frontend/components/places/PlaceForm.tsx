@@ -1,22 +1,31 @@
 'use client';
-import { useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Button, Input, Loading } from '@nextui-org/react';
 import { useQuery } from '@apollo/client';
 import { useForm } from 'react-hook-form';
 import { Place } from '../../interfaces';
 import { Select } from '../ui/Select';
 import { LUGARES } from '../../graphql';
-import { PaginationType } from '../../types';
+import { PaginationType, PlaceType } from '../../types';
 
-interface Props {
-  onSubmit: (data: Place) => void;
-  initialValues?: Place;
+interface DTO {
+  id?: number;
+  nombre: string;
+  tipo: string;
+  padre?: number;
 }
 
-export const PlaceForm = () => {
+interface Props {
+  action: (data: DTO) => Promise<any>;
+  initialValues?: DTO;
+}
+
+export const PlaceForm: FC<Props> = ({ action, initialValues }) => {
   const [type, setType] = useState<string>();
   const [parent, setParent] = useState<string>();
   const {
+    setError,
+    clearErrors,
     register,
     handleSubmit,
     formState: { errors },
@@ -30,11 +39,41 @@ export const PlaceForm = () => {
       },
     }
   );
-  const onSubmit = (data: Place) => console.log(data);
+  useEffect(() => {
+    if (type?.length > 0) {
+      clearErrors('tipo');
+    }
+  }, [type]);
+  useEffect(() => {
+    if (parent?.length > 0) {
+      clearErrors('padre');
+    }
+  }, [parent]);
+  const onSubmit = (data: { nombre: string }) => {
+    if (!type) {
+      setError('tipo', {
+        type: 'manual',
+        message: 'El tipo es requerido',
+      });
+      return;
+    }
+    if (type !== 'region' && !parent) {
+      setError('padre', {
+        type: 'manual',
+        message: 'El padre es requerido',
+      });
+      return;
+    }
+    action({
+      nombre: data.nombre,
+      tipo: type as PlaceType,
+      padre: Number(parent),
+    });
+  };
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full h-full py-10 px-[25%] flex flex-col gap-4 justify-around"
+      className="w-full h-full py-10 px-[25%] flex flex-col gap-4 justify-center"
     >
       <div className="flex flex-col gap-4">
         <div className="flex flex-col">
@@ -51,12 +90,24 @@ export const PlaceForm = () => {
           )}
         </div>
         <div className="w-full flex justify-center gap-6">
-          <Select
-            options={['ciudad', 'estado', 'region']}
-            label="Tipo"
-            selected={type}
-            setSelected={setType}
-          />
+          <div className="w-full flex flex-col">
+            <Select
+              options={[
+                { label: 'Región', value: 'region' },
+                { label: 'Estado', value: 'estado' },
+                { label: 'Ciudad', value: 'ciudad' },
+              ]}
+              label="Tipo"
+              selected={type}
+              setSelected={setType}
+              error={!!errors.tipo}
+            />
+            {errors.tipo && (
+              <span className="text-error">
+                {(errors.tipo.message as string) ?? ''}
+              </span>
+            )}
+          </div>
           {type &&
             type !== 'region' &&
             (loading ? (
@@ -64,17 +115,30 @@ export const PlaceForm = () => {
             ) : error ? (
               <span>Error</span>
             ) : (
-              <Select
-                options={data.lugares.items.map((lugar) => lugar.nombre)}
-                label="Padre"
-                selected={parent}
-                setSelected={setParent}
-              />
+              <div className="w-full flex flex-col">
+                <Select
+                  options={data.lugares.items.map((lugar) => ({
+                    label: lugar.nombre,
+                    value: lugar.id.toString(),
+                  }))}
+                  label="Padre"
+                  selected={parent}
+                  setSelected={setParent}
+                  error={!!errors.padre}
+                />
+                {errors.padre && (
+                  <span className="text-error">
+                    {(errors.padre.message as string) ?? ''}
+                  </span>
+                )}
+              </div>
             ))}
         </div>
       </div>
       <div className="flex justify-center">
-        <Button type="submit">Enviar</Button>
+        <Button type="submit" css={{ zIndex: 0 }}>
+          Enviar
+        </Button>
       </div>
     </form>
   );

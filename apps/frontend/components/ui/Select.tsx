@@ -5,27 +5,46 @@ import { CheckIcon } from '@heroicons/react/24/outline';
 
 interface Props {
   label: string;
-  options: string[];
+  options: { value: string; label: string }[];
   selected: string;
   setSelected: (value: string) => void;
+  error?: boolean;
 }
 
-export const Select: FC<Props> = ({ selected, setSelected, options, label }) => {
+export const Select: FC<Props> = ({
+  selected,
+  setSelected,
+  options,
+  label,
+  error = false,
+}) => {
   return (
     <Listbox value={selected} onChange={setSelected}>
       {({ open }) => (
-        <div className='w-full'>
+        <div className="w-full">
           <Listbox.Label className="block text-sm font-medium leading-6 text-gray-900">
             {label}
           </Listbox.Label>
           <div className="relative">
-            <Listbox.Button className="relative w-full h-10 cursor-pointer rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+            <Listbox.Button
+              className={classNames(
+                error ? 'ring-error' : 'focus:ring-indigo-500',
+                'relative w-full h-10 cursor-pointer rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 sm:text-sm sm:leading-6'
+              )}
+            >
               <span className="flex items-center min-h-50">
-                <span className="ml-3 block truncate">{selected}</span>
+                <span className="ml-3 block truncate">
+                  {selected
+                    ? options.find((option) => option.value === selected).label
+                    : 'Selecciona una opción'}
+                </span>
               </span>
               <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
                 <CheckIcon
-                  className="h-5 w-5 text-gray-400"
+                  className={classNames(
+                    error ? 'text-error' : 'text-indigo-600',
+                    'h-5 w-5'
+                  )}
                   aria-hidden="true"
                 />
               </span>
@@ -40,14 +59,14 @@ export const Select: FC<Props> = ({ selected, setSelected, options, label }) => 
               <Listbox.Options className="absolute mx-0 z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                 {options.map((option, i) => (
                   <Listbox.Option
-                    key={i}
+                    key={option.value}
                     className={({ active }) =>
                       classNames(
                         active ? 'bg-indigo-600 text-white' : 'text-gray-900',
                         'relative cursor-default select-none py-2 pl-3 pr-9'
                       )
                     }
-                    value={option}
+                    value={option.value}
                   >
                     {({ selected, active }) => (
                       <>
@@ -58,7 +77,7 @@ export const Select: FC<Props> = ({ selected, setSelected, options, label }) => 
                               'ml-3 block truncate'
                             )}
                           >
-                            {option}
+                            {option.label}
                           </span>
                         </div>
                         {selected ? (
