@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { Loading, SortDescriptor, Table } from '@nextui-org/react';
-import { ESCOLAS } from '../../graphql';
+import { LUGARES } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Escola } from '../../interfaces';
 import { Pagination } from '../ui/Pagination';
@@ -17,17 +17,21 @@ const columns = [
     label: 'Nombre',
   },
   {
-    key: 'fecha_fundacion',
-    label: 'Fecha de fundación',
+    key: 'tipo',
+    label: 'Tipo',
   },
+  {
+    key: 'padre',
+    label: 'Pertenece a',
+  }
 ];
 
 export const PlacesTable = () => {
   const [page, setPage] = useState(1);
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error } = useQuery<{
-    escolas: PaginationType<Escola>;
-  }>(ESCOLAS, {
+    lugares: PaginationType<any>;
+  }>(LUGARES, {
     variables: {
       page,
       perPage: 5,
@@ -62,11 +66,9 @@ export const PlacesTable = () => {
           ))}
         </Table.Header>
         <Table.Body
-          items={data.escolas.items.map((escola) => ({
-            ...escola,
-            fecha_fundacion: new Date(
-              escola.fecha_fundacion
-            ).toLocaleDateString(),
+          items={data.lugares.items.map((lugar) => ({
+            ...lugar,
+            padre: lugar.padre?.nombre ?? 'Brasil',
           }))}
         >
           {(row) => (
@@ -82,9 +84,9 @@ export const PlacesTable = () => {
       </Table>
       <Pagination
         page={page}
-        perPage={page === 1 ? data?.escolas.items.length : 5}
+        perPage={page === 1 ? data?.lugares.items.length : 5}
         setPage={setPage}
-        totalPages={data?.escolas.numberOfPages ?? 0}
+        totalPages={data?.lugares.numberOfPages ?? 0}
       />
     </>
   );
