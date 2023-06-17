@@ -19,4 +19,21 @@ VALUES ('Mocidade Independente de Padre Miguel','Av. Brasil',31146,21720-001,'11
 INSERT INTO escuelas_samba (nombre, direccion_sede, numero, cep, fecha_fundacion, resumen_historico, id_ciudad, gres, descripcion)
 VALUES ('Independente Tricolor','Rua Doze de Setembro',259,02051001,'10-13-2010','A principios de la década de 2000, la hinchada de Independente comenzó a organizarse para participar en el Carnaval de São Paulo, como otras asociaciones. Para eso se creó el Bloque Independiente. El bloque se convirtió en una escuela de samba, pero no compitió ni participó en el carnaval oficial. En 2009, incorporó Malungos, y adoptando el nombre de "Grêmio Recreativo Cultural e Escola de Samba Malungos Independente", participó del Carnaval de 2010. En 2012, la escuela pasó a llamarse simplemente "Grêmio Recreativo e Cultural Escola de Samba Independente Tricolor".',8,TRUE,'La casa Independiente Tricolor nació para dar la oportunidad a jóvenes y niños de todas las edades.');
 
+INSERT INTO colores (nombre) VALUES ('azul');
+INSERT INTO colores (nombre) VALUES ('rosa');
+INSERT INTO colores (nombre) VALUES ('rojo');
+INSERT INTO colores (nombre) VALUES ('negro');
+INSERT INTO colores (nombre) VALUES ('blanco');
+INSERT INTO colores (nombre) VALUES ('verde');
+
+INSERT INTO escuelas_colores (id_escuela,id_color) VALUES (2,1);
+INSERT INTO escuelas_colores (id_escuela,id_color) VALUES (2,2);
+INSERT INTO escuelas_colores (id_escuela,id_color) VALUES (3,3);
+INSERT INTO escuelas_colores (id_escuela,id_color) VALUES (3,4);
+INSERT INTO escuelas_colores (id_escuela,id_color) VALUES (3,5);
+INSERT INTO escuelas_colores (id_escuela,id_color) VALUES (4,5);
+INSERT INTO escuelas_colores (id_escuela,id_color) VALUES (4,6);
+
+
+
 COMMIT;
