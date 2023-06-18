@@ -10,7 +10,7 @@ import {
 import { LugaresService } from './lugares.service';
 import { Lugar } from './entities/lugar.entity';
 import { CreateLugaresInput } from './dto/create-lugares.input';
-import { UpdateLugareInput } from './dto/update-lugare.input';
+import { UpdateLugaresInput } from './dto/update-lugares.input';
 import { LugaresPaginationType } from './types/lugares-pagination.type';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
@@ -53,14 +53,14 @@ export class LugaresResolver {
   }
 
   @Mutation(() => Lugar)
-  updateLugare(
-    @Args('updateLugareInput') updateLugareInput: UpdateLugareInput,
+  updateLugar(
+    @Args('updateLugaresInput') updateLugaresInput: UpdateLugaresInput,
   ) {
-    return this.lugaresService.update(updateLugareInput.id, updateLugareInput);
+    return this.lugaresService.update(updateLugaresInput);
   }
 
   @Mutation(() => Lugar)
-  removeLugare(@Args('id', { type: () => Int }) id: number) {
+  removeLugar(@Args('id', { type: () => Int }) id: number) {
     return this.lugaresService.remove(id);
   }
 

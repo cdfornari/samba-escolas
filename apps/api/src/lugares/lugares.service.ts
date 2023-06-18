@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateLugaresInput } from './dto/create-lugares.input';
-import { UpdateLugareInput } from './dto/update-lugare.input';
+import { UpdateLugaresInput } from './dto/update-lugares.input';
 import { QueryService } from 'src/common/services/query.service';
 import { Lugar } from './entities/lugar.entity';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
@@ -10,7 +10,7 @@ import { LugaresFilterArgs } from './types/lugares-filter.args';
 export class LugaresService {
   constructor(private readonly queryService: QueryService) {}
 
-  async create(createLugaresInput: CreateLugaresInput) {
+  async create(createLugaresInput: CreateLugaresInput): Promise<Lugar> {
     let fields = Object.keys(createLugaresInput);
     let values = Object.values(createLugaresInput);
     fields = fields.filter((field) => !!createLugaresInput[field]);
@@ -44,8 +44,19 @@ export class LugaresService {
     )[0];
   }
 
-  update(id: number, updateLugareInput: UpdateLugareInput) {
-    return `This action updates a #${id} lugare`;
+  async update(updateLugaresInput: UpdateLugaresInput): Promise<Lugar> {
+    let fields = Object.keys(updateLugaresInput);
+    let values = Object.values(updateLugaresInput);
+    fields = fields.filter((field) => !!updateLugaresInput[field]);
+    values = values.filter((value) => !!value);
+    return (
+      await this.queryService.update(
+        'lugares_geo',
+        fields,
+        values,
+        `id = ${updateLugaresInput.id}`,
+      )
+    )[0];
   }
 
   remove(id: number) {
