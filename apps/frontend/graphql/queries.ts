@@ -29,3 +29,16 @@ export const LUGARES = gql`
   }
   ${LugaresFragment}
 `;
+
+export const LUGAR = gql`
+  query LUGAR($id: Int!) {
+    lugar(id: $id) {
+      ...LugaresFragment
+      padre {
+        id
+        nombre
+      }
+    }
+  }
+  ${LugaresFragment}
+`;
