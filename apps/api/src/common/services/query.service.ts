@@ -6,6 +6,8 @@ import { PaginationArgs } from '../dto/args/pagination.args';
 export class QueryService {
   constructor(private readonly dataSource: DataSource) {}
 
+  private readonly tablesPrefix = 'csd_';
+
   async executeRawQuery<T>(query: string): Promise<T> {
     return await this.dataSource.query(query);
   }
@@ -18,7 +20,7 @@ export class QueryService {
     pagination?: PaginationArgs,
   ): Promise<T> {
     return await this.dataSource.query(
-      `SELECT ${fields ? fields.join(',') : '*'} FROM ${table} ${
+      `SELECT ${fields ? fields.join(',') : '*'} FROM ${this.tablesPrefix + table} ${
         where ? `WHERE ${where}` : ''
       } ${orderBy ? `ORDER BY ${orderBy}` : ''} ${
         pagination
@@ -36,7 +38,7 @@ export class QueryService {
     values: (string | number | Date)[],
   ): Promise<T> {
     return await this.dataSource.query(
-      `INSERT INTO ${table} (${fields.join(',')}) VALUES (${values
+      `INSERT INTO ${this.tablesPrefix + table} (${fields.join(',')}) VALUES (${values
         .map((v) => `'${v}'`)
         .join(',')}) RETURNING *`,
     );
@@ -49,7 +51,7 @@ export class QueryService {
     where?: string,
   ): Promise<T> {
     return await this.dataSource.query(
-      `UPDATE ${table} SET (${fields.join(',')}) VALUES (${values.join(',')}) ${
+      `UPDATE ${this.tablesPrefix + table} SET (${fields.join(',')}) VALUES (${values.join(',')}) ${
         where ? `WHERE ${where}` : ''
       } RETURNING *`,
     );
@@ -58,7 +60,7 @@ export class QueryService {
   async count(table: string, where?: string): Promise<number> {
     return (
       await this.dataSource.query(
-        `SELECT COUNT(*) FROM ${table} ${where ? `WHERE ${where}` : ''}`,
+        `SELECT COUNT(*) FROM ${this.tablesPrefix + table} ${where ? `WHERE ${where}` : ''}`,
       )
     )[0].count;
   }
