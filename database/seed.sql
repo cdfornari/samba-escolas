@@ -41,11 +41,9 @@ INSERT INTO habilidades (nombre,descripcion) VALUES ('Canto','Su voz produce son
 INSERT INTO habilidades (nombre,descripcion) VALUES ('Creatividad','Consigue crear nuevas ideas y conceptos');
 
 INSERT INTO integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Danillo',NULL,'Prímola','Soares',NULL,'05-05-85','M','brasilero',147554627)
+VALUES ('Danillo',NULL,'Prímola','Soares',NULL,'05-05-85','M','brasilero',147554627);
 INSERT INTO integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Catarina',NULL,'Prímola','Souza','Cat','09-26-88','F','brasilero',135544771)
-INSERT INTO integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Danillo',NULL,'Prímola','Soares',NULL,'05-05-85','M','brasilero',147554627)
+VALUES ('Catarina',NULL,'Prímola','Souza','Cat','09-26-88','F','brasilero',135544771);
 
 INSERT INTO integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,1);
 INSERT INTO integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,2);
