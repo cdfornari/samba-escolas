@@ -50,12 +50,12 @@ INSERT INTO integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,2);
 INSERT INTO integrantes_habilidades (id_integrante,id_habilidad) VALUES (2,1);
 INSERT INTO integrantes_habilidades (id_integrante,id_habilidad) VALUES (2,2);
 
-INSERT INTO parentescos (id_integrante_1,id_integrante_2,tipo) VALUES (1,2,'pareja')
+INSERT INTO parentescos (id_integrante_1,id_integrante_2,tipo) VALUES (1,2,'pareja');
 
 INSERT INTO historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
-VALUES ('29-01-2015',1,2,'no','03-12-2023')
+VALUES ('01-29-2015',1,2,'no','03-12-2023');
 INSERT INTO historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
-VALUES ('01-09-2021',2,2,'no',NULL)
+VALUES ('09-21-2021',2,2,'no',NULL);
 
 
 COMMIT;
