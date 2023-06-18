@@ -34,11 +34,11 @@ INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (3,5);
 INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (4,5);
 INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (4,6);
 
-INSERT INTO CSD_habilidades (nombre,descripcion) VALUES ('Dirección','Sabe dirigir, organizar y coordinar a un grupo de personas');
-INSERT INTO CSD_habilidades (nombre,descripcion) VALUES ('Danza','Domina el movimiento de su cuerpo al ritmo de la música');
-INSERT INTO CSD_habilidades (nombre,descripcion) VALUES ('Batería','Tiene destreza con el instrumento y sabe poner ritmo a la samba');
-INSERT INTO CSD_habilidades (nombre,descripcion) VALUES ('Canto','Su voz produce sonido melodiosos');
-INSERT INTO CSD_habilidades (nombre,descripcion) VALUES ('Creatividad','Consigue crear nuevas ideas y conceptos');
+INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Dirección','Sabe dirigir, organizar y coordinar a un grupo de personas');
+INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Danza','Domina el movimiento de su cuerpo al ritmo de la música');
+INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Batería','Tiene destreza con el instrumento y sabe poner ritmo a la samba');
+INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Canto','Su voz produce sonido melodiosos');
+INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Creatividad','Consigue crear nuevas ideas y conceptos');
 
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Danillo',NULL,'Prímola',NULL,NULL,'05-05-85','M','brasilero',147554627);
