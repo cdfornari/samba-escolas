@@ -34,6 +34,30 @@ INSERT INTO escuelas_colores (id_escuela,id_color) VALUES (3,5);
 INSERT INTO escuelas_colores (id_escuela,id_color) VALUES (4,5);
 INSERT INTO escuelas_colores (id_escuela,id_color) VALUES (4,6);
 
+INSERT INTO habilidades (nombre,descripcion) VALUES ('Dirección','Sabe dirigir, organizar y coordinar a un grupo de personas');
+INSERT INTO habilidades (nombre,descripcion) VALUES ('Danza','Domina el movimiento de su cuerpo al ritmo de la música');
+INSERT INTO habilidades (nombre,descripcion) VALUES ('Batería','Tiene destreza con el instrumento y sabe poner ritmo a la samba');
+INSERT INTO habilidades (nombre,descripcion) VALUES ('Canto','Su voz produce sonido melodiosos');
+INSERT INTO habilidades (nombre,descripcion) VALUES ('Creatividad','Consigue crear nuevas ideas y conceptos');
+
+INSERT INTO integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Danillo',NULL,'Prímola','Soares',NULL,'05-05-85','M','brasilero',147554627)
+INSERT INTO integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Catarina',NULL,'Prímola','Souza','Cat','09-26-88','F','brasilero',135544771)
+INSERT INTO integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Danillo',NULL,'Prímola','Soares',NULL,'05-05-85','M','brasilero',147554627)
+
+INSERT INTO integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,1);
+INSERT INTO integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,2);
+INSERT INTO integrantes_habilidades (id_integrante,id_habilidad) VALUES (2,1);
+INSERT INTO integrantes_habilidades (id_integrante,id_habilidad) VALUES (2,2);
+
+INSERT INTO parentescos (id_integrante_1,id_integrante_2,tipo) VALUES (1,2,'pareja')
+
+INSERT INTO historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('29-01-2015',1,2,'no','03-12-2023')
+INSERT INTO historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('01-09-2021',2,2,'no',NULL)
 
 
 COMMIT;

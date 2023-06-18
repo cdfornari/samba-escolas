@@ -10,8 +10,8 @@ CREATE TABLE IF NOT EXISTS integrantes (
   apellido1 VARCHAR(50) NOT NULL, 
   apellido2 VARCHAR(50) NOT NULL, 
   fecha_nacimiento DATE NOT NULL,
-  nacionalidad VARCHAR(25) NOT NULL DEFAULT 'brasilero',
   genero CHAR(1) NOT NULL,
+  nacionalidad VARCHAR(25) NOT NULL DEFAULT 'brasilero',
   rg VARCHAR(15) UNIQUE,
   nombre2 VARCHAR(50),
   apodo VARCHAR(50)
