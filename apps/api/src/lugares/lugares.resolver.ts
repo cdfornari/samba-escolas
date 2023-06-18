@@ -42,7 +42,7 @@ export class LugaresResolver {
     };
   }
 
-  @Query(() => Lugar, { name: 'lugare' })
+  @Query(() => Lugar, { name: 'lugar' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.lugaresService.findOne(id);
   }
