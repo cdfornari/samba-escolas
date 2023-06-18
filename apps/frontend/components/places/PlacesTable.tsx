@@ -28,7 +28,7 @@ const columns = [
 ];
 
 export const PlacesTable = () => {
-  const {push} = useRouter()
+  const { push } = useRouter();
   const [page, setPage] = useState(1);
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error } = useQuery<{
@@ -51,10 +51,7 @@ export const PlacesTable = () => {
   return (
     <div className="flex h-full flex-col justify-between">
       <div className="flex justify-end py-6 px-10">
-        <Button
-          auto
-          onClick={() => push('/places/create')}
-        >
+        <Button auto onClick={() => push('/places/create')}>
           Crear Lugar
         </Button>
       </div>
@@ -62,7 +59,7 @@ export const PlacesTable = () => {
         <Table
           bordered
           selectionMode="single"
-          onSelectionChange={(row) => console.log(row)}
+          onSelectionChange={(row) => push(`/places/${row[0]}`)}
           onSortChange={(descriptor: SortDescriptor) =>
             setSortDescriptor(descriptor)
           }
