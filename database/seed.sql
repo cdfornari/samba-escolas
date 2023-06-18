@@ -52,16 +52,63 @@ INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Danza','Domina el movi
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Batería','Tiene destreza con el instrumento y sabe poner ritmo a la samba');
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Canto','Su voz produce sonido melodiosos');
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Creatividad','Consigue crear nuevas ideas y conceptos');
+INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Enseñanza','Transmite su conocimiento efectivamente a los demás');
+INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Chocalho','Tiene destreza con el instrumento y apoya a mantener el ritmo de los tambores');
 
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Danillo',NULL,'Prímola',NULL,NULL,'05-05-85','M','brasilero',147554627);
+VALUES ('Danilo',NULL,'Prímola',NULL,NULL,'05-05-85','M','brasilero','A12JA4Y1-2');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Catarina',NULL,'Prímola',NULL,'Cat','09-26-88','F','brasilero',135544771);
+VALUES ('Catarina',NULL,'Prímola',NULL,'Cat','09-26-88','F','brasilero','2YH749I-0');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Michiru',NULL,'Sadame',NULL,NULL,'09-20-89','F','japones','A725894-Y');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Francisco',NULL,'Gonçalves',NULL,NULL,'04-16-72','M','brasilero','6DAU5FRT-9');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Roseni',NULL,'Gomes',NULL,NULL,'08-16-75','F','brasilero','34RGAH11-4');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Marco','Aurelio','Gonçalves',NULL,NULL,'10-20-68','M','brasilero','HT5AU821-8');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Luciana',NULL,'Luanda',NULL,NULL,'08-13-93','F','brasilero','6YASDH2K-2');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Vagner',NULL,'Lourenco',NULL,NULL,'06-22-2004','M','brasilero','YA678LPQ-1');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Fabiana',NULL,'Caren',NULL,NULL,'11-28-88','F','brasilero','UHJ16AYU-4');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Bruna',NULL,'Santos','Portabandera',NULL,'05-18-88','F','brasilero','817JAI86-1');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Zé','Paulo','Ferreira','Sierra',NULL,'04-22-76','M','brasilero','16YU8L23-7');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('George',NULL,'Lozada',NULL,NULL,'11-23-94','M','brasilero','7UL6456A-9');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Alessandro',NULL,'Oliviera','Santana','Batata','01-13-87','M','brasilero','62HOL4P2-3');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Drika',NULL,'Santos',NULL,NULL,'06-11-71','F','brasilero','6YA8WOTH-2');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Cassiano',NULL,'Andrade',NULL,NULL,'12-01-90','M','brasilero','NB1267IO-1');
 
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,1);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,6);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (2,1);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (2,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (2,6);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (3,1);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (3,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (3,6);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (4,1);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (5,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (6,1);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (6,5);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (7,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (8,7);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (9,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (10,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (11,4);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (12,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (13,1);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (14,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (15,1);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (15,2);
 
 INSERT INTO csd_parentescos (id_integrante_1,id_integrante_2,tipo) VALUES (1,2,'pareja');
 
@@ -69,6 +116,31 @@ INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,au
 VALUES ('01-29-2015',1,2,'no','03-12-2023');
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
 VALUES ('09-21-2021',2,2,'no',NULL);
-
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('12-01-2022',3,2,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('03-01-2012',4,2,'si',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('05-01-2021',5,2,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('01-13-2013',6,2,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('02-25-2020',7,2,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('02-02-2019',8,2,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('02-26-2019',9,2,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('11-28-2017',10,3,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('03-23-2023',11,3,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('04-19-2011',12,3,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('10-13-2010',13,4,'si',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('01-15-2016',14,4,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('05-02-2022',15,4,'no',NULL);
 
 COMMIT;
