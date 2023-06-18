@@ -45,18 +45,14 @@ export class LugaresService {
   }
 
   async update(updateLugaresInput: UpdateLugaresInput): Promise<Lugar> {
-    let fields = Object.keys(updateLugaresInput);
-    let values = Object.values(updateLugaresInput);
-    fields = fields.filter((field) => !!updateLugaresInput[field]);
-    values = values.filter((value) => !!value);
+    const { id, ...dto } = updateLugaresInput;
     return (
       await this.queryService.update(
         'lugares_geo',
-        fields,
-        values,
-        `id = ${updateLugaresInput.id}`,
+        dto,
+        `id = ${id}`,
       )
-    )[0];
+    )[0][0];
   }
 
   remove(id: number) {

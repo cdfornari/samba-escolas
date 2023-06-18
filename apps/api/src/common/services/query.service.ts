@@ -20,9 +20,11 @@ export class QueryService {
     pagination?: PaginationArgs,
   ): Promise<T> {
     return await this.dataSource.query(
-      `SELECT ${fields ? fields.join(',') : '*'} FROM ${this.tablesPrefix + table} ${
-        where ? `WHERE ${where}` : ''
-      } ${orderBy ? `ORDER BY ${orderBy}` : ''} ${
+      `SELECT ${fields ? fields.join(',') : '*'} FROM ${
+        this.tablesPrefix + table
+      } ${where ? `WHERE ${where}` : ''} ${
+        orderBy ? `ORDER BY ${orderBy}` : ''
+      } ${
         pagination
           ? `LIMIT ${pagination.perPage} OFFSET ${
               (pagination.page - 1) * pagination.perPage
@@ -38,29 +40,34 @@ export class QueryService {
     values: (string | number | Date)[],
   ): Promise<T> {
     return await this.dataSource.query(
-      `INSERT INTO ${this.tablesPrefix + table} (${fields.join(',')}) VALUES (${values
-        .map((v) => `'${v}'`)
-        .join(',')}) RETURNING *`,
+      `INSERT INTO ${this.tablesPrefix + table} (${fields.join(
+        ',',
+      )}) VALUES (${values.map((v) => `'${v}'`).join(',')}) RETURNING *`,
     );
   }
 
   async update<T>(
     table: string,
-    fields: string[],
-    values: string[],
+    dto: {
+      [key: string]: string | number | Date;
+    },
     where?: string,
   ): Promise<T> {
     return await this.dataSource.query(
-      `UPDATE ${this.tablesPrefix + table} SET (${fields.join(',')}) VALUES (${values.join(',')}) ${
-        where ? `WHERE ${where}` : ''
-      } RETURNING *`,
+      `UPDATE ${this.tablesPrefix + table} 
+      SET ${Object.keys(dto)
+        .map((key) => `${key} = '${dto[key]}'`)
+        .join(', ')} 
+      ${where ? `WHERE ${where}` : ''} RETURNING *`,
     );
   }
 
   async count(table: string, where?: string): Promise<number> {
     return (
       await this.dataSource.query(
-        `SELECT COUNT(*) FROM ${this.tablesPrefix + table} ${where ? `WHERE ${where}` : ''}`,
+        `SELECT COUNT(*) FROM ${this.tablesPrefix + table} ${
+          where ? `WHERE ${where}` : ''
+        }`,
       )
     )[0].count;
   }
