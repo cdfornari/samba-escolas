@@ -1,11 +1,14 @@
 'use client';
-import { useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { Loading } from '@nextui-org/react';
 import { PlaceForm } from '../../../components/places/PlaceForm';
-import { LUGAR } from '../../../graphql';
+import { LUGAR, UPDATE_PLACE } from '../../../graphql';
 import { Place } from '../../../interfaces';
+import { useNotifications } from '../../../hooks/useNotifications';
 
 export default function Page({ params }) {
+  const { firePromise } = useNotifications();
+  const [updatePlace] = useMutation(UPDATE_PLACE);
   const { data, loading, error } = useQuery<{
     lugar: Place;
   }>(LUGAR, {
@@ -21,5 +24,22 @@ export default function Page({ params }) {
       </div>
     );
   if (error) return <p>Error</p>;
-  return <PlaceForm action={async (data) => {}} initialValues={data?.lugar} />;
+  return (
+    <PlaceForm
+      action={async (data) =>
+        firePromise(
+          updatePlace({
+            variables: {
+              updateLugaresInput: {
+                ...data,
+                id: Number(params.id),
+              }
+            },
+          }),
+          'Lugar actualizado'
+        )
+      }
+      initialValues={data?.lugar}
+    />
+  );
 }
