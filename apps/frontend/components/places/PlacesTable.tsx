@@ -59,7 +59,11 @@ export const PlacesTable = () => {
         <Table
           bordered
           selectionMode="single"
-          onSelectionChange={(row) => push(`/places/${row[0]}`)}
+          onSelectionChange={(selection) => {
+            if (selection !== 'all' && selection.size > 0) {
+              push(`/places/${selection.values().next().value}`);
+            }
+          }}
           onSortChange={(descriptor: SortDescriptor) =>
             setSortDescriptor(descriptor)
           }

@@ -17,19 +17,23 @@ interface DTO {
 
 interface Props {
   action: (data: DTO) => Promise<any>;
-  initialValues?: DTO;
+  initialValues?: Place;
 }
 
 export const PlaceForm: FC<Props> = ({ action, initialValues }) => {
-  const [type, setType] = useState<string>();
-  const [parent, setParent] = useState<string>();
+  const [type, setType] = useState<string>(initialValues?.tipo ?? null);
+  const [parent, setParent] = useState<string>(initialValues?.padre?.id.toString() ?? null);
   const {
     setError,
     clearErrors,
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<DTO>({
+    defaultValues: {
+      nombre: initialValues?.nombre ?? '',
+    },
+  });
   const { data, loading, error } = useQuery<{ lugares: PaginationType<Place> }>(
     LUGARES,
     {
@@ -46,7 +50,7 @@ export const PlaceForm: FC<Props> = ({ action, initialValues }) => {
   }, [type]);
   useEffect(() => {
     if (parent?.length > 0) {
-      clearErrors('padre');
+      clearErrors('id_padre_lugar');
     }
   }, [parent]);
   const onSubmit = async (data: { nombre: string }) => {
@@ -58,7 +62,7 @@ export const PlaceForm: FC<Props> = ({ action, initialValues }) => {
       return;
     }
     if (type !== 'region' && !parent) {
-      setError('padre', {
+      setError('id_padre_lugar', {
         type: 'manual',
         message: 'El padre es requerido',
       });
@@ -81,7 +85,7 @@ export const PlaceForm: FC<Props> = ({ action, initialValues }) => {
             bordered
             labelPlaceholder="Nombre"
             clearable
-            initialValue=""
+            initialValue={initialValues?.nombre ?? ''}
             color={errors.nombre ? 'error' : 'primary'}
             {...register('nombre', { required: true })}
           />
@@ -124,11 +128,11 @@ export const PlaceForm: FC<Props> = ({ action, initialValues }) => {
                   label="Padre"
                   selected={parent}
                   setSelected={setParent}
-                  error={!!errors.padre}
+                  error={!!errors.id_padre_lugar}
                 />
-                {errors.padre && (
+                {errors.id_padre_lugar && (
                   <span className="text-error">
-                    {(errors.padre.message as string) ?? ''}
+                    {(errors.id_padre_lugar.message as string) ?? ''}
                   </span>
                 )}
               </div>
