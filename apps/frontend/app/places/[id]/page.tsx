@@ -14,9 +14,12 @@ export default function Page({ params }) {
     },
     fetchPolicy: 'network-only',
   });
-  if (loading) return <div className='w-full h-full flex justify-center items-center'>
-    <Loading />
-  </div>;
+  if (loading)
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        <Loading />
+      </div>
+    );
   if (error) return <p>Error</p>;
   return <PlaceForm action={async (data) => {}} initialValues={data?.lugar} />;
 }
