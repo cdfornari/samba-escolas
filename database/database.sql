@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS csd_historicos_titulos(
 CREATE TABLE IF NOT EXISTS csd_patroc_juridicos(
   id SERIAL PRIMARY KEY,
   nombre VARCHAR(50) NOT NULL,
-  cnip INTEGER NOT NULL UNIQUE,
+  cnpj VARCHAR(18) NOT NULL UNIQUE,
   email VARCHAR(35) NOT NULL,
   id_lugar INTEGER NOT NULL REFERENCES csd_lugares_geo(id),
   dir VARCHAR(50),
@@ -135,10 +135,11 @@ CREATE TABLE IF NOT EXISTS csd_telefonos(
 
 CREATE TABLE IF NOT EXISTS csd_sambas(
   id SERIAL PRIMARY KEY,
-  titulo INTEGER NOT NULL UNIQUE,
-  letra VARCHAR(500) NOT NULL,
+  titulo VARCHAR(100) NOT NULL UNIQUE,
+  letra VARCHAR(1000) NOT NULL,
   anual_carnv INTEGER NOT NULL,
-  tipo VARCHAR(20) NOT NULL
+  tipo VARCHAR(20) NOT NULL,
+  CONSTRAINT tipos_samba CHECK (tipo IN ('enredo','deco','emablo','marchinha','frevo','maracatu','reggae'))
 );
 
 CREATE TABLE IF NOT EXISTS csd_autores(
@@ -161,8 +162,9 @@ CREATE TABLE IF NOT EXISTS csd_org_carnavales(
   fecha_inicio DATE,
   id_escuela INTEGER,
   id_rol INTEGER REFERENCES csd_roles(id),
+  anual INTEGER,
   FOREIGN KEY (id_integrante,fecha_inicio,id_escuela) REFERENCES csd_historicos_integrantes(id_integrante,fecha_inicio,id_escuela),
-  PRIMARY KEY (id_integrante,fecha_inicio,id_rol)
+  PRIMARY KEY (id_integrante,fecha_inicio,anual,id_rol)
 );
 
 CREATE TABLE IF NOT EXISTS csd_eventos_anuales_sems(
