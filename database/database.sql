@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS csd_patroc_juridicos(
   id_lugar INTEGER NOT NULL REFERENCES csd_lugares_geo(id),
   dir VARCHAR(50),
   numero INTEGER,
-  cep VARCHAR(9),
+  cep VARCHAR(9)
 );
 
 CREATE TABLE IF NOT EXISTS csd_patroc_naturales(
