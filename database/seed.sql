@@ -63,6 +63,10 @@ INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin)
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (2,'05-01-2020',2,NULL);
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (3,'07-01-2018',3,NULL);
 
+INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (1,4,'08-03-2016',15000);
+INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (2,2,'06-10-2020',15000);
+INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (3,3,'10-20-2019',25000);
+
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2013,4,'UESP-2',12000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2014,4,'UESP-1',15000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2017,3,'Especial',90000);
