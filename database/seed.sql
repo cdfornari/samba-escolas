@@ -279,7 +279,7 @@ VALUES ('01-15-2019',24,5,'si', NULL);
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
 VALUES ('04-05-2023',25,5,'no', NULL);
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
-VALUES ('08-01-1990',26,6,'no', NULL);
+VALUES ('01-08-1990',26,6,'no', NULL);
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
 VALUES ('01-10-2011',27,1,'no', '04-10-2015');
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
@@ -489,11 +489,11 @@ INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1999,1,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2018,4,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1996,5,3);
 
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2009,8,6,23,'05-04-1992');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2005,8,6,23,'05-04-1992');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2002,8,6,23,'05-04-1992');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2000,8,6,23,'05-04-1992');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (1998,8,6,23,'05-04-1992');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2009,8,6,23,'05-04-1991');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2005,8,6,23,'05-04-1991');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2002,8,6,23,'05-04-1991');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2000,8,6,23,'05-04-1991');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (1998,8,6,23,'05-04-1991');
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (1996,7,6,26,'01-08-1990');
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2002,7,6,26,'01-08-1990');
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2005,7,6,26,'01-08-1990');
