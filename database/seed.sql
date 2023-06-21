@@ -458,7 +458,6 @@ INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Es
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Porta-bandeira)','integrante','Mejor porta-bandeira',3);
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Comisión de frente)','escola','Mejor comisión de frente',3);
 
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1991,1,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2023,2,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1978,1,6);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1986,1,6);
