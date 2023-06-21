@@ -97,8 +97,7 @@ CREATE TABLE IF NOT EXISTS csd_patroc_naturales(
   nombre1 VARCHAR(15) NOT NULL,
   apellido1 VARCHAR(15) NOT NULL,
   apellido2 VARCHAR(15) NOT NULL,
-  rg INTEGER NOT NULL UNIQUE,
-  num_telf INTEGER NOT NULL,
+  rg VARCHAR(15) NOT NULL UNIQUE,
   email VARCHAR(35) NOT NULL,
   nombre2 VARCHAR(15)
 );

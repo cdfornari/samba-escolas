@@ -55,11 +55,17 @@ VALUES ('Cervejarias Skol','33.719.311/0001-64','opobrigaces@ambev.com.br',7,NUL
 INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
 VALUES ('Nissan Automoveis','04.104.117/0008-42','nissan.fiscal@nissan.com.br',3,'Av. Barão de Tefé, Saúde',27,'20220-460');
 
+INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Milton',NULL,'Leite','Filho','125A7G7A-9','fale@miltonleitefilho44250.com.br');
+INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Fabiano',NULL,'Lopes','Ferreira','24RT7841-0','fabianocazeca@gmail.com.br');
+INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Carlinhos',NULL,'de Jesus',NULL,'635THY00-2','rachel.cdcj@gmail.com');
+
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,31,994274064,2);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,21,33325823,3);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,11,959634746,4);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,11,31035900,1);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,21,21349000,3);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,11,55417755,1);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,21,992239955,3);
 
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (4,'06-01-2016',1,NULL);
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (2,'05-01-2020',2,NULL);
@@ -306,9 +312,54 @@ Traduzo em versos pra te exaltar.
 São Paulo para sempre vou te amar.
 (Bis)',2014,'enredo');
 
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Samba No Pé, Lança Na Mão, Isso É Uma Invasão','Um guerreiro valente eu sou
+Se preciso for eu vou
+Além do infinito defender você
+Sou Independente até morrer
+
+É mais que uma lenda imortal
+Que o poeta eternizou
+Vou bordar meu carnaval
+Numa história de amor
+Se os destinos são traçados
+Se encontram frente a frente
+Sou mais você
+Independente
+Forjam-se lanças e espadas
+Os deuses e a vida
+De Troia à Esparta
+A paixão proibida
+Sentimento e traição
+Atravessou o mar
+O Sol a lhe guiar
+O sonho realizar
+
+Ooo no olimpo, na terra
+E nos mares bravios
+Ooo olhares de fogo
+E o corte dos fios
+
+De um lado mil barcos
+De tantas cidades
+Do outros arqueiros
+Defendem a muralha
+O herói que afronta
+Não é divindade
+Mas vence a coragem
+E tantas batalhas
+Sem medo chega o presente grego
+Dentro dele um segredo
+A flecha que tarda, certeira não falha
+Avante minha escola
+Rumo à vitória
+Este é nosso lugar
+Conquiste a avenida
+A invasão vai começar',2023,'enredo');
+
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (16,'11-30-2013',3,1);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (18,'12-15-2013',3,1);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (17,'12-02-2011',4,2);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (17,'01-10-2021',4,3);
 
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Mejor comité de frente','Escuela','Mejor grupo de bailares que lideran el desfile de su escuela.',5);
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Fernando Pamplona','Escuela','Mejor uso de materiales baratos.',3);
