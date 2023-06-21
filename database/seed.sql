@@ -206,7 +206,7 @@ INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anua
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (2,'09-21-2021',2,2,2023);
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (3,'12-01-2022',2,1,2023);
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (4,'03-01-2012',2,1,2023);
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (5,'03-01-2012',2,1,2023);
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (5,'05-01-2021',2,1,2023);
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (6,'01-13-2013',2,4,2023);
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (7,'02-25-2020',2,1,2022);
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (8,'02-02-2019',2,9,2022);
