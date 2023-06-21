@@ -483,7 +483,6 @@ INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2008,5,1);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2006,9,1);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2000,9,1);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1997,9,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1996,1,1);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1996,4,1);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1993,9,1);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1991,1,3);
