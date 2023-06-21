@@ -8,7 +8,6 @@ INSERT INTO csd_lugares_geo (nombre, tipo, id_padre_lugar) VALUES('Belo Horizont
 INSERT INTO csd_lugares_geo (nombre, tipo, id_padre_lugar) VALUES('São Paulo','estado',1);
 INSERT INTO csd_lugares_geo (nombre, tipo, id_padre_lugar) VALUES('São Paulo','ciudad',6);
 
-
 INSERT INTO csd_escuelas_samba (nombre, direccion_sede, numero, cep, fecha_fundacion, resumen_historico, id_ciudad, gres, descripcion)
 VALUES ('Imperatriz Leopoldinense', ' R. Professor Lacé', 235, '59155-190', '03-06-1956', 'Fundada el 6 de marzo de 1959 por el farmacéutico Amaury Jório, junto con algunos sambistas de la Zona Leopoldina y remanentes de la extinta asociación Recreio de Ramos, su nombre hace referencia al Ferrocarril Leopoldina -que atravesaba el barrio de Ramos- y que, a su vez, , recibió este nombre en referencia a la emperatriz María Leopoldina de Brasil', 3, TRUE, 'La mejor escola de samba de Rio de Janeiro');
 INSERT INTO csd_escuelas_samba (nombre, direccion_sede, numero, cep, fecha_fundacion, resumen_historico, id_ciudad, gres, descripcion)
@@ -54,6 +53,12 @@ INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
 VALUES ('Cervejarias Skol','33.719.311/0001-64','opobrigaces@ambev.com.br',7,NULL,NULL,NULL);
 INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
 VALUES ('Nissan Automoveis','04.104.117/0008-42','nissan.fiscal@nissan.com.br',3,'Av. Barão de Tefé, Saúde',27,'20220-460');
+INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
+VALUES ('Coca Cola','45.997.418/0018-00','contacto@cocacola.com.br',3,'Praia de Botafogo',374,'22250-040');
+INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
+VALUES ('Banco do Brasil','00.000.000/0001-91','bbasset@bb.com.br',3,'Avenida República do Chile',330,'20031-170');
+INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
+VALUES ('Ambev','07.526.557/0001-00','ambev@loures.com.br',7,'Rua Dr. Renato Paes de Barros',1017,'04530-001');
 
 INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Milton',NULL,'Leite','Filho','125A7G7A-9','fale@miltonleitefilho44250.com.br');
 INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Fabiano',NULL,'Lopes','Ferreira','24RT7841-0','fabianocazeca@gmail.com.br');
@@ -64,6 +69,7 @@ INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,21,3332
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,11,959634746,4);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,11,31035900,1);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,21,21349000,3);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,21,38087500,5);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,11,55417755,1);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,21,992239955,3);
 
@@ -79,6 +85,36 @@ INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2013,4,
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2014,4,'UESP-1',15000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2017,3,'Especial',90000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2023,2,'Especial',90000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1980,1,'Grupo 1A',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1981,1,'Grupo 1A',7500);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1989,1,'Grupo 1',20000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1994,1,'Especial',20000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1995,1,'Especial',20000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1999,1,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2000,1,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2001,1,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2020,1,'Serie A',40000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2023,1,'Especial',90000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1965,5,'Grupo 1',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1966,5,'Grupo 1',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1967,5,'Grupo 1',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1981,5,'Grupo 2',3000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2008,5,'Acceso',10000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2015,5,'Acceso',15000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1976,6,'Grupo 1',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1977,6,'Grupo 1',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1978,6,'Grupo 1',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1980,6,'Grupo 1A',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1983,6,'Grupo 1A',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (1998,6,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2003,6,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2004,6,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2005,6,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2007,6,'Especial',50000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2008,6,'Especial',50000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2011,6,'Especial',50000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2015,6,'Especial',90000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2018,6,'Especial',90000);
 
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Dirección','Sabe dirigir, organizar y coordinar a un grupo de personas');
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Danza','Domina el movimiento de su cuerpo al ritmo de la música');
@@ -113,7 +149,7 @@ VALUES ('Zé','Paulo','Ferreira','Sierra',NULL,'04-22-76','M','brasilero','16YU8
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('George',NULL,'Lozada',NULL,NULL,'11-23-94','M','brasilero','7UL6456A-9');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Alessandro',NULL,'Oliviera','Santana','Batata','01-13-87','M','brasilero','62HOL4P2-3');
+VALUES ('Alessandro',NULL,'Oliveira','Santana','Batata','01-13-87','M','brasilero','62HOL4P2-3');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Drika',NULL,'Santos',NULL,NULL,'06-11-71','F','brasilero','6YA8WOTH-2');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
@@ -124,6 +160,16 @@ INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nac
 VALUES ('Pê',NULL,'Santana',NULL,NULL,'04-07-79','M','brasilero','6QTYA201-5');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('João','Eduardo','de Salles','Nobre','Dudu','11-06-73','M','brasilero','3T52F901-5');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Leandro', NULL,'Vieira','Oliveira',NULL,'07-25-83','M','brasilero','4SD2K201-5');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Mauro', 'Henrique','Amorim','Silva',NULL,'08-15-80','M','brasilero','5SS9K201-1');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Cassio', NULL,'Dias','Moura',NULL,'11-08-86','M','brasilero','2US9K8U7-3');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Neide', NULL,'Tamborim','Leite',NULL,'03-12-62','F','brasilero','1A34L087-3');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Selma', NULL,'de Matos','Rocha','Selminha Sorriso','05-30-71','F','brasilero','5B37L884-9');
 
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,1);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,2);
@@ -154,6 +200,12 @@ INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (17,
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (17,5);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (18,4);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (18,5);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (19,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (19,5);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (20,1);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (21,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (22,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (23,2);
 
 INSERT INTO csd_parentescos (id_integrante_1,id_integrante_2,tipo) VALUES (1,2,'pareja');
 
@@ -197,6 +249,16 @@ INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,au
 VALUES ('01-10-2021',17,4,'no','04-19-2023');
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
 VALUES ('12-15-2013',18,3,'no','03-29-2014');
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('1-15-2022',19,1,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('1-15-2018',20,1,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('7-19-2015',21,6,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('5-4-1977',22,6,'no','02-28-2018');
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('5-4-1996',23,6,'no', NULL);
 
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Bailarín','Se dedica a bailar y desfilar.');
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Coreógrafo','Crea y diseña las coreografías para los bailarines.');
