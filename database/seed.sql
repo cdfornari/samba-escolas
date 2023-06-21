@@ -56,9 +56,10 @@ INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
 VALUES ('Nissan Automoveis','04.104.117/0008-42','nissan.fiscal@nissan.com.br',3,'Av. Barão de Tefé, Saúde',27,'20220-460');
 
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,31,994274064,2);
-INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,31,994274064,3);
-INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,21,32918700,4);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,21,33325823,3);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,11,959634746,4);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,11,31035900,1);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,21,21349000,3);
 
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (4,'06-01-2016',1,NULL);
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (2,'05-01-2020',2,NULL);
