@@ -181,7 +181,7 @@ CREATE TABLE IF NOT EXISTS csd_eventos_anuales_sems(
 
 CREATE TABLE IF NOT EXISTS csd_premios_especiales(
   id SERIAL PRIMARY KEY,
-  nombre VARCHAR(35) NOT NULL UNIQUE,
+  nombre VARCHAR(100) NOT NULL UNIQUE,
   tipo VARCHAR(10) NOT NULL,
   descripcion VARCHAR(100) NOT NULL,
   id_lugar INTEGER NOT NULL REFERENCES csd_lugares_geo(id)
