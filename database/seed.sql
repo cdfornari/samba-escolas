@@ -180,6 +180,16 @@ INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nac
 VALUES ('Claudio', NULL,'de Souza','Dias','Claudinho','05-04-1972','M','brasilero','1E9I72Y1-2');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Phelipe', NULL,'Lemos','Guedes',NULL,'03-31-1989','M','brasilero','9Y4I80A1-8');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Thais', NULL,'Paraguassu','Silva',NULL,'05-23-1980','F','brasilero','5A4D8211-4');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Jefferson','Anthony','Gomes','Alves',NULL,'01-17-1979','M','brasilero','3B46P2W1-3');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Carlos',NULL,'Kind','Leite',NULL,'01-17-1977','M','brasilero','1B03T4W1-1');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Claudio',NULL,'Russo','Goncalves',NULL,'01-17-1970','M','brasilero','1A01TFS3-1');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Jairo',NULL,'Roizen','Silva',NULL,'03-07-1971','M','brasilero','2T6U889I-4');
 
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,1);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,2);
@@ -221,6 +231,15 @@ INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (26,
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (26,3);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (26,6);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (26,8);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (27,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (28,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (28,6);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (29,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (29,8);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (30,4);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (30,8);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (31,4);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (31,8);
 
 INSERT INTO csd_parentescos (id_integrante_1,id_integrante_2,tipo) VALUES (1,2,'pareja');
 
@@ -281,9 +300,19 @@ VALUES ('04-05-2023',25,5,'no', NULL);
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
 VALUES ('01-08-1990',26,6,'no', NULL);
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
-VALUES ('01-10-2011',27,1,'no', '04-10-2015');
+VALUES ('01-10-2011',27,1,'no','04-10-2015');
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
 VALUES ('01-18-2023',27,1,'no', NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('01-22-2014',28,5,'no','04-10-2019');
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('01-06-2003',29,5,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('08-11-2000',30,1,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('04-13-1993',31,6,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('04-23-2015',32,5,'no',NULL);
 
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Bailarín','Se dedica a bailar y desfilar.');
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Coreógrafo','Crea y diseña las coreografías para los bailarines.');
@@ -403,7 +432,6 @@ INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Samba No Pé, Lan
 Se preciso for eu vou
 Além do infinito defender você
 Sou Independente até morrer
-
 É mais que uma lenda imortal
 Que o poeta eternizou
 Vou bordar meu carnaval
@@ -420,12 +448,10 @@ Sentimento e traição
 Atravessou o mar
 O Sol a lhe guiar
 O sonho realizar
-
 Ooo no olimpo, na terra
 E nos mares bravios
 Ooo olhares de fogo
 E o corte dos fios
-
 De um lado mil barcos
 De tantas cidades
 Do outros arqueiros
@@ -443,10 +469,121 @@ Este é nosso lugar
 Conquiste a avenida
 A invasão vai começar',2023,'enredo');
 
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Joao e Marias', 'Maria uma princesa
+Também sonhava
+Um dia um príncipe encontrar
+E ouviu do rei de França
+Em meio ao luxo e a bonança
+Maria Antonieta tu serás
+Em portugal, outra rainha, dona Maria
+A louca não podia governar
+Delirava temendo a revolução
+E entrega o reino à João
+Regente assim se fez, e o imperador francês
+Ordena a invasão
+Ou ficam todos
+Ou todos se vão
+Embarcar nessa aventura
+E Au revoir Napoleão
+Cruzaram mares
+Chegaram ao Brasil
+São novos ares, progresso e a transformação
+Vieram as Marias, toda fidalguia, dom João
+O tempo passou, irão se casar
+Duas Marias da mesma raiz
+Luisa com Napoleão
+E Leopoldina será nossa Imperatriz
+Será também nome de trem
+Que passa em Ramos a nossa estação
+Onde imperam Marias e Joãos
+Vem brincar nesse trem amor
+Que vai parar na estação do coração
+Faz brilhar no céu Imperatriz
+As onze estrelas do teu pavilhão',2008,'enredo');
+
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Áfricas: Do Berço Real À Corte Brasiliana', 'Calunga cruzou o mar
+Nobreza a desembarcar na Bahia
+A fé nagô yorubá
+Um canto pro meu orixá tem magia
+Sou quilombola, Beija-Flor
+Sangue de Rei, comunidade
+Obatalá anunciou
+Já raiou o Sol da liberdade
+Sou quilombola, Beija-Flor
+Sangue de Rei, comunidade
+Obatalá anunciou
+Já raiou o Sol da liberdade
+Olodumarê, o deus maior, o rei senhor
+Olorum derrama a sua alteza na Beija-Flor
+Oh, majestade negra, oh, mãe da liberdade
+África, o baobá da vida, ilê ifé
+Áfricas, realidade e realeza, axé
+Calunga cruzou o mar
+Nobreza a desembarcar na Bahia
+A fé nagô yorubá
+Um canto pro meu orixá tem magia
+Machado de Xangô, cajado de Oxalá
+Ogun yê, o Onirê, ele é odara
+É Jeje, é Jeje, é Querebentã
+A luz que vem de Daomé, reino de Dan
+Arte e cultura, Casa da Mina
+Quanta bravura, negra divina
+Jamais se entregou, rei guardião
+Palmares hei de ver pulsando em cada coração
+Galanga, pó de ouro e a remição, enfim
+Maracatu, chegou rainha Ginga
+Gamboa, a Pequena África de Obá
+Da Pedra do Sal, viu despontar a Cidade do Samba
+Então dobre o rum pra Ciata d`Oxum, imortal
+Soberana do meu carnaval, na princesa nilopolitana
+Agoyê, o mundo deve o perdão
+A quem sangrou pela história
+Áfricas de lutas e de glórias
+Sou quilombola, Beija-Flor
+Sangue de Rei, comunidade
+Obatalá anunciou
+Já raiou o Sol da liberdade
+', 2007, 'enredo');
+
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Ponha um pouco de amor numa cadência e vai ver que ninguém no mundo vence a beleza que tem o samba... 100 anos de samba, minha vida, minha raiz', '
+Firma o pandeiro e o tan tan
+Tem samba até de manhã
+E a nação perucheana faz a festa
+O meu batuque ecoou, um lindo canto de amor
+A filial chegou
+Na ginga vem o povo negro
+Celebrando a vida e a magia ancestral
+Das bandas de Angola e do Congo
+Batendo na palma da mão
+Baianas abraçaram a tradição
+Na Praça Xi, o berço imortal
+Herança dos terreiros de Iáiá
+São batuqueiros que venceram preconceitos
+A nobreza da cultura popular
+Cavaquinho a tocar, sentimento no ar
+É poesia eternizada em cada nota
+O som que aflora é a cara do povo
+"Aquarela" que pintou um mundo novo
+Então, "Meu Brasil, brasileiro"
+É de bambas, celeiro
+Nas ruas, vielas, a voz da favela
+Acordes que trouxeram liberdade
+Não marcam bobeira, a boemia e a malandragem
+À luz da lua suas faces vão brilhar
+E nos quintais, inspiração de um novo dia
+Se tem o banjo e o repique, vamos sambar no cacique
+Fazer do enredo uma canção
+Eu sou Peruche, "não leve a mal"
+"A grande campeã do carnaval"
+', 2016, 'enredo');
+
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (16,'11-30-2013',3,1);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (18,'12-15-2013',3,1);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (17,'12-02-2011',4,2);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (17,'01-10-2021',4,3);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (30,'08-11-2000',1,4);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (31,'04-13-1993',6,5);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (32,'04-23-2015',5,6);
 
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Escuela)','escola','escola',3);
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Fernando Pamplona)','escola','Mejor uso de materiales baratos.',3);
@@ -457,6 +594,11 @@ INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Es
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Mestre-sala)','integrante','Mejor mestre-sala',3);
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Porta-bandeira)','integrante','Mejor porta-bandeira',3);
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Comisión de frente)','escola','Mejor comisión de frente',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estrela do Carnaval (Desfile do ano)','escola','Mejor desfile',7);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estrela do Carnaval (Samba-Enredo)','escola','Mejor samba enredo',7);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estrela do Carnaval (Enredo)','escola','Mejor enredo',7);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estrela do Carnaval (Mestre-Sala)','integrante','Mejor mestre-sala',7);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estrela do Carnaval (Porta-Bandeira)','integrante','Mejor porta-bandeira',7);
 
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2023,2,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1978,1,6);
@@ -488,6 +630,8 @@ INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1991,1,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1999,1,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2018,4,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1996,5,3);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2016,11,5);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2016,12,5);
 
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2009,8,6,23,'05-04-1991');
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2005,8,6,23,'05-04-1991');
@@ -502,5 +646,7 @@ INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, 
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2023,7,6,26,'01-08-1990');
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2013,7,1,27,'01-10-2011');
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2014,7,1,27,'01-10-2011');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2018,14,5,28,'01-22-2014');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2018,13,5,29,'01-06-2003');
 
 COMMIT;
