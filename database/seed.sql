@@ -125,39 +125,39 @@ INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Enseñanza','Transmite
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Chocalho','Tiene destreza con el instrumento y apoya a mantener el ritmo de los tambores');
 
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Danillo',NULL,'Prímola',NULL,NULL,'05-05-85','M','brasilero','A12JA4Y1-2');
+VALUES ('Danillo',NULL,'Prímola','Mendes',NULL,'05-05-85','M','brasilero','A12JA4Y1-2');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Catarina',NULL,'Prímola',NULL,'Cat','09-26-88','F','brasilero','2YH749I-0');
+VALUES ('Catarina',NULL,'Prímola','Sosa','Cat','09-26-88','F','brasilero','2YH749I-0');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Michiru',NULL,'Sadame',NULL,NULL,'09-20-89','F','japones','A725894-Y');
+VALUES ('Michiru',NULL,'Sadame','Nakamara',NULL,'09-20-89','F','japones','A725894-Y');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Francisco',NULL,'Gonçalves',NULL,NULL,'04-16-72','M','brasilero','6DAU5FRT-9');
+VALUES ('Francisco',NULL,'Gonçalves','Aveiro',NULL,'04-16-72','M','brasilero','6DAU5FRT-9');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Roseni',NULL,'Gomes',NULL,NULL,'08-16-75','F','brasilero','34RGAH11-4');
+VALUES ('Roseni',NULL,'Gomes','Inhildo',NULL,'08-16-75','F','brasilero','34RGAH11-4');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Marco','Aurelio','Gonçalves',NULL,NULL,'10-20-68','M','brasilero','HT5AU821-8');
+VALUES ('Marco','Aurelio','Gonçalves','Santos',NULL,'10-20-68','M','brasilero','HT5AU821-8');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Luciana',NULL,'Luanda',NULL,NULL,'08-13-93','F','brasilero','6YASDH2K-2');
+VALUES ('Luciana',NULL,'Luanda','Tello',NULL,'08-13-93','F','brasilero','6YASDH2K-2');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Vagner',NULL,'Lourenco',NULL,NULL,'06-22-2004','M','brasilero','YA678LPQ-1');
+VALUES ('Vagner',NULL,'Lourenco','Freitas',NULL,'06-22-2004','M','brasilero','YA678LPQ-1');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Fabiana',NULL,'Caren',NULL,NULL,'11-28-88','F','brasilero','UHJ16AYU-4');
+VALUES ('Fabiana',NULL,'Caren','Silva',NULL,'11-28-88','F','brasilero','UHJ16AYU-4');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Bruna',NULL,'Santos',NULL,NULL,'05-18-88','F','brasilero','817JAI86-1');
+VALUES ('Bruna',NULL,'Santos','Oliveira',NULL,'05-18-88','F','brasilero','817JAI86-1');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Zé','Paulo','Ferreira','Sierra',NULL,'04-22-76','M','brasilero','16YU8L23-7');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('George',NULL,'Lozada',NULL,NULL,'11-23-94','M','brasilero','7UL6456A-9');
+VALUES ('George',NULL,'Lozada','Alves',NULL,'11-23-94','M','brasilero','7UL6456A-9');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Alessandro',NULL,'Oliveira','Santana','Batata','01-13-87','M','brasilero','62HOL4P2-3');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Drika',NULL,'Santos',NULL,NULL,'06-11-71','F','brasilero','6YA8WOTH-2');
+VALUES ('Drika',NULL,'Santos','Rodrigues',NULL,'06-11-71','F','brasilero','6YA8WOTH-2');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Cassiano',NULL,'Andrade',NULL,NULL,'12-01-90','M','brasilero','NB1267IO-1');
+VALUES ('Cassiano',NULL,'Andrade','Almao',NULL,'12-01-90','M','brasilero','NB1267IO-1');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Diego','Pereira','Nicolau','de Oliviera',NULL,'03-01-82','M','brasilero','AH25AY8I-7');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Pê',NULL,'Santana',NULL,NULL,'04-07-79','M','brasilero','6QTYA201-5');
+VALUES ('Pê',NULL,'Santana','Reyes',NULL,'04-07-79','M','brasilero','6QTYA201-5');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('João','Eduardo','de Salles','Nobre','Dudu','11-06-73','M','brasilero','3T52F901-5');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
