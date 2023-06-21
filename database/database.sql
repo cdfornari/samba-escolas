@@ -7,14 +7,14 @@ CREATE TABLE IF NOT EXISTS csd_habilidades (
 CREATE TABLE IF NOT EXISTS csd_integrantes (
   id SERIAL PRIMARY KEY,
   nombre1 VARCHAR(50) NOT NULL, 
-  apellido1 VARCHAR(50) NOT NULL,  
+  apellido1 VARCHAR(50) NOT NULL,
+  apellido2 VARCHAR(50) NOT NULL,
   fecha_nacimiento DATE NOT NULL,
   genero CHAR(1) NOT NULL,
   nacionalidad VARCHAR(25) NOT NULL DEFAULT 'brasilero',
   rg VARCHAR(15) UNIQUE,
   nombre2 VARCHAR(50),
-  apellido2 VARCHAR(50),
-  apodo VARCHAR(50)
+  apodo VARCHAR(50),
   CONSTRAINT val_genero CHECK (genero IN ('M', 'F'))
 );
 
