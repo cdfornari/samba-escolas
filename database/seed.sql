@@ -448,15 +448,15 @@ INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (17,'12-02-2011',4,2);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (17,'01-10-2021',4,3);
 
-INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Escuela','Mejor escuela de samba',3);
-INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Fernando Pamplona','Mejor uso de materiales baratos.',3);
-INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Escuela Acceso','Mejor escuela de grupo de acceso',3);
-INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Samba-Enredo','Mejor samba enredo',3);
-INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Enredo','Mejor enredo',3);
-INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Batería','Mejor batería',3);
-INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Mestre-sala','Mejor mestre-sala',3);
-INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Porta-bandeira','Mejor porta-bandeira',3);
-INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Comisión de frente','Mejor comisión de frente',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Escuela)','escola','escola',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Fernando Pamplona)','escola','Mejor uso de materiales baratos.',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Escuela Acceso)','escola','Mejor escuela de grupo de acceso',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Samba-Enredo)','escola','Mejor samba enredo',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Enredo)','escola','Mejor enredo',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Batería)','escola','Mejor batería',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Mestre-sala)','integrante','Mejor mestre-sala',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Porta-bandeira)','integrante','Mejor porta-bandeira',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Comisión de frente)','escola','Mejor comisión de frente',3);
 
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1991,1,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2023,2,3);
