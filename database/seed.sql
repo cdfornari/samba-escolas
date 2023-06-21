@@ -67,6 +67,7 @@ INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) V
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,31,994274064,2);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,21,33325823,3);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,11,959634746,4);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,11,982724128,5);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,11,31035900,1);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,21,21349000,3);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,21,38087500,5);
@@ -123,6 +124,7 @@ INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Canto','Su voz produce
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Creatividad','Consigue crear nuevas ideas y conceptos');
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Enseñanza','Transmite su conocimiento efectivamente a los demás');
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Chocalho','Tiene destreza con el instrumento y apoya a mantener el ritmo de los tambores');
+INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Composición','Tiene la habilidad de componer canciones y melodías');
 
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Danillo',NULL,'Prímola','Mendes',NULL,'05-05-1985','M','brasilero','A12JA4Y1-2');
@@ -170,6 +172,14 @@ INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nac
 VALUES ('Neide', NULL,'Tamborim','Leite',NULL,'03-12-1962','F','brasilero','1A34L087-3');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Selma', NULL,'de Matos','Rocha','Selminha Sorriso','05-30-1971','F','brasilero','5B37L884-9');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Alessandro', NULL,'Lopes','Dias','Zoio','05-30-1979','M','brasilero','8U2T5884-9');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Marcel', NULL,'Bonfim','Zeca',NULL,'11-27-1974','M','brasilero','4UT05281-3');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Claudio', NULL,'de Souza','Dias','Claudinho','05-04-1972','M','brasilero','1E9I72Y1-2');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Phelipe', NULL,'Lemos','Guedes',NULL,'03-31-1989','M','brasilero','9Y4I80A1-8');
 
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,1);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,2);
@@ -206,6 +216,11 @@ INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (20,
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (21,2);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (22,2);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (23,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (25,3);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (26,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (26,3);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (26,6);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (26,8);
 
 INSERT INTO csd_parentescos (id_integrante_1,id_integrante_2,tipo) VALUES (1,2,'pareja');
 
@@ -250,15 +265,25 @@ VALUES ('01-10-2021',17,4,'no','04-19-2023');
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
 VALUES ('12-15-2013',18,3,'no','03-29-2014');
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
-VALUES ('1-15-2022',19,1,'no',NULL);
+VALUES ('01-15-2022',19,1,'no',NULL);
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
-VALUES ('1-15-2018',20,1,'no',NULL);
+VALUES ('01-15-2018',20,1,'no',NULL);
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
-VALUES ('7-19-2015',21,6,'no',NULL);
+VALUES ('07-19-2015',21,6,'no',NULL);
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
-VALUES ('5-4-1977',22,6,'no','02-28-2018');
+VALUES ('05-04-1977',22,6,'no','02-28-2018');
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
-VALUES ('5-4-1996',23,6,'no', NULL);
+VALUES ('05-04-1991',23,6,'no', NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('01-15-2019',24,5,'si', NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('04-05-2023',25,5,'no', NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('08-01-1990',26,6,'no', NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('01-10-2011',27,1,'no', '04-10-2015');
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('01-18-2023',27,1,'no', NULL);
 
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Bailarín','Se dedica a bailar y desfilar.');
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Coreógrafo','Crea y diseña las coreografías para los bailarines.');
@@ -423,12 +448,61 @@ INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (17,'12-02-2011',4,2);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (17,'01-10-2021',4,3);
 
-INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Mejor comité de frente','Escuela','Mejor grupo de bailares que lideran el desfile de su escuela.',5);
-INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Fernando Pamplona','Escuela','Mejor uso de materiales baratos.',3);
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Escuela','Mejor escuela de samba',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Fernando Pamplona','Mejor uso de materiales baratos.',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Escuela Acceso','Mejor escuela de grupo de acceso',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Samba-Enredo','Mejor samba enredo',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Enredo','Mejor enredo',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Batería','Mejor batería',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Mestre-sala','Mejor mestre-sala',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Porta-bandeira','Mejor porta-bandeira',3);
+INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro','Comisión de frente','Mejor comisión de frente',3);
 
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2023,1,2);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1991,1,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2023,2,3);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1991,3,3);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1978,1,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1986,1,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1989,1,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2001,1,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2001,5,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2007,1,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2007,4,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2023,1,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2017,4,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2016,6,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2005,4,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1999,4,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1996,1,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2015,1,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2020,3,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2023,5,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2015,4,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2010,4,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2008,4,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2008,5,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2006,9,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2000,9,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1997,9,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1996,1,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1996,4,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1993,9,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1991,1,3);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1999,1,3);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (2018,4,3);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES (1996,5,3);
+
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2009,8,6,23,'05-04-1992');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2005,8,6,23,'05-04-1992');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2002,8,6,23,'05-04-1992');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2000,8,6,23,'05-04-1992');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (1998,8,6,23,'05-04-1992');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (1996,7,6,26,'01-08-1990');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2002,7,6,26,'01-08-1990');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2005,7,6,26,'01-08-1990');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2006,7,6,26,'01-08-1990');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2015,7,6,26,'01-08-1990');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2023,7,6,26,'01-08-1990');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2013,7,1,27,'01-10-2011');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES (2014,7,1,27,'01-10-2011');
 
 COMMIT;
