@@ -20,6 +20,12 @@ INSERT INTO csd_escuelas_samba (nombre, direccion_sede, numero, cep, fecha_funda
 VALUES ('Unidos do Peruche', 'Rua Samaritá', 1040, '02518-080', '01-04-1956', 'Fundada el 4 de enero de 1956 por un grupo de amigos que vivían en el barrio de Vila Peruche, en la Zona Norte de São Paulo. En 1960, la escuela se convirtió en una asociación civil sin fines de lucro, y en 1961, se convirtió en una escuela de samba. En 1968, la escuela se convirtió en una escuela de samba de primera división, y en 1970, se convirtió en una escuela de samba de primera división.', 7, TRUE, 'Una de las escuelas de samba más tradicionales de la ciudad de São Paulo y de Brasil');
 INSERT INTO csd_escuelas_samba (nombre, direccion_sede, numero, cep, fecha_fundacion, resumen_historico, id_ciudad, gres, descripcion)
 VALUES ('Beija Flor de Nilopolis', 'Rua Pracinha Wallace Paes Leme', 1025, '26050-032', '12-25-1948', 'Beija-Flor de Nilópolis nació durante las celebraciones navideñas de 1948. Un grupo formado por Milton de Oliveira (Negão da Cuíca), Edson Vieira Rodrigues (Edinho do Ferro Velho), Helles Ferreira da Silva, Mário Silva, Walter da Silva, Hamilton Floriano y José Fernandes da Silva, decidieron formar un grupo que, después de varias discusiones, por sugerencia de D. Eulália de Oliveira, madre de Milton, se llamó Beija-Flor (inspirado en el Rancho Beija-Flor, que existía en Marquês desde Valencia). Doña Eulália fue admitida como fundadora.', 3, TRUE, 'Una de las escuelas de samba más exitosas en la historia del Carnaval en Río de Janeiro. El nombre Beija-Flor significa "colibrí" en portugués, y el emblema de la escuela es un colibrí estilizado');
+INSERT INTO csd_escuelas_samba (nombre, direccion_sede, numero, cep, fecha_fundacion, resumen_historico, id_ciudad, gres, descripcion)
+VALUES ('Cidade Jardim', 'R. do Mercado', 47, '30380-452', '04-13-1961', 'La escuela es una de las asociaciones de carnaval más tradicionales de Belo Horizonte. Fundada en 1961, la escuela ha sido campeona 18 veces y actualmente trabaja para revivir la cultura de la samba en la capital, fortaleciendo las escuelas locales y rescatando el brillo de los desfiles de los años 70 y 80', 5, TRUE, 'Una escuela que tiene 72 años de historia y es la más antigua de Belo Horizonte');
+INSERT INTO csd_escuelas_samba (nombre, direccion_sede, numero, cep, fecha_fundacion, resumen_historico, id_ciudad, gres, descripcion)
+VALUES ('X-9 Paulistana', 'Av. Paulo Silva Araújo', 25, '02046-050', '02-12-1975', 'X-9 fue fundado por amigos que jugaban en un equipo de fútbol, ​​Internacional da Parada Inglesa , y algunos de ellos también eran miembros de X-9 , una de las principales asociaciones de Baixada Santista . El nombre, muy raro, nombró a la escuela de Santos por un cómic sobre un detective, que se llamaba X-9', 7, TRUE, 'Grêmio Recreativo Cultural Escola de Samba X-9 Paulistana es una de las asociaciones más tradicionales de la ciudad de São Paulo . Con sede en el norte de la capital, es bicampeón del grupo élite, además de otros títulos en divisiones inferiores.');
+INSERT INTO csd_escuelas_samba (nombre, direccion_sede, numero, cep, fecha_fundacion, resumen_historico, id_ciudad, gres, descripcion)
+VALUES ('Estrela Do Vale', 'Rua Santa Inês do Alto', 89, '30668-200', '03-14-2009', 'La historia del Grêmio Recreativo Escola de Samba (GRES) Estrela do Vale comenzó en el Carnaval de 2009 , cuando una pareja enamorada de la samba , Eduardo Bavose y su esposa, Maria Madalena Ferreira Bavose, decidieron fundar una escuela en el barrio Vale do Jatobá, en la región de Barreiro, en Belo Horizonte', 5, TRUE, 'Desde 2010, la asociación se destaca en el escenario carnavalero de la capital, con tramas que valorizan la comunidad del barrio, la ciudad y Minas Gerais, además de sus costumbres y cultura.');
 
 INSERT INTO csd_colores (nombre) VALUES ('azul');
 INSERT INTO csd_colores (nombre) VALUES ('rosa');
@@ -46,6 +52,15 @@ INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (5,6);
 INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (5,7);
 INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (6,1);
 INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (6,5);
+INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (7,3);
+INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (7,7);
+INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (7,4);
+INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (7,5);
+INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (8,6);
+INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (8,3);
+INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (8,5);
+INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (9,1);
+INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (9,7);
 
 INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
 VALUES ('Caixa Economica Federal','00.360.305/0238-21','ag0238@caixa.gov.br',7,'Avenida Paulista, Bela Vista',1708,'01310-918');
@@ -116,6 +131,8 @@ INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2008,6,
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2011,6,'Especial',50000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2015,6,'Especial',90000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2018,6,'Especial',90000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2000,8,'Especial',93000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2017,8,'Acesso',85000);
 
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Dirección','Sabe dirigir, organizar y coordinar a un grupo de personas');
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Danza','Domina el movimiento de su cuerpo al ritmo de la música');
@@ -190,6 +207,24 @@ INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nac
 VALUES ('Claudio',NULL,'Russo','Goncalves',NULL,'01-17-1970','M','brasilero','1A01TFS3-1');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Jairo',NULL,'Roizen','Silva',NULL,'03-07-1971','M','brasilero','2T6U889I-4');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Giselle',NULL,'Alves','Souza',NULL,'07-04-1991','F','brasilero','98TU8F92-7'); 
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Joãozinho',NULL,'da Pecuária','Ferreira',NULL,'03-08-1985','M','brasilero','UFJ98AGE-3'); 
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Julinho',NULL,'Santos','Alves',NULL,'02-09-1984','M','brasilero','64FJ8A65-1'); 
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Julia',NULL,'Mary','Silva',NULL,'06-18-1991','F','brasilero','56AOJ4F8-3'); 
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Ingrid',NULL,'Mantovani','Moura',NULL,'03-22-1993','F','brasilero','AD48AU9W-9'); 
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Alex',NULL,'Carvalho','Cordeiro',NULL,'06-07-1982','M','brasilero','5FA8WTGS-2'); 
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Graziela',NULL,'Moreira','Brito',NULL,'04-03-1990','F','brasilero','QR98MK9W-9'); 
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Emerson ',NULL,'Dias','Cabral',NULL,'07-11-1984','M','brasilero','30FK4D32-2'); 
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Luana',NULL,'Barbosa','Amorim',NULL,'01-03-1990','M','brasilero','YG22GH9J-3'); 
 
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,1);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,2);
@@ -240,6 +275,27 @@ INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (30,
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (30,8);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (31,4);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (31,8);
+
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (33,1);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (33,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (33,3); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (34,1);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (34,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (35,2); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (36,2); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (37,1);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (37,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (37,3); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (38,2); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (38,3); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (39,1); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (39,2);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (39,3); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (40,1);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (40,2); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (41,2); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (42,4);
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (42,8);
 
 INSERT INTO csd_parentescos (id_integrante_1,id_integrante_2,tipo) VALUES (1,2,'pareja');
 
@@ -313,6 +369,26 @@ INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,au
 VALUES ('04-13-1993',31,6,'no',NULL);
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
 VALUES ('04-23-2015',32,5,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('04-17-2012',33,7,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('02-05-2014',34,7,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('08-11-2011',35,7,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('03-17-2009',36,8,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('08-07-2011',37,8,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('01-22-1984',38,8,'no','04-25-2016'); 
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('11-02-2011',39,9,'no',NULL); 
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('06-06-2012',40,9,'no',NULL); 
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('10-09-2010',41,9,'no',NULL); 
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('01-03-2019',42,8,'no','06-20-2020');
 
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Bailarín','Se dedica a bailar y desfilar.');
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Coreógrafo','Crea y diseña las coreografías para los bailarines.');
@@ -577,6 +653,41 @@ Eu sou Peruche, "não leve a mal"
 "A grande campeã do carnaval"
 ', 2016, 'enredo');
 
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Batuques Para Um Rei Coroado','Eu sou o samba, rei do povo brasileiro
+Sou o batuque da X-9 nos terreiros
+De ogum meu padroeiro e de todos os orixás
+Na pulsação que vem dos ancestrais
+
+Quando o toque ritmado toca o destino
+Cada passo mostra o que passou
+Sou um contador e conto a dor de um peregrino
+Um som divino me enfeitiçou
+Vi os ibejis beijarem a sorte
+A morte singrar o oceano
+Mudaram os ares, os mesmos olhares
+Ferida no corpo, a alma espelha
+Rufam tambores que marcam a pele vermelha
+O som da marujada
+Na tribo que festeja
+Encanta a batucada
+Começa a peleja
+
+Rito da moça na aldeia
+Tom que passeia no ar
+É valor de mina longe a ecoar
+Arrasta-pé no chão rachado
+Poeira vagueia ao luar do sertão
+Brilham forró e xaxado
+Festa do divino e são João
+Gira a saia e abre a roda
+Alegria transborda também na Bahia
+Maracatus, caboclinhos
+Seguindo caminho que a fé irradia
+No ticumbí, no catopês
+Pandeiros, ganzás, xequerês
+Dos atabaques do jongo à folia de reis
+A Zona Norte desfila e emociona outra vez',2020,'enredo');
+
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (16,'11-30-2013',3,1);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (18,'12-15-2013',3,1);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (17,'12-02-2011',4,2);
@@ -584,6 +695,7 @@ INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (30,'08-11-2000',1,4);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (31,'04-13-1993',6,5);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (32,'04-23-2015',5,6);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (42,'01-03-2019',8,7);
 
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Escuela)','escola','escola',3);
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Fernando Pamplona)','escola','Mejor uso de materiales baratos.',3);
