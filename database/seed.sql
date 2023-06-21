@@ -545,7 +545,7 @@ Obatalá anunciou
 Já raiou o Sol da liberdade
 ', 2007, 'enredo');
 
-INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Ponha um pouco de amor numa cadência e vai ver que ninguém no mundo vence a beleza que tem o samba... 100 anos de samba, minha vida, minha raiz', '
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('100 anos de samba, minha vida, minha raiz', '
 Firma o pandeiro e o tan tan
 Tem samba até de manhã
 E a nação perucheana faz a festa

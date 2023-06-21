@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS csd_telefonos(
 CREATE TABLE IF NOT EXISTS csd_sambas(
   id SERIAL PRIMARY KEY,
   titulo VARCHAR(100) NOT NULL UNIQUE,
-  letra VARCHAR(1000) NOT NULL,
+  letra TEXT NOT NULL,
   anual_carnv INTEGER NOT NULL,
   tipo VARCHAR(20) NOT NULL,
   CONSTRAINT tipos_samba CHECK (tipo IN ('enredo','deco','emablo','marchinha','frevo','maracatu','reggae'))
