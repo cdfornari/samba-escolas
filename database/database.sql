@@ -182,9 +182,10 @@ CREATE TABLE IF NOT EXISTS csd_eventos_anuales_sems(
 CREATE TABLE IF NOT EXISTS csd_premios_especiales(
   id SERIAL PRIMARY KEY,
   nombre VARCHAR(35) NOT NULL UNIQUE,
-  tipo VARCHAR(35) NOT NULL,
-  descripcion VARCHAR(500) NOT NULL,
+  tipo VARCHAR(10) NOT NULL,
+  descripcion VARCHAR(100) NOT NULL,
   id_lugar INTEGER NOT NULL REFERENCES csd_lugares_geo(id)
+  CONSTRAINT tipo_premio CHECK (tipo IN ('escola','integrante'))
 );
 
 CREATE TABLE IF NOT EXISTS csd_ganadores(
