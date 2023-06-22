@@ -199,3 +199,16 @@ CREATE TABLE IF NOT EXISTS csd_ganadores(
   FOREIGN KEY (id_integrante,fecha_inicio,id_escuela_integrante) REFERENCES csd_historicos_integrantes(id_integrante,fecha_inicio,id_escuela),
   PRIMARY KEY(anual,id_premio)
 );
+
+CREATE INDEX IF NOT EXISTS csd_historicos_titulos_idx ON csd_historicos_titulos(id_escuela);
+CREATE INDEX IF NOT EXISTS csd_historicos_integrantes_idx ON csd_historicos_integrantes(id_integrante);
+CREATE INDEX IF NOT EXISTS csd_historicos_integrantes_escuela_idx ON csd_historicos_integrantes(id_escuela);
+CREATE INDEX IF NOT EXISTS csd_historicos_patrocinios_idx ON csd_historicos_patrocinios(id_escuela);
+CREATE INDEX IF NOT EXISTS csd_donaciones_idx ON csd_donaciones(id_patroc,id_escuela);
+CREATE INDEX IF NOT EXISTS csd_eventos_idx ON csd_eventos_anuales_sems(id_escuela);
+CREATE INDEX IF NOT EXISTS csd_ganadores_idx ON csd_ganadores(id_escuela);
+CREATE INDEX IF NOT EXISTS csd_ganadores_integrantes_idx ON csd_ganadores(id_escuela_integrante, id_integrante);
+CREATE INDEX IF NOT EXISTS csd_autores_idx ON csd_autores(id_escuela, id_samba);
+CREATE INDEX IF NOT EXISTS csd_org_carnavales_idx ON csd_org_carnavales(id_escuela, anual);
+CREATE INDEX IF NOT EXISTS csd_integrantes_habilidades_idx ON csd_autores(id_integrante);
+CREATE INDEX IF NOT EXISTS csd_escuelas_colores_idx ON csd_autores(id_escuela);
