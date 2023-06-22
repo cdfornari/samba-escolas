@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS csd_integrantes (
   rg VARCHAR(15) UNIQUE,
   nombre2 VARCHAR(50),
   apodo VARCHAR(50),
-  CONSTRAINT val_genero CHECK (genero IN ('M', 'F'))
+  CONSTRAINT csd_val_genero CHECK (genero IN ('M', 'F'))
 );
 
 CREATE TABLE IF NOT EXISTS csd_integrantes_habilidades (
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS csd_parentescos(
   id_integrante_2 INTEGER REFERENCES csd_integrantes(id),
   tipo VARCHAR(7) NOT NULL,
   PRIMARY KEY (id_integrante_1,id_integrante_2),
-  CONSTRAINT tipo_parentesco CHECK (tipo IN ('padre','hermano','pareja'))
+  CONSTRAINT csd_tipo_parentesco CHECK (tipo IN ('padre','hermano','pareja'))
 );
 
 CREATE TABLE IF NOT EXISTS csd_lugares_geo(
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS csd_lugares_geo(
   nombre VARCHAR(50) NOT NULL,
   tipo VARCHAR(6) NOT NULL,
   id_padre_lugar INTEGER REFERENCES csd_lugares_geo(id),
-  CONSTRAINT nombres_tipo CHECK (tipo IN ('region','estado','ciudad'))
+  CONSTRAINT csd_nombres_tipo CHECK (tipo IN ('region','estado','ciudad'))
 );
 
 CREATE TABLE IF NOT EXISTS csd_escuelas_samba(
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS csd_sambas(
   letra TEXT NOT NULL,
   anual_carnv INTEGER NOT NULL,
   tipo VARCHAR(20) NOT NULL,
-  CONSTRAINT tipos_samba CHECK (tipo IN ('enredo','deco','emablo','marchinha','frevo','maracatu','reggae'))
+  CONSTRAINT csd_tipos_samba CHECK (tipo IN ('enredo','deco','emablo','marchinha','frevo','maracatu','reggae'))
 );
 
 CREATE TABLE IF NOT EXISTS csd_autores(
@@ -176,7 +176,7 @@ CREATE TABLE IF NOT EXISTS csd_eventos_anuales_sems(
   costo_unit FLOAT(2) NOT NULL,
   descripcion VARCHAR(500),
   asist_total INTEGER,
-  CONSTRAINT tipo_evento CHECK (tipo IN ('n_samba','general')),
+  CONSTRAINT csd_tipo_evento CHECK (tipo IN ('n_samba','general')),
   PRIMARY KEY(id,id_escuela)
 );
 
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS csd_premios_especiales(
   tipo VARCHAR(10) NOT NULL,
   descripcion VARCHAR(100) NOT NULL,
   id_lugar INTEGER NOT NULL REFERENCES csd_lugares_geo(id)
-  CONSTRAINT tipo_premio CHECK (tipo IN ('escola','integrante'))
+  CONSTRAINT csd_tipo_premio CHECK (tipo IN ('escola','integrante'))
 );
 
 CREATE TABLE IF NOT EXISTS csd_ganadores(
