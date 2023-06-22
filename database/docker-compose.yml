@@ -14,7 +14,6 @@ services:
       - ./database.sql:/docker-entrypoint-initdb.d/create_tables.sql
       - ./seed.sql:/seed.sql
       - ./drop.sql:/drop.sql
-      - ./delete.sql:/delete.sql
 
 volumes:
   pgdata:
