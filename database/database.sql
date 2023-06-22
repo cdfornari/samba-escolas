@@ -171,11 +171,12 @@ CREATE TABLE IF NOT EXISTS csd_eventos_anuales_sems(
   id_escuela INTEGER REFERENCES csd_escuelas_samba(id),
   fecha_inicio DATE NOT NULL,
   fecha_fin DATE NOT NULL,
-  tipo VARCHAR(9) NOT NULL,
+  tipo VARCHAR(7) NOT NULL,
   nombre VARCHAR(30) NOT NULL,
   costo_unit FLOAT(2) NOT NULL,
   descripcion VARCHAR(500),
   asist_total INTEGER,
+  CONSTRAINT tipo_evento CHECK (tipo IN ('n_samba','general')),
   PRIMARY KEY(id,id_escuela)
 );
 

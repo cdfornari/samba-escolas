@@ -62,6 +62,25 @@ INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (8,5);
 INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (9,1);
 INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (9,7);
 
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (1, '02-01-2019', '03-31-2019', 'Noches de samba carnaval 2019', 'n_samba', 'Noches de samba realizadas durante la época del Carnaval en 2019', 100, 489);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (6, '01-15-2019', '03-31-2019', 'Noches de samba 2019', 'n_samba', 'Noches de samba realizadas durante la época del Carnaval en 2019', 150, 786);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (6, '03-15-2018', '03-31-2018', 'Celebraciones titulo 2018', 'general', 'Fiestas de celebración de nuestro titulo numero 14', 75, 270);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (6, '08-01-2017', '08-27-2017', 'Gira verano 2017', 'general', 'Gira de conciertos veraniegos en distintas partes de Brasil', 100, 1588);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (5, '03-01-2015', '04-10-2015', 'Celebración ascenso 2015', 'general', 'Celebraciones de título de grupo de acceso 2015 y ascenso a grupo especial ', 50, 112);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (1, '05-01-2019', '06-29-2019', 'Clases de baile', 'general', 'Clases de diferentes estilos de baile dadas a turistas y locales', 50, 479);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (6, '02-01-2023', '03-31-2023', 'Clases de baile', 'general', 'Clases de diferentes estilos de baile dadas a turistas y locales', 75, 895);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (5, '07-01-2015', '11-29-2015', 'Shows', 'general', 'Shows realizados para financiar nuestro desfile del grupo especial del próximo año', 100, 852);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (2, '03-21-2023', '04-21-2023', 'Celebraciones titulo 2023', 'general', 'Fiestas de celebración de nuestro titulo en 2023', 100, 400);
+
 INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
 VALUES ('Caixa Economica Federal','00.360.305/0238-21','ag0238@caixa.gov.br',7,'Avenida Paulista, Bela Vista',1708,'01310-918');
 INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
@@ -184,8 +203,8 @@ INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2008,6,
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2011,6,'Especial',50000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2015,6,'Especial',90000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2018,6,'Especial',90000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2000,8,'Especial',93000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2017,8,'Acesso',85000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2000,8,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2017,8,'Acesso',40000);
 
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Dirección','Sabe dirigir, organizar y coordinar a un grupo de personas');
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Danza','Domina el movimiento de su cuerpo al ritmo de la música');
