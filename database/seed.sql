@@ -74,6 +74,12 @@ INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
 VALUES ('Banco do Brasil','00.000.000/0001-91','bbasset@bb.com.br',3,'Avenida República do Chile',330,'20031-170');
 INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
 VALUES ('Ambev','07.526.557/0001-00','ambev@loures.com.br',7,'Rua Dr. Renato Paes de Barros',1017,'04530-001');
+INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
+VALUES ('Red Bull','02.946.761/0004-09','glass.ota@redbull.com.br',7,'Avenida Soledade',550,'90470-340');
+INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
+VALUES ('Cervejaria Heineken','50.221.019/0001-36','cscgestdoc@heineken.com.br',7,'Avenida Primo Schincariol',2222,'13312-250');
+INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
+VALUES ('Samsung Eletronica','00.280.273/0008-03','fiscal.seda@samsung.com',7,'Av Roque Petroni Junior',1089,'04707-970');
 
 INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Milton',NULL,'Leite','Filho','125A7G7A-9','fale@miltonleitefilho44250.com.br');
 INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Fabiano',NULL,'Lopes','Ferreira','24RT7841-0','fabianocazeca@gmail.com.br');
@@ -83,19 +89,29 @@ INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,31,9942
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,21,33325823,3);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,11,959634746,4);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,11,982724128,5);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,31,991169687,7);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,11,29593377,8);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,31,971109981,9);
+
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,11,31035900,1);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,21,21349000,3);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,21,38087500,5);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,31,30162855,7);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,11,21189500,8);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,11,56442800,9);
+
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,11,55417755,1);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,21,992239955,3);
 
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (4,'06-01-2016',1,NULL);
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (2,'05-01-2020',2,NULL);
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (3,'07-01-2018',3,NULL);
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (9,'07-03-2016',9,NULL);
 
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (1,4,'08-03-2016',15000);
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (2,2,'06-10-2020',15000);
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (3,3,'10-20-2019',25000);
+INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (4,9,'09-06-2019',22000);
 
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2013,4,'UESP-2',12000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES (2014,4,'UESP-1',15000);
@@ -275,7 +291,6 @@ INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (30,
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (30,8);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (31,4);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (31,8);
-
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (33,1);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (33,2);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (33,3); 
@@ -435,6 +450,10 @@ INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anua
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (16,'11-30-2013',3,7,2014);
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (17,'12-02-2011',4,7,2014);
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (18,'12-15-2013',3,7,2014);
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (36,'03-17-2009',8,6,2023);
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (37,'08-07-2011',8,9,2023);
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (38,'01-22-1984',8,3,1995);
+
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Pernambucópolis','Eita saudade danada
 Vim das estrelas com meu ziriguidum
