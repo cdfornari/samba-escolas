@@ -6,6 +6,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "db": "cd database && docker-compose up -d && cd ..",
+    "dbdroptables": "cd database && docker-compose exec db psql -U postgres -d samba_escolas -f drop.sql && cd ..",
     "dbseed": "cd database && docker-compose exec db psql -U postgres -d samba_escolas -f seed.sql && cd ..",
     "dropdb": "cd database && docker-compose down -v && cd ..",
     "resetdb": "cd database && docker-compose down -v && docker-compose up -d && cd .."
