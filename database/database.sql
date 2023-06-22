@@ -210,5 +210,5 @@ CREATE INDEX IF NOT EXISTS csd_ganadores_idx ON csd_ganadores(id_escuela);
 CREATE INDEX IF NOT EXISTS csd_ganadores_integrantes_idx ON csd_ganadores(id_escuela_integrante, id_integrante);
 CREATE INDEX IF NOT EXISTS csd_autores_idx ON csd_autores(id_escuela, id_samba);
 CREATE INDEX IF NOT EXISTS csd_org_carnavales_idx ON csd_org_carnavales(id_escuela, anual);
-CREATE INDEX IF NOT EXISTS csd_integrantes_habilidades_idx ON csd_autores(id_integrante);
-CREATE INDEX IF NOT EXISTS csd_escuelas_colores_idx ON csd_autores(id_escuela);
+CREATE INDEX IF NOT EXISTS csd_integrantes_habilidades_idx ON csd_integrantes_habilidades(id_integrante);
+CREATE INDEX IF NOT EXISTS csd_escuelas_colores_idx ON csd_escuelas_colores(id_escuela);
