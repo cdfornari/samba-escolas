@@ -229,6 +229,8 @@ VALUES ('Cassiano',NULL,'Andrade','Almao',NULL,'12-01-1990','M','brasilero','NB1
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Diego','Pereira','Nicolau','de Oliviera',NULL,'03-01-1982','M','brasilero','AH25AY8I-7');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Pê',NULL,'Santana','Reyes',NULL,'04-07-1979','M','brasilero','6QTYA201-5');
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('João','Eduardo','de Salles','Nobre','Dudu','11-06-1973','M','brasilero','3T52F901-5');
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Leandro', NULL,'Vieira','Oliveira',NULL,'07-25-1983','M','brasilero','4SD2K201-5');
@@ -276,8 +278,6 @@ INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nac
 VALUES ('Emerson ',NULL,'Dias','Cabral',NULL,'07-11-1984','M','brasilero','30FK4D32-2'); 
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Luana',NULL,'Barbosa','Amorim',NULL,'01-03-1990','M','brasilero','YG22GH9J-3'); 
-INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
-VALUES ('Pê',NULL,'Santana','Reyes',NULL,'04-07-1979','M','brasilero','6QTYA201-5');
 
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,1);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,2);
@@ -346,8 +346,6 @@ INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (39,
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (40,1);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (40,2); 
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (41,2); 
-INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (42,4);
-INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (42,8);
 
 INSERT INTO csd_parentescos (id_integrante_1,id_integrante_2,tipo) VALUES (1,2,'pareja');
 
@@ -439,8 +437,6 @@ INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,au
 VALUES ('06-06-2012',40,9,'no',NULL); 
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
 VALUES ('10-09-2010',41,9,'no',NULL); 
-INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
-VALUES ('01-03-2019',42,8,'no','06-20-2020');
 
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Bailarín','Se dedica a bailar y desfilar');
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Coreógrafo','Crea y diseña las coreografías para los bailarines');
@@ -576,7 +572,6 @@ INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anua
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (36,'03-17-2009',8,6,2023);
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (37,'08-07-2011',8,9,2023);
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (38,'01-22-1984',8,3,1995);
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (42,'01-03-2019',8,7,2020);
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Pernambucópolis','Eita saudade danada
 Vim das estrelas com meu ziriguidum
@@ -795,41 +790,6 @@ Eu sou Peruche, "não leve a mal"
 "A grande campeã do carnaval"
 ', 2016, 'enredo');
 
-INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Batuques Para Um Rei Coroado','Eu sou o samba, rei do povo brasileiro
-Sou o batuque da X-9 nos terreiros
-De ogum meu padroeiro e de todos os orixás
-Na pulsação que vem dos ancestrais
-
-Quando o toque ritmado toca o destino
-Cada passo mostra o que passou
-Sou um contador e conto a dor de um peregrino
-Um som divino me enfeitiçou
-Vi os ibejis beijarem a sorte
-A morte singrar o oceano
-Mudaram os ares, os mesmos olhares
-Ferida no corpo, a alma espelha
-Rufam tambores que marcam a pele vermelha
-O som da marujada
-Na tribo que festeja
-Encanta a batucada
-Começa a peleja
-
-Rito da moça na aldeia
-Tom que passeia no ar
-É valor de mina longe a ecoar
-Arrasta-pé no chão rachado
-Poeira vagueia ao luar do sertão
-Brilham forró e xaxado
-Festa do divino e são João
-Gira a saia e abre a roda
-Alegria transborda também na Bahia
-Maracatus, caboclinhos
-Seguindo caminho que a fé irradia
-No ticumbí, no catopês
-Pandeiros, ganzás, xequerês
-Dos atabaques do jongo à folia de reis
-A Zona Norte desfila e emociona outra vez',2020,'enredo');
-
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (16,'11-30-2013',3,1);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (18,'12-15-2013',3,1);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (17,'12-02-2011',4,2);
@@ -837,7 +797,6 @@ INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (30,'08-11-2000',1,4);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (31,'04-13-1993',6,5);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (32,'04-23-2015',5,6);
-INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (42,'01-03-2019',8,7);
 
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Escuela)','escola','escola',3);
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Fernando Pamplona)','escola','Mejor uso de materiales baratos.',3);
