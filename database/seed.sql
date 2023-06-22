@@ -7,6 +7,8 @@ INSERT INTO csd_lugares_geo (nombre, tipo, id_padre_lugar) VALUES ('Minas Gerais
 INSERT INTO csd_lugares_geo (nombre, tipo, id_padre_lugar) VALUES('Belo Horizonte','ciudad',4);
 INSERT INTO csd_lugares_geo (nombre, tipo, id_padre_lugar) VALUES('São Paulo','estado',1);
 INSERT INTO csd_lugares_geo (nombre, tipo, id_padre_lugar) VALUES('São Paulo','ciudad',6);
+INSERT INTO csd_lugares_geo (nombre, tipo, id_padre_lugar) VALUES('Betim','ciudad',4);
+INSERT INTO csd_lugares_geo (nombre, tipo, id_padre_lugar) VALUES('Contagem','ciudad',4);
 
 INSERT INTO csd_escuelas_samba (nombre, direccion_sede, numero, cep, fecha_fundacion, resumen_historico, id_ciudad, gres, descripcion)
 VALUES ('Imperatriz Leopoldinense', ' R. Professor Lacé', 235, '59155-190', '03-06-1956', 'Fundada el 6 de marzo de 1959 por el farmacéutico Amaury Jório, junto con algunos sambistas de la Zona Leopoldina y remanentes de la extinta asociación Recreio de Ramos, su nombre hace referencia al Ferrocarril Leopoldina -que atravesaba el barrio de Ramos- y que, a su vez, , recibió este nombre en referencia a la emperatriz María Leopoldina de Brasil', 3, TRUE, 'La mejor escola de samba de Rio de Janeiro');
@@ -35,6 +37,7 @@ INSERT INTO csd_colores (nombre) VALUES ('blanco');
 INSERT INTO csd_colores (nombre) VALUES ('verde');
 INSERT INTO csd_colores (nombre) VALUES ('amarillo');
 INSERT INTO csd_colores (nombre) VALUES ('oro');
+INSERT INTO csd_colores (nombre) VALUES ('naranja');
 
 INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (1,5);
 INSERT INTO csd_escuelas_colores (id_escuela,id_color) VALUES (1,6);
@@ -103,6 +106,12 @@ VALUES ('Samsung Eletronica','00.280.273/0008-03','fiscal.seda@samsung.com',7,'A
 INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Milton',NULL,'Leite','Filho','125A7G7A-9','fale@miltonleitefilho44250.com.br');
 INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Fabiano',NULL,'Lopes','Ferreira','24RT7841-0','fabianocazeca@gmail.com.br');
 INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Carlinhos',NULL,'Mendes','de Jesus','635THY00-2','rachel.cdcj@gmail.com');
+INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Jorge','Paulo','Lemann','Ferreira','TRY12436-1','jplemann@lemannfoundation.com.br');
+INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Eika',NULL,'Batista','Mendes','T26AL056-0','ebatista@ogx.com.br');
+INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Abilio',NULL,'Diniz','Canteras','U2438902-3','adiniz@penalty.com.br');
+INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Luiza','Helena','Trajano','Rodrigues','135AT789-3','itrajano@magazineluiza.com.br');
+INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Marcel',NULL,'Herrmann','Telles','Y25680O1-2','mhtelles@ambev.com.br');
+INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Carlos',NULL,'Wizard','Martins','583ILO06-5','cwizard@wisereducacao.com.br');
 
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,31,994274064,2);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,21,33325823,3);
@@ -130,6 +139,8 @@ INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin)
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (6,'04-01-2012',6,NULL);
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (1,'11-13-1989',5,'04-01-2002');
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (9,'07-03-2016',9,'02-05-2018');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (6,'11-05-2013',5,'06-02-2014');
+
 
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (1,4,'08-03-2016',15000);
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (2,2,'06-10-2020',15000);
@@ -297,6 +308,10 @@ INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nac
 VALUES ('Emerson ',NULL,'Dias','Cabral',NULL,'07-11-1984','M','brasilero','30FK4D32-2'); 
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Luana',NULL,'Barbosa','Amorim',NULL,'01-03-1990','M','brasilero','YG22GH9J-3'); 
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Moacyr',NULL,'de Oliveira','Franco',NULL,'07-08-1936','M','brasilero','ART12367-9'); 
+INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
+VALUES ('Paulo',NULL,'Costa','Alves',NULL,'09-10-1950','M','brasilero','14698745-9'); 
 
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,1);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (1,2);
@@ -365,6 +380,9 @@ INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (39,
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (40,1);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (40,2); 
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (41,2); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (42,5); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (43,5); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (43,2); 
 
 INSERT INTO csd_parentescos (id_integrante_1,id_integrante_2,tipo) VALUES (1,2,'pareja');
 
@@ -455,7 +473,11 @@ VALUES ('11-02-2011',39,9,'no',NULL);
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
 VALUES ('06-06-2012',40,9,'no',NULL); 
 INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
-VALUES ('10-09-2010',41,9,'no',NULL); 
+VALUES ('10-09-2010',41,9,'no',NULL);
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('06-09-2018',42,1,'no','04-21-2019'); 
+INSERT INTO csd_historicos_integrantes (fecha_inicio,id_integrante,id_escuela,autoridad,fecha_fin)
+VALUES ('09-10-1999',43,1,'no','05-20-2002'); 
 
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Bailarín','Se dedica a bailar y desfilar');
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Coreógrafo','Crea y diseña las coreografías para los bailarines');
@@ -591,6 +613,7 @@ INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anua
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (36,'03-17-2009',8,6,2023);
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (37,'08-07-2011',8,9,2023);
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (38,'01-22-1984',8,3,1995);
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (43,'09-10-1999',1,7,2000);
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Pernambucópolis','Eita saudade danada
 Vim das estrelas com meu ziriguidum
@@ -809,6 +832,121 @@ Eu sou Peruche, "não leve a mal"
 "A grande campeã do carnaval"
 ', 2016, 'enredo');
 
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Me Dá Um Dinheiro Aí','Ei, você aí
+Me dá um dinheiro aí
+Me dá um dinheiro aí
+Ei, você aí
+Me dá um dinheiro aí
+Me dá um dinheiro aí
+
+Não vai dar? Não vai dar não?
+Você vai ver a grande confusão
+Que eu vou fazer, bebendo até cair
+Me dá, me dá, me dá, oi
+Me dá um dinheiro aí
+
+Ei, você aí
+Me dá um dinheiro aí
+Me dá um dinheiro aí
+Ei, você aí
+Me dá um dinheiro aí
+Me dá um dinheiro aí
+
+Não vai dar? Não vai dar não?
+Você vai ver a grande confusão
+Que eu vou fazer, bebendo até cair
+Me dá, me dá, me dá, oi
+Me dá um dinheiro aí
+
+Ei, você aí
+Me dá um dinheiro aí
+Me dá um dinheiro aí
+Ei, você aí
+Me dá um dinheiro aí
+Me dá um dinheiro aí
+
+Não vai dar? Não vai dar não?
+Você vai ver a grande confusão
+Que eu vou fazer, bebendo até cair
+Me dá, me dá, me dá, oi
+Me dá um dinheiro aí
+
+Ei, você aí
+Me dá um dinheiro aí
+Me dá um dinheiro aí
+Ei, você aí
+Me dá um dinheiro aí
+Me dá um dinheiro aí
+
+Não vai dar? Não vai dar não?
+Você vai ver a grande confusão
+Que eu vou fazer, bebendo até cair
+Me dá, me dá, me dá, oi
+Me dá um dinheiro aí',2019,'enredo');
+
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Quem Descobriu o Brasil, Foi Seu Cabral','Eu quero é mais
+Viver feliz
+Sambando com a Imperatriz
+
+Terra à vista
+Um grito de conquista do descobridor
+A ordem do rei é navegar
+E monopolizar riquezas de além-mar
+Partiram caravelas de Lisboa
+Com o desejo de comercializar
+As especiarias da Índia
+E o ouro da África
+Mas depois o rumo se modificou
+Olhos no horizonte, um sinal surgiu
+Em 22 de abril, quando ele avistou
+Se encantou
+
+Tão linda, tão bela
+Paraíso tropical
+Foi seu Cabral quem descobriu o Brasil
+Dois meses depois do carnaval
+
+Terra ... abençoada de encantos mil
+De Vera Cruz, de Santa Cruz, Brasil
+Iluminada é nossa terra
+O Branco, o negro e o índio
+No encontro, a origem da nação
+E hoje minha escola é toda raça
+Convida a "massa" e conta a nossa história
+São 500 anos vivos na memória
+De luta, esperança, amor e paz',2000,'enredo');
+
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Cana-caiana, Cana Roxa, Cana Fita, Cana Preta, Amarela, Pernambuco... Quero Vê Descê o Suco, Na Pancada do Ganzá!','Cana-caiana,
+Cultura que o árabe propagou
+Apesar dos cruzados plantarem,
+A cana na Europa não vingou
+Mas conta a história que em Veneza
+O açúcar foi pra mesa da nobreza
+Virou negócio no Brasil, trazida de além-mar
+E, nesta terra, o que se planta dá
+Gira o engenho pra sinhô, Bahia faz girar
+E, em Pernambuco, o escravo vai cantar
+
+(Quero vê)
+Quero vê descê o suco até melá
+Na pancada doce do ganzá
+
+Pinga...
+Olha a cana virando aguardente
+No mercado do ouro atraente
+Paraty espalhou a bebida
+Pra garimpar, birita tem
+Na Inconfidência foi preferida
+Pra festejar, o que é que tem ?
+Tem Carlos Cachaça, não leve a mal
+Taí a verde-e-rosa em meu carnaval
+(vem provar minha cachaça)
+
+Vem provar minha cachaça, amor ôôôô
+O sabor é verde-e-branco
+Passa a régua e dá pro santo
+Que a Imperatriz chegou',2001,'enredo');
+
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (16,'11-30-2013',3,1);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (18,'12-15-2013',3,1);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (17,'12-02-2011',4,2);
@@ -816,6 +954,9 @@ INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (30,'08-11-2000',1,4);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (31,'04-13-1993',6,5);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (32,'04-23-2015',5,6);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (42,'06-09-2018',1,7);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (43,'09-10-1999',1,8);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (43,'09-10-1999',1,9);
 
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Escuela)','escola','escola',3);
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Fernando Pamplona)','escola','Mejor uso de materiales baratos.',3);
