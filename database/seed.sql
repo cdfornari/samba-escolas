@@ -225,6 +225,7 @@ INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Creatividad','Consigue
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Enseñanza','Transmite su conocimiento efectivamente a los demás');
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Chocalho','Tiene destreza con el instrumento y apoya a mantener el ritmo de los tambores');
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Composición','Tiene la habilidad de componer canciones y melodías');
+INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Acrobática','Tiene la capacidad de hacer acrobacias');
 
 INSERT INTO csd_integrantes (nombre1,nombre2,apellido1,apellido2,apodo,fecha_nacimiento,genero,nacionalidad,rg)
 VALUES ('Danillo',NULL,'Prímola','Mendes',NULL,'05-05-1985','M','brasilero','A12JA4Y1-2');
@@ -380,9 +381,9 @@ INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (39,
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (40,1);
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (40,2); 
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (41,2); 
-INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (42,5); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (42,8); 
 INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (43,5); 
-INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (43,2); 
+INSERT INTO csd_integrantes_habilidades (id_integrante,id_habilidad) VALUES (43,8); 
 
 INSERT INTO csd_parentescos (id_integrante_1,id_integrante_2,tipo) VALUES (1,2,'pareja');
 
