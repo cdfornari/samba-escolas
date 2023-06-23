@@ -33,18 +33,16 @@ export class EscolasService {
     return this.queryService.count('escuelas_samba');
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} escola`;
+  async findOne(id: number) {
+    return (
+      await this.queryService.select('escuelas_samba', null, `id = ${id}`)
+    )[0];
   }
 
   async update(updateEscolaInput: UpdateEscolaInput) {
     const { id, ...dto } = updateEscolaInput;
     return (
-      await this.queryService.update(
-        'escuelas_samba',
-        dto,
-        `id = ${id}`,
-      )
+      await this.queryService.update('escuelas_samba', dto, `id = ${id}`)
     )[0][0];
   }
 
