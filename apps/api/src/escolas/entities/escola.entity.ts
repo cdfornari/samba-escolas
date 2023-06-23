@@ -1,4 +1,5 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { DateScalar } from 'src/common/scalars/date.scalar';
 
 @ObjectType()
 export class Escola {
@@ -20,7 +21,7 @@ export class Escola {
   @Field(() => String)
   cep: string;
 
-  @Field(() => Date)
+  @Field(() => DateScalar)
   fecha_fundacion: Date;
 
   @Field(() => String)
