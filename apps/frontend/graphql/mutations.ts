@@ -15,3 +15,19 @@ export const UPDATE_PLACE = gql`
     }
   }
 `;
+
+export const CREATE_ESCOLA = gql`
+  mutation CREATE_ESCOLA($createEscolaInput: CreateEscolaInput!) {
+    createEscola(createEscolaInput: $createEscolaInput) {
+      id
+    }
+  }
+`;
+
+export const UPDATE_ESCOLA = gql`
+  mutation UPDATE_ESCOLA($updateEscolaInput: UpdateEscolaInput!) {
+    updateEscola(updateEscolaInput: $updateEscolaInput) {
+      id
+    }
+  }
+`;
