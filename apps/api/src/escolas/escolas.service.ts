@@ -9,8 +9,14 @@ import { Escola } from './entities/escola.entity';
 export class EscolasService {
   constructor(private readonly queryService: QueryService) {}
 
-  create(createEscolaInput: CreateEscolaInput) {
-    return 'This action adds a new escola';
+  async create(createEscolaInput: CreateEscolaInput) {
+    let fields = Object.keys(createEscolaInput);
+    let values = Object.values(createEscolaInput);
+    fields = fields.filter((field) => !!createEscolaInput[field]);
+    values = values.filter((value) => !!value);
+    return (
+      await this.queryService.insert('escuelas_samba', fields, values)
+    )[0];
   }
 
   async findAll(pagination: PaginationArgs): Promise<Escola[]> {
