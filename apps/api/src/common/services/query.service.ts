@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 import { PaginationArgs } from '../dto/args/pagination.args';
 
+type FieldValueType = string | number | boolean | Date;
+
 @Injectable()
 export class QueryService {
   constructor(private readonly dataSource: DataSource) {}
@@ -37,7 +39,7 @@ export class QueryService {
   async insert<T>(
     table: string,
     fields: string[],
-    values: (string | number | Date)[],
+    values: FieldValueType[],
   ): Promise<T> {
     return await this.dataSource.query(
       `INSERT INTO ${this.tablesPrefix + table} (${fields.join(
@@ -49,7 +51,7 @@ export class QueryService {
   async update<T>(
     table: string,
     dto: {
-      [key: string]: string | number | Date;
+      [key: string]: FieldValueType;
     },
     where?: string,
   ): Promise<T> {
