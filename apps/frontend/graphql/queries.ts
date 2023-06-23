@@ -14,6 +14,24 @@ export const ESCOLAS = gql`
   ${EscolaFragment}
 `;
 
+export const ESCOLA = gql`
+  query ESCOLA($id: Int!) {
+    escola(id: $id) {
+      ...EscolaFragment
+      descripcion
+      resumen_historico
+      direccion_sede
+      numero
+      cep
+      ciudad{
+        id
+        nombre
+      }
+    }
+  }
+  ${EscolaFragment}
+`;
+
 export const LUGARES = gql`
   query LUGARES($page: Int, $perPage: Int, $tipo: PlaceType) {
     lugares(page: $page, perPage: $perPage, tipo: $tipo) {
