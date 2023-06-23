@@ -6,6 +6,9 @@ export const EscolaFragment = gql`
     nombre
     fecha_fundacion
     gres
+    direccion_sede
+    numero
+    cep
   }
 `;
 

@@ -6,6 +6,9 @@ export const ESCOLAS = gql`
     escolas(page: $page, perPage: $perPage) {
       items {
         ...EscolaFragment
+        ciudad {
+          nombre
+        }
       }
       numberOfPages
     }
@@ -20,10 +23,7 @@ export const ESCOLA = gql`
       ...EscolaFragment
       descripcion
       resumen_historico
-      direccion_sede
-      numero
-      cep
-      ciudad{
+      ciudad {
         id
         nombre
       }

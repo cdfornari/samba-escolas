@@ -8,6 +8,19 @@ import { PaginationType } from '../../types';
 import { Escola } from '../../interfaces';
 import { Pagination } from '../ui/Pagination';
 
+export const escolaTableReducer = (columnKey: any, row: Escola) => {
+  switch (columnKey) {
+    case 'nombre':
+      return `${row.gres ? 'GRES' : ''} ${row.nombre}`;
+    case 'fecha_fundacion':
+      return new Date(row.fecha_fundacion).toLocaleDateString();
+    case 'direccion':
+      return `${row.direccion_sede}, ${row.numero}, ${row.ciudad.nombre}, ${row.cep}`;
+    default:
+      return row[columnKey];
+  }
+};
+
 const columns = [
   {
     key: 'id',
@@ -20,6 +33,10 @@ const columns = [
   {
     key: 'fecha_fundacion',
     label: 'Fecha de fundación',
+  },
+  {
+    key: 'direccion',
+    label: 'Dirección',
   },
 ];
 
@@ -80,19 +97,12 @@ export const EscolasTable = () => {
               </Table.Column>
             ))}
           </Table.Header>
-          <Table.Body
-            items={data.escolas.items.map((escola) => ({
-              ...escola,
-              fecha_fundacion: new Date(
-                escola.fecha_fundacion
-              ).toLocaleDateString(),
-            }))}
-          >
+          <Table.Body items={data.escolas.items}>
             {(row) => (
               <Table.Row key={row.id}>
                 {(columnKey) => (
                   <Table.Cell css={{ cursor: 'pointer' }}>
-                    {row[columnKey]}
+                    {escolaTableReducer(columnKey, row)}
                   </Table.Cell>
                 )}
               </Table.Row>
