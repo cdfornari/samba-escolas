@@ -24,9 +24,10 @@ interface DTO {
 interface Props {
   action: (data: DTO) => Promise<any>;
   initialValues?: Escola;
+  buttonText: string;
 }
 
-export const EscolaForm: FC<Props> = ({ action, initialValues }) => {
+export const EscolaForm: FC<Props> = ({ action, initialValues, buttonText }) => {
   const [gres, setGres] = useState<boolean>(initialValues?.gres ?? false);
   const [ciudad, setCiudad] = useState<string>(
     initialValues?.ciudad?.id.toString() ?? null
@@ -229,7 +230,7 @@ export const EscolaForm: FC<Props> = ({ action, initialValues }) => {
           size="lg"
           disabled={Object.keys(errors).length > 0}
         >
-          Enviar
+          {buttonText}
         </Button>
       </div>
     </form>

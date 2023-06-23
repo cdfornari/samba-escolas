@@ -24,6 +24,7 @@ export default function Page() {
           push('/places');
         } catch (error) {}
       }}
+      buttonText='Crear'
     />
   );
 }

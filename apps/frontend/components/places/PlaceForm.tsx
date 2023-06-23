@@ -18,9 +18,10 @@ interface DTO {
 interface Props {
   action: (data: DTO) => Promise<any>;
   initialValues?: Place;
+  buttonText: string;
 }
 
-export const PlaceForm: FC<Props> = ({ action, initialValues }) => {
+export const PlaceForm: FC<Props> = ({ action, initialValues, buttonText }) => {
   const [type, setType] = useState<string>(initialValues?.tipo ?? null);
   const [parent, setParent] = useState<string>(initialValues?.padre?.id.toString() ?? null);
   const {
@@ -141,7 +142,7 @@ export const PlaceForm: FC<Props> = ({ action, initialValues }) => {
       </div>
       <div className="flex justify-center">
         <Button type="submit" css={{ zIndex: 0 }}>
-          Enviar
+          {buttonText}
         </Button>
       </div>
     </form>

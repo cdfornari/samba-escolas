@@ -40,6 +40,7 @@ export default function Page({ params }) {
         )
       }
       initialValues={data?.escola}
+      buttonText='Actualizar'
     />
   );
 }
