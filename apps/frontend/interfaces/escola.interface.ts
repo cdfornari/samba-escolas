@@ -1,3 +1,5 @@
+import { Place } from './place.interface';
+
 export interface Escola {
   id: number;
   nombre: string;
@@ -8,4 +10,5 @@ export interface Escola {
   fecha_fundacion: Date;
   resumen_historico: string;
   gres: boolean;
+  ciudad: Place;
 }
