@@ -27,7 +27,11 @@ interface Props {
   buttonText: string;
 }
 
-export const EscolaForm: FC<Props> = ({ action, initialValues, buttonText }) => {
+export const EscolaForm: FC<Props> = ({
+  action,
+  initialValues,
+  buttonText,
+}) => {
   const [gres, setGres] = useState<boolean>(initialValues?.gres ?? false);
   const [ciudad, setCiudad] = useState<string>(
     initialValues?.ciudad?.id.toString() ?? null
@@ -46,27 +50,25 @@ export const EscolaForm: FC<Props> = ({ action, initialValues, buttonText }) => 
       direccion_sede: initialValues?.direccion_sede ?? '',
       numero: initialValues?.numero,
       cep: initialValues?.cep ?? '',
-      fecha_fundacion: initialValues?.fecha_fundacion.toString() ?? new Date().toISOString().split('T')[0],
+      fecha_fundacion:
+        initialValues?.fecha_fundacion.toString() ??
+        new Date().toISOString().split('T')[0],
       resumen_historico: initialValues?.resumen_historico ?? '',
     },
   });
   const numero = watch('numero');
   const fecha = watch('fecha_fundacion');
   useEffect(() => {
-    if (ciudad?.length > 0) {
-      clearErrors('id_ciudad');
-    }
+    if (ciudad?.length > 0) clearErrors('id_ciudad');
   }, [ciudad]);
   useEffect(() => {
-    try {
-      Number(numero);
-      clearErrors('numero');
-    } catch (error) {
+    if (!numero) return;
+    if (Number(numero)) clearErrors('numero');
+    else
       setError('numero', {
         type: 'manual',
         message: 'Número inválido',
       });
-    }
   }, [numero]);
   useEffect(() => {
     if (new Date(fecha) > new Date()) {
@@ -87,6 +89,13 @@ export const EscolaForm: FC<Props> = ({ action, initialValues, buttonText }) => 
     }
   );
   const onSubmit = async (data: DTO) => {
+    if (!ciudad) {
+      setError('id_ciudad', {
+        type: 'manual',
+        message: 'Seleccione una ciudad',
+      });
+      return;
+    }
     await action({
       ...data,
       id_ciudad: Number(ciudad),
@@ -102,7 +111,7 @@ export const EscolaForm: FC<Props> = ({ action, initialValues, buttonText }) => 
       <div className="grid grid-cols-2">
         <div className="flex flex-col gap-10 px-10">
           <div className="flex gap-4">
-            <div className='w-11/12 flex flex-col'>
+            <div className="w-11/12 flex flex-col">
               <Input
                 bordered
                 labelPlaceholder="Nombre"
@@ -151,7 +160,10 @@ export const EscolaForm: FC<Props> = ({ action, initialValues, buttonText }) => 
             bordered
             labelPlaceholder="Fecha de fundación"
             type="date"
-            initialValue={initialValues?.fecha_fundacion.toString() ?? new Date().toISOString().split('T')[0]}
+            initialValue={
+              initialValues?.fecha_fundacion.toString() ??
+              new Date().toISOString().split('T')[0]
+            }
             color={errors.fecha_fundacion ? 'error' : 'primary'}
             {...register('fecha_fundacion', { required: true })}
             helperText={
@@ -168,7 +180,7 @@ export const EscolaForm: FC<Props> = ({ action, initialValues, buttonText }) => 
             labelPlaceholder="Dirección"
             clearable
             initialValue={initialValues?.nombre ?? ''}
-            color={errors.nombre ? 'error' : 'primary'}
+            color={errors.direccion_sede ? 'error' : 'primary'}
             {...register('direccion_sede', { required: true })}
             helperText={
               errors.direccion_sede?.type === 'required' &&
@@ -180,9 +192,8 @@ export const EscolaForm: FC<Props> = ({ action, initialValues, buttonText }) => 
             bordered
             labelPlaceholder="Número"
             clearable
-            type="number"
             initialValue={initialValues?.numero.toString()}
-            color={errors.nombre ? 'error' : 'primary'}
+            color={errors.numero ? 'error' : 'primary'}
             {...register('numero', { required: true })}
             helperText={
               errors.numero?.type === 'required'
@@ -196,7 +207,7 @@ export const EscolaForm: FC<Props> = ({ action, initialValues, buttonText }) => 
             labelPlaceholder="CEP"
             clearable
             initialValue={initialValues?.nombre ?? ''}
-            color={errors.nombre ? 'error' : 'primary'}
+            color={errors.cep ? 'error' : 'primary'}
             {...register('cep', { required: true })}
             helperText={
               errors.cep?.type === 'required' && 'El CEP es requerido'
@@ -206,21 +217,23 @@ export const EscolaForm: FC<Props> = ({ action, initialValues, buttonText }) => 
           {loading ? (
             <Loading />
           ) : (
-            <Select
-              options={data.lugares.items.map((lugar) => ({
-                label: lugar.nombre,
-                value: lugar.id.toString(),
-              }))}
-              label="Ciudad"
-              selected={ciudad}
-              setSelected={setCiudad}
-              error={!!errors.id_ciudad}
-            />
-          )}
-          {errors.id_ciudad && (
-            <span className="text-error">
-              {(errors.id_ciudad.message as string) ?? ''}
-            </span>
+            <div>
+              <Select
+                options={data.lugares.items.map((lugar) => ({
+                  label: lugar.nombre,
+                  value: lugar.id.toString(),
+                }))}
+                label="Ciudad"
+                selected={ciudad}
+                setSelected={setCiudad}
+                error={!!errors.id_ciudad}
+              />
+              {errors.id_ciudad && (
+                <span className="text-error">
+                  {(errors.id_ciudad.message as string) ?? ''}
+                </span>
+              )}
+            </div>
           )}
         </div>
       </div>
