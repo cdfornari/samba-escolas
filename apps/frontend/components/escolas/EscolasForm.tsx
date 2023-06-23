@@ -45,7 +45,7 @@ export const EscolaForm: FC<Props> = ({ action, initialValues }) => {
       direccion_sede: initialValues?.direccion_sede ?? '',
       numero: initialValues?.numero,
       cep: initialValues?.cep ?? '',
-      fecha_fundacion: initialValues?.fecha_fundacion.toString().slice(0,10) ?? '',
+      fecha_fundacion: initialValues?.fecha_fundacion.toString() ?? '',
       resumen_historico: initialValues?.resumen_historico ?? '',
     },
   });
@@ -149,7 +149,7 @@ export const EscolaForm: FC<Props> = ({ action, initialValues }) => {
             bordered
             labelPlaceholder="Fecha de fundación"
             type="date"
-            initialValue={initialValues?.fecha_fundacion.toString().slice(0,10) ?? ''}
+            initialValue={initialValues?.fecha_fundacion.toString() ?? ''}
             color={errors.fecha_fundacion ? 'error' : 'primary'}
             {...register('fecha_fundacion', { required: true })}
             helperText={
