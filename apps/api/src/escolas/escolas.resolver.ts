@@ -59,7 +59,7 @@ export class EscolasResolver {
   updateEscola(
     @Args('updateEscolaInput') updateEscolaInput: UpdateEscolaInput,
   ) {
-    return this.escolasService.update(updateEscolaInput.id, updateEscolaInput);
+    return this.escolasService.update(updateEscolaInput);
   }
 
   @Mutation(() => Escola)

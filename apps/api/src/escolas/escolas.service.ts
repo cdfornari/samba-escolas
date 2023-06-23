@@ -37,8 +37,15 @@ export class EscolasService {
     return `This action returns a #${id} escola`;
   }
 
-  update(id: number, updateEscolaInput: UpdateEscolaInput) {
-    return `This action updates a #${id} escola`;
+  async update(updateEscolaInput: UpdateEscolaInput) {
+    const { id, ...dto } = updateEscolaInput;
+    return (
+      await this.queryService.update(
+        'escuelas_samba',
+        dto,
+        `id = ${id}`,
+      )
+    )[0][0];
   }
 
   remove(id: number) {
