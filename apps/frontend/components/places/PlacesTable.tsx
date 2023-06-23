@@ -103,7 +103,7 @@ export const PlacesTable = () => {
         </Table>
         <Pagination
           page={page}
-          perPage={page === 1 ? data?.lugares.items.length : 5}
+          perPage={page === 1 ? data?.lugares.items.length : 15}
           setPage={setPage}
           totalPages={data?.lugares.numberOfPages ?? 0}
           totalItems={data?.lugaresCount ?? 0}
