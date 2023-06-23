@@ -2,9 +2,11 @@ import { InputType, Int, Field } from '@nestjs/graphql';
 import {
   IsBoolean,
   IsDate,
+  IsInt,
   IsNotEmpty,
   IsNumber,
   IsOptional,
+  IsPositive,
   IsString,
 } from 'class-validator';
 
@@ -48,5 +50,8 @@ export class CreateEscolaInput {
   @Field(() => Boolean, { nullable: true })
   gres: boolean;
 
-  //TODO: CIUDAD
+  @IsInt()
+  @IsPositive()
+  @Field(() => Int)
+  id_ciudad: number;
 }
