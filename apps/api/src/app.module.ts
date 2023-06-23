@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { EscolasModule } from './escolas/escolas.module';
 import { CommonModule } from './common/common.module';
 import { LugaresModule } from './lugares/lugares.module';
+import { IntegrantesModule } from './integrantes/integrantes.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { LugaresModule } from './lugares/lugares.module';
     CommonModule,
     EscolasModule,
     LugaresModule,
+    IntegrantesModule,
   ],
   controllers: [],
   providers: [],
