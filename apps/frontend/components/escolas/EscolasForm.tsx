@@ -46,7 +46,7 @@ export const EscolaForm: FC<Props> = ({ action, initialValues, buttonText }) => 
       direccion_sede: initialValues?.direccion_sede ?? '',
       numero: initialValues?.numero,
       cep: initialValues?.cep ?? '',
-      fecha_fundacion: initialValues?.fecha_fundacion.toString() ?? '',
+      fecha_fundacion: initialValues?.fecha_fundacion.toString() ?? new Date().toISOString().split('T')[0],
       resumen_historico: initialValues?.resumen_historico ?? '',
     },
   });
@@ -90,6 +90,7 @@ export const EscolaForm: FC<Props> = ({ action, initialValues, buttonText }) => 
     await action({
       ...data,
       id_ciudad: Number(ciudad),
+      numero: Number(numero),
       gres,
     });
   };
@@ -150,7 +151,7 @@ export const EscolaForm: FC<Props> = ({ action, initialValues, buttonText }) => 
             bordered
             labelPlaceholder="Fecha de fundación"
             type="date"
-            initialValue={initialValues?.fecha_fundacion.toString() ?? ''}
+            initialValue={initialValues?.fecha_fundacion.toString() ?? new Date().toISOString().split('T')[0]}
             color={errors.fecha_fundacion ? 'error' : 'primary'}
             {...register('fecha_fundacion', { required: true })}
             helperText={
