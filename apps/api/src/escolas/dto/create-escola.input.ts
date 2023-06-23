@@ -2,6 +2,7 @@ import { InputType, Int, Field } from '@nestjs/graphql';
 import {
   IsBoolean,
   IsDate,
+  IsDateString,
   IsInt,
   IsNotEmpty,
   IsNumber,
@@ -9,6 +10,7 @@ import {
   IsPositive,
   IsString,
 } from 'class-validator';
+import { DateScalar } from 'src/common/scalars/date.scalar';
 
 @InputType()
 export class CreateEscolaInput {
@@ -36,8 +38,8 @@ export class CreateEscolaInput {
   @Field(() => String)
   cep: string;
 
-  @IsDate()
-  @Field(() => Date)
+  @IsDateString()
+  @Field(() => DateScalar)
   fecha_fundacion: Date;
 
   @IsString()
