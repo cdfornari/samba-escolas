@@ -16,18 +16,25 @@ export class IntegrantesService {
   private tableName = 'integrantes';
 
   create(input: CreateIntegranteInput) {
-    return 'This action adds a new integrante';
+    return this.crudService.create(this.tableName, input);
   }
 
-  findAll(pagination: PaginationArgs) {
-    this.crudService.findAll(this.tableName, pagination);
+  async findAll(pagination: PaginationArgs): Promise<Integrante[]> {
+    return this.crudService.findAll(this.tableName, pagination);
+  }
+
+  async count(): Promise<number> {
+    return this.queryService.count(this.tableName);
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} integrante`;
+    return this.crudService.findOne(this.tableName, id);
   }
 
-  update(input: UpdateIntegranteInput) {}
+  update(input: UpdateIntegranteInput) {
+    const { id, ...dto } = input;
+    return this.crudService.updateOne(this.tableName, id, dto);
+  }
 
   remove(id: number) {
     return `This action removes a #${id} integrante`;

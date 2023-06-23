@@ -3,6 +3,9 @@ import { IntegrantesService } from './integrantes.service';
 import { Integrante } from './entities/integrante.entity';
 import { CreateIntegranteInput } from './dto/create-integrante.input';
 import { UpdateIntegranteInput } from './dto/update-integrante.input';
+import { PaginationArgs } from 'src/common/dto/args/pagination.args';
+import { IntegrantesPaginationType } from './types/integrantes-pagination.type';
+import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 
 @Resolver(() => Integrante)
 export class IntegrantesResolver {
@@ -15,9 +18,16 @@ export class IntegrantesResolver {
     return this.integrantesService.create(createIntegranteInput);
   }
 
-  @Query(() => [Integrante], { name: 'integrantes' })
-  findAll() {
-    return this.integrantesService.findAll();
+  @Query(() => IntegrantesPaginationType, { name: 'integrantes' })
+  async findAll(@Args() pagination: PaginationArgs) {
+    const [items, count] = await Promise.all([
+      this.integrantesService.findAll(pagination),
+      this.integrantesService.count(),
+    ]);
+    return {
+      items,
+      numberOfPages: getNumberOfPages(pagination, count),
+    };
   }
 
   @Query(() => Integrante, { name: 'integrante' })
