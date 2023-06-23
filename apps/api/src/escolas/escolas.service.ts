@@ -3,30 +3,24 @@ import { CreateEscolaInput } from './dto/create-escola.input';
 import { UpdateEscolaInput } from './dto/update-escola.input';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { QueryService } from 'src/common/services/query.service';
+import { CRUDService } from 'src/common/services/crud.service';
 import { Escola } from './entities/escola.entity';
 
 @Injectable()
 export class EscolasService {
-  constructor(private readonly queryService: QueryService) {}
+  constructor(
+    private readonly queryService: QueryService,
+    private readonly crudService: CRUDService,
+  ) {}
 
   private tableName = 'escuelas_samba';
 
   async create(input: CreateEscolaInput) {
-    let fields = Object.keys(input);
-    let values = Object.values(input);
-    fields = fields.filter((field) => !!input[field]);
-    values = values.filter((value) => !!value);
-    return (await this.queryService.insert(this.tableName, fields, values))[0];
+    return this.crudService.create(this.tableName, input);
   }
 
   async findAll(pagination: PaginationArgs): Promise<Escola[]> {
-    return this.queryService.select<Escola[]>(
-      this.tableName,
-      null,
-      null,
-      null,
-      pagination,
-    );
+    return this.crudService.findAll(this.tableName, pagination);
   }
 
   async count(): Promise<number> {
@@ -34,16 +28,12 @@ export class EscolasService {
   }
 
   async findOne(id: number) {
-    return (
-      await this.queryService.select(this.tableName, null, `id = ${id}`)
-    )[0];
+    return this.crudService.findOne(this.tableName, id);
   }
 
   async update(input: UpdateEscolaInput) {
     const { id, ...dto } = input;
-    return (
-      await this.queryService.update(this.tableName, dto, `id = ${id}`)
-    )[0][0];
+    return this.crudService.updateOne(this.tableName, id, dto);
   }
 
   remove(id: number) {

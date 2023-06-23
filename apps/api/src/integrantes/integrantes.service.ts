@@ -4,10 +4,14 @@ import { UpdateIntegranteInput } from './dto/update-integrante.input';
 import { QueryService } from 'src/common/services/query.service';
 import { Integrante } from './entities/integrante.entity';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
+import { CRUDService } from 'src/common/services/crud.service';
 
 @Injectable()
 export class IntegrantesService {
-  constructor(private readonly queryService: QueryService) {}
+  constructor(
+    private readonly queryService: QueryService,
+    private readonly crudService: CRUDService,
+  ) {}
 
   private tableName = 'integrantes';
 
@@ -16,13 +20,7 @@ export class IntegrantesService {
   }
 
   findAll(pagination: PaginationArgs) {
-    return this.queryService.select<Integrante[]>(
-      this.tableName,
-      null,
-      null,
-      null,
-      pagination,
-    );
+    this.crudService.findAll(this.tableName, pagination);
   }
 
   findOne(id: number) {
