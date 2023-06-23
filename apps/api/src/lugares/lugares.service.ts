@@ -10,15 +10,17 @@ import { LugaresFilterArgs } from './types/lugares-filter.args';
 export class LugaresService {
   constructor(private readonly queryService: QueryService) {}
 
-  async create(createLugaresInput: CreateLugaresInput): Promise<Lugar> {
-    let fields = Object.keys(createLugaresInput);
-    let values = Object.values(createLugaresInput);
-    fields = fields.filter((field) => !!createLugaresInput[field]);
+  private tableName = 'lugares_geo';
+
+  async create(input: CreateLugaresInput): Promise<Lugar> {
+    let fields = Object.keys(input);
+    let values = Object.values(input);
+    fields = fields.filter((field) => !!input[field]);
     values = values.filter((value) => !!value);
-    const { tipo, id_padre_lugar } = createLugaresInput;
+    const { tipo, id_padre_lugar } = input;
     if (tipo !== 'region' && !id_padre_lugar)
       throw new BadRequestException('id del padre requerido');
-    return (await this.queryService.insert('lugares_geo', fields, values))[0];
+    return (await this.queryService.insert(this.tableName, fields, values))[0];
   }
 
   async findAll(
@@ -26,7 +28,7 @@ export class LugaresService {
     filter: LugaresFilterArgs,
   ): Promise<Lugar[]> {
     return this.queryService.select<Lugar[]>(
-      'lugares_geo',
+      this.tableName,
       null,
       `${filter.tipo ? `tipo = '${filter.tipo}'` : ''}`,
       null,
@@ -40,15 +42,15 @@ export class LugaresService {
 
   async findOne(id: number): Promise<Lugar> {
     return (
-      await this.queryService.select('lugares_geo', null, `id = ${id}`)
+      await this.queryService.select(this.tableName, null, `id = ${id}`)
     )[0];
   }
 
-  async update(updateLugaresInput: UpdateLugaresInput): Promise<Lugar> {
-    const { id, ...dto } = updateLugaresInput;
+  async update(input: UpdateLugaresInput): Promise<Lugar> {
+    const { id, ...dto } = input;
     return (
       await this.queryService.update(
-        'lugares_geo',
+        this.tableName,
         dto,
         `id = ${id}`,
       )

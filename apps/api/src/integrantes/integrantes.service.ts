@@ -9,13 +9,15 @@ import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 export class IntegrantesService {
   constructor(private readonly queryService: QueryService) {}
 
-  create(createIntegranteInput: CreateIntegranteInput) {
+  private tableName = 'integrantes';
+
+  create(input: CreateIntegranteInput) {
     return 'This action adds a new integrante';
   }
 
   findAll(pagination: PaginationArgs) {
     return this.queryService.select<Integrante[]>(
-      'integrantes',
+      this.tableName,
       null,
       null,
       null,
@@ -27,7 +29,7 @@ export class IntegrantesService {
     return `This action returns a #${id} integrante`;
   }
 
-  update(updateIntegranteInput: UpdateIntegranteInput) {}
+  update(input: UpdateIntegranteInput) {}
 
   remove(id: number) {
     return `This action removes a #${id} integrante`;

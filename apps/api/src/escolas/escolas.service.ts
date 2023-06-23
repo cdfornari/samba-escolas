@@ -9,19 +9,19 @@ import { Escola } from './entities/escola.entity';
 export class EscolasService {
   constructor(private readonly queryService: QueryService) {}
 
-  async create(createEscolaInput: CreateEscolaInput) {
-    let fields = Object.keys(createEscolaInput);
-    let values = Object.values(createEscolaInput);
-    fields = fields.filter((field) => !!createEscolaInput[field]);
+  private tableName = 'escuelas_samba';
+
+  async create(input: CreateEscolaInput) {
+    let fields = Object.keys(input);
+    let values = Object.values(input);
+    fields = fields.filter((field) => !!input[field]);
     values = values.filter((value) => !!value);
-    return (
-      await this.queryService.insert('escuelas_samba', fields, values)
-    )[0];
+    return (await this.queryService.insert(this.tableName, fields, values))[0];
   }
 
   async findAll(pagination: PaginationArgs): Promise<Escola[]> {
     return this.queryService.select<Escola[]>(
-      'escuelas_samba',
+      this.tableName,
       null,
       null,
       null,
@@ -30,19 +30,19 @@ export class EscolasService {
   }
 
   async count(): Promise<number> {
-    return this.queryService.count('escuelas_samba');
+    return this.queryService.count(this.tableName);
   }
 
   async findOne(id: number) {
     return (
-      await this.queryService.select('escuelas_samba', null, `id = ${id}`)
+      await this.queryService.select(this.tableName, null, `id = ${id}`)
     )[0];
   }
 
-  async update(updateEscolaInput: UpdateEscolaInput) {
-    const { id, ...dto } = updateEscolaInput;
+  async update(input: UpdateEscolaInput) {
+    const { id, ...dto } = input;
     return (
-      await this.queryService.update('escuelas_samba', dto, `id = ${id}`)
+      await this.queryService.update(this.tableName, dto, `id = ${id}`)
     )[0][0];
   }
 
