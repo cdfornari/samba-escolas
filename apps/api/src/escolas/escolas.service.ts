@@ -41,7 +41,6 @@ export class EscolasService {
 
   async update(updateEscolaInput: UpdateEscolaInput) {
     const { id, ...dto } = updateEscolaInput;
-    console.log(dto.fecha_fundacion)
     return (
       await this.queryService.update('escuelas_samba', dto, `id = ${id}`)
     )[0][0];
