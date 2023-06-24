@@ -31,3 +31,11 @@ export const UPDATE_ESCOLA = gql`
     }
   }
 `;
+
+export const UPDATE_INTEGRANTE = gql`
+  mutation UPDATE_INTEGRANTE($updateIntegranteInput: UpdateIntegranteInput!) {
+    updateIntegrante(updateIntegranteInput: $updateIntegranteInput) {
+      id
+    }
+  }
+`;
