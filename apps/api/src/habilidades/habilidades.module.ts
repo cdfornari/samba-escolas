@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { CommonModule } from 'src/common/common.module';
-import { HabilidadService } from './habilidades.service';
+import { HabilidadesService } from './habilidades.service';
+import { HabilidadesResolver } from './habilidades.resolver';
 
 @Module({
-  providers: [HabilidadService]
+  imports: [CommonModule],
+  providers: [HabilidadesResolver, HabilidadesService],
 })
 export class HabilidadesModule {
-    imports: [CommonModule]
 }

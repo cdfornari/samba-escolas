@@ -7,7 +7,7 @@ import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { UpdateHabilidadesInput } from './dto/update-habilidad.input';
 
 @Injectable()
-export class HabilidadService {
+export class HabilidadesService {
     constructor(
         private readonly queryService: QueryService,
         private readonly crudService: CRUDService,

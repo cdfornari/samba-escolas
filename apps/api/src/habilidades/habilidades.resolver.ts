@@ -1,5 +1,5 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
-import { HabilidadService } from './habilidades.service';
+import { HabilidadesService } from './habilidades.service';
 import { Habilidad } from './entities/habilidad.entity';
 import { CreateHabilidadInput } from './dto/create-habilidad.input';
 import { UpdateHabilidadesInput } from './dto/update-habilidad.input';
@@ -8,8 +8,8 @@ import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { HabilidadPaginationType } from './types/habilidades-pagination.type';
 
 @Resolver(() => Habilidad)
-export class SambasResolver {
-  constructor(private readonly habilidadService: HabilidadService) {}
+export class HabilidadesResolver {
+  constructor(private readonly habilidadService: HabilidadesService) {}
 
   @Mutation(() => Habilidad)
   createIntegrante(
