@@ -16,7 +16,7 @@ export class RolesResolver {
     return this.rolesService.create(createRoleInput);
   }
 
-  @Query(() => RolesPaginationType, { name: 'integrantes' })
+  @Query(() => RolesPaginationType, { name: 'roles' })
   async findAll(@Args() pagination: PaginationArgs) {
     const [items, count] = await Promise.all([
       this.rolesService.findAll(pagination),
