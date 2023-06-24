@@ -1,9 +1,9 @@
 import { IsInt, IsPositive } from 'class-validator';
-import { CreateEscolaInput } from './create-escola.input';
+import { CreatePremioInput } from './create-premio.input';
 import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
 
 @InputType()
-export class UpdateEscolaInput extends PartialType(CreateEscolaInput) {
+export class UpdatePremioInput extends PartialType(CreatePremioInput) {
   
   @IsInt()
   @IsPositive()

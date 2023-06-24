@@ -1,6 +1,6 @@
 'use client';
-import { FC, useEffect } from 'react';
-import { Button, Input } from '@nextui-org/react';
+import { FC, useEffect, useMemo, useState } from 'react';
+import { Button, Input, Radio } from '@nextui-org/react';
 import { useForm } from 'react-hook-form';
 import { Integrante } from '../../interfaces';
 
@@ -34,6 +34,7 @@ export const IntegranteForm: FC<Props> = ({
     register,
     handleSubmit,
     watch,
+    resetField,
     formState: { errors },
   } = useForm<DTO>({
     defaultValues: {
@@ -42,26 +43,70 @@ export const IntegranteForm: FC<Props> = ({
       apellido1: initialValues?.apellido1,
       apellido2: initialValues?.apellido2,
       apodo: initialValues?.apodo,
-      fecha_nacimiento: initialValues?.fecha_nacimiento,
-      genero: initialValues?.genero,
+      fecha_nacimiento: initialValues?.fecha_nacimiento.toString(),
       nacionalidad: initialValues?.nacionalidad,
       rg: initialValues?.rg,
     },
   });
+  const [genero, setGenero] = useState(initialValues?.genero);
   const fecha = watch('fecha_nacimiento');
+  const rg = watch('rg');
+  const age = useMemo(() => {
+    const birthdate = new Date(fecha);
+    const diffMs = Date.now() - birthdate.getTime();
+    const diffYears = diffMs / (1000 * 60 * 60 * 24 * 365);
+    const age = Math.round(diffYears);
+    if (age < 12) {
+      resetField('rg');
+      clearErrors('rg');
+    }
+    return age;
+  }, [fecha]);
+  useEffect(() => {
+    if (!rg) return;
+    if (rg.length !== 10 || !new RegExp(/[a-zA-Z0-9]{8}[-]{1}[0-9|X|x]{1}$/).test(rg)) {
+      setError('rg', {
+        type: 'manual',
+        message:
+          'El RG no es valido, ingresa los 8 dígitos y el dígito verificador sin puntos (12345678-X)',
+      });
+      return;
+    }
+    clearErrors('rg');
+  }, [rg]);
+  useEffect(() => {
+    if (genero) clearErrors('genero');
+  }, [genero]);
   useEffect(() => {
     if (new Date(fecha) > new Date()) {
       setError('fecha_nacimiento', {
         type: 'manual',
-        message: 'La fecha no puede ser mayor a la actual',
+        message: 'La fecha de nacimiento no puede ser mayor a la actual',
       });
       return;
     }
     clearErrors('fecha_nacimiento');
   }, [fecha]);
   const onSubmit = async (data: DTO) => {
+    if (!genero) {
+      setError('genero', {
+        type: 'manual',
+        message: 'El genero es requerido',
+      });
+      return;
+    }
+    if (age >= 12) {
+      if (!data.rg) {
+        setError('rg', {
+          type: 'manual',
+          message: 'El RG es requerido para personas a partir de 12 años',
+        });
+        return;
+      }
+    }
     await action({
       ...data,
+      genero,
     });
   };
   return (
@@ -120,6 +165,60 @@ export const IntegranteForm: FC<Props> = ({
           />
           <Input
             bordered
+            labelPlaceholder="Apodo"
+            clearable
+            initialValue={initialValues?.apodo ?? ''}
+            color={errors.apodo ? 'error' : 'primary'}
+            {...register('apodo')}
+          />
+        </div>
+        <div className="flex flex-col gap-10 px-10">
+          <Radio.Group
+            orientation="horizontal"
+            label="Género"
+            value={genero}
+            onChange={(value) => setGenero(value as 'M' | 'F')}
+            size="sm"
+            validationState={!errors.genero ? 'valid' : 'invalid'}
+          >
+            <Radio value="M" color="primary">
+              Masculino
+            </Radio>
+            <Radio value="F" color="primary">
+              Femenino
+            </Radio>
+            {errors.genero && (
+              <span className="text-error">
+                {(errors.genero.message as string) ?? ''}
+              </span>
+            )}
+          </Radio.Group>
+          <Input
+            bordered
+            labelPlaceholder="Registro general"
+            clearable
+            initialValue={initialValues?.rg ?? ''}
+            color={errors.rg ? 'error' : 'primary'}
+            {...register('rg')}
+            helperText={errors.rg?.message}
+            helperColor="error"
+            disabled={age < 12}
+          />
+          <Input
+            bordered
+            labelPlaceholder="Nacionalidad"
+            clearable
+            initialValue={initialValues?.nacionalidad}
+            color={errors.nacionalidad ? 'error' : 'primary'}
+            {...register('nacionalidad', { required: true })}
+            helperColor="error"
+            helperText={
+              errors.nacionalidad?.type === 'required' &&
+              'La nacionalidad es requerida'
+            }
+          />
+          <Input
+            bordered
             labelPlaceholder="Fecha de nacimiento"
             type="date"
             initialValue={
@@ -134,26 +233,6 @@ export const IntegranteForm: FC<Props> = ({
                 : errors.fecha_nacimiento?.message
             }
             helperColor="error"
-          />
-        </div>
-        <div className="flex flex-col gap-10 px-10">
-          <Input
-            bordered
-            labelPlaceholder="Registro general"
-            clearable
-            initialValue={initialValues?.rg ?? ''}
-            color={errors.rg ? 'error' : 'primary'}
-            {...register('rg', { required: true })}
-            helperText={errors.rg?.message}
-            helperColor="error"
-          />
-          <Input
-            bordered
-            labelPlaceholder="Nacionalidad"
-            clearable
-            initialValue={initialValues?.nacionalidad}
-            color={errors.nacionalidad ? 'error' : 'primary'}
-            {...register('nacionalidad', { required: true })}
           />
         </div>
       </div>

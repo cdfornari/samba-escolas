@@ -10,6 +10,7 @@ import { CommonModule } from './common/common.module';
 import { LugaresModule } from './lugares/lugares.module';
 import { IntegrantesModule } from './integrantes/integrantes.module';
 import { RolesModule } from './roles/roles.module';
+import { PremiosModule } from './premios/premios.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { RolesModule } from './roles/roles.module';
     LugaresModule,
     IntegrantesModule,
     RolesModule,
+    PremiosModule,
   ],
   controllers: [],
   providers: [],
