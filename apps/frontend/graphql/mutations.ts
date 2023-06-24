@@ -32,6 +32,14 @@ export const UPDATE_ESCOLA = gql`
   }
 `;
 
+export const CREATE_INTEGRANTE = gql`
+  mutation CREATE_INTEGRANTE($createIntegranteInput: CreateIntegranteInput!) {
+    createIntegrante(createIntegranteInput: $createIntegranteInput) {
+      id
+    }
+  }
+`;
+
 export const UPDATE_INTEGRANTE = gql`
   mutation UPDATE_INTEGRANTE($updateIntegranteInput: UpdateIntegranteInput!) {
     updateIntegrante(updateIntegranteInput: $updateIntegranteInput) {
