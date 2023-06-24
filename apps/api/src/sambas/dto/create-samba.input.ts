@@ -17,7 +17,7 @@ export class CreateSambaInput {
 
   @IsInt()
   @IsPositive()
-  @Field()
+  @Field(() => Int)
   anual_carnv : number;
 
   @IsIn(['enredo','deco','emablo','marchinha','frevo','maracatu','reggae'])
