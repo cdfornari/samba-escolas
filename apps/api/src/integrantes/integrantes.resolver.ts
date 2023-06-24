@@ -30,6 +30,11 @@ export class IntegrantesResolver {
     };
   }
 
+  @Query(() => Int, { name: 'integrantesCount' })
+  count() {
+    return this.integrantesService.count();
+  }
+
   @Query(() => Integrante, { name: 'integrante' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.integrantesService.findOne(id);
