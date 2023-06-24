@@ -7,6 +7,7 @@ import {
   IsString,
 } from 'class-validator';
 import { DateScalar } from 'src/common/scalars/date.scalar';
+import { GenderTypeEnum } from '../enums/gender.enum';
 
 @InputType()
 export class CreateIntegranteInput {
@@ -43,8 +44,8 @@ export class CreateIntegranteInput {
   nacionalidad?: string;
 
   @IsIn(['M', 'F'])
-  @Field()
-  genero: string;
+  @Field(() => GenderTypeEnum)
+  genero: GenderTypeEnum;
 
   @IsString()
   @IsOptional()
