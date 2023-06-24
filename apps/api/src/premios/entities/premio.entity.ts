@@ -1,4 +1,5 @@
 import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
+import { PremioTypeEnum } from '../enums/tipo-premio.enum';
 
 @ObjectType()
 export class Premio {
@@ -9,8 +10,8 @@ export class Premio {
   @Field()
   nombre: string;
 
-  @Field()
-  tipo: string;
+  @Field( () => PremioTypeEnum)
+  tipo: PremioTypeEnum;
 
   @Field()
   descripcion: string;
