@@ -1,11 +1,11 @@
 import { registerEnumType } from '@nestjs/graphql';
 
-export enum GenreTypeEnum {
+export enum GenderTypeEnum {
   M = 'M',
   F = 'F',
 }
 
-registerEnumType(GenreTypeEnum, {
-  name: 'GenreType',
+registerEnumType(GenderTypeEnum, {
+  name: 'GenderType',
   description: 'Géneros de integrantes',
 });
