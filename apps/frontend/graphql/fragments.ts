@@ -19,3 +19,18 @@ export const LugaresFragment = gql`
     tipo
   }
 `;
+
+export const IntegranteFragment = gql`
+  fragment IntegranteFragment on Integrante {
+    id
+    nombre1
+    nombre2
+    apellido1
+    apellido2
+    fecha_nacimiento
+    genero
+    apodo
+    nacionalidad
+    rg
+  }
+`;

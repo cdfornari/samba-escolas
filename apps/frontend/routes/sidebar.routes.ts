@@ -4,6 +4,7 @@ import {
   HomeIcon,
   TrophyIcon,
   UsersIcon,
+  UserIcon,
 } from '@heroicons/react/24/outline';
 
 export const sidebarRoutes = (pathname: string) => [
@@ -12,6 +13,12 @@ export const sidebarRoutes = (pathname: string) => [
     icon: HomeIcon,
     href: '/',
     active: pathname === '/' || pathname.includes('escola'),
+  },
+  {
+    name: 'Integrantes',
+    icon: UserIcon,
+    href: '/integrantes',
+    active: pathname.includes('integrantes'),
   },
   {
     name: 'Premios',
