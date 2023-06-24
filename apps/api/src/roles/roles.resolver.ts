@@ -27,6 +27,12 @@ export class RolesResolver {
       numberOfPages: getNumberOfPages(pagination, count),
     };
   }
+
+  @Query(() => Int, { name: 'rolesCount' })
+  count() {
+    return this.rolesService.count();
+  }
+
   @Query(() => Role, { name: 'role' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.rolesService.findOne(id);
