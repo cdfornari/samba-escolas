@@ -9,6 +9,7 @@ import { EscolasModule } from './escolas/escolas.module';
 import { CommonModule } from './common/common.module';
 import { LugaresModule } from './lugares/lugares.module';
 import { IntegrantesModule } from './integrantes/integrantes.module';
+import { RolesModule } from './roles/roles.module';
 import { PremiosModule } from './premios/premios.module';
 
 @Module({
@@ -32,6 +33,7 @@ import { PremiosModule } from './premios/premios.module';
     EscolasModule,
     LugaresModule,
     IntegrantesModule,
+    RolesModule,
     PremiosModule,
   ],
   controllers: [],
