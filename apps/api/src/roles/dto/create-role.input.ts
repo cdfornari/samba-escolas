@@ -3,7 +3,6 @@ import { IsNotEmpty, IsString, MaxLength } from 'class-validator';
 
 @InputType()
 export class CreateRoleInput {
-  
   @IsString()
   @IsNotEmpty()
   @MaxLength(50)

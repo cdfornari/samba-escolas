@@ -2,7 +2,6 @@ import { ObjectType, Field, Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class Role {
-  
   @Field(() => Int)
   id: number;
 
@@ -11,5 +10,4 @@ export class Role {
 
   @Field()
   descripcion: string;
-
 }

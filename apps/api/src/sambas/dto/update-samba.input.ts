@@ -4,7 +4,6 @@ import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
 
 @InputType()
 export class UpdateSambaInput extends PartialType(CreateSambaInput) {
-  
   @IsInt()
   @IsPositive()
   @Field(() => Int)

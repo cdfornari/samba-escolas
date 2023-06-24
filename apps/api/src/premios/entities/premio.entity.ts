@@ -3,21 +3,18 @@ import { PremioTypeEnum } from '../enums/tipo-premio.enum';
 
 @ObjectType()
 export class Premio {
-  
-  @Field( () => Int)
+  @Field(() => Int)
   id: number;
 
   @Field()
   nombre: string;
 
-  @Field( () => PremioTypeEnum)
+  @Field(() => PremioTypeEnum)
   tipo: PremioTypeEnum;
 
   @Field()
   descripcion: string;
 
-  @Field( () => Int )
+  @Field(() => Int)
   id_lugar: number;
-
-
 }

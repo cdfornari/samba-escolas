@@ -4,7 +4,6 @@ import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
 
 @InputType()
 export class UpdateRoleInput extends PartialType(CreateRoleInput) {
-  
   @IsInt()
   @IsPositive()
   @Field(() => Int)

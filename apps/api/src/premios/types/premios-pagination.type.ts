@@ -1,5 +1,5 @@
-import { Field, Int, ObjectType } from "@nestjs/graphql";
-import { Premio } from "../entities/premio.entity";
+import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { Premio } from '../entities/premio.entity';
 
 @ObjectType()
 export class PremiosPaginationType {

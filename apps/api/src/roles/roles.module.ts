@@ -5,6 +5,6 @@ import { CommonModule } from 'src/common/common.module';
 
 @Module({
   imports: [CommonModule],
-  providers: [RolesResolver, RolesService]
+  providers: [RolesResolver, RolesService],
 })
 export class RolesModule {}

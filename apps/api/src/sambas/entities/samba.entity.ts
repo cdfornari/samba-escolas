@@ -3,19 +3,18 @@ import { SambaTypeEnum } from '../enums/samba.enum';
 
 @ObjectType()
 export class Samba {
+  @Field(() => Int)
+  id: number;
 
-    @Field(() => Int)
-    id: number;
+  @Field()
+  titulo: string;
 
-    @Field()
-    titulo: string;
+  @Field()
+  letra: string;
 
-    @Field()
-    letra: string;
+  @Field(() => Int)
+  anual_carnv: number;
 
-    @Field(() => Int)
-    anual_carnv : number;
-
-    @Field(() => SambaTypeEnum)
-    tipo: SambaTypeEnum;
+  @Field(() => SambaTypeEnum)
+  tipo: SambaTypeEnum;
 }

@@ -10,7 +10,7 @@ export class CreatePremioInput {
   nombre: string;
 
   @IsIn(['integrante', 'escola'])
-  @Field( () => PremioTypeEnum )
+  @Field(() => PremioTypeEnum)
   tipo: PremioTypeEnum;
 
   @IsString()
@@ -20,6 +20,6 @@ export class CreatePremioInput {
 
   @IsInt()
   @IsPositive()
-  @Field( () => Int )
+  @Field(() => Int)
   id_lugar: number;
 }

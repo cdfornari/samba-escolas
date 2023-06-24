@@ -12,7 +12,9 @@ export class PremiosResolver {
   constructor(private readonly premiosService: PremiosService) {}
 
   @Mutation(() => Premio)
-  createPremio(@Args('createPremioInput') createPremioInput: CreatePremioInput) {
+  createPremio(
+    @Args('createPremioInput') createPremioInput: CreatePremioInput,
+  ) {
     return this.premiosService.create(createPremioInput);
   }
 
@@ -39,7 +41,9 @@ export class PremiosResolver {
   }
 
   @Mutation(() => Premio)
-  updatePremio(@Args('updatePremioInput') updatePremioInput: UpdatePremioInput) {
+  updatePremio(
+    @Args('updatePremioInput') updatePremioInput: UpdatePremioInput,
+  ) {
     return this.premiosService.update(updatePremioInput);
   }
 

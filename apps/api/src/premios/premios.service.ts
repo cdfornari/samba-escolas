@@ -8,11 +8,10 @@ import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 
 @Injectable()
 export class PremiosService {
-
   constructor(
     private readonly queryService: QueryService,
     private readonly crudService: CRUDService,
-  ){}
+  ) {}
 
   private tableName = 'premios_especiales';
 
@@ -20,8 +19,8 @@ export class PremiosService {
     return this.crudService.create(this.tableName, createPremioInput);
   }
 
-  async findAll(pagination : PaginationArgs) : Promise<Premio[]> {
-    return this.crudService.findAll(this.tableName,pagination);
+  async findAll(pagination: PaginationArgs): Promise<Premio[]> {
+    return this.crudService.findAll(this.tableName, pagination);
   }
 
   findOne(id: number) {
@@ -36,7 +35,6 @@ export class PremiosService {
   async count(): Promise<number> {
     return this.queryService.count(this.tableName);
   }
-
 
   remove(id: number) {
     return `This action removes a #${id} premio`;

@@ -8,16 +8,15 @@ import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 
 @Injectable()
 export class RolesService {
-
   constructor(
     private readonly crudService: CRUDService,
     private readonly queryService: QueryService,
-  ){}
+  ) {}
 
-  private tableName = 'roles'
+  private tableName = 'roles';
 
   create(createRoleInput: CreateRoleInput) {
-    return this.crudService.create(this.tableName,createRoleInput)
+    return this.crudService.create(this.tableName, createRoleInput);
   }
 
   async findAll(pagination: PaginationArgs): Promise<Role[]> {
@@ -29,7 +28,7 @@ export class RolesService {
   }
 
   findOne(id: number) {
-    return this.crudService.findOne(this.tableName,id);
+    return this.crudService.findOne(this.tableName, id);
   }
 
   update(input: UpdateRoleInput) {
@@ -38,6 +37,6 @@ export class RolesService {
   }
 
   remove(id: number) {
-    return this.crudService.remove(this.tableName,id)
+    return this.crudService.remove(this.tableName, id);
   }
 }

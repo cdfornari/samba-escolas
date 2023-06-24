@@ -5,6 +5,6 @@ import { CommonModule } from 'src/common/common.module';
 
 @Module({
   imports: [CommonModule],
-  providers: [SambasResolver, SambasService]
+  providers: [SambasResolver, SambasService],
 })
 export class SambasModule {}
