@@ -1,6 +1,6 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 import { DateScalar } from 'src/common/scalars/date.scalar';
-import { GenreTypeEnum } from '../enums/genre.enum';
+import { GenderTypeEnum } from '../enums/gender.enum';
 
 @ObjectType()
 export class Integrante {
@@ -28,8 +28,8 @@ export class Integrante {
   @Field()
   nacionalidad: string;
 
-  @Field(() => GenreTypeEnum)
-  genero: GenreTypeEnum;
+  @Field(() => GenderTypeEnum)
+  genero: GenderTypeEnum;
 
   @Field({ nullable: true })
   rg: string;

@@ -5,6 +5,6 @@ import { CommonModule } from 'src/common/common.module';
 
 @Module({
   imports: [CommonModule],
-  providers: [IntegrantesResolver, IntegrantesService]
+  providers: [IntegrantesResolver, IntegrantesService],
 })
 export class IntegrantesModule {}
