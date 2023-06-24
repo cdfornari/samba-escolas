@@ -11,6 +11,7 @@ import { LugaresModule } from './lugares/lugares.module';
 import { IntegrantesModule } from './integrantes/integrantes.module';
 import { RolesModule } from './roles/roles.module';
 import { PremiosModule } from './premios/premios.module';
+import { HabilidadesModule } from './habilidades/habilidades.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { PremiosModule } from './premios/premios.module';
     IntegrantesModule,
     RolesModule,
     PremiosModule,
+    HabilidadesModule,
   ],
   controllers: [],
   providers: [],
