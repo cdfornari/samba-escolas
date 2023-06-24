@@ -21,6 +21,6 @@ export class CreateSambaInput {
   anual_carnv : number;
 
   @IsIn(['enredo','deco','emablo','marchinha','frevo','maracatu','reggae'])
-  @Field()
-  tipo: string;
+  @Field(() => SambaTypeEnum)
+  tipo: SambaTypeEnum;
 }

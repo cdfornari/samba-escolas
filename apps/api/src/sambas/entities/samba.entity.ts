@@ -13,7 +13,7 @@ export class Samba {
     @Field()
     letra: string;
 
-    @Field()
+    @Field(() => Int)
     anual_carnv : number;
 
     @Field(() => SambaTypeEnum)
