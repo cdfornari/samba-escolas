@@ -33,6 +33,11 @@ export class PremiosResolver {
     return this.premiosService.findOne(id);
   }
 
+  @Query(() => Int, { name: 'premiosCount' })
+  count() {
+    return this.premiosService.count();
+  }
+
   @Mutation(() => Premio)
   updatePremio(@Args('updatePremioInput') updatePremioInput: UpdatePremioInput) {
     return this.premiosService.update(updatePremioInput);
