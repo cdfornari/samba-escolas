@@ -77,3 +77,12 @@ export const INTEGRANTES = gql`
   }
   ${IntegranteFragment}
 `;
+
+export const INTEGRANTE = gql`
+  query INTEGRANTE($id: Int!) {
+    integrante(id: $id) {
+      ...IntegranteFragment
+    }
+  }
+  ${IntegranteFragment}
+`;
