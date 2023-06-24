@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useQuery } from '@apollo/client';
 import { Button, Loading, SortDescriptor, Table } from '@nextui-org/react';
-import { ESCOLAS, INTEGRANTES } from '../../graphql';
+import { INTEGRANTES } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Pagination } from '../ui/Pagination';
 import { Integrante } from '../../interfaces/integrante.interface';
@@ -76,8 +76,8 @@ export const IntegrantesTable = () => {
   return (
     <div className="flex h-full flex-col justify-between">
       <div className="flex justify-end py-6 px-10">
-        <Button auto onClick={() => push('/escola/create')}>
-          Crear Escola
+        <Button auto onClick={() => push('/integrantes/create')}>
+          Crear Integrante
         </Button>
       </div>
       <div className="flex h-full flex-col justify-between">
