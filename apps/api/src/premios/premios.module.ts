@@ -5,6 +5,6 @@ import { CommonModule } from 'src/common/common.module';
 
 @Module({
   providers: [PremiosResolver, PremiosService],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class PremiosModule {}
