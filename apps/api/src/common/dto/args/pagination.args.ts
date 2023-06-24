@@ -7,11 +7,11 @@ export class PaginationArgs {
   @IsInt()
   @Min(1)
   @IsOptional()
-  page: number = 1;
+  page = 1;
 
   @Field(() => Int, { nullable: true })
   @IsInt()
   @Min(1)
   @IsOptional()
-  perPage: number = 10;
+  perPage = 10;
 }
