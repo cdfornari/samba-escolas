@@ -13,6 +13,8 @@ import { RolesModule } from './roles/roles.module';
 import { PremiosModule } from './premios/premios.module';
 import { HabilidadesModule } from './habilidades/habilidades.module';
 import { TelefonosModule } from './telefonos/telefonos.module';
+import { ColoresModule } from './colores/colores.module';
+import { JuridicosModule } from './patroc_juridicos/juridico.module';
 
 @Module({
   imports: [
@@ -39,6 +41,8 @@ import { TelefonosModule } from './telefonos/telefonos.module';
     PremiosModule,
     HabilidadesModule,
     TelefonosModule,
+    ColoresModule,
+    JuridicosModule,
   ],
   controllers: [],
   providers: [],

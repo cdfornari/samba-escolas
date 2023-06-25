@@ -42,7 +42,7 @@ export class HabilidadesResolver {
 
   @Mutation(() => Habilidad)
   updateIntegrante(
-    @Args('updateSambaInput') updateHabilidadInput: UpdateHabilidadesInput,
+    @Args('updateHabilidadInput') updateHabilidadInput: UpdateHabilidadesInput,
   ) {
     return this.habilidadService.update(updateHabilidadInput);
   }

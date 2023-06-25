@@ -22,7 +22,7 @@ export class CRUDService {
     return this.queryService.select<T[]>(
       tableName,
       null,
-      filter
+      filter && Object.keys(filter).length > 0
         ? `
         ${Object.keys(filter)
           .map((key) => `${key} = '${filter[key]}'`)

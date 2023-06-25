@@ -102,8 +102,8 @@ export const ROLES = gql`
 `;
 
 export const ROL = gql`
-  query Rol($rolId: Int!) {
-    rol(id: $rolId) {
+  query Rol($id: Int!) {
+    rol(id: $id) {
       ...RolesFragment
     }
   }

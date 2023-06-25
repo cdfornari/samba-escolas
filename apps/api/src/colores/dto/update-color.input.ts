@@ -1,9 +1,9 @@
 import { IsInt, IsPositive } from 'class-validator';
-import { CreateHabilidadInput } from './create-habilidad.input';
+import { CreateColorInput } from './create-color.input';
 import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
 
 @InputType()
-export class UpdateHabilidadesInput extends PartialType(CreateHabilidadInput) {
+export class UpdateColorInput extends PartialType(CreateColorInput) {
   @Field(() => Int)
   @IsInt()
   @IsPositive()
