@@ -16,7 +16,7 @@ export class CRUDService {
 
   async findAll<T, F extends { [key: string]: any; type?: 'OR' | 'AND' }>(
     tableName: string,
-    pagination: PaginationArgs,
+    pagination?: PaginationArgs,
     filter?: F,
   ): Promise<T[]> {
     return this.queryService.select<T[]>(
