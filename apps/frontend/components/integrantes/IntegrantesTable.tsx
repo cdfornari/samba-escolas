@@ -18,6 +18,8 @@ export const integranteTableReducer = (columnKey: any, row: Integrante) => {
       return row.genero === 'M' ? 'Masculino' : 'Femenino';
     case 'rg':
       return `${row.rg ? row.rg : '-'}`;
+    case 'fecha_nacimiento':
+      return new Date(row.fecha_nacimiento).toLocaleDateString();
     default:
       return row[columnKey];
   }
