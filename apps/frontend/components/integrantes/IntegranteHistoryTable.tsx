@@ -174,8 +174,8 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
                           await firePromise(
                             updateIntegranteHistory({
                               variables: {
-                                updateIntegranteHistoryInput: {
-                                  fecha_inicio: row.fecha_inicio,
+                                updateHistoricoIntegranteInput: {
+                                  fecha_inicio: row.fecha_inicio.toString(),
                                   id_escuela: Number(escola),
                                   id_integrante: row.integrante.id,
                                   autoridad: !row.autoridad,
@@ -195,11 +195,11 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
                           await firePromise(
                             updateIntegranteHistory({
                               variables: {
-                                updateIntegranteHistoryInput: {
+                                updateHistoricoIntegranteInput: {
                                   fecha_inicio: row.fecha_inicio,
-                                  id_escuela: escola,
+                                  id_escuela: Number(escola),
                                   id_integrante: row.integrante.id,
-                                  fecha_fin: new Date(),
+                                  fecha_fin: new Date().toString(),
                                 },
                               },
                             }),

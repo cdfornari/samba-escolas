@@ -68,7 +68,7 @@ export class IntegranteHistoryResolver {
 
   @Mutation(() => HistoricoIntegrante)
   updateIntegranteHistory(
-    @Args('updateIntegranteHistoryInput')
+    @Args('updateHistoricoIntegranteInput')
     updateIntegranteHistoryInput: UpdateHistoricoIntegranteInput,
   ) {
     return this.integranteHistoryService.update(updateIntegranteHistoryInput);
