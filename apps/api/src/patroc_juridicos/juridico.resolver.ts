@@ -6,10 +6,15 @@ import { UpdateJuridicoInput } from './dto/update-juridico.input';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { JuridicoPaginationType } from './types/juridicos-pagination.type';
+import { LugaresService } from 'src/lugares/lugares.service';
+import { Lugar } from 'src/lugares/entities/lugar.entity';
 
 @Resolver(() => Juridico)
 export class JuridicosResolver {
-  constructor(private readonly juridicosService: JuridicosService) {}
+  constructor(
+    private readonly juridicosService: JuridicosService,
+    private readonly lugaresService: LugaresService
+    ) {}
 
   @Mutation(() => Juridico)
   createJuridico(
@@ -52,8 +57,8 @@ export class JuridicosResolver {
     return this.juridicosService.remove(id);
   }
 
-  @ResolveField(() => Juridico, { name: 'ciudad' })
-  async getCity(@Parent() juridico: Juridico): Promise<Juridico> {
-    return this.juridicosService.findOne(juridico.id_lugar);
+  @ResolveField(() => Lugar, { name: 'ciudad' })
+  async getCity(@Parent() juridico: Juridico): Promise<Lugar> {
+    return this.lugaresService.findOne(juridico.id_lugar);
   }
 }
