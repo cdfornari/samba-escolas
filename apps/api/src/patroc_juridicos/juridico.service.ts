@@ -37,6 +37,6 @@ export class JuridicosService {
       }
     
       remove(id: number) {
-        return this.crudService.remove(this.tableName, id);
-      }w
+        
+      }
 }

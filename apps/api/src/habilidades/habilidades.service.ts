@@ -37,6 +37,6 @@ export class HabilidadesService {
   }
 
   remove(id: number) {
-    return this.crudService.remove(this.tableName, id);
+    
   }
 }
