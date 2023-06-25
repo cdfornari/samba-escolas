@@ -36,6 +36,36 @@ export class IntegrantesService {
     return this.crudService.updateOne(this.tableName, id, dto);
   }
 
+  async getIntegrantesElegibles() {
+    const integrantesInactivos = await this.queryService.executeRawQuery<
+      Integrante[]
+    >(
+      `SELECT
+        *
+      FROM
+        csd_integrantes
+        JOIN (
+          SELECT id_integrante, MAX(fecha_inicio) as max_date
+          FROM csd_historicos_integrantes
+          GROUP BY id_integrante
+        ) max_date ON id = max_date.id_integrante
+        JOIN csd_historicos_integrantes h 
+          ON h.id_integrante = id 
+            AND h.fecha_inicio = max_date 
+            AND not(h.fecha_fin ISNULL)
+      `,
+    );
+    const integrantesSinHistorico = await this.queryService.executeRawQuery<
+      Integrante[]
+    >(
+      `SELECT * FROM csd_integrantes
+        LEFT JOIN csd_historicos_integrantes h ON id = h.id_integrante
+        WHERE h ISNULL
+      `,
+    );
+    return integrantesSinHistorico.concat(integrantesInactivos);
+  }
+
   remove(id: number) {
     return `This action removes a #${id} integrante`;
   }

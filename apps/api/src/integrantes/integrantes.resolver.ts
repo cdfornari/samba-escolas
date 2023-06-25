@@ -40,6 +40,11 @@ export class IntegrantesResolver {
     return this.integrantesService.findOne(id);
   }
 
+  @Query(() => [Integrante], { name: 'integrantesElegibles' })
+  getIntegrantesElegibles() {
+    return this.integrantesService.getIntegrantesElegibles();
+  }
+
   @Mutation(() => Integrante)
   updateIntegrante(
     @Args('updateIntegranteInput') updateIntegranteInput: UpdateIntegranteInput,
