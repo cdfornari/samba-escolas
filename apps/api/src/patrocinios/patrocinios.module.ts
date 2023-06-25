@@ -16,10 +16,12 @@ import { EscolasResolver } from 'src/escolas/escolas.resolver';
 import { EscolasService } from 'src/escolas/escolas.service';
 
 @Module({
-  imports: [CommonModule, EscolasModule, JuridicosModule, NaturalesModule],
+  imports: [CommonModule, LugaresModule, EscolasModule, JuridicosModule, NaturalesModule],
   providers: [
     PatrociniosResolver,
     PatrociniosService,
+    LugaresResolver,
+    LugaresService,
     EscolasResolver,
     EscolasService,
     JuridicosResolver,
