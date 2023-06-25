@@ -30,18 +30,21 @@ export class IntegranteHistoryService {
       throw new BadRequestException(
         'El integrante ya tiene un historico activo',
       );
-    return this.crudService.create(this.tableName, input);
+    const history = await this.crudService.create<any, any>(this.tableName, {
+      ...input,
+      autoridad: input.autoridad ? 'si' : 'no',
+    });
+    return {
+      ...history,
+      autoridad: history.autoridad === 'si',
+    };
   }
 
   async findAll(
     pagination: PaginationArgs,
     filter: HistoricoIntegranteFilterArgs,
   ) {
-    return this.crudService.findAll(
-      this.tableName,
-      pagination,
-      filter,
-    );
+    return this.crudService.findAll(this.tableName, pagination, filter);
   }
 
   async count(filter?: HistoricoIntegranteFilterArgs): Promise<number> {
