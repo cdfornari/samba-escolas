@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import {
   EscolaFragment,
   IntegranteFragment,
+  IntegranteHistoryFragment,
   LugaresFragment,
   RolesFragment,
 } from './fragments';
@@ -108,4 +109,21 @@ export const ROL = gql`
     }
   }
   ${RolesFragment}
+`;
+
+export const HISTORICOS_INTEGRANTES = gql`
+  query HISTORICOS_INTEGRANTES($page: Int, $perPage: Int, $idEscuela: Int!) {
+    integranteHistories(
+      id_escuela: $idEscuela
+      page: $page
+      perPage: $perPage
+    ) {
+      items {
+        ...IntegranteHistoryFragment
+      }
+      numberOfPages
+    }
+    integranteHistoriesCount(id_escuela: $idEscuela)
+  }
+  ${IntegranteHistoryFragment}
 `;
