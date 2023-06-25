@@ -7,5 +7,5 @@ import { JuridicosResolver } from './juridico.resolver';
   imports: [CommonModule],
   providers: [JuridicosResolver, JuridicosService],
 })
-export class ColoresModule {
+export class JuridicosModule {
 }
