@@ -64,4 +64,11 @@ export class EscolasService {
       id_color,
     });
   }
+
+  async removeColor(id: number, id_color: number) {
+    return this.crudService.delete('escuelas_colores', {
+      id_escuela: id,
+      id_color,
+    });
+  }
 }
