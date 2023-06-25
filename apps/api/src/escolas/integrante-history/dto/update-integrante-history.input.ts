@@ -21,7 +21,7 @@ export class UpdateHistoricoIntegranteInput {
 
   @IsBoolean()
   @IsOptional()
-  @Field()
+  @Field({ nullable: true })
   autoridad?: boolean;
 
   @IsInt()

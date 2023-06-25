@@ -69,13 +69,20 @@ export class IntegranteHistoryService {
 
   async update(input: UpdateHistoricoIntegranteInput) {
     const { fecha_inicio, id_escuela, id_integrante, ...dto } = input;
-    return (
+    const history = (
       await this.queryService.update(
         this.tableName,
-        dto,
+        {
+          ...dto,
+          autoridad: dto.autoridad ? 'si' : 'no',
+        },
         `fecha_inicio = '${fecha_inicio}' AND id_escuela = ${id_escuela} AND id_integrante = ${id_integrante}`,
       )
     )[0][0];
+    return {
+      ...history,
+      autoridad: history.autoridad === 'si',
+    };
   }
 
   remove(id: number) {
