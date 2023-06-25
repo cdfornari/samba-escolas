@@ -89,23 +89,23 @@ export const INTEGRANTE = gql`
 `;
 
 export const ROLES = gql`
-query Roles($page: Int, $perPage: Int) {
-  roles(page: $page, perPage: $perPage) {
-    items {
-      ...RolesFragment 
+  query Roles($page: Int, $perPage: Int) {
+    roles(page: $page, perPage: $perPage) {
+      items {
+        ...RolesFragment
+      }
+      numberOfPages
     }
-    numberOfPages
+    rolesCount
   }
-  rolesCount
-}
   ${RolesFragment}
 `;
 
 export const ROL = gql`
-query Rol($rolId: Int!) {
-  rol(id: $rolId) {
-    ...RolesFragment
+  query Rol($rolId: Int!) {
+    rol(id: $rolId) {
+      ...RolesFragment
+    }
   }
-}
   ${RolesFragment}
 `;

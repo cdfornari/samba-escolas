@@ -13,7 +13,7 @@ export const rolesTableReducer = (columnKey: any, row: Roles) => {
     case 'nombre':
       return `${row.nombre}`;
     case 'descripcion':
-      return `${row.descripcion}`
+      return `${row.descripcion}`;
     default:
       return row[columnKey];
   }
