@@ -16,7 +16,9 @@ export const integranteTableReducer = (
     case 'fecha_inicio':
       return new Date(row.fecha_inicio).toLocaleDateString();
     case 'fecha_fin':
-      return row.fecha_fin ? new Date(row.fecha_fin).toLocaleDateString() : 'Activo';
+      return row.fecha_fin
+        ? new Date(row.fecha_fin).toLocaleDateString()
+        : 'Activo';
     case 'autoridad':
       return row.autoridad ? 'Si' : 'No';
     case 'nombre':
@@ -32,7 +34,7 @@ export const integranteTableReducer = (
     case 'rg':
       return `${row.integrante.rg ? row.integrante.rg : '-'}`;
     case 'nacionalidad':
-        return row.integrante.nacionalidad;
+      return row.integrante.nacionalidad;
     default:
       return row[columnKey];
   }
@@ -102,7 +104,10 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
   return (
     <div className="flex h-full flex-col">
       <div className="flex justify-end py-6 px-10">
-        <Button auto onClick={() => push(`/escola/${escola}/integrantes/create`)}>
+        <Button
+          auto
+          onClick={() => push(`/escola/${escola}/integrantes/create`)}
+        >
           Nuevo histórico
         </Button>
       </div>
@@ -112,7 +117,11 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
           selectionMode="single"
           onSelectionChange={(selection) => {
             if (selection !== 'all' && selection.size > 0) {
-              push(`/escola/${escola}/integrantes/${selection.values().next().value}`);
+              push(
+                `/escola/${escola}/integrantes/${
+                  selection.values().next().value
+                }`
+              );
             }
           }}
           onSortChange={(descriptor: SortDescriptor) =>
