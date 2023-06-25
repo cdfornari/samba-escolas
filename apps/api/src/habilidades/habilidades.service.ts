@@ -8,35 +8,35 @@ import { UpdateHabilidadesInput } from './dto/update-habilidad.input';
 
 @Injectable()
 export class HabilidadesService {
-    constructor(
-        private readonly queryService: QueryService,
-        private readonly crudService: CRUDService,
-      ) {}
+  constructor(
+    private readonly queryService: QueryService,
+    private readonly crudService: CRUDService,
+  ) {}
 
-      private tableName = 'habilidades';
+  private tableName = 'habilidades';
 
-      async create(input: CreateHabilidadInput): Promise<Habilidad> {
-        return this.crudService.create(this.tableName, input);
-      }
+  async create(input: CreateHabilidadInput): Promise<Habilidad> {
+    return this.crudService.create(this.tableName, input);
+  }
 
-      async findAll(pagination: PaginationArgs): Promise<Habilidad[]> {
-        return this.crudService.findAll(this.tableName, pagination);
-      }
+  async findAll(pagination: PaginationArgs): Promise<Habilidad[]> {
+    return this.crudService.findAll(this.tableName, pagination);
+  }
 
-      async count(): Promise<number> {
-        return this.queryService.count(this.tableName);
-      }
-    
-      findOne(id: number) {
-        return this.crudService.findOne(this.tableName, id);
-      }
-    
-      update(input: UpdateHabilidadesInput) {
-        const { id, ...dto } = input;
-        return this.crudService.updateOne(this.tableName, id, dto);
-      }
-    
-      remove(id: number) {
-        return this.crudService.remove(this.tableName, id);
-      }w
+  async count(): Promise<number> {
+    return this.queryService.count(this.tableName);
+  }
+
+  findOne(id: number) {
+    return this.crudService.findOne(this.tableName, id);
+  }
+
+  update(input: UpdateHabilidadesInput) {
+    const { id, ...dto } = input;
+    return this.crudService.updateOne(this.tableName, id, dto);
+  }
+
+  remove(id: number) {
+    return this.crudService.remove(this.tableName, id);
+  }
 }

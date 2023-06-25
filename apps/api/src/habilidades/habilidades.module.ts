@@ -7,5 +7,4 @@ import { HabilidadesResolver } from './habilidades.resolver';
   imports: [CommonModule],
   providers: [HabilidadesResolver, HabilidadesService],
 })
-export class HabilidadesModule {
-}
+export class HabilidadesModule {}

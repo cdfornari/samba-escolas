@@ -10,5 +10,4 @@ export class Habilidad {
 
   @Field(() => String, { nullable: true })
   descripcion: string;
-
 }
