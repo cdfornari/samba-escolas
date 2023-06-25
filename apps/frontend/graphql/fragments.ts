@@ -20,6 +20,14 @@ export const LugaresFragment = gql`
   }
 `;
 
+export const RolesFragment = gql`
+fragment RolesFragment on Role {
+  id
+  nombre
+  descripcion
+}
+`;
+
 export const IntegranteFragment = gql`
   fragment IntegranteFragment on Integrante {
     id

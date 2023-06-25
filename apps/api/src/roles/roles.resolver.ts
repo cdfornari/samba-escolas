@@ -33,7 +33,7 @@ export class RolesResolver {
     return this.rolesService.count();
   }
 
-  @Query(() => Role, { name: 'role' })
+  @Query(() => Role, { name: 'rol' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.rolesService.findOne(id);
   }

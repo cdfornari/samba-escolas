@@ -3,6 +3,7 @@ import {
   EscolaFragment,
   IntegranteFragment,
   LugaresFragment,
+  RolesFragment,
 } from './fragments';
 
 export const ESCOLAS = gql`
@@ -85,4 +86,26 @@ export const INTEGRANTE = gql`
     }
   }
   ${IntegranteFragment}
+`;
+
+export const ROLES = gql`
+query Roles($page: Int, $perPage: Int) {
+  roles(page: $page, perPage: $perPage) {
+    items {
+      ...RolesFragment 
+    }
+    numberOfPages
+  }
+  rolesCount
+}
+  ${RolesFragment}
+`;
+
+export const ROL = gql`
+query Rol($rolId: Int!) {
+  rol(id: $rolId) {
+    ...RolesFragment
+  }
+}
+  ${RolesFragment}
 `;
