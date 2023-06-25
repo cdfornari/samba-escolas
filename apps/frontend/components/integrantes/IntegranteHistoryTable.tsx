@@ -176,7 +176,7 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
                               variables: {
                                 updateIntegranteHistoryInput: {
                                   fecha_inicio: row.fecha_inicio,
-                                  id_escuela: escola,
+                                  id_escuela: Number(escola),
                                   id_integrante: row.integrante.id,
                                   autoridad: !row.autoridad,
                                 },
@@ -184,6 +184,7 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
                             }),
                             'Historico actualizado'
                           );
+                          refetch();
                         }}
                       >
                         <PencilIcon className="h-5 w-5" />
@@ -204,6 +205,7 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
                             }),
                             'Historico actualizado'
                           );
+                          refetch();
                         }}
                       >
                         <XMarkIcon className="h-5 w-5 text-red-500" />

@@ -73,11 +73,9 @@ export class IntegranteHistoryService {
       this.tableName,
       {
         ...dto,
-        autoridad: dto.autoridad ? 'si' : 'no',
+        autoridad: !!dto.autoridad ? 'si' : 'no',
       },
-      `fecha_inicio = '${
-        new Date(fecha_inicio).toISOString().split('T')[0]
-      }' AND id_escuela = ${id_escuela} AND id_integrante = ${id_integrante}`,
+      `fecha_inicio = '${fecha_inicio}' AND id_escuela = ${id_escuela} AND id_integrante = ${id_integrante}`,
     )[0][0];
     return {
       ...history,
