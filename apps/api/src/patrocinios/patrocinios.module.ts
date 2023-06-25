@@ -12,14 +12,16 @@ import { JuridicosResolver } from 'src/patroc_juridicos/juridico.resolver';
 import { JuridicosService } from 'src/patroc_juridicos/juridico.service';
 import { NaturalesResolver } from 'src/patroc_naturales/naturales.resolver';
 import { NaturalesService } from 'src/patroc_naturales/naturales.service';
+import { EscolasResolver } from 'src/escolas/escolas.resolver';
+import { EscolasService } from 'src/escolas/escolas.service';
 
 @Module({
-  imports: [CommonModule, LugaresModule, EscolasModule, JuridicosModule, NaturalesModule],
+  imports: [CommonModule, EscolasModule, JuridicosModule, NaturalesModule],
   providers: [
     PatrociniosResolver,
     PatrociniosService,
-    LugaresResolver,
-    LugaresService,
+    EscolasResolver,
+    EscolasService,
     JuridicosResolver,
     JuridicosService,
     NaturalesResolver,
