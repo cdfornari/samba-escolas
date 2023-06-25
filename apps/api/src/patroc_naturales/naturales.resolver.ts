@@ -12,7 +12,7 @@ export class NaturalesResolver {
   constructor(private readonly naturalesService: NaturalesService) {}
 
   @Mutation(() => Naturales)
-  createIntegrante(
+  createNatural(
     @Args('createNaturalesInput') createNaturalesInput: CreateNaturalesInput,
   ) {
     return this.naturalesService.create(createNaturalesInput);
