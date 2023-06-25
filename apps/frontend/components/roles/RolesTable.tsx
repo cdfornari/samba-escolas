@@ -6,9 +6,9 @@ import { Button, Loading, SortDescriptor, Table } from '@nextui-org/react';
 import { ROLES } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Pagination } from '../ui/Pagination';
-import { Roles } from '../../interfaces/roles.interface';
+import { Role } from '../../interfaces/role.interface';
 
-export const rolesTableReducer = (columnKey: any, row: Roles) => {
+export const rolesTableReducer = (columnKey: any, row: Role) => {
   switch (columnKey) {
     case 'nombre':
       return `${row.nombre}`;
@@ -39,7 +39,7 @@ export const RolesTable = () => {
   const [page, setPage] = useState(1);
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error } = useQuery<{
-    roles: PaginationType<Roles>;
+    roles: PaginationType<Role>;
     rolesCount: number;
   }>(ROLES, {
     variables: {
@@ -59,7 +59,7 @@ export const RolesTable = () => {
     <div className="flex h-full flex-col justify-between">
       <div className="flex justify-end py-6 px-10">
         <Button auto onClick={() => push('/roles/create')}>
-          Crear Roles
+          Crear Rol
         </Button>
       </div>
       <div className="flex h-full flex-col justify-between">

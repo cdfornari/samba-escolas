@@ -50,7 +50,7 @@ export const UPDATE_INTEGRANTE = gql`
 
 export const CREATE_ROL = gql`
   mutation CREATE_ROL($createRoleInput: CreateRoleInput!) {
-    createLugares(createRoleInput: $createRoleInput) {
+    createRole(createRoleInput: $createRoleInput) {
       id
     }
   }
