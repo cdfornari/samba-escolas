@@ -18,12 +18,20 @@ import { Lugar } from 'src/lugares/entities/lugar.entity';
 import { LugaresService } from '../lugares/lugares.service';
 import { PatrocinioFilterArgs } from './types/patrocinio-filter.args';
 import { PatrocinioIdArgs } from './types/patrocinio-id.args';
+import { Escola } from 'src/escolas/entities/escola.entity';
+import { JuridicosService } from 'src/patroc_juridicos/juridico.service';
+import { NaturalesService } from 'src/patroc_naturales/naturales.service';
+import { EscolasService } from 'src/escolas/escolas.service';
+import { Juridico } from 'src/patroc_juridicos/entities/juridico.entity';
+import { Natural } from 'src/patroc_naturales/entities/naturales.entity';
 
 @Resolver(() => Patrocinio)
 export class PatrociniosResolver {
   constructor(
     private readonly patrociniosService: PatrociniosService,
-    private readonly lugaresService: LugaresService,
+    private readonly juridicosService: JuridicosService,
+    private readonly naturalesService: NaturalesService,
+    private readonly escolasService: EscolasService,
   ) {}
 
   @Mutation(() => Patrocinio)
@@ -69,5 +77,20 @@ export class PatrociniosResolver {
   removePatrocinio(@Args() idArgs: PatrocinioIdArgs) {
     const {id} = idArgs
     return this.patrociniosService.remove(id);
+  }
+
+  @ResolveField(() => Escola, { name: 'escola' })
+  getEscuela(@Parent() patrocinio: Patrocinio) {
+    return this.escolasService.findOne(patrocinio.id_escuela);
+  }
+
+  @ResolveField(() => Juridico, { name: 'patroc_juridico' })
+  getJuridico(@Parent() patrocinio: Patrocinio) {
+    return this.juridicosService.findOne(patrocinio.id_jur);
+  }
+
+  @ResolveField(() => Natural, { name: 'patroc_natural' })
+  getNatural(@Parent() patrocinio: Patrocinio) {
+    return this.naturalesService.findOne(patrocinio.id_nat);
   }
 }

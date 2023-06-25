@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CRUDService } from 'src/common/services/crud.service';
 import { QueryService } from 'src/common/services/query.service';
-import { Naturales } from './entities/naturales.entity';
+import { Natural } from './entities/naturales.entity';
 import { CreateNaturalesInput } from './dto/create-naturales.input';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { UpdateNaturalesInput } from './dto/update-naturales.input';
@@ -15,11 +15,11 @@ export class NaturalesService {
 
       private tableName = 'patroc_naturales';
 
-      async create(input: CreateNaturalesInput): Promise<Naturales> {
+      async create(input: CreateNaturalesInput): Promise<Natural> {
         return this.crudService.create(this.tableName, input);
       }
 
-      async findAll(pagination: PaginationArgs): Promise<Naturales[]> {
+      async findAll(pagination: PaginationArgs): Promise<Natural[]> {
         return this.crudService.findAll(this.tableName, pagination);
       }
 

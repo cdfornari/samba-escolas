@@ -1,10 +1,10 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import { Naturales } from '../entities/naturales.entity';
+import { Natural } from '../entities/naturales.entity';
 
 @ObjectType()
 export class NaturalesPaginationType {
-  @Field(() => [Naturales])
-  items: Naturales[];
+  @Field(() => [Natural])
+  items: Natural[];
 
   @Field(() => Int)
   numberOfPages: number;
