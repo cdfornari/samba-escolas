@@ -42,9 +42,9 @@ export class ColoresResolver {
 
   @Mutation(() => Color)
   updateIntegrante(
-    @Args('updateSambaInput') updateHabilidadInput: UpdateColorInput,
+    @Args('updateColorInput') updateColorInput: UpdateColorInput,
   ) {
-    return this.colorService.update(updateHabilidadInput);
+    return this.colorService.update(updateColorInput);
   }
 
   @Mutation(() => Color)
