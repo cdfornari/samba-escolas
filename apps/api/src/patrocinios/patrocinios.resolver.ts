@@ -14,8 +14,6 @@ import { UpdatePatrocinioInput } from './dto/update-patrocinio.input';
 import { PatrocinioPaginationType } from './types/patrocinio-pagination.type';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
-import { Lugar } from 'src/lugares/entities/lugar.entity';
-import { LugaresService } from '../lugares/lugares.service';
 import { PatrocinioFilterArgs } from './types/patrocinio-filter.args';
 import { PatrocinioIdArgs } from './types/patrocinio-id.args';
 import { Escola } from 'src/escolas/entities/escola.entity';
