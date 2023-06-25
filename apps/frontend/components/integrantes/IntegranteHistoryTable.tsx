@@ -102,7 +102,7 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
   return (
     <div className="flex h-full flex-col">
       <div className="flex justify-end py-6 px-10">
-        <Button auto onClick={() => push('/')}>
+        <Button auto onClick={() => push(`/escola/${escola}/integrantes/create`)}>
           Nuevo histórico
         </Button>
       </div>
@@ -112,7 +112,7 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
           selectionMode="single"
           onSelectionChange={(selection) => {
             if (selection !== 'all' && selection.size > 0) {
-              push(`/integrantes/${selection.values().next().value}`);
+              push(`/escola/${escola}/integrantes/${selection.values().next().value}`);
             }
           }}
           onSortChange={(descriptor: SortDescriptor) =>
