@@ -4,7 +4,7 @@ import { QueryService } from 'src/common/services/query.service';
 import { Juridico } from './entities/juridico.entity';
 import { CreateJuridicoInput } from './dto/create-juridico.input';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
-import { UpdateColorInput } from './dto/update-juridico.input';
+import { UpdateJuridicoInput } from './dto/update-juridico.input';
 
 @Injectable()
 export class JuridicosService {
@@ -31,7 +31,7 @@ export class JuridicosService {
         return this.crudService.findOne(this.tableName, id);
       }
     
-      update(input: UpdateColorInput) {
+      update(input: UpdateJuridicoInput) {
         const { id, ...dto } = input;
         return this.crudService.updateOne(this.tableName, id, dto);
       }
