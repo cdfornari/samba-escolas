@@ -52,7 +52,7 @@ export class JuridicosResolver {
     return this.juridicosService.remove(id);
   }
 
-  @ResolveField(() => Juridico, { name: 'lugar' })
+  @ResolveField(() => Juridico, { name: 'ciudad' })
   async getCity(@Parent() juridico: Juridico): Promise<Juridico> {
     return this.juridicosService.findOne(juridico.id_lugar);
   }
