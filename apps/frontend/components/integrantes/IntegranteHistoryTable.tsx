@@ -159,7 +159,7 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
                     <Table.Cell css={{ cursor: 'default' }}>
                       {integranteTableReducer(columnKey, row)}
                     </Table.Cell>
-                  ) : row.fecha_fin ? (
+                  ) : !row.fecha_fin ? (
                     <Table.Cell
                       css={{
                         cursor: 'pointer',
