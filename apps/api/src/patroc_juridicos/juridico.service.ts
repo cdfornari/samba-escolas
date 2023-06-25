@@ -13,7 +13,7 @@ export class JuridicosService {
         private readonly crudService: CRUDService,
       ) {}
 
-      private tableName = 'colores';
+      private tableName = 'patroc_juridicos';
 
       async create(input: CreateJuridicoInput): Promise<Juridico> {
         return this.crudService.create(this.tableName, input);
