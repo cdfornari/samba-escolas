@@ -69,6 +69,7 @@ export class EscolasService {
     return this.crudService.delete('escuelas_colores', {
       id_escuela: id,
       id_color,
+      type: 'AND',
     });
   }
 }
