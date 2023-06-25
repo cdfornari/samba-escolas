@@ -5,6 +5,8 @@ import { QueryService } from 'src/common/services/query.service';
 import { CRUDService } from 'src/common/services/crud.service';
 import { Telefono } from './entities/telefono.entity';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
+import { TelefonosFilterArgs } from './types/telefonos-filter.args';
+import { TelefonosIdArgs } from './types/telefonos-id.args';
 
 @Injectable()
 export class TelefonosService {
@@ -22,15 +24,17 @@ export class TelefonosService {
     return this.crudService.create(this.tableName, input);
   }
 
-  async findAll(pagination: PaginationArgs): Promise<Telefono[]> {
-    return this.crudService.findAll(this.tableName, pagination);
+  async findAll(filter : TelefonosIdArgs): Promise<Telefono[]> {
+    let pagination: PaginationArgs;
+    return this.crudService.findAll(this.tableName, pagination, filter);
   }
 
   async count(): Promise<number> {
     return this.queryService.count(this.tableName);
   }
 
-  async findOne(cod_int: number, cod_area: number, numero: number) : Promise<Telefono>   {
+  async findOne(telefonoFilterArgs: TelefonosFilterArgs) : Promise<Telefono>   {
+    const {cod_area,cod_int,numero} = telefonoFilterArgs;
     return (await this.queryService.select(this.tableName, null, `cod_int = ${cod_int} AND cod_area = ${cod_area} AND numero = ${numero}`))[0];
   }
 
