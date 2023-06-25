@@ -39,4 +39,11 @@ export class EscolasService {
   remove(id: number) {
     return `This action removes a #${id} escola`;
   }
+
+  async addColor(id: number, id_color: number) {
+    return this.crudService.create('escuelas_colores', {
+      id_escuela: id,
+      id_color,
+    });
+  }
 }
