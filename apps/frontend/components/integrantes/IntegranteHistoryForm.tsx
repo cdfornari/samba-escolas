@@ -127,7 +127,7 @@ export const IntegranteHistoryForm: FC<Props> = ({
               new Date().toISOString().split('T')[0]
             }
             color={errors.fecha_fin ? 'error' : 'primary'}
-            {...register('fecha_fin', { required: true })}
+            {...register('fecha_fin')}
             helperText={
               errors.fecha_fin?.type === 'required'
                 ? 'La fecha de fin es requerida'
