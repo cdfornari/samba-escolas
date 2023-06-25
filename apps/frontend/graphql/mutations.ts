@@ -75,3 +75,15 @@ export const CREATE_INTEGRANTE_HISTORY = gql`
     }
   }
 `;
+
+export const UPDATE_INTEGRANTE_HISTORY = gql`
+  mutation UPDATE_INTEGRANTE_HISTORY(
+    $updateHistoricoIntegranteInput: UpdateHistoricoIntegranteInput!
+  ) {
+    updateIntegranteHistoryInput(
+      updateHistoricoIntegranteInput: $updateHistoricoIntegranteInput
+    ) {
+      autoridad
+    }
+  }
+`;

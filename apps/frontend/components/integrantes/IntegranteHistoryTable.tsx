@@ -1,12 +1,23 @@
 'use client';
 import { FC, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useQuery } from '@apollo/client';
-import { Button, Loading, SortDescriptor, Table } from '@nextui-org/react';
-import { HISTORICOS_INTEGRANTES } from '../../graphql';
+import { useMutation, useQuery } from '@apollo/client';
+import {
+  Button,
+  Loading,
+  SortDescriptor,
+  Table,
+  Tooltip,
+} from '@nextui-org/react';
+import {
+  HISTORICOS_INTEGRANTES,
+  UPDATE_INTEGRANTE_HISTORY,
+} from '../../graphql';
 import { PaginationType } from '../../types';
 import { Pagination } from '../ui/Pagination';
 import { IntegranteHistory } from '../../interfaces/integrante.interface';
+import { XMarkIcon, PencilIcon } from '@heroicons/react/24/outline';
+import { useNotifications } from '../../hooks/useNotifications';
 
 export const integranteTableReducer = (
   columnKey: any,
@@ -73,6 +84,10 @@ const columns = [
     key: 'rg',
     label: 'RG',
   },
+  {
+    key: 'actions',
+    label: '',
+  },
 ];
 
 interface Props {
@@ -81,9 +96,11 @@ interface Props {
 
 export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
   const { push } = useRouter();
+  const { firePromise } = useNotifications();
+  const [updateIntegranteHistory] = useMutation(UPDATE_INTEGRANTE_HISTORY);
   const [page, setPage] = useState(1);
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
-  const { data, loading, error } = useQuery<{
+  const { data, loading, error, refetch } = useQuery<{
     integranteHistories: PaginationType<IntegranteHistory>;
     integranteHistoriesCount: number;
   }>(HISTORICOS_INTEGRANTES, {
@@ -114,16 +131,6 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
       <div className="flex flex-col justify-between">
         <Table
           bordered
-          selectionMode="single"
-          onSelectionChange={(selection) => {
-            if (selection !== 'all' && selection.size > 0) {
-              push(
-                `/escola/${escola}/integrantes/${
-                  selection.values().next().value
-                }`
-              );
-            }
-          }}
           onSortChange={(descriptor: SortDescriptor) =>
             setSortDescriptor(descriptor)
           }
@@ -147,11 +154,67 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
           <Table.Body items={data.integranteHistories.items}>
             {(row) => (
               <Table.Row key={row.integrante.id.toString() + row.fecha_inicio}>
-                {(columnKey) => (
-                  <Table.Cell css={{ cursor: 'pointer' }}>
-                    {integranteTableReducer(columnKey, row)}
-                  </Table.Cell>
-                )}
+                {(columnKey) =>
+                  columnKey !== 'actions' ? (
+                    <Table.Cell css={{ cursor: 'default' }}>
+                      {integranteTableReducer(columnKey, row)}
+                    </Table.Cell>
+                  ) : row.fecha_fin ? (
+                    <Table.Cell
+                      css={{
+                        cursor: 'pointer',
+                        d: 'flex',
+                        justifyContent: 'center',
+                        gap: 10,
+                      }}
+                    >
+                      <Tooltip
+                        content="Editar autoridad"
+                        onClick={async () => {
+                          await firePromise(
+                            updateIntegranteHistory({
+                              variables: {
+                                updateIntegranteHistoryInput: {
+                                  fecha_inicio: row.fecha_inicio,
+                                  id_escuela: escola,
+                                  id_integrante: row.integrante.id,
+                                  autoridad: !row.autoridad,
+                                },
+                              },
+                            }),
+                            'Historico actualizado'
+                          );
+                        }}
+                      >
+                        <PencilIcon className="h-5 w-5" />
+                      </Tooltip>
+                      <Tooltip
+                        content="Cerrar histórico"
+                        onClick={async () => {
+                          await firePromise(
+                            updateIntegranteHistory({
+                              variables: {
+                                updateIntegranteHistoryInput: {
+                                  fecha_inicio: row.fecha_inicio,
+                                  id_escuela: escola,
+                                  id_integrante: row.integrante.id,
+                                  fecha_fin: new Date(),
+                                },
+                              },
+                            }),
+                            'Historico actualizado'
+                          );
+                        }}
+                      >
+                        <XMarkIcon className="h-5 w-5 text-red-500" />
+                      </Tooltip>
+                    </Table.Cell>
+                  ) : (
+                    <Table.Cell>
+                      <></>
+                    </Table.Cell>
+                  )
+                }
               </Table.Row>
             )}
           </Table.Body>
