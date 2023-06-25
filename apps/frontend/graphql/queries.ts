@@ -80,6 +80,15 @@ export const INTEGRANTES = gql`
   ${IntegranteFragment}
 `;
 
+export const INTEGRANTES_ELEGIBLES = gql`
+  query INTEGRANTES_ELEGIBLES {
+    integrantesElegibles {
+      ...IntegranteFragment
+    }
+  }
+  ${IntegranteFragment}
+`;
+
 export const INTEGRANTE = gql`
   query INTEGRANTE($id: Int!) {
     integrante(id: $id) {

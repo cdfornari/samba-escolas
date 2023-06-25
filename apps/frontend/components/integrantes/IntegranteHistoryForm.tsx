@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { useQuery } from '@apollo/client';
 import { Integrante, IntegranteHistory } from '../../interfaces';
 import { Select } from '../ui/Select';
-import { INTEGRANTES } from '../../graphql';
+import { INTEGRANTES_ELEGIBLES } from '../../graphql';
 import { PaginationType } from '../../types';
 
 interface DTO {
@@ -27,9 +27,8 @@ export const IntegranteHistoryForm: FC<Props> = ({
   buttonText,
 }) => {
   const { data, loading, error } = useQuery<{
-    integrantes: PaginationType<Integrante>;
-    integrantesCount: number;
-  }>(INTEGRANTES, {
+    integrantesElegibles: Integrante[];
+  }>(INTEGRANTES_ELEGIBLES, {
     variables: {},
     fetchPolicy: 'network-only',
   });
@@ -148,7 +147,7 @@ export const IntegranteHistoryForm: FC<Props> = ({
           ) : (
             <div>
               <Select
-                options={data.integrantes.items.map((i) => ({
+                options={data.integrantesElegibles.map((i) => ({
                   label: `${i.nombre1} ${i.nombre2 ? i.nombre2 : ''} ${
                     i.apellido1
                   } ${i.apellido2}`,
