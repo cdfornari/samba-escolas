@@ -85,6 +85,7 @@ export const EscolaForm: FC<Props> = ({
     {
       variables: {
         tipo: 'ciudad',
+        paginate: false,
       },
     }
   );
