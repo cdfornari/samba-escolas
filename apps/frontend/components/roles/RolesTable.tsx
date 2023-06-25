@@ -6,7 +6,7 @@ import { Button, Loading, SortDescriptor, Table } from '@nextui-org/react';
 import { ROLES } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Pagination } from '../ui/Pagination';
-import { Role } from '../../interfaces/role.interface';
+import { Role } from '../../interfaces';
 
 export const rolesTableReducer = (columnKey: any, row: Role) => {
   switch (columnKey) {

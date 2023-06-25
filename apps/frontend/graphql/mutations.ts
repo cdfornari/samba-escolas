@@ -55,3 +55,11 @@ export const CREATE_ROL = gql`
     }
   }
 `;
+
+export const UPDATE_ROL = gql`
+  mutation UPDATE_ROL($updateRoleInput: UpdateRoleInput!) {
+    updateRole(updateRoleInput: $updateRoleInput) {
+      id
+    }
+  }
+`;
