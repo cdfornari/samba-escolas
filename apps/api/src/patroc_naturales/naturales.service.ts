@@ -27,7 +27,7 @@ export class NaturalesService {
         return this.queryService.count(this.tableName);
       }
     
-      findOne(id: number) {
+      findOne(id: number):  Promise<any> | undefined {
         return this.crudService.findOne(this.tableName, id);
       }
     

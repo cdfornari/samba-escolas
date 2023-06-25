@@ -42,7 +42,7 @@ export class PatrociniosResolver {
   @Query(() => PatrocinioPaginationType, { name: 'patrocinios' })
   async findAll(
     @Args() pagination: PaginationArgs,
-    @Args() filter?:PatrocinioFilterArgs,
+    @Args() filter:PatrocinioFilterArgs,
   ): Promise<PatrocinioPaginationType> {
     const [items, count] = await Promise.all([
       this.patrociniosService.findAll(pagination,filter),
@@ -88,7 +88,7 @@ export class PatrociniosResolver {
   }
 
   @ResolveField(() => Natural, { name: 'patroc_natural' })
-  getNatural(@Parent() patrocinio: Patrocinio) {
+  getNatural(@Parent() patrocinio: Patrocinio) : Promise<any> | null {
     return this.naturalesService.findOne(patrocinio.id_nat);
   }
 }
