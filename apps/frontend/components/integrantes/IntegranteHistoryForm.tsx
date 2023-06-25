@@ -1,17 +1,17 @@
 'use client';
-import { FC, useEffect, useMemo, useState } from 'react';
-import { Button, Checkbox, Input, Loading, Radio } from '@nextui-org/react';
+import { FC, useEffect, useState } from 'react';
+import { Button, Checkbox, Input, Loading } from '@nextui-org/react';
 import { useForm } from 'react-hook-form';
+import { useQuery } from '@apollo/client';
 import { Integrante, IntegranteHistory } from '../../interfaces';
 import { Select } from '../ui/Select';
 import { INTEGRANTES } from '../../graphql';
 import { PaginationType } from '../../types';
-import { useQuery } from '@apollo/client';
 
 interface DTO {
   id_integrante: number;
   fecha_inicio: string;
-  fecha_fin: string;
+  fecha_fin?: string;
   autoridad: boolean;
 }
 
@@ -21,7 +21,7 @@ interface Props {
   buttonText: string;
 }
 
-export const IntegranteForm: FC<Props> = ({
+export const IntegranteHistoryForm: FC<Props> = ({
   action,
   initialValues,
   buttonText,
@@ -48,8 +48,12 @@ export const IntegranteForm: FC<Props> = ({
     formState: { errors },
   } = useForm<DTO>({
     defaultValues: {
-      fecha_inicio: initialValues?.fecha_inicio.toString() ?? '',
-      fecha_fin: initialValues?.fecha_fin.toString() ?? '',
+      fecha_inicio:
+        initialValues?.fecha_inicio.toString() ??
+        new Date().toISOString().split('T')[0],
+      fecha_fin:
+        initialValues?.fecha_fin?.toString() ??
+        new Date().toISOString().split('T')[0],
     },
   });
   const fechaInicio = watch('fecha_inicio');
@@ -93,7 +97,7 @@ export const IntegranteForm: FC<Props> = ({
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full h-full pt-20 pb-52 flex flex-col gap-4 justify-between"
+      className="w-full h-full pt-20 pb-52 flex flex-col gap-20 justify-start"
     >
       <div className="grid grid-cols-2">
         <div className="flex flex-col gap-10 px-10">
@@ -119,7 +123,7 @@ export const IntegranteForm: FC<Props> = ({
             labelPlaceholder="Fecha de fin"
             type="date"
             initialValue={
-              initialValues?.fecha_fin.toString() ??
+              initialValues?.fecha_fin?.toString() ??
               new Date().toISOString().split('T')[0]
             }
             color={errors.fecha_fin ? 'error' : 'primary'}
@@ -137,6 +141,7 @@ export const IntegranteForm: FC<Props> = ({
             label="Es autoridad"
             isSelected={autoridad}
             onChange={setAutoridad}
+            size="xs"
           />
           {loading ? (
             <Loading />
@@ -144,7 +149,9 @@ export const IntegranteForm: FC<Props> = ({
             <div>
               <Select
                 options={data.integrantes.items.map((i) => ({
-                  label: `${i.nombre1} ${i.nombre2} ${i.apellido1} ${i.apellido2}`,
+                  label: `${i.nombre1} ${i.nombre2 ? i.nombre2 : ''} ${
+                    i.apellido1
+                  } ${i.apellido2}`,
                   value: i.id.toString(),
                 }))}
                 label="Integrante"
