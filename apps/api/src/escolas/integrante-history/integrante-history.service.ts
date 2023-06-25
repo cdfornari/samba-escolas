@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { CRUDService } from 'src/common/services/crud.service';
 import { QueryService } from 'src/common/services/query.service';
-import { CreateHistorcoIntegranteInput } from './dto/create-integrante-history.input';
+import { CreateHistoricoIntegranteInput } from './dto/create-integrante-history.input';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { HistoricoIntegrante } from './entities/integrante-history.entity';
 import { UpdateHistoricoIntegranteInput } from './dto/update-integrante-history.input';
@@ -17,7 +17,7 @@ export class IntegranteHistoryService {
 
   private tableName = 'historicos_integrantes';
 
-  async create(input: CreateHistorcoIntegranteInput) {
+  async create(input: CreateHistoricoIntegranteInput) {
     if (
       (
         await this.queryService.select<HistoricoIntegrante[]>(
