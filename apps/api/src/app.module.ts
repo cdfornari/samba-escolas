@@ -12,6 +12,7 @@ import { IntegrantesModule } from './integrantes/integrantes.module';
 import { RolesModule } from './roles/roles.module';
 import { PremiosModule } from './premios/premios.module';
 import { HabilidadesModule } from './habilidades/habilidades.module';
+import { ColoresModule } from './colores/colores.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { HabilidadesModule } from './habilidades/habilidades.module';
     RolesModule,
     PremiosModule,
     HabilidadesModule,
+    ColoresModule,
   ],
   controllers: [],
   providers: [],
