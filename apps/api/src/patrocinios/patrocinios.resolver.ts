@@ -42,7 +42,7 @@ export class PatrociniosResolver {
   @Query(() => PatrocinioPaginationType, { name: 'patrocinios' })
   async findAll(
     @Args() pagination: PaginationArgs,
-    @Args() filter:PatrocinioFilterArgs,
+    @Args() filter?:PatrocinioFilterArgs,
   ): Promise<PatrocinioPaginationType> {
     const [items, count] = await Promise.all([
       this.patrociniosService.findAll(pagination,filter),
@@ -83,7 +83,7 @@ export class PatrociniosResolver {
   }
 
   @ResolveField(() => Juridico, { name: 'patroc_juridico' })
-  getJuridico(@Parent() patrocinio: Patrocinio) {
+  getJuridico(@Parent() patrocinio: Patrocinio){
     return this.juridicosService.findOne(patrocinio.id_jur);
   }
 

@@ -34,7 +34,7 @@ export class PatrociniosService {
 
   async findAll(
     pagination: PaginationArgs,
-    filter: PatrocinioFilterArgs
+    filter?: PatrocinioFilterArgs
     ): Promise<Patrocinio[]> {
     return this.crudService.findAll(
       this.tableName,
