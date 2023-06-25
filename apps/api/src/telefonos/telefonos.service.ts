@@ -1,23 +1,24 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateTelefonoInput } from './dto/create-telefono.input';
 import { UpdateTelefonoInput } from './dto/update-telefono.input';
 import { QueryService } from 'src/common/services/query.service';
 import { CRUDService } from 'src/common/services/crud.service';
 import { Telefono } from './entities/telefono.entity';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
-import { TelfService } from 'src/common/services/telf.service';
 
 @Injectable()
 export class TelefonosService {
   constructor(
     private readonly queryService: QueryService,
     private readonly crudService: CRUDService,
-    private readonly telfService: TelfService
   ) {}
 
   private tableName = 'telefonos';
 
   async create(input: CreateTelefonoInput): Promise<Telefono> {
+    const numberArray = [input.id_escuela, input.id_jur, input.id_nat];
+    const checkValor = numberArray.filter( (valor) => typeof valor === 'number' )
+    if (checkValor.length !== 1) throw new BadRequestException('Only 1 FK must be provided');
     return this.crudService.create(this.tableName, input);
   }
 
@@ -29,13 +30,8 @@ export class TelefonosService {
     return this.queryService.count(this.tableName);
   }
 
-  findOne(cod_int: number, cod_area: number, numero: number)   {
-    return this.telfService.findOne(this.tableName, cod_int, cod_area, numero);
-  }
-
-  update(input: UpdateTelefonoInput)  {
-    const {cod_int, cod_area, numero, ...dto } = input;
-    return this.telfService.updateOne(this.tableName, cod_int, cod_area, numero, dto)
+  async findOne(cod_int: number, cod_area: number, numero: number) : Promise<Telefono>   {
+    return (await this.queryService.select(this.tableName, null, `cod_int = ${cod_int} AND cod_area = ${cod_area} AND numero = ${numero}`))[0];
   }
 
   remove(cod_int: number, cod_area: number, numero: number) {
