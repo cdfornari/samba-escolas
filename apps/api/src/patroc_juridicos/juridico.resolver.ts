@@ -5,7 +5,7 @@ import { CreateJuridicoInput} from './dto/create-juridico.input';
 import { UpdateJuridicoInput } from './dto/update-juridico.input';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
-import { ColorPaginationType } from './types/colores-pagination.type';
+import { JuridicoPaginationType } from './types/juridicos-pagination.type';
 
 @Resolver(() => Juridico)
 export class JuridicosResolver {
@@ -18,7 +18,7 @@ export class JuridicosResolver {
     return this.juridicosService.create(createJuridicoInput);
   }
 
-  @Query(() => ColorPaginationType, { name: 'juridicos' })
+  @Query(() => JuridicoPaginationType, { name: 'juridicos' })
   async findAll(@Args() pagination: PaginationArgs) {
     const [items, count] = await Promise.all([
       this.juridicosService.findAll(pagination),
