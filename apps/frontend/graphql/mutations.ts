@@ -63,3 +63,15 @@ export const UPDATE_ROL = gql`
     }
   }
 `;
+
+export const CREATE_INTEGRANTE_HISTORY = gql`
+  mutation CREATE_INTEGRANTE_HISTORY(
+    $createHistoricoIntegranteInput: CreateHistoricoIntegranteInput!
+  ) {
+    createIntegranteHistory(
+      createHistoricoIntegranteInput: $createHistoricoIntegranteInput
+    ) {
+      autoridad
+    }
+  }
+`;

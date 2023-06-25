@@ -15,6 +15,7 @@ import { HabilidadesModule } from './habilidades/habilidades.module';
 import { ColoresModule } from './colores/colores.module';
 import { JuridicosModule } from './patroc_juridicos/juridico.module';
 import { EventosModule } from './eventos/eventos.module';
+import { NaturalesModule } from './patroc_naturales/naturales.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { EventosModule } from './eventos/eventos.module';
     ColoresModule,
     JuridicosModule,
     EventosModule,
+    NaturalesModule,
   ],
   controllers: [],
   providers: [],
