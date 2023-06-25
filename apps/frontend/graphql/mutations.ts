@@ -71,7 +71,7 @@ export const CREATE_INTEGRANTE_HISTORY = gql`
     createIntegranteHistory(
       createHistoricoIntegranteInput: $createHistoricoIntegranteInput
     ) {
-      id
+      autoridad
     }
   }
 `;

@@ -18,7 +18,7 @@ export default function Page({ params }) {
               variables: {
                 createHistoricoIntegranteInput: {
                   ...data,
-                  id_escuela: params.id,
+                  id_escuela: Number(params.id),
                 },
               },
             }),
