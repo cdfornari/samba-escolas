@@ -55,6 +55,9 @@ export const IntegranteHistoryForm: FC<Props> = ({
         new Date().toISOString().split('T')[0],
     },
   });
+  useEffect(() => {
+    if (integrante) clearErrors('id_integrante');
+  }, [integrante]);
   const fechaInicio = watch('fecha_inicio');
   const fechaFin = watch('fecha_fin');
   useEffect(() => {
@@ -87,6 +90,13 @@ export const IntegranteHistoryForm: FC<Props> = ({
     clearErrors('fecha_fin');
   }, [fechaInicio, fechaFin]);
   const onSubmit = async (data: DTO) => {
+    if (!integrante) {
+      setError('id_integrante', {
+        type: 'manual',
+        message: 'El integrante es requerido',
+      });
+      return;
+    }
     await action({
       ...data,
       autoridad,
