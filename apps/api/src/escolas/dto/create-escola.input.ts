@@ -56,4 +56,9 @@ export class CreateEscolaInput {
   @IsPositive()
   @Field(() => Int)
   id_ciudad: number;
+
+  @IsInt({ each: true })
+  @IsPositive({ each: true })
+  @Field(() => [Int])
+  id_colores: number[];
 }

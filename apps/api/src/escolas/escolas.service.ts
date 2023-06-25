@@ -16,7 +16,15 @@ export class EscolasService {
   private tableName = 'escuelas_samba';
 
   async create(input: CreateEscolaInput) {
-    return this.crudService.create(this.tableName, input);
+    const { id_colores, ...dto } = input;
+    const escola = await this.crudService.create<Escola, any>(
+      this.tableName,
+      dto,
+    );
+    await Promise.all(
+      id_colores.map((id_color) => this.addColor(escola.id, id_color)),
+    );
+    return escola;
   }
 
   async findAll(pagination: PaginationArgs): Promise<Escola[]> {
