@@ -78,7 +78,7 @@ export class IntegranteHistoryService {
       `fecha_inicio = '${
         new Date(fecha_inicio).toISOString().split('T')[0]
       }' AND id_escuela = ${id_escuela} AND id_integrante = ${id_integrante}`,
-    );
+    )[0][0];
     return {
       ...history,
       autoridad: history?.autoridad === 'si',
