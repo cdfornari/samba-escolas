@@ -12,7 +12,7 @@ export class HabilidadesResolver {
   constructor(private readonly habilidadService: HabilidadesService) {}
 
   @Mutation(() => Habilidad)
-  createIntegrante(
+  createHabilidad(
     @Args('createHabilidadInput') createHabilidadInput: CreateHabilidadInput,
   ) {
     return this.habilidadService.create(createHabilidadInput);
@@ -41,14 +41,14 @@ export class HabilidadesResolver {
   }
 
   @Mutation(() => Habilidad)
-  updateIntegrante(
+  updateHabilidad(
     @Args('updateHabilidadInput') updateHabilidadInput: UpdateHabilidadesInput,
   ) {
     return this.habilidadService.update(updateHabilidadInput);
   }
 
   @Mutation(() => Habilidad)
-  removeIntegrante(@Args('id', { type: () => Int }) id: number) {
+  removeHabilidad(@Args('id', { type: () => Int }) id: number) {
     return this.habilidadService.remove(id);
   }
 }

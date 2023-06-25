@@ -12,7 +12,7 @@ export class NaturalesResolver {
   constructor(private readonly naturalesService: NaturalesService) {}
 
   @Mutation(() => Naturales)
-  createIntegrante(
+  createNatural(
     @Args('createNaturalesInput') createNaturalesInput: CreateNaturalesInput,
   ) {
     return this.naturalesService.create(createNaturalesInput);
@@ -41,14 +41,14 @@ export class NaturalesResolver {
   }
 
   @Mutation(() => Naturales)
-  updateIntegrante(
+  updateNatural(
     @Args('updateNaturalesInput') updateNaturalesInput: UpdateNaturalesInput,
   ) {
     return this.naturalesService.update(updateNaturalesInput);
   }
 
   @Mutation(() => Naturales)
-  removeIntegrante(@Args('id', { type: () => Int }) id: number) {
+  removeNatural(@Args('id', { type: () => Int }) id: number) {
     return this.naturalesService.remove(id);
   }
 }
