@@ -5,6 +5,7 @@ import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { QueryService } from 'src/common/services/query.service';
 import { CRUDService } from 'src/common/services/crud.service';
 import { Escola } from './entities/escola.entity';
+import { Color } from 'src/colores/entities/color.entity';
 
 @Injectable()
 export class EscolasService {
@@ -46,6 +47,15 @@ export class EscolasService {
 
   remove(id: number) {
     return `This action removes a #${id} escola`;
+  }
+
+  async getColors(id: number) {
+    return this.queryService.executeRawQuery<Color[]>(
+      `SELECT * FROM csd_escuelas_colores
+        JOIN csd_colores ON csd_escuelas_colores.id_color = csd_colores.id
+        WHERE id_escuela = ${id}
+      `,
+    );
   }
 
   async addColor(id: number, id_color: number) {
