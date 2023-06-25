@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args, Int,ResolveField, Parent } from '@nestjs/graphql';
 import { JuridicosService } from './juridico.service';
 import { Juridico } from './entities/juridico.entity';
 import { CreateJuridicoInput} from './dto/create-juridico.input';
@@ -50,5 +50,10 @@ export class JuridicosResolver {
   @Mutation(() => Juridico)
   removeIntegrante(@Args('id', { type: () => Int }) id: number) {
     return this.juridicosService.remove(id);
+  }
+
+  @ResolveField(() => Juridico, { name: 'lugar' })
+  async getCity(@Parent() juridico: Juridico): Promise<Juridico> {
+    return this.juridicosService.findOne(juridico.id_lugar);
   }
 }
