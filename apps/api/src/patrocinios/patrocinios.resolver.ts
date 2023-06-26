@@ -82,13 +82,13 @@ export class PatrociniosResolver {
     return this.escolasService.findOne(patrocinio.id_escuela);
   }
 
-  @ResolveField(() => Juridico, { name: 'patroc_juridico' })
+  @ResolveField(() => Juridico, { name: 'patroc_juridico',nullable: true})
   getJuridico(@Parent() patrocinio: Patrocinio){
     return this.juridicosService.findOne(patrocinio.id_jur);
   }
 
-  @ResolveField(() => Natural, { name: 'patroc_natural' })
-  getNatural(@Parent() patrocinio: Patrocinio) : Promise<any> | null {
+  @ResolveField(() => Natural, { name: 'patroc_natural',nullable: true}  )
+  getNatural(@Parent() patrocinio: Patrocinio) {
     return this.naturalesService.findOne(patrocinio.id_nat);
   }
 }
