@@ -2,13 +2,7 @@
 import { FC, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useMutation, useQuery } from '@apollo/client';
-import {
-  Button,
-  Loading,
-  SortDescriptor,
-  Table,
-  Tooltip,
-} from '@nextui-org/react';
+import { Button, Loading, Table, Tooltip } from '@nextui-org/react';
 import { REMOVE_TITULO, TITULOS } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Pagination } from '../ui/Pagination';
@@ -55,7 +49,6 @@ export const TitlesTable: FC<Props> = ({ escola }) => {
   const { firePromise } = useNotifications();
   const [removeTitulo] = useMutation(REMOVE_TITULO);
   const [page, setPage] = useState(1);
-  const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error, refetch } = useQuery<{
     titulos: PaginationType<Titulo>;
     titulosCount: number;
@@ -78,26 +71,16 @@ export const TitlesTable: FC<Props> = ({ escola }) => {
   return (
     <div className="flex h-full flex-col">
       <div className="flex justify-end py-6 px-10">
-        <Button
-          auto
-          onClick={() => push(`/escola/${escola}/titulos/create`)}
-        >
+        <Button auto onClick={() => push(`/escola/${escola}/titulos/create`)}>
           Nuevo título
         </Button>
       </div>
       <div className="flex flex-col justify-between">
-        <Table
-          bordered
-          onSortChange={(descriptor: SortDescriptor) =>
-            setSortDescriptor(descriptor)
-          }
-          sortDescriptor={sortDescriptor}
-        >
+        <Table bordered>
           <Table.Header>
             {columns.map((column) => (
               <Table.Column
                 key={column.key}
-                allowsSorting
                 css={{
                   '& > svg': {
                     right: 10,

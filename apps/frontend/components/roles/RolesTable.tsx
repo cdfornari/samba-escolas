@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useQuery } from '@apollo/client';
-import { Button, Loading, SortDescriptor, Table } from '@nextui-org/react';
+import { Button, Loading, Table } from '@nextui-org/react';
 import { ROLES } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Pagination } from '../ui/Pagination';
@@ -37,7 +37,6 @@ const columns = [
 export const RolesTable = () => {
   const { push } = useRouter();
   const [page, setPage] = useState(1);
-  const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error } = useQuery<{
     roles: PaginationType<Role>;
     rolesCount: number;
@@ -71,16 +70,11 @@ export const RolesTable = () => {
               push(`/roles/${selection.values().next().value}`);
             }
           }}
-          onSortChange={(descriptor: SortDescriptor) =>
-            setSortDescriptor(descriptor)
-          }
-          sortDescriptor={sortDescriptor}
         >
           <Table.Header>
             {columns.map((column) => (
               <Table.Column
                 key={column.key}
-                allowsSorting
                 css={{
                   '& > svg': {
                     right: 10,

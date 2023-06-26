@@ -2,13 +2,7 @@
 import { FC, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useMutation, useQuery } from '@apollo/client';
-import {
-  Button,
-  Loading,
-  SortDescriptor,
-  Table,
-  Tooltip,
-} from '@nextui-org/react';
+import { Button, Loading, Table, Tooltip } from '@nextui-org/react';
 import {
   HISTORICOS_INTEGRANTES,
   REMOVE_INTEGRANTE_HISTORY,
@@ -101,7 +95,6 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
   const [updateIntegranteHistory] = useMutation(UPDATE_INTEGRANTE_HISTORY);
   const [removeIntegranteHistory] = useMutation(REMOVE_INTEGRANTE_HISTORY);
   const [page, setPage] = useState(1);
-  const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error, refetch } = useQuery<{
     integranteHistories: PaginationType<IntegranteHistory>;
     integranteHistoriesCount: number;
@@ -131,18 +124,11 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
         </Button>
       </div>
       <div className="flex flex-col justify-between">
-        <Table
-          bordered
-          onSortChange={(descriptor: SortDescriptor) =>
-            setSortDescriptor(descriptor)
-          }
-          sortDescriptor={sortDescriptor}
-        >
+        <Table bordered>
           <Table.Header>
             {columns.map((column) => (
               <Table.Column
                 key={column.key}
-                allowsSorting
                 css={{
                   '& > svg': {
                     right: 10,

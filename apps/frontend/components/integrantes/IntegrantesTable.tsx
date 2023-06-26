@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useQuery } from '@apollo/client';
-import { Button, Loading, SortDescriptor, Table } from '@nextui-org/react';
+import { Button, Loading, Table } from '@nextui-org/react';
 import { INTEGRANTES } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Pagination } from '../ui/Pagination';
@@ -55,7 +55,6 @@ const columns = [
 export const IntegrantesTable = () => {
   const { push } = useRouter();
   const [page, setPage] = useState(1);
-  const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error } = useQuery<{
     integrantes: PaginationType<Integrante>;
     integrantesCount: number;
@@ -89,16 +88,11 @@ export const IntegrantesTable = () => {
               push(`/integrantes/${selection.values().next().value}`);
             }
           }}
-          onSortChange={(descriptor: SortDescriptor) =>
-            setSortDescriptor(descriptor)
-          }
-          sortDescriptor={sortDescriptor}
         >
           <Table.Header>
             {columns.map((column) => (
               <Table.Column
                 key={column.key}
-                allowsSorting
                 css={{
                   '& > svg': {
                     right: 10,
