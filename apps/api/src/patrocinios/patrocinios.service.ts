@@ -83,16 +83,15 @@ export class PatrociniosService {
   }
 
   async remove(id: PatrocinioIdArgs) {
-    const referencedRows = await this.queryService.count(
-      'donaciones',
-      `id_patroc = ${id.id}`,
-    )
 
-      console.log(referencedRows)
+    const patrocinio = await this.findOne(id.id)
 
-    if (referencedRows>0) throw new BadRequestException(
-      'No se puede eliminar el historico porque tiene donaciones asociadas',
+    if ( patrocinio.fecha_fin )
+    throw new BadRequestException(
+      'Patrocinio cerrado',
     );
+
+    await this.queryService.delete('donaciones',`id_patroc = ${patrocinio.id}`)
 
     return this.crudService.delete(this.tableName, id);
 }
