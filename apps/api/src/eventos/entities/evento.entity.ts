@@ -13,6 +13,9 @@ export class Evento {
   @Field( () => DateScalar)
   fecha_inicio: Date;
 
+  @Field( () => DateScalar)
+  fecha_fin: Date;
+
   @Field( () => EventoTypeEnum )
   tipo: EventoTypeEnum;
 
