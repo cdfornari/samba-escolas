@@ -3,17 +3,17 @@ import { useMutation, useQuery } from '@apollo/client';
 import { Loading } from '@nextui-org/react';
 import { useNotifications } from '../../../../../hooks/useNotifications';
 import { EVENT, UPDATE_EVENT } from '../../../../../graphql';
-import { Event } from '../../../../../interfaces';
 import { EventForm } from '../../../../../components/events/EventForm';
+import { Event } from '../../../../../interfaces';
 
 export default function Page({ params }) {
   const { firePromise } = useNotifications();
   const [updateEvento] = useMutation(UPDATE_EVENT);
   const { data, loading, error } = useQuery<{
-    escola: Event;
+    evento: Event;
   }>(EVENT, {
     variables: {
-      eventoId: Number(params.id),
+      eventoId: Number(params.event),
     },
     fetchPolicy: 'network-only',
   });
@@ -39,7 +39,7 @@ export default function Page({ params }) {
           'Evento actualizado'
         )
       }
-      initialValues={data?.escola}
+      initialValues={data?.evento}
       buttonText="Actualizar"
     />
   );
