@@ -39,7 +39,7 @@ export class HabilidadesService {
   async remove(id: number) {
     const referencedRows = await this.queryService.count(
       'integrantes_habilidades',
-      `WHERE id_habilidad = ${id}`,
+      `id_habilidad = ${id}`,
     );
     if (referencedRows > 0)
       throw new BadRequestException(

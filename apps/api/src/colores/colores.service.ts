@@ -40,7 +40,7 @@ export class ColoresService {
     const referencedRows = await this.queryService.count(
       'escuelas_colores',
       `
-      WHERE color_id = ${id}
+      color_id = ${id}
     `,
     );
     if (referencedRows > 0)
