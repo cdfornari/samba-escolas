@@ -116,6 +116,10 @@ export class DonacionesService {
       'Patrocinio cerrado',
     );
 
-    return await this.crudService.delete(this.tableName, id)
+    const nose = await this.crudService.delete(this.tableName, id);
+
+      console.log(nose);
+
+    return nose;
   }
 }
