@@ -93,6 +93,10 @@ export class PatrociniosService {
 
     await this.queryService.delete('donaciones',`id_patroc = ${patrocinio.id}`)
 
-    return this.crudService.delete(this.tableName, id);
+    const nose = this.crudService.delete(this.tableName, id);
+
+      console.log(nose);
+
+    return nose;
 }
 }
