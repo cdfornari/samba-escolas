@@ -85,7 +85,7 @@ export class PatrociniosService {
   async remove(id: PatrocinioIdArgs) {
     const referencedRows = await this.queryService.count(
       'donaciones',
-      `id_patroc = id`,
+      `id_patroc = ${id.id}`,
     )
 
       console.log(referencedRows)
