@@ -82,7 +82,7 @@ export class QueryService {
       }`,
     )
   
-    console.log (algo)
+    console.log (algo[1])
 
     return (
       (
