@@ -7,7 +7,6 @@ export class Donacion{
   @Field(()=>Int)
   id: number;
 
-  @Field(()=>Int)
   id_patroc: number;
 
   id_escuela: number;

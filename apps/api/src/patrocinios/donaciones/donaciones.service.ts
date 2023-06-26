@@ -47,10 +47,12 @@ export class DonacionesService {
     pagination: PaginationArgs,
     filter: DonacionFilterHistoricoArgs,
   ) {
-    return this.crudService.findAll(
+    return this.queryService.select(
       this.tableName,
-      pagination,
-      filter,
+      null,
+      `id_patroc = ${filter.id_patroc} AND id_escuela = ${filter.id_escuela}`,
+      null,
+      pagination
     );
   }
 

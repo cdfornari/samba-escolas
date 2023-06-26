@@ -14,8 +14,6 @@ import {
   import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
   import { DonacionesService} from './donaciones.service';
   import { UpdateDonacionInput } from './dto/update-donacion.input';
-  import { DonacionFilterEscuelaArgs } from './types/donacion-filter-escuela.args';
-  import { DonacionIdArgs} from './types/donacion-id.args';
   import { PatrociniosService } from '../patrocinios.service';  
   import { DonacionFilterHistoricoArgs } from './types/donacion-filter-historico.args';
 import { Patrocinio } from '../entities/patrocinio.entity';
