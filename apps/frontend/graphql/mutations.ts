@@ -115,3 +115,17 @@ export const REMOVE_TITULO = gql`
     removeTituloHistory(year: $year, id_escuela: $idEscuela)
   }
 `;
+
+export const UPDATE_EVENT = gql`
+  mutation UPDATE_EVENT($updateEventoInput: UpdateEventoInput!) {
+    updateEvento(updateEventoInput: $updateEventoInput) {
+      id
+    }
+  }
+`;
+
+export const REMOVE_EVENT = gql`
+  mutation REMOVE_EVENT($removeEventoId: Int!) {
+    removeEvento(id: $removeEventoId)
+  }
+`;

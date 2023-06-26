@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import {
   ColorFragment,
   EscolaFragment,
+  EventFragment,
   IntegranteFragment,
   IntegranteHistoryFragment,
   LugaresFragment,
@@ -182,4 +183,17 @@ export const TITULOS = gql`
     titulosCount(id_escuela: $idEscuela)
   }
   ${TituloFragment}
+`;
+
+export const EVENTS = gql`
+  query EVENTS($page: Int, $perPage: Int) {
+    eventos(page: $page, perPage: $perPage) {
+      items {
+        ...EventFragment
+      }
+      numberOfPages
+    }
+    eventoCount
+  }
+  ${EventFragment}
 `;

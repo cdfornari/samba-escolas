@@ -69,3 +69,16 @@ export const TituloFragment = gql`
     year
   }
 `;
+
+export const EventFragment = gql`
+  fragment EventFragment on Evento {
+    id
+    fecha_inicio
+    fecha_fin
+    tipo
+    nombre
+    costo_unit
+    descripcion
+    asist_total
+  }
+`;
