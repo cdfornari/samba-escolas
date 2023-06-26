@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS csd_historicos_integrantes(
 );
 
 CREATE TABLE IF NOT EXISTS csd_historicos_titulos(
-  anual INTEGER,
+  anual DATE,
   id_escuela INTEGER REFERENCES csd_escuelas_samba(id),
   grupo VARCHAR(10),
   monto INTEGER,
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS csd_sambas(
   id SERIAL PRIMARY KEY,
   titulo VARCHAR(120) NOT NULL UNIQUE,
   letra TEXT NOT NULL,
-  anual_carnv INTEGER NOT NULL,
+  anual_carnv DATE NOT NULL,
   tipo VARCHAR(20) NOT NULL,
   CONSTRAINT csd_tipos_samba CHECK (tipo IN ('enredo','deco','emablo','marchinha','frevo','maracatu','reggae'))
 );
@@ -161,7 +161,7 @@ CREATE TABLE IF NOT EXISTS csd_org_carnavales(
   fecha_inicio DATE,
   id_escuela INTEGER,
   id_rol INTEGER REFERENCES csd_roles(id),
-  anual INTEGER,
+  anual DATE,
   FOREIGN KEY (id_integrante,fecha_inicio,id_escuela) REFERENCES csd_historicos_integrantes(id_integrante,fecha_inicio,id_escuela),
   PRIMARY KEY (id_integrante,fecha_inicio,anual,id_rol)
 );
@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS csd_premios_especiales(
 );
 
 CREATE TABLE IF NOT EXISTS csd_ganadores(
-  anual INTEGER,
+  anual DATE,
   id_premio INTEGER REFERENCES csd_premios_especiales(id),
   id_escuela INTEGER REFERENCES csd_escuelas_samba(id),
   id_escuela_integrante INTEGER,
