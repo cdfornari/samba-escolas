@@ -66,7 +66,7 @@ export class TituloHistoryResolver {
     return this.tituloHistoryService.update(updateTituloHistoryInput);
   }
 
-  @Mutation(() => TituloHistory)
+  @Mutation(() => Boolean)
   removeTituloHistory(@Args('id', { type: () => Int }) id: number) {
     return this.tituloHistoryService.remove(id);
   }

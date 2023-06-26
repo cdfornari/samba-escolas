@@ -87,6 +87,6 @@ export class TituloHistoryService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} tituloHistory`;
+    return this.crudService.delete(this.tableName, { id });
   }
 }
