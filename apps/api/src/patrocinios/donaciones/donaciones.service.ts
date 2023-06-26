@@ -29,17 +29,6 @@ export class DonacionesService {
     )
     )[0]
 
-      console.log(input.fecha)
-      console.log(fecha_inicio)
-
-      console.log(input.fecha.getDate() < fecha_inicio.getDate())
-      console.log(input.fecha.getDate() < fecha_inicio.getDate())
-
-    if ( input.fecha < fecha_inicio )
-      throw new BadRequestException(
-        'Esa fecha no es válida',
-      );
-
       if ( fecha_fin )
       throw new BadRequestException(
         'Patrocinio cerrado',
