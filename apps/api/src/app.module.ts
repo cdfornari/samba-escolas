@@ -20,6 +20,7 @@ import { NaturalesModule } from './patroc_naturales/naturales.module';
 import { PatrociniosModule } from './patrocinios/patrocinios.module';
 import { GanadoresModule } from './ganadores/ganadores.module';
 import { TituloHistoryModule } from './titulo-history/titulo-history.module';
+import { OrgCarnavalesModule } from './org_carnavales/org_carnavales.module';
 
 @Module({
   imports: [
@@ -53,6 +54,7 @@ import { TituloHistoryModule } from './titulo-history/titulo-history.module';
     PatrociniosModule,
     GanadoresModule,
     TituloHistoryModule,
+    OrgCarnavalesModule,
   ],
   controllers: [],
   providers: [],
