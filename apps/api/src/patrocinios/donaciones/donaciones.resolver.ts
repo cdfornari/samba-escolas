@@ -67,7 +67,7 @@ import { DonacionIdArgs } from './types/donacion-id.args';
       return this.donacionesService.update(updateDonacionInput);
     }
   
-    @Mutation(() => Donacion)
+    @Mutation(() => Boolean)
     removeDonacion(@Args() id: DonacionIdArgs) {
       return this.donacionesService.remove(id);
     }

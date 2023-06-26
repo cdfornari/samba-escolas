@@ -73,7 +73,7 @@ export class PatrociniosResolver {
     return this.patrociniosService.update(updateEscolaInput);
   }
 
-  @Mutation(() => Patrocinio)
+  @Mutation(() => Boolean)
   removePatrocinio(@Args() id: PatrocinioIdArgs) {
     return this.patrociniosService.remove(id);
   }
