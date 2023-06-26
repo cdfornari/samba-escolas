@@ -102,6 +102,14 @@ export const REMOVE_INTEGRANTE_HISTORY = gql`
   }
 `;
 
+export const CREATE_TITULO = gql`
+  mutation CREATE_TITULO($createTituloHistoryInput: CreateTituloHistoryInput!) {
+    createTituloHistory(createTituloHistoryInput: $createTituloHistoryInput) {
+      year
+    }
+  }
+`;
+
 export const REMOVE_TITULO = gql`
   mutation REMOVE_TITULO($year: Int!, $idEscuela: Int!) {
     removeTituloHistory(year: $year, id_escuela: $idEscuela)

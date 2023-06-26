@@ -80,9 +80,9 @@ export const TitlesTable: FC<Props> = ({ escola }) => {
       <div className="flex justify-end py-6 px-10">
         <Button
           auto
-          onClick={() => push(`/escola/${escola}/integrantes/create`)}
+          onClick={() => push(`/escola/${escola}/titulos/create`)}
         >
-          Nuevo histórico
+          Nuevo título
         </Button>
       </div>
       <div className="flex flex-col justify-between">
