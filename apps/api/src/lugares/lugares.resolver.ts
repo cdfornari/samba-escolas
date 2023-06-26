@@ -61,12 +61,12 @@ export class LugaresResolver {
     return this.lugaresService.update(updateLugaresInput);
   }
 
-  @Mutation(() => Lugar)
+  @Mutation(() => Boolean)
   removeLugar(@Args('id', { type: () => Int }) id: number) {
     return this.lugaresService.remove(id);
   }
 
-  @ResolveField(() => Boolean, { name: 'padre', nullable: true })
+  @ResolveField(() => Lugar, { name: 'padre', nullable: true })
   async getParent(@Parent() lugar: Lugar) {
     return lugar.id_padre_lugar
       ? this.lugaresService.findOne(lugar.id_padre_lugar)
