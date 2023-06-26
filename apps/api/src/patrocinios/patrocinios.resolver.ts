@@ -45,8 +45,8 @@ export class PatrociniosResolver {
     @Args() filter:PatrocinioFilterArgs,
   ): Promise<PatrocinioPaginationType> {
     const [items, count] = await Promise.all([
-      this.patrociniosService.findAll(pagination,filter),
-      this.patrociniosService.count(),
+      this.patrociniosService.findAll(pagination,filter) as Promise<any>,
+      this.patrociniosService.count(filter),
     ]);
     return {
       items,
