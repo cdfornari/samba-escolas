@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args, Int,ResolveField, Parent } from '@nestjs/graphql';
 import { JuridicosService } from './juridico.service';
 import { Juridico } from './entities/juridico.entity';
 import { CreateJuridicoInput } from './dto/create-juridico.input';
@@ -6,10 +6,15 @@ import { UpdateJuridicoInput } from './dto/update-juridico.input';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { JuridicoPaginationType } from './types/juridicos-pagination.type';
+import { LugaresService } from 'src/lugares/lugares.service';
+import { Lugar } from 'src/lugares/entities/lugar.entity';
 
 @Resolver(() => Juridico)
 export class JuridicosResolver {
-  constructor(private readonly juridicosService: JuridicosService) {}
+  constructor(
+    private readonly juridicosService: JuridicosService,
+    private readonly lugaresService: LugaresService
+    ) {}
 
   @Mutation(() => Juridico)
   createJuridico(
@@ -50,5 +55,10 @@ export class JuridicosResolver {
   @Mutation(() => Boolean)
   removeJuridico(@Args('id', { type: () => Int }) id: number) {
     return this.juridicosService.remove(id);
+  }
+
+  @ResolveField(() => Lugar, { name: 'ciudad' })
+  async getCity(@Parent() juridico: Juridico): Promise<Lugar> {
+    return this.lugaresService.findOne(juridico.id_lugar);
   }
 }

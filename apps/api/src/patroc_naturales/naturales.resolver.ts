@@ -1,13 +1,13 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { NaturalesService } from './naturales.service';
-import { Naturales } from './entities/naturales.entity';
+import { Natural } from './entities/naturales.entity';
 import { CreateNaturalesInput} from './dto/create-naturales.input';
 import { UpdateNaturalesInput } from './dto/update-naturales.input';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { NaturalesPaginationType } from './types/naturales-pagination.type';
 
-@Resolver(() => Naturales)
+@Resolver(() => Natural)
 export class NaturalesResolver {
   constructor(private readonly naturalesService: NaturalesService) {}
 
@@ -35,7 +35,7 @@ export class NaturalesResolver {
     return this.naturalesService.count();
   }
 
-  @Query(() => Naturales, { name: 'natural' })
+  @Query(() => Natural, { name: 'natural' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.naturalesService.findOne(id);
   }

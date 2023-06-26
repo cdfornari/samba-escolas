@@ -17,6 +17,7 @@ import { ColoresModule } from './colores/colores.module';
 import { JuridicosModule } from './patroc_juridicos/juridico.module';
 import { EventosModule } from './eventos/eventos.module';
 import { NaturalesModule } from './patroc_naturales/naturales.module';
+import { PatrociniosModule } from './patrocinios/patrocinios.module';
 import { GanadoresModule } from './ganadores/ganadores.module';
 import { TituloHistoryModule } from './titulo-history/titulo-history.module';
 
@@ -49,6 +50,7 @@ import { TituloHistoryModule } from './titulo-history/titulo-history.module';
     JuridicosModule,
     EventosModule,
     NaturalesModule,
+    PatrociniosModule,
     GanadoresModule,
     TituloHistoryModule,
   ],
