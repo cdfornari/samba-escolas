@@ -29,6 +29,11 @@ export class DonacionesService {
     )
     )[0]
 
+      if(fecha_inicio.getDate > input.fecha.getDate)
+      throw new BadRequestException(
+        'Fecha no válida',
+      );
+
       if ( fecha_fin )
       throw new BadRequestException(
         'Patrocinio cerrado',
