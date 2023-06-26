@@ -1,6 +1,5 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
-import { IsDateString, IsInt, IsPositive} from 'class-validator';
-import { DateScalar } from 'src/common/scalars/date.scalar';
+import { IsInt, IsPositive} from 'class-validator';
 
 @InputType()
 export class OrgCarnavalFilterEscuelaArgs{

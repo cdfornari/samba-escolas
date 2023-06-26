@@ -27,8 +27,8 @@ export class OrgCarnavalesService {
     return this.crudService.findOne(this.tableName, id);
   }
 
-  async count(): Promise<number> {
-    return this.queryService.count(this.tableName);
+  async count(filter: OrgCarnavalFilterEscuelaArgs): Promise<number> {
+    return this.queryService.count(this.tableName,`id_escuela = ${filter.id_escuela}`);
   }
 
   async remove(id: number) {

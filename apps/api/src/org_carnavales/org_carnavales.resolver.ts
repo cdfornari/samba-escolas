@@ -30,10 +30,10 @@ export class OrgCarnavalesResolver {
   async findAll(
     @Args() pagination: PaginationArgs,
     @Args() filter:OrgCarnavalFilterEscuelaArgs,
-  ) {
+  ) : Promise<OrgCarnavalesPaginationType>{
     const [items, count] = await Promise.all([
-      this.orgCarnavalesService.findAll(pagination,filter),
-      this.orgCarnavalesService.count(),
+      this.orgCarnavalesService.findAll(pagination,filter)as Promise<any>,
+      this.orgCarnavalesService.count(filter),
     ]);
     return {
       items,
@@ -47,8 +47,8 @@ export class OrgCarnavalesResolver {
   }
 
   @Query(() => Int, { name: 'org_carnavalesCount' })
-  count() {
-    return this.orgCarnavalesService.count();
+  count(@Args() filter: OrgCarnavalFilterEscuelaArgs) {
+    return this.orgCarnavalesService.count(filter);
   }
 
   @Mutation(() => Boolean)
