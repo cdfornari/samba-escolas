@@ -16,7 +16,7 @@ import { OrgCarnavalFilterEscuelaArgs } from './types/org_carnavales-filter-escu
 export class OrgCarnavalesResolver {
   constructor(private readonly orgCarnavalesService: OrgCarnavalesService,
               private readonly rolesService: RolesService,
-              private readonly integranteHistoryService: IntegranteHistoryService
+              //private readonly integranteHistoryService: IntegranteHistoryService
     ) {}
 
   @Mutation(() => OrgCarnaval)
@@ -56,10 +56,10 @@ export class OrgCarnavalesResolver {
     return this.orgCarnavalesService.remove(id);
   }
 
-  @ResolveField(() => HistoricoIntegrante, { name: 'historico_integrante' })
+  /*@ResolveField(() => HistoricoIntegrante, { name: 'historico_integrante' })
   getHistoricoIntegrante(@Parent() orgCarnaval: OrgCarnaval) {
     return this.integranteHistoryService.findOne(orgCarnaval);
-  }
+  }*/
 
   @ResolveField(() => Role, { name: 'rol' })
   getRol(@Parent() orgCarnaval: OrgCarnaval) {
