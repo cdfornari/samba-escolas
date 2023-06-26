@@ -18,7 +18,7 @@ export default function Page({ params }) {
               variables: {
                 createTituloHistoryInput: {
                   ...data,
-                  idEscuela: Number(params.id),
+                  id_escuela: Number(params.id),
                 },
               },
             }),
