@@ -58,6 +58,11 @@ export class TituloHistoryResolver {
     return this.tituloHistoryService.findOne(tituloHistoryIdArgs);
   }
 
+  @Query(() => Int, { name: 'titulosCount' })
+  count(@Args() filter: TituloHistoryFilterArgs) {
+    return this.tituloHistoryService.count(filter);
+  }
+
   @Mutation(() => TituloHistory)
   updateTituloHistory(
     @Args('updateTituloHistoryInput')
