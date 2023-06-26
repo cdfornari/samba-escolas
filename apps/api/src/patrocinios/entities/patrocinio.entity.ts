@@ -16,5 +16,5 @@ export class Patrocinio {
   id_nat?:number;
 
   @Field(() => DateScalar,{nullable:true})
-  fin?: Date;
+  fecha_fin?: Date;
 }

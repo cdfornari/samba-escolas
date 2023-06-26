@@ -30,6 +30,8 @@ export class PatrociniosService {
       throw new BadRequestException(
         'La escuela ya tiene un patrocinio activo',
       );
+
+    return this.crudService.create(this.tableName,input);
   }
 
   async findAll(
@@ -65,6 +67,18 @@ export class PatrociniosService {
 
   async update(input: UpdatePatrocinioInput) {
     const { id, id_escuela, ...dto } = input;
+    if (
+      (
+        await this.queryService.select<Patrocinio[]>(
+          this.tableName,
+          null,
+          `id_escuela = ${input.id_escuela} AND fecha_fin IS NOT NULL`,
+        )
+      ).length > 0
+    )
+      throw new BadRequestException(
+        'Ya se ha cerrado este histórico',
+      );
     return (
       await this.queryService.update(
         this.tableName,
