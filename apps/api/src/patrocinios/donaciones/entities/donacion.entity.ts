@@ -14,4 +14,7 @@ export class Donacion{
   @Field(() => DateScalar)
   fecha: Date;
 
+  @Field(()=>Int)
+  monto: number;
+
 }
