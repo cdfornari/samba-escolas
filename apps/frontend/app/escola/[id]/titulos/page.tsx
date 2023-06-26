@@ -1,5 +1,5 @@
-import { IntegranteHistoriesTable } from '../../../../components/integrantes/IntegranteHistoryTable';
+import { TitlesTable } from '../../../../components/titulos/TitlesTable';
 
 export default function Page({ params }) {
-  return <IntegranteHistoriesTable escola={params.id} />;
+  return <TitlesTable escola={params.id} />;
 }

@@ -9,21 +9,19 @@ import {
   Table,
   Tooltip,
 } from '@nextui-org/react';
-import {
-  REMOVE_INTEGRANTE_HISTORY,
-  TITULOS,
-  UPDATE_INTEGRANTE_HISTORY,
-} from '../../graphql';
+import { REMOVE_TITULO, TITULOS } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Pagination } from '../ui/Pagination';
-import { XMarkIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { TrashIcon } from '@heroicons/react/24/outline';
 import { useNotifications } from '../../hooks/useNotifications';
 import { Titulo } from '../../interfaces';
 
 export const tituloTableReducer = (columnKey: any, row: Titulo) => {
   switch (columnKey) {
     case 'monto':
-      return `${row.monto} R$`;
+      return row.monto ? `${row.monto} R$` : '-';
+    case 'grupo':
+      return row.grupo ?? '-';
     default:
       return row[columnKey];
   }
@@ -52,11 +50,10 @@ interface Props {
   escola: number;
 }
 
-export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
+export const TitlesTable: FC<Props> = ({ escola }) => {
   const { push } = useRouter();
   const { firePromise } = useNotifications();
-  const [updateIntegranteHistory] = useMutation(UPDATE_INTEGRANTE_HISTORY);
-  const [removeIntegranteHistory] = useMutation(REMOVE_INTEGRANTE_HISTORY);
+  const [removeTitulo] = useMutation(REMOVE_TITULO);
   const [page, setPage] = useState(1);
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error, refetch } = useQuery<{
@@ -66,7 +63,8 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
     variables: {
       page,
       perPage: 10,
-      id_escuela: Number(escola),
+      idEscuela: Number(escola),
+      paginate: true,
     },
     fetchPolicy: 'network-only',
   });
@@ -76,7 +74,7 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
         <Loading size="lg" />
       </div>
     );
-  if (error) return <p>Error</p>;
+  if (error) return <p>{error.message}</p>;
   return (
     <div className="flex h-full flex-col">
       <div className="flex justify-end py-6 px-10">
@@ -132,11 +130,10 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
                         onClick={async () => {
                           try {
                             await firePromise(
-                              removeIntegranteHistory({
+                              removeTitulo({
                                 variables: {
-                                  fechaInicio: row.fecha_inicio,
+                                  year: row.year,
                                   idEscuela: Number(escola),
-                                  idIntegrante: row.integrante.id,
                                 },
                               }),
                               'Título eliminado'
@@ -154,7 +151,7 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
             )}
           </Table.Body>
         </Table>
-{/*         <Pagination
+        {/*         <Pagination
           page={page}
           perPage={page === 1 ? data?.integranteHistories.items.length : 15}
           setPage={setPage}

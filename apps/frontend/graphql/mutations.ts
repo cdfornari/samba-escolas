@@ -103,7 +103,7 @@ export const REMOVE_INTEGRANTE_HISTORY = gql`
 `;
 
 export const REMOVE_TITULO = gql`
-  mutation REMOVE_TITULO($removeTituloHistoryId: Int!) {
-    removeTituloHistory(id: $removeTituloHistoryId)
+  mutation REMOVE_TITULO($year: Int!, $idEscuela: Int!) {
+    removeTituloHistory(year: $year, id_escuela: $idEscuela)
   }
 `;
