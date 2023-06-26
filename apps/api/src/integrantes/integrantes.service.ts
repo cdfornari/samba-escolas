@@ -5,6 +5,7 @@ import { QueryService } from 'src/common/services/query.service';
 import { Integrante } from './entities/integrante.entity';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { CRUDService } from 'src/common/services/crud.service';
+import { Habilidad } from 'src/habilidades/entities/habilidad.entity';
 
 @Injectable()
 export class IntegrantesService {
@@ -64,6 +65,30 @@ export class IntegrantesService {
       `,
     );
     return integrantesSinHistorico.concat(integrantesInactivos);
+  }
+
+  async getHabilidades(id: number) {
+    return this.queryService.executeRawQuery<Habilidad[]>(
+      `SELECT * FROM csd_integrantes_habilidades
+        JOIN csd_habilidades ON csd_integrantes_habilidades.id_habilidad = csd_habilidades.id
+        WHERE id_integrante = ${id}
+      `,
+    );
+  }
+
+  async addHabilidad(id: number, id_habilidad: number) {
+    return this.crudService.create('integrantes_habilidades', {
+      id_integrante: id,
+      id_habilidad,
+    });
+  }
+
+  async removeHabilidad(id: number, id_habilidad: number) {
+    return this.crudService.delete('escuelas_colores', {
+      id_integrante: id,
+      id_habilidad,
+      type: 'AND',
+    });
   }
 
   remove(id: number) {
