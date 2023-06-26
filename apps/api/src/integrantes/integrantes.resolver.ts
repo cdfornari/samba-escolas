@@ -14,7 +14,6 @@ import { UpdateIntegranteInput } from './dto/update-integrante.input';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { IntegrantesPaginationType } from './types/integrantes-pagination.type';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
-import { ToggleIntegranteHabilidadInput } from './dto/toggle-integrante-habilidad.input';
 import { Habilidad } from 'src/habilidades/entities/habilidad.entity';
 
 @Resolver(() => Integrante)
@@ -69,32 +68,6 @@ export class IntegrantesResolver {
   @Mutation(() => Integrante)
   removeIntegrante(@Args('id', { type: () => Int }) id: number) {
     return this.integrantesService.remove(id);
-  }
-
-  @Mutation(() => Boolean)
-  async addHabilidadToIntegrante(
-    @Args('toggleIntegranteHabilidadInput')
-    { id_integrante, id_habilidad }: ToggleIntegranteHabilidadInput,
-  ) {
-    try {
-      this.integrantesService.addHabilidad(id_integrante, id_habilidad);
-      return true;
-    } catch (error) {
-      throw new Error(error);
-    }
-  }
-
-  @Mutation(() => Boolean)
-  async removeHabilidadFromIntegrante(
-    @Args('toggleIntegranteHabilidadInput')
-    { id_integrante, id_habilidad }: ToggleIntegranteHabilidadInput,
-  ) {
-    try {
-      this.integrantesService.removeHabilidad(id_integrante, id_habilidad);
-      return true;
-    } catch (error) {
-      throw new Error(error);
-    }
   }
 
   @ResolveField(() => [Habilidad], { name: 'habilidades' })

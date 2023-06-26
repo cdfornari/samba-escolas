@@ -17,7 +17,7 @@ export class EscolasService {
   private tableName = 'escuelas_samba';
 
   async create(input: CreateEscolaInput) {
-    const { id_colores, ...dto } = input;
+    const { id_colores = [], ...dto } = input;
     const escola = await this.crudService.create<Escola, any>(
       this.tableName,
       dto,
@@ -41,7 +41,15 @@ export class EscolasService {
   }
 
   async update(input: UpdateEscolaInput) {
-    const { id, ...dto } = input;
+    const { id, id_colores = [], ...dto } = input;
+    if(id_colores.length > 0) {
+      await this.queryService.executeRawQuery(
+        `DELETE FROM csd_escuelas_colores WHERE id_escuela = ${id}`,
+      );
+      await Promise.all(
+        id_colores.map((id_color) => this.addColor(id, id_color)),
+      );
+    }
     return this.crudService.updateOne(this.tableName, id, dto);
   }
 
@@ -60,13 +68,6 @@ export class EscolasService {
 
   async addColor(id: number, id_color: number) {
     return this.crudService.create('escuelas_colores', {
-      id_escuela: id,
-      id_color,
-    });
-  }
-
-  async removeColor(id: number, id_color: number) {
-    return this.crudService.delete('escuelas_colores', {
       id_escuela: id,
       id_color,
     });

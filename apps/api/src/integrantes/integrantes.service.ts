@@ -16,8 +16,18 @@ export class IntegrantesService {
 
   private tableName = 'integrantes';
 
-  create(input: CreateIntegranteInput) {
-    return this.crudService.create(this.tableName, input);
+  async create(input: CreateIntegranteInput) {
+    const { id_habilidades = [], ...dto } = input;
+    const integrante = await this.crudService.create<Integrante, any>(
+      this.tableName,
+      dto,
+    );
+    await Promise.all(
+      id_habilidades.map((id_habilidad) =>
+        this.addHabilidad(integrante.id, id_habilidad),
+      ),
+    );
+    return integrante;
   }
 
   async findAll(pagination?: PaginationArgs): Promise<Integrante[]> {
@@ -32,8 +42,18 @@ export class IntegrantesService {
     return this.crudService.findOne(this.tableName, id);
   }
 
-  update(input: UpdateIntegranteInput) {
-    const { id, ...dto } = input;
+  async update(input: UpdateIntegranteInput) {
+    const { id, id_habilidades = [], ...dto } = input;
+    if (id_habilidades.length > 0) {
+      this.queryService.executeRawQuery(
+        `DELETE FROM csd_integrantes_habilidades WHERE id_integrante = ${id}`,
+      );
+      await Promise.all(
+        id_habilidades.map((id_habilidad) =>
+          this.addHabilidad(id, id_habilidad),
+        ),
+      );
+    }
     return this.crudService.updateOne(this.tableName, id, dto);
   }
 
@@ -80,14 +100,6 @@ export class IntegrantesService {
     return this.crudService.create('integrantes_habilidades', {
       id_integrante: id,
       id_habilidad,
-    });
-  }
-
-  async removeHabilidad(id: number, id_habilidad: number) {
-    return this.crudService.delete('integrantes_habilidades', {
-      id_integrante: id,
-      id_habilidad,
-      type: 'AND',
     });
   }
 

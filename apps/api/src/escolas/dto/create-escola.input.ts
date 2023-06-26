@@ -1,5 +1,6 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
 import {
+  IsArray,
   IsBoolean,
   IsDate,
   IsDateString,
@@ -59,6 +60,8 @@ export class CreateEscolaInput {
 
   @IsInt({ each: true })
   @IsPositive({ each: true })
+  @IsArray()
+  @IsOptional()
   @Field(() => [Int])
-  id_colores: number[];
+  id_colores?: number[];
 }

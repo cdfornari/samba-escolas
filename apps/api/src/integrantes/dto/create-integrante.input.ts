@@ -1,9 +1,12 @@
-import { InputType, Field } from '@nestjs/graphql';
+import { InputType, Field, Int } from '@nestjs/graphql';
 import {
+  IsArray,
   IsDateString,
   IsIn,
+  IsInt,
   IsNotEmpty,
   IsOptional,
+  IsPositive,
   IsString,
 } from 'class-validator';
 import { DateScalar } from 'src/common/scalars/date.scalar';
@@ -51,4 +54,11 @@ export class CreateIntegranteInput {
   @IsOptional()
   @Field({ nullable: true })
   rg: string;
+
+  @IsInt({ each: true })
+  @IsPositive({ each: true })
+  @IsArray()
+  @IsOptional()
+  @Field(() => [Int])
+  id_habilidades?: number[];
 }
