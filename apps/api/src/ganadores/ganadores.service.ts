@@ -33,7 +33,6 @@ export class GanadoresService {
         ...(filter.id_escuela && { id_escuela: filter.id_escuela }),
         ...(filter.id_integrante && { id_integrante: filter.id_integrante }),
         ...(filter.fecha_inicio && { fecha_inicio: filter.fecha_inicio }),
-        type: 'AND',
       })
     ).map((ganador) => ({
       ...ganador,
