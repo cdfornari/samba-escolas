@@ -13,15 +13,19 @@ import { IntegrantesResolver } from 'src/integrantes/integrantes.resolver';
 import { IntegrantesService } from 'src/integrantes/integrantes.service';
 import { EscolasResolver } from 'src/escolas/escolas.resolver';
 import { EscolasService } from 'src/escolas/escolas.service';
+import { LugaresResolver } from 'src/lugares/lugares.resolver';
+import { LugaresService } from 'src/lugares/lugares.service';
+import { LugaresModule } from 'src/lugares/lugares.module';
 
 @Module({
-    imports: [CommonModule,EscolasModule,IntegrantesModule,RolesModule],
+    imports: [CommonModule,EscolasModule,IntegrantesModule,RolesModule,LugaresModule],
     providers: [
         OrgCarnavalesResolver,OrgCarnavalesService,
         IntegranteHistoryResolver,IntegranteHistoryService,
         RolesResolver,RolesService,
         IntegrantesResolver,IntegrantesService,
-        EscolasResolver,EscolasService
+        EscolasResolver,EscolasService,
+        LugaresResolver,LugaresService
     ]
   })
 
