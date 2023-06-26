@@ -1,7 +1,7 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { JuridicosService } from './juridico.service';
 import { Juridico } from './entities/juridico.entity';
-import { CreateJuridicoInput} from './dto/create-juridico.input';
+import { CreateJuridicoInput } from './dto/create-juridico.input';
 import { UpdateJuridicoInput } from './dto/update-juridico.input';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
@@ -47,7 +47,7 @@ export class JuridicosResolver {
     return this.juridicosService.update(updateJuridicoInput);
   }
 
-  @Mutation(() => Juridico)
+  @Mutation(() => Boolean)
   removeJuridico(@Args('id', { type: () => Int }) id: number) {
     return this.juridicosService.remove(id);
   }
