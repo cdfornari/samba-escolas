@@ -23,6 +23,11 @@ export const escolaTabs = (id: string, pathname: string) => [
     active: pathname.includes('sponsorships'),
   },
   {
+    name: 'Eventos',
+    href: `/escola/${id}/events`,
+    active: pathname.includes('events'),
+  },
+  {
     name: 'Sambas',
     href: `/escola/${id}/sambas`,
     active: pathname.includes('sambas'),
