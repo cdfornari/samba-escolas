@@ -47,7 +47,7 @@ export class EventosResolver {
     return this.eventosService.update(updateEventoInput);
   }
 
-  @Mutation(() => Evento)
+  @Mutation(() => Boolean)
   removeEvento(@Args('id', { type: () => Int }) id: number) {
     return this.eventosService.remove(id);
   }
