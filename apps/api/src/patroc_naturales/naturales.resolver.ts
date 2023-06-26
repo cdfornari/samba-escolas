@@ -47,7 +47,7 @@ export class NaturalesResolver {
     return this.naturalesService.update(updateNaturalesInput);
   }
 
-  @Mutation(() => Naturales)
+  @Mutation(() => Boolean)
   removeNatural(@Args('id', { type: () => Int }) id: number) {
     return this.naturalesService.remove(id);
   }

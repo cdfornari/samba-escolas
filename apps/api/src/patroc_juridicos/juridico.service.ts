@@ -43,7 +43,7 @@ export class JuridicosService {
     );
     if (referencedRows > 0)
       throw new BadRequestException(
-        'No se puede eliminar un juridico que tiene historicos de patrocinios',
+        'No se puede eliminar un patrocinador que tiene historicos de patrocinios',
       );
     await this.queryService.delete('telefonos', `id_jur = ${id}`);
     return this.crudService.delete(this.tableName, { id });
