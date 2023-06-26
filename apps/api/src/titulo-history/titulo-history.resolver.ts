@@ -67,8 +67,11 @@ export class TituloHistoryResolver {
   }
 
   @Mutation(() => Boolean)
-  removeTituloHistory(@Args('id', { type: () => Int }) id: number) {
-    return this.tituloHistoryService.remove(id);
+  removeTituloHistory(
+    @Args()
+    tituloHistoryIdArgs: TituloHistoryIdArgs,
+  ) {
+    return this.tituloHistoryService.remove(tituloHistoryIdArgs);
   }
 
   @ResolveField(() => Escola, { name: 'escola' })

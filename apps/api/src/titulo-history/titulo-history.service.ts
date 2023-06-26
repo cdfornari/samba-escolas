@@ -86,7 +86,10 @@ export class TituloHistoryService {
     )[0];
   }
 
-  remove(id: number) {
-    return this.crudService.delete(this.tableName, { id });
+  remove(id: TituloHistoryIdArgs) {
+    return this.crudService.delete(this.tableName, {
+      id_escuela: id.id_escuela,
+      anual: `${id.year}-01-01`,
+    });
   }
 }
