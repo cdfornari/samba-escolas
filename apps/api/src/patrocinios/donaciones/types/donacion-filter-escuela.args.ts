@@ -2,7 +2,7 @@ import { ArgsType, Field, Int } from '@nestjs/graphql';
 import { IsInt, IsPositive } from 'class-validator';
 
 @ArgsType()
-export class HistoricoIntegranteFilterArgs {
+export class DonacionFilterEscuelaArgs {
   @IsInt()
   @IsPositive()
   @Field(() => Int)

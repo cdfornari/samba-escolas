@@ -1,41 +1,50 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { CRUDService } from 'src/common/services/crud.service';
 import { QueryService } from 'src/common/services/query.service';
-import { CreateHistoricoIntegranteInput } from './dto/create-donacion.input';
+import { CreateDonacionInput} from './dto/create-donacion.input';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
-import { HistoricoIntegrante } from './entities/integrante-history.entity';
-import { UpdateHistoricoIntegranteInput } from './dto/update-integrante-history.input';
-import { HistoricoIntegranteFilterArgs } from './types/integrante-history-filter.args';
-import { HistoricoIntegranteIdArgs } from './types/integrante-history-id.args';
+import { Donacion } from './entities/donacion.entity';
+import { UpdateDonacionInput } from './dto/update-donacion.input';
+import { DonacionFilterEscuelaArgs } from './types/donacion-filter-escuela.args';
+import { DonacionIdArgs } from './types/donacion-id.args';
+import { Patrocinio } from '../entities/patrocinio.entity';
+import { DonacionFilterHistoricoArgs } from './types/donacion-filter-historico.args';
+import { TotalDonacionInput } from './dto/total-donacion.input';
 
 @Injectable()
-export class IntegranteHistoryService {
+export class DonacionesService {
   constructor(
     private readonly queryService: QueryService,
     private readonly crudService: CRUDService,
   ) {}
 
-  private tableName = 'historicos_integrantes';
+  private tableName = 'donacion';
 
-  async create(input: CreateHistoricoIntegranteInput) {
-    if (
-      (
-        await this.queryService.select<HistoricoIntegrante[]>(
-          this.tableName,
-          null,
-          `id_integrante = ${''} AND fecha_fin IS NULL`,
-        )
-      ).length > 0
+  async create(input: CreateDonacionInput) {
+    
+    const {fecha_inicio,fecha_fin} = (await this.queryService.select<Patrocinio[]>(
+      'historicos_patrocinios',
+      null,
+      `id = ${input.id_patroc}`,
     )
+    )[0]
+
+    if ( input.fecha < fecha_inicio )
       throw new BadRequestException(
-        'El integrante ya tiene un historico activo',
+        'Esa fecha no es válida',
       );
+
+      if ( fecha_fin )
+      throw new BadRequestException(
+        'Patrocinio cerrado',
+      );
+    
     return this.crudService.create(this.tableName, input);
   }
 
   async findAll(
     pagination: PaginationArgs,
-    filter: HistoricoIntegranteFilterArgs,
+    filter: DonacionFilterHistoricoArgs,
   ) {
     return this.crudService.findAll(
       this.tableName,
@@ -44,35 +53,41 @@ export class IntegranteHistoryService {
     );
   }
 
-  async count(filter?: HistoricoIntegranteFilterArgs): Promise<number> {
+  async count(filter?: DonacionFilterHistoricoArgs): Promise<number> {
     return this.queryService.count(
       this.tableName,
       `
-      ${filter?.id_escuela ? `id_escuela = ${filter.id_escuela}` : ''}
+      ${filter ? `id_patroc = ${filter.id_patroc} AND id_escuela = ${filter.id_escuela} ` : ''}
     `,
     );
   }
 
-  async findOne(id: HistoricoIntegranteIdArgs) {
-    const { fecha_inicio, id_escuela, id_integrante } = id;
-    return (
-      await this.queryService.select(
-        this.tableName,
-        null,
-        `fecha_inicio = '${fecha_inicio}' AND id_escuela = ${id_escuela} AND id_integrante = ${id_integrante}`,
-      )
-    )[0];
+  async findOne(id: number) {
+    return this.crudService.findOne(this.tableName, id);
   }
 
-  async update(input: UpdateHistoricoIntegranteInput) {
-    const { fecha_inicio, id_escuela, id_integrante, ...dto } = input;
-    return (
-      await this.queryService.update(
-        this.tableName,
-        dto,
-        `fecha_inicio = '${fecha_inicio}' AND id_escuela = ${id_escuela} AND id_integrante = ${id_integrante}`,
-      )
-    )[0][0];
+  async update(input: UpdateDonacionInput) {
+    const { id, ...dto } = input;
+
+    const {fecha_fin} = (await this.queryService.select<Patrocinio[]>(
+      this.tableName,
+      null,
+      `id = ${input.id_patroc}`,
+    )
+    )[0]
+
+    if ( fecha_fin )
+      throw new BadRequestException(
+        'Patrocinio cerrado',
+    );
+
+    return this.crudService.updateOne(this.tableName,id,dto);
+  }
+
+  async total(input: TotalDonacionInput) {
+    
+    this.queryService.executeRawQuery(`SELECT SUM(monto) FROM csd_donaciones WHERE id_patroc = ${input.id_patroc} AND id_escuela = ${input.id_escuela}`);
+
   }
 
   remove(id: number) {

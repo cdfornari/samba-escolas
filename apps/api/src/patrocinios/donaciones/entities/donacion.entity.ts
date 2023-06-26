@@ -1,0 +1,17 @@
+import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { DateScalar } from 'src/common/scalars/date.scalar';
+
+@ObjectType()
+export class Donacion{
+
+  @Field(()=>Int)
+  id: number;
+
+  id_patroc: number;
+
+  id_escuela: number;
+
+  @Field(() => DateScalar)
+  fecha: Date;
+
+}

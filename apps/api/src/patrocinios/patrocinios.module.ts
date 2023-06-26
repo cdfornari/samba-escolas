@@ -14,6 +14,8 @@ import { NaturalesResolver } from 'src/patroc_naturales/naturales.resolver';
 import { NaturalesService } from 'src/patroc_naturales/naturales.service';
 import { EscolasResolver } from 'src/escolas/escolas.resolver';
 import { EscolasService } from 'src/escolas/escolas.service';
+import {DonacionesService} from 'src/patrocinios/donaciones/donaciones.service'
+import {DonacionesResolver} from 'src/patrocinios/donaciones/donaciones.resolver'
 
 @Module({
   imports: [CommonModule, LugaresModule, EscolasModule, JuridicosModule, NaturalesModule],
@@ -28,6 +30,8 @@ import { EscolasService } from 'src/escolas/escolas.service';
     JuridicosService,
     NaturalesResolver,
     NaturalesService,
+    DonacionesResolver,
+    DonacionesService,
   ],
 })
 export class PatrociniosModule {}

@@ -7,10 +7,14 @@ import {
   IsOptional,
   IsPositive,
 } from 'class-validator';
-import { DateScalar } from 'src/common/scalars/date.scalar';
 
 @InputType()
-export class CreateDonacionInput {
+export class UpdateDonacionInput {
+
+  @IsInt()
+  @IsPositive()
+  @Field(() => Int)
+  id: number;
 
   @IsInt()
   @IsPositive()
@@ -22,13 +26,14 @@ export class CreateDonacionInput {
   @Field(() => Int)
   id_patroc: number;
 
-  @IsDateString()
-  @Field(() => DateScalar)
-  fecha: Date;
-
   @IsNumber()
   @IsPositive()
-  @Field(() => Int)
-  monto:number;
+  @IsOptional()
+  @Field(() => Int,{nullable:true})
+  monto?: number;
 
+  @IsDateString()
+  @IsOptional()
+  @Field(() => Int,{nullable:true})
+  fecha?: Date;
 }

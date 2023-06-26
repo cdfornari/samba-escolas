@@ -22,6 +22,7 @@ import { NaturalesService } from 'src/patroc_naturales/naturales.service';
 import { EscolasService } from 'src/escolas/escolas.service';
 import { Juridico } from 'src/patroc_juridicos/entities/juridico.entity';
 import { Natural } from 'src/patroc_naturales/entities/naturales.entity';
+import { DonacionesService } from './donaciones/donaciones.service';
 
 @Resolver(() => Patrocinio)
 export class PatrociniosResolver {
@@ -30,6 +31,7 @@ export class PatrociniosResolver {
     private readonly juridicosService: JuridicosService,
     private readonly naturalesService: NaturalesService,
     private readonly escolasService: EscolasService,
+    private readonly donacionesService: DonacionesService,
   ) {}
 
   @Mutation(() => Patrocinio)
@@ -90,5 +92,13 @@ export class PatrociniosResolver {
   @ResolveField(() => Natural, { name: 'patroc_natural',nullable: true}  )
   getNatural(@Parent() patrocinio: Patrocinio) {
     return this.naturalesService.findOne(patrocinio.id_nat);
+  }
+
+  @ResolveField(() => Int, { name: 'total_donaciones'}  )
+  getTotal(@Parent() patrocinio: Patrocinio) {
+    return this.donacionesService.total({
+      id_patroc: patrocinio.id,
+      id_escuela: patrocinio.id_escuela,
+    });
   }
 }
