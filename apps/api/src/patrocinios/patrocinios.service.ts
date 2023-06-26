@@ -67,13 +67,13 @@ export class PatrociniosService {
   }
 
   async update(input: UpdatePatrocinioInput) {
-    const { id, id_escuela, ...dto } = input;
+    const { id, ...dto } = input;
     if (
       (
         await this.queryService.select<Patrocinio[]>(
           this.tableName,
           null,
-          `id_escuela = ${input.id_escuela} AND fecha_fin IS NOT NULL`,
+          `id = ${input.id} AND fecha_fin IS NOT NULL`,
         )
       ).length > 0
     )
@@ -84,7 +84,7 @@ export class PatrociniosService {
       await this.queryService.update(
         this.tableName,
         dto,
-        `id = '${id}' AND id_escuela = ${id_escuela}`,
+        `id = ${id}`,
       )
     )[0][0]
   }

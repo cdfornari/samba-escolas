@@ -10,11 +10,6 @@ export class UpdatePatrocinioInput {
   @Field(() => Int)
   id: number;
 
-  @IsInt()
-  @IsPositive()
-  @Field(() => Int)
-  id_escuela: number;
-
   @IsDateString()
   @Field(() => DateScalar)
   fecha_fin: Date;
