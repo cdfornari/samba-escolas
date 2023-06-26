@@ -46,7 +46,7 @@ export class TituloHistoryService {
       await this.queryService.select(
         this.tableName,
         null,
-        `anual = '${year}-01-01' AND id_escuela = ${id_escuela} }`,
+        `anual = '${year}-01-01' AND id_escuela = ${id_escuela}`,
       )
     )[0];
     return {
