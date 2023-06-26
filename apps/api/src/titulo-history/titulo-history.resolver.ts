@@ -30,7 +30,7 @@ export class TituloHistoryResolver {
     return this.tituloHistoryService.create(createTituloHistoryInput);
   }
 
-  @Query(() => [TituloHistory], { name: 'tituloHistory' })
+  @Query(() => TituloHistoryPaginationType, { name: 'titulos' })
   async findAll(
     @Args() pagination: PaginationArgs,
     @Args() filter: TituloHistoryFilterArgs,
@@ -50,9 +50,9 @@ export class TituloHistoryResolver {
     };
   }
 
-  @Query(() => TituloHistoryIdArgs, { name: 'tituloHistoryIdArgs' })
+  @Query(() => TituloHistory, { name: 'titulo' })
   findOne(
-    @Args('titulo', { type: () => TituloHistoryIdArgs })
+    @Args()
     tituloHistoryIdArgs: TituloHistoryIdArgs,
   ) {
     return this.tituloHistoryService.findOne(tituloHistoryIdArgs);
