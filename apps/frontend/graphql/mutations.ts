@@ -87,3 +87,17 @@ export const UPDATE_INTEGRANTE_HISTORY = gql`
     }
   }
 `;
+
+export const REMOVE_INTEGRANTE_HISTORY = gql`
+  mutation REMOVE_INTEGRANTE_HISTORY(
+    $idEscuela: Int!
+    $idIntegrante: Int!
+    $fechaInicio: Date!
+  ) {
+    removeIntegranteHistory(
+      id_escuela: $idEscuela
+      id_integrante: $idIntegrante
+      fecha_inicio: $fechaInicio
+    )
+  }
+`;

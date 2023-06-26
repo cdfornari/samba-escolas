@@ -11,12 +11,13 @@ import {
 } from '@nextui-org/react';
 import {
   HISTORICOS_INTEGRANTES,
+  REMOVE_INTEGRANTE_HISTORY,
   UPDATE_INTEGRANTE_HISTORY,
 } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Pagination } from '../ui/Pagination';
 import { IntegranteHistory } from '../../interfaces/integrante.interface';
-import { XMarkIcon, PencilIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { useNotifications } from '../../hooks/useNotifications';
 
 export const integranteTableReducer = (
@@ -98,6 +99,7 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
   const { push } = useRouter();
   const { firePromise } = useNotifications();
   const [updateIntegranteHistory] = useMutation(UPDATE_INTEGRANTE_HISTORY);
+  const [removeIntegranteHistory] = useMutation(REMOVE_INTEGRANTE_HISTORY);
   const [page, setPage] = useState(1);
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error, refetch } = useQuery<{
@@ -209,6 +211,26 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
                         }}
                       >
                         <XMarkIcon className="h-5 w-5 text-red-500" />
+                      </Tooltip>
+                      <Tooltip
+                        content="Borrar histórico"
+                        onClick={async () => {
+                          try {
+                            await firePromise(
+                              removeIntegranteHistory({
+                                variables: {
+                                  fechaInicio: row.fecha_inicio,
+                                  idEscuela: Number(escola),
+                                  idIntegrante: row.integrante.id,
+                                },
+                              }),
+                              'Historico eliminado'
+                            );
+                          } catch (error) {}
+                          refetch();
+                        }}
+                      >
+                        <TrashIcon className="h-5 w-5 text-red-500" />
                       </Tooltip>
                     </Table.Cell>
                   ) : (
