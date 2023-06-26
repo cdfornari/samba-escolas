@@ -55,15 +55,8 @@ export class PatrociniosService {
     );
   }
 
-  async findOne(idArg: PatrocinioIdArgs) {
-    const { id, id_escuela} = idArg;
-    return (
-      await this.queryService.select(
-        this.tableName,
-        null,
-        `id = '${id}' AND id_escuela = ${id_escuela} `,
-      )
-    )[0];
+  async findOne(id: number) {
+    return this.crudService.findOne(this.tableName,id)
   }
 
   async update(input: UpdatePatrocinioInput) {

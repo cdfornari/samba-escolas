@@ -57,7 +57,7 @@ export class PatrociniosResolver {
   }
 
   @Query(() => Patrocinio, { name: 'patrocinio' })
-  findOne(@Args() id: PatrocinioIdArgs) {
+  findOne(@Args() id: number) {
     return this.patrociniosService.findOne(id);
   }
 

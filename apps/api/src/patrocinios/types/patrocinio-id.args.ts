@@ -13,4 +13,9 @@ export class PatrocinioIdArgs {
   @IsPositive()
   @Field(() => Int)
   id_escuela: number;
+
+  @IsInt()
+  @IsPositive()
+  @Field(() => Int)
+  id_patroc: number;
 }
