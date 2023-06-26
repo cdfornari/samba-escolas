@@ -14,5 +14,4 @@ export class PatrocinioIdArgs {
   @Field(() => Int)
   id_escuela: number;
 
-  
 }
