@@ -19,16 +19,16 @@ export class OrgCarnavalesService {
     return this.crudService.create(this.tableName, createOrgCarnavalInput);
   }
 
-  async findAll(pagination: PaginationArgs,filter:OrgCarnavalFilterEscuelaArgs): Promise<OrgCarnaval[]> {
-    return this.crudService.findAll(this.tableName, pagination,filter);
+  async findAll(pagination: PaginationArgs,filter:number): Promise<OrgCarnaval[]> {
+    return this.crudService.findAll(this.tableName, pagination,{id_escola:filter});
   }
 
   findOne(id: number) {
     return this.crudService.findOne(this.tableName, id);
   }
 
-  async count(filter: OrgCarnavalFilterEscuelaArgs): Promise<number> {
-    return this.queryService.count(this.tableName,`id_escuela = ${filter.id_escuela}`);
+  async count(filter: number): Promise<number> {
+    return this.queryService.count(this.tableName,`id_escuela = ${filter}`);
   }
 
   async remove(id: number) {

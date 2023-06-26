@@ -30,11 +30,11 @@ export class OrgCarnavalesResolver {
   @Query(() => OrgCarnavalesPaginationType, { name: 'org_carnavales' })
   async findAll(
     @Args() pagination: PaginationArgs,
-    @Args('filter') filter:OrgCarnavalFilterEscuelaArgs,
+    @Args('id_escola', { type: () => Int }) id_escola: number,
   ) : Promise<OrgCarnavalesPaginationType>{
     const [items, count] = await Promise.all([
-      this.orgCarnavalesService.findAll(pagination,filter)as Promise<any>,
-      this.orgCarnavalesService.count(filter),
+      this.orgCarnavalesService.findAll(pagination,id_escola)as Promise<any>,
+      this.orgCarnavalesService.count(id_escola),
     ]);
     return {
       items,
@@ -48,8 +48,8 @@ export class OrgCarnavalesResolver {
   }
 
   @Query(() => Int, { name: 'org_carnavalesCount' })
-  count(@Args('filter') filter: OrgCarnavalFilterEscuelaArgs) {
-    return this.orgCarnavalesService.count(filter);
+  count(@Args('id_escola', { type: () => Int }) id_escola: number,) {
+    return this.orgCarnavalesService.count(id_escola);
   }
 
   @Mutation(() => Boolean)
