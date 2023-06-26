@@ -32,8 +32,8 @@ export class DonacionesService {
       console.log(input.fecha)
       console.log(fecha_inicio)
 
-      console.log(input.fecha < fecha_inicio)
-      console.log(input.fecha > fecha_inicio)
+      console.log(input.fecha.getDate() < fecha_inicio.getDate())
+      console.log(input.fecha.getDate() < fecha_inicio.getDate())
 
     if ( input.fecha < fecha_inicio )
       throw new BadRequestException(
