@@ -5,9 +5,9 @@ import { DateScalar } from 'src/common/scalars/date.scalar';
 @ObjectType()
 export class Evento {
 
+  @Field(() => Int)
   id: number;
 
-  @Field(() => Int)
   id_escuela: number;
 
   @Field( () => DateScalar)
