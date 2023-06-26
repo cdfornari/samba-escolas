@@ -23,7 +23,7 @@ export class PatrociniosService {
         await this.queryService.select<Patrocinio[]>(
           this.tableName,
           null,
-          `id_escuela = ${input.id_escuela} AND fecha_fin IS NULL`,
+          `id_escuela = ${input.id_escuela} AND fecha_fin IS NULL AND ( id_jur = ${input.id_jur} OR id_nat = ${input.id_nat} )`,
         )
       ).length > 0
     )
