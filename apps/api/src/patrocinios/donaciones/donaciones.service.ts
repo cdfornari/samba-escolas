@@ -29,15 +29,16 @@ export class DonacionesService {
     )
     )[0]
 
+    if ( fecha_fin )
+    throw new BadRequestException(
+      'Patrocinio cerrado',
+    );
+
       if(new Date(fecha_inicio) > new Date(input.fecha))
       throw new BadRequestException(
         'Fecha no válida, la fecha de la donacion no puede ser menor que la que inició el patrocinio',
       );
 
-      if ( fecha_fin )
-      throw new BadRequestException(
-        'Patrocinio cerrado',
-      );
     
     return this.crudService.create(this.tableName, input);
   }
@@ -69,7 +70,7 @@ export class DonacionesService {
   async update(input: UpdateDonacionInput) {
     const { id, ...dto } = input;
 
-    const {fecha_fin} = (await this.queryService.select<Patrocinio[]>(
+    const {fecha_inicio,fecha_fin} = (await this.queryService.select<Patrocinio[]>(
       'historicos_patrocinios',
       null,
       `id = ${input.id_patroc}`,
@@ -81,6 +82,11 @@ export class DonacionesService {
       throw new BadRequestException(
         'Patrocinio cerrado',
     );
+
+    if(new Date(fecha_inicio) > new Date(input.fecha))
+      throw new BadRequestException(
+        'Fecha no válida, la fecha de la donacion no puede ser menor que la que inició el patrocinio',
+      );
 
     return this.crudService.updateOne(this.tableName,id,dto);
   }
