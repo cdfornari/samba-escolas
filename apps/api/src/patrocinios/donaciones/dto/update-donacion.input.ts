@@ -7,6 +7,7 @@ import {
   IsOptional,
   IsPositive,
 } from 'class-validator';
+import { DateScalar } from 'src/common/scalars/date.scalar';
 
 @InputType()
 export class UpdateDonacionInput {
@@ -34,6 +35,6 @@ export class UpdateDonacionInput {
 
   @IsDateString()
   @IsOptional()
-  @Field(() => Int,{nullable:true})
+  @Field(() => DateScalar,{nullable:true})
   fecha?: Date;
 }
