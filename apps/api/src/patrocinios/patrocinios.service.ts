@@ -56,7 +56,7 @@ export class PatrociniosService {
   }
 
   async findOne(id: number) {
-    return this.crudService.findOne(this.tableName,id)
+    return this.crudService.findOne(this.tableName,id);
   }
 
   async update(input: UpdatePatrocinioInput) {

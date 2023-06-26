@@ -75,7 +75,7 @@ import { Patrocinio } from '../entities/patrocinio.entity';
   
     @ResolveField(() => Patrocinio, { name: 'patrocinio' })
     getPatrocinio(@Parent() donacion: Donacion) {
-    return this.patrociniosService.findOne(donacion);
+    return this.patrociniosService.findOne(donacion.id_patroc);
     }
   }
   
