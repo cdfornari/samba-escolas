@@ -1005,7 +1005,7 @@ INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2018',4,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-1996',5,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2016',11,5);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2016',12,5);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES '03-01-2009',8,6,23,'05-04-1991');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2009',8,6,23,'05-04-1991');
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2005',8,6,23,'05-04-1991');
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2002',8,6,23,'05-04-1991');
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2000',8,6,23,'05-04-1991');
