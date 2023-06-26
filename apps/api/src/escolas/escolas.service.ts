@@ -54,32 +54,25 @@ export class EscolasService {
   }
 
   async remove(id: number) {
-    const referencedRows = await Promise.all([
-      this.queryService.count('escuelas_colores', `WHERE id_escuela = ${id}`),
-      this.queryService.count('historicos_titulos', `WHERE id_escuela = ${id}`),
-      this.queryService.count(
-        'historicos_integrantes',
-        `WHERE id_escuela = ${id}`,
-      ),
-      this.queryService.count('telefonos', `WHERE id_escuela = ${id}`),
-      this.queryService.count(
-        'historicos_patrocinios',
-        `WHERE id_escuela = ${id}`,
-      ),
-      this.queryService.count(
-        'eventos_anuales_sems',
-        `WHERE id_escuela = ${id}`,
-      ),
-      this.queryService.count('ganadores', `WHERE id_escuela = ${id}`),
-    ]);
-    const totalReferencedRows = referencedRows.reduce(
-      (acc, curr) => acc + curr,
-      0,
+    const referencedRows = await this.queryService.count(
+      'historicos_integrantes',
+      `id_escuela = ${id}`,
     );
-    if (totalReferencedRows > 0)
+    if (referencedRows > 0)
       throw new BadRequestException(
-        `No se puede eliminar la escuela porque está referenciada ${totalReferencedRows} veces`,
+        `No se puede eliminar la escuela porque está tiene ${referencedRows} integrante${
+          referencedRows > 1 ? 's' : ''
+        }`,
       );
+    await this.queryService.delete('donaciones', `id_escuela = ${id}`);
+    await Promise.all([
+      this.queryService.delete('escuelas_colores', `id_escuela = ${id}`),
+      this.queryService.delete('historicos_titulos', `id_escuela = ${id}`),
+      this.queryService.delete('telefonos', `id_escuela = ${id}`),
+      this.queryService.delete('historicos_patrocinios', `id_escuela = ${id}`),
+      this.queryService.delete('eventos_anuales_sems', `id_escuela = ${id}`),
+      this.queryService.delete('ganadores', `id_escuela = ${id}`),
+    ]);
     return this.crudService.delete(this.tableName, { id });
   }
 
