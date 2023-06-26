@@ -82,7 +82,13 @@ export class QueryService {
       }`,
     )
   
+    console.log (algo.affected)
     console.log (algo[1])
+    console.log (algo[1])
+    console.log (algo[0][0])
+    console.log (algo[0][1])
+    console.log (algo[1][0])
+    console.log (algo[1][1])
 
     return (
       (
@@ -91,7 +97,7 @@ export class QueryService {
             where ? `WHERE ${where}` : ''
           }`,
         )
-      )[1] > 0
+      )[0][0] > 0
     );
   }
 }
