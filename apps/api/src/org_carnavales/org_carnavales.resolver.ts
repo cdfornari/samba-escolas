@@ -30,7 +30,7 @@ export class OrgCarnavalesResolver {
   @Query(() => OrgCarnavalesPaginationType, { name: 'org_carnavales' })
   async findAll(
     @Args() pagination: PaginationArgs,
-    @Args() filter:OrgCarnavalFilterEscuelaArgs,
+    @Args('filter') filter:OrgCarnavalFilterEscuelaArgs,
   ) : Promise<OrgCarnavalesPaginationType>{
     const [items, count] = await Promise.all([
       this.orgCarnavalesService.findAll(pagination,filter)as Promise<any>,
