@@ -6,6 +6,7 @@ import {
   IntegranteFragment,
   IntegranteHistoryFragment,
   LugaresFragment,
+  PatrocinioFragment,
   RolesFragment,
   TituloFragment,
 } from './fragments';
@@ -205,4 +206,17 @@ export const EVENT = gql`
     }
   }
   ${EventFragment}
+`;
+
+export const PATROCINIOS = gql`
+  query PATROCINIOS($idEscuela: Int!, $perPage: Int, $page: Int) {
+    patrocinios(id_escuela: $idEscuela, perPage: $perPage, page: $page) {
+      items {
+        ...PatrocinioFragment
+      }
+      numberOfPages
+    }
+    patrociniosCount(id_escuela: $idEscuela)
+  }
+  ${PatrocinioFragment}
 `;

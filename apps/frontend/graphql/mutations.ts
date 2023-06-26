@@ -137,3 +137,17 @@ export const REMOVE_EVENT = gql`
     removeEvento(id: $removeEventoId)
   }
 `;
+
+export const UPDATE_PATROCINIO = gql`
+  mutation Mutation($updatePatricinioInput: UpdatePatrocinioInput!) {
+    updatePatrocinio(updatePatricinioInput: $updatePatricinioInput) {
+      id
+    }
+  }
+`;
+
+export const REMOVE_PATROCINIO = gql`
+  mutation REMOVE_PATROCINIO($removePatrocinioId: Int!, $idEscuela: Int!) {
+    removePatrocinio(id: $removePatrocinioId, id_escuela: $idEscuela)
+  }
+`;

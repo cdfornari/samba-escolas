@@ -82,3 +82,47 @@ export const EventFragment = gql`
     asist_total
   }
 `;
+
+export const NaturalFragment = gql`
+  fragment NaturalFragment on Natural {
+    apellido1
+    apellido2
+    email
+    id
+    nombre1
+    nombre2
+    rg
+  }
+`;
+
+export const JuridicoFragment = gql`
+  fragment JuridicoFragment on Juridico {
+    cep
+    ciudad {
+      nombre
+    }
+    cnpj
+    dir
+    email
+    id
+    nombre
+    numero
+  }
+`;
+
+export const PatrocinioFragment = gql`
+  fragment PatrocinioFragment on Patrocinio {
+    id
+    fecha_inicio
+    fecha_fin
+    total_donaciones
+    patroc_natural {
+      ...NaturalFragment
+    }
+    patroc_juridico {
+      ...JuridicoFragment
+    }
+  }
+  ${NaturalFragment}
+  ${JuridicoFragment}
+`;
