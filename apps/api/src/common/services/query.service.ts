@@ -75,20 +75,6 @@ export class QueryService {
   }
 
   async delete(table: string, where?: string): Promise<boolean> {
-    
-    const algo = await this.dataSource.query(
-      `DELETE FROM ${this.tablesPrefix + table} ${
-        where ? `WHERE ${where}` : ''
-      }`,
-    )
-  
-    console.log (algo.affected)
-    console.log (algo[1])
-    console.log (algo[1])
-    console.log (algo[0][0])
-    console.log (algo[0][1])
-    console.log (algo[1][0])
-    console.log (algo[1][1])
 
     return (
       (
@@ -97,7 +83,7 @@ export class QueryService {
             where ? `WHERE ${where}` : ''
           }`,
         )
-      )[0][0] > 0
+      )[1] > 0
     );
   }
 }
