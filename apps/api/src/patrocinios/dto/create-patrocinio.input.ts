@@ -21,17 +21,17 @@ export class CreatePatrocinioInput {
   @IsNumber()
   @IsPositive()
   @IsOptional()
-  @Field(() => Int)
+  @Field(() => Int,{nullable:true})
   id_jur?:number;
 
   @IsOptional()
   @IsNumber()
   @IsPositive()
-  @Field(() => Int)
+  @Field(() => Int,{nullable:true})
   id_nat?:number;
 
   @IsDateString()
   @IsOptional()
-  @Field(() => DateScalar)
+  @Field(() => DateScalar,{nullable:true})
   fin?: Date;
 }
