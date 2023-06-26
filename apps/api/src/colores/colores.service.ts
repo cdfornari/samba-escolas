@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CRUDService } from 'src/common/services/crud.service';
 import { QueryService } from 'src/common/services/query.service';
 import { Color } from './entities/color.entity';
@@ -36,5 +36,19 @@ export class ColoresService {
     return this.crudService.updateOne(this.tableName, id, dto);
   }
 
-  remove(id: number) {}
+  async remove(id: number) {
+    const referencedRows = await this.queryService.count(
+      'escuelas_colores',
+      `
+      WHERE color_id = ${id}
+    `,
+    );
+    if (referencedRows > 0)
+      throw new BadRequestException(
+        `No se puede eliminar el color porque está referenciado en ${referencedRows} escuela${
+          referencedRows > 1 ? 's' : ''
+        }`,
+      );
+    return this.crudService.delete(this.tableName, { id });
+  }
 }
