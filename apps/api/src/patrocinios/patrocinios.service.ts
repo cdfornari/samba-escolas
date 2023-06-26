@@ -82,7 +82,21 @@ export class PatrociniosService {
     )[0][0]
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} escola`;
-  }
+  async remove(id: PatrocinioIdArgs) {
+
+    const patrocinio = await this.findOne(id.id)
+
+    if ( patrocinio.fecha_fin )
+    throw new BadRequestException(
+      'Patrocinio cerrado',
+    );
+
+    await this.queryService.delete('donaciones',`id_patroc = ${patrocinio.id}`)
+
+    const nose = this.crudService.delete(this.tableName, id);
+
+      console.log(nose);
+
+    return nose;
+}
 }

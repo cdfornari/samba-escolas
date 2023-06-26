@@ -58,7 +58,7 @@ export class PatrociniosResolver {
 
   @Query(() => Patrocinio, { name: 'patrocinio' })
   findOne(@Args() id: PatrocinioIdArgs) {
-    return this.patrociniosService.findOne(id.id_patroc);
+    return this.patrociniosService.findOne(id.id);
   }
 
   @Query(() => Int, { name: 'patrociniosCount' })
@@ -73,9 +73,8 @@ export class PatrociniosResolver {
     return this.patrociniosService.update(updateEscolaInput);
   }
 
-  @Mutation(() => Patrocinio)
-  removePatrocinio(@Args() idArgs: PatrocinioIdArgs) {
-    const {id} = idArgs
+  @Mutation(() => Boolean)
+  removePatrocinio(@Args() id: PatrocinioIdArgs) {
     return this.patrociniosService.remove(id);
   }
 

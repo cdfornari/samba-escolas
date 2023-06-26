@@ -103,7 +103,23 @@ export class DonacionesService {
 
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} escola`;
+  async remove(id: DonacionIdArgs) {
+    const {fecha_fin} = (await this.queryService.select<Patrocinio[]>(
+      'historicos_patrocinios',
+      null,
+      `id = ${id.id_patroc}`,
+    )
+    )[0]
+
+    if ( fecha_fin )
+    throw new BadRequestException(
+      'Patrocinio cerrado',
+    );
+
+    const nose = await this.crudService.delete(this.tableName, id);
+
+      console.log(nose);
+
+    return nose;
   }
 }
