@@ -43,11 +43,6 @@ export class OrgCarnavalesResolver {
     };
   }
 
-  @Query(() => OrgCarnaval, { name: 'org_carnaval' })
-  findOne(@Args() id: OrgCarnavalIdArgs) {
-    return this.orgCarnavalesService.findOne(id);
-  }
-
   @Query(() => Int, { name: 'org_carnavalesCount' })
   count(@Args('id_escuela', { type: () => Int }) id_escuela: number,) {
     return this.orgCarnavalesService.count(id_escuela);

@@ -24,10 +24,6 @@ export class OrgCarnavalesService {
     return this.crudService.findAll(this.tableName, pagination,{id_escuela:filter});
   }
 
-  findOne(id: OrgCarnavalIdArgs) {
-    return this.crudService.findOne(this.tableName, id.id_escuela);
-  }
-
   async count(filter: number): Promise<number> {
     return this.queryService.count(this.tableName,`id_escuela = ${filter}`);
   }
