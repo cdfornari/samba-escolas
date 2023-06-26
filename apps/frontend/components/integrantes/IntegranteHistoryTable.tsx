@@ -147,7 +147,7 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
                     <Table.Cell css={{ cursor: 'default' }}>
                       {integranteTableReducer(columnKey, row)}
                     </Table.Cell>
-                  ) : !row.fecha_fin ? (
+                  ) : (
                     <Table.Cell
                       css={{
                         cursor: 'pointer',
@@ -158,6 +158,7 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
                     >
                       <Tooltip
                         content="Editar autoridad"
+                        style={{ display: row.fecha_fin ? 'none' : '' }}
                         onClick={async () => {
                           await firePromise(
                             updateIntegranteHistory({
@@ -179,6 +180,7 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
                       </Tooltip>
                       <Tooltip
                         content="Cerrar histórico"
+                        style={{ display: row.fecha_fin ? 'none' : '' }}
                         onClick={async () => {
                           await firePromise(
                             updateIntegranteHistory({
@@ -191,7 +193,7 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
                                 },
                               },
                             }),
-                            'Historico actualizado'
+                            'Historico cerrado'
                           );
                           refetch();
                         }}
@@ -218,10 +220,6 @@ export const IntegranteHistoriesTable: FC<Props> = ({ escola }) => {
                       >
                         <TrashIcon className="h-5 w-5 text-red-500" />
                       </Tooltip>
-                    </Table.Cell>
-                  ) : (
-                    <Table.Cell>
-                      <></>
                     </Table.Cell>
                   )
                 }

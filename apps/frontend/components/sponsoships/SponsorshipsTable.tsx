@@ -10,7 +10,7 @@ import {
 } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Pagination } from '../ui/Pagination';
-import { XMarkIcon, PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon, TrashIcon, EyeIcon } from '@heroicons/react/24/outline';
 import { useNotifications } from '../../hooks/useNotifications';
 import { Patrocinio } from '../../interfaces';
 
@@ -29,6 +29,8 @@ export const patrocinioTableReducer = (columnKey: any, row: Patrocinio) => {
         ${row.patroc_natural.nombre1} ${row.patroc_natural.nombre2 || ''} ${
             row.patroc_natural.apellido1
           } ${row.patroc_natural.apellido2}`;
+    case 'total_donaciones':
+      return `${row.total_donaciones} R$`;
     default:
       return row[columnKey];
   }
@@ -119,7 +121,7 @@ export const PatrociniosTable: FC<Props> = ({ escola }) => {
                     <Table.Cell css={{ cursor: 'default' }}>
                       {patrocinioTableReducer(columnKey, row)}
                     </Table.Cell>
-                  ) : !row.fecha_fin ? (
+                  ) : (
                     <Table.Cell
                       css={{
                         cursor: 'pointer',
@@ -129,15 +131,16 @@ export const PatrociniosTable: FC<Props> = ({ escola }) => {
                       }}
                     >
                       <Tooltip
-                        content="Editar autoridad"
+                        content="Ver donaciones"
                         onClick={async () =>
                           push(`/escola/${escola}/sponsorships/${row.id}`)
                         }
                       >
-                        <PencilIcon className="h-5 w-5" />
+                        <EyeIcon className="h-5 w-5" />
                       </Tooltip>
                       <Tooltip
                         content="Cerrar histórico"
+                        style={{ display: row.fecha_fin ? 'none' : '' }}
                         onClick={async () => {
                           await firePromise(
                             updatePatrocinio({
@@ -174,10 +177,6 @@ export const PatrociniosTable: FC<Props> = ({ escola }) => {
                       >
                         <TrashIcon className="h-5 w-5 text-red-500" />
                       </Tooltip>
-                    </Table.Cell>
-                  ) : (
-                    <Table.Cell>
-                      <></>
                     </Table.Cell>
                   )
                 }
