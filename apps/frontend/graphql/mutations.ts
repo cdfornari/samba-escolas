@@ -116,6 +116,14 @@ export const REMOVE_TITULO = gql`
   }
 `;
 
+export const CREATE_EVENT = gql`
+  mutation Mutation($createEventoInput: CreateEventoInput!) {
+    createEvento(createEventoInput: $createEventoInput) {
+      id
+    }
+  }
+`;
+
 export const UPDATE_EVENT = gql`
   mutation UPDATE_EVENT($updateEventoInput: UpdateEventoInput!) {
     updateEvento(updateEventoInput: $updateEventoInput) {
