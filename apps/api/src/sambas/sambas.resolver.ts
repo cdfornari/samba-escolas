@@ -6,6 +6,7 @@ import { UpdateSambaInput } from './dto/update-samba.input';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { SambaPaginationType } from './types/sambas-pagination.type';
+import { SambasFilterIdsArgs } from './types/sambas-filter-id.args';
 
 @Resolver(() => Samba)
 export class SambasResolver {
@@ -19,7 +20,10 @@ export class SambasResolver {
   }
 
   @Query(() => SambaPaginationType, { name: 'sambas' })
-  async findAll(@Args() pagination: PaginationArgs) {
+  async findAll(
+    @Args() pagination: PaginationArgs,
+    @Args() idArgs: SambasFilterIdsArgs
+    ) {
     const [items, count] = await Promise.all([
       this.sambasService.findAll(pagination),
       this.sambasService.count(),
@@ -38,6 +42,14 @@ export class SambasResolver {
   @Query(() => Samba, { name: 'samba' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.sambasService.findOne(id);
+  }
+
+  @Query(() => Samba, { name: 'samba' })
+  getSambasByEscola(
+    @Args('pagination', { type: () => PaginationArgs }) pagination: PaginationArgs,
+    @Args('id', { type: () => Int }) id: number
+    ) {
+    return this.sambasService.getSambas(pagination,id);
   }
 
   @Mutation(() => Samba)
