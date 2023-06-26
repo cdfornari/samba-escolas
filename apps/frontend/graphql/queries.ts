@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 import {
+  ColorFragment,
   EscolaFragment,
   IntegranteFragment,
   IntegranteHistoryFragment,
@@ -33,13 +34,22 @@ export const ESCOLA = gql`
         id
         nombre
       }
+      colores {
+        ...ColorFragment
+      }
     }
   }
   ${EscolaFragment}
+  ${ColorFragment}
 `;
 
 export const LUGARES = gql`
-  query LUGARES($page: Int, $perPage: Int, $tipo: PlaceType, $paginate: Boolean) {
+  query LUGARES(
+    $page: Int
+    $perPage: Int
+    $tipo: PlaceType
+    $paginate: Boolean
+  ) {
     lugares(page: $page, perPage: $perPage, tipo: $tipo, paginate: $paginate) {
       items {
         ...LugaresFragment
@@ -135,4 +145,17 @@ export const HISTORICOS_INTEGRANTES = gql`
     integranteHistoriesCount(id_escuela: $idEscuela)
   }
   ${IntegranteHistoryFragment}
+`;
+
+export const COLORS = gql`
+  query COLORS($page: Int, $perPage: Int, $paginate: Boolean) {
+    colores(page: $page, perPage: $perPage, paginate: $paginate) {
+      items {
+        ...ColorFragment
+      }
+      numberOfPages
+    }
+    colorCount
+  }
+  ${ColorFragment}
 `;

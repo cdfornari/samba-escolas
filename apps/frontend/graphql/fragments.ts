@@ -54,3 +54,10 @@ export const IntegranteHistoryFragment = gql`
   }
   ${IntegranteFragment}
 `;
+
+export const ColorFragment = gql`
+  fragment ColorFragment on Color {
+    id
+    nombre
+  }
+`;
