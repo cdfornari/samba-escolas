@@ -84,9 +84,9 @@ export class DonacionesService {
     return this.crudService.updateOne(this.tableName,id,dto);
   }
 
-  async total(input: TotalDonacionInput) {
+  async total(input: TotalDonacionInput) : Promise<number>{
     
-    return this.queryService.executeRawQuery(`SELECT SUM(monto) FROM csd_donaciones WHERE id_patroc = ${input.id_patroc} AND id_escuela = ${input.id_escuela}`)[0];
+    return this.queryService.executeRawQuery(`SELECT SUM(monto) FROM csd_donaciones WHERE id_patroc = ${input.id_patroc} AND id_escuela = ${input.id_escuela}`);
 
   }
 
