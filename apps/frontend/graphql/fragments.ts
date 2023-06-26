@@ -61,3 +61,11 @@ export const ColorFragment = gql`
     nombre
   }
 `;
+
+export const TituloFragment = gql`
+  fragment TituloFragment on TituloHistory {
+    grupo
+    monto
+    year
+  }
+`;

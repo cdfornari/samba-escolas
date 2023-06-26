@@ -6,6 +6,7 @@ import {
   IntegranteHistoryFragment,
   LugaresFragment,
   RolesFragment,
+  TituloFragment,
 } from './fragments';
 
 export const ESCOLAS = gql`
@@ -158,4 +159,26 @@ export const COLORS = gql`
     colorCount
   }
   ${ColorFragment}
+`;
+
+export const TITULOS = gql`
+  query TITULOS(
+    $idEscuela: Int!
+    $page: Int
+    $perPage: Int
+    $paginate: Boolean!
+  ) {
+    titulos(
+      id_escuela: $idEscuela
+      page: $page
+      perPage: $perPage
+      paginate: $paginate
+    ) {
+      items {
+        ...TituloFragment
+      }
+      numberOfPages
+    }
+  }
+  ${TituloFragment}
 `;
