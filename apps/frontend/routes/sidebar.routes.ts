@@ -5,6 +5,7 @@ import {
   TrophyIcon,
   UsersIcon,
   UserIcon,
+  StarIcon,
 } from '@heroicons/react/24/outline';
 
 export const sidebarRoutes = (pathname: string) => [
@@ -31,6 +32,12 @@ export const sidebarRoutes = (pathname: string) => [
     icon: UsersIcon,
     href: '/roles',
     active: pathname.includes('roles'),
+  },
+  {
+    name: 'Habilidades',
+    icon: StarIcon,
+    href: '/habilidades',
+    active: pathname.includes('habilidades'),
   },
   {
     name: 'Patrocinadores',
