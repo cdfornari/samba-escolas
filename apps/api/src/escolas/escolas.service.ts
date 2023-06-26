@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateEscolaInput } from './dto/create-escola.input';
 import { UpdateEscolaInput } from './dto/update-escola.input';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
@@ -42,7 +42,7 @@ export class EscolasService {
 
   async update(input: UpdateEscolaInput) {
     const { id, id_colores = [], ...dto } = input;
-    if(id_colores.length > 0) {
+    if (id_colores.length > 0) {
       await this.queryService.executeRawQuery(
         `DELETE FROM csd_escuelas_colores WHERE id_escuela = ${id}`,
       );
@@ -53,8 +53,34 @@ export class EscolasService {
     return this.crudService.updateOne(this.tableName, id, dto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} escola`;
+  async remove(id: number) {
+    const referencedRows = await Promise.all([
+      this.queryService.count('escuelas_colores', `WHERE id_escuela = ${id}`),
+      this.queryService.count('historicos_titulos', `WHERE id_escuela = ${id}`),
+      this.queryService.count(
+        'historicos_integrantes',
+        `WHERE id_escuela = ${id}`,
+      ),
+      this.queryService.count('telefonos', `WHERE id_escuela = ${id}`),
+      this.queryService.count(
+        'historicos_patrocinios',
+        `WHERE id_escuela = ${id}`,
+      ),
+      this.queryService.count(
+        'eventos_anuales_sems',
+        `WHERE id_escuela = ${id}`,
+      ),
+      this.queryService.count('ganadores', `WHERE id_escuela = ${id}`),
+    ]);
+    const totalReferencedRows = referencedRows.reduce(
+      (acc, curr) => acc + curr,
+      0,
+    );
+    if (totalReferencedRows > 0)
+      throw new BadRequestException(
+        `No se puede eliminar la escuela porque está referenciada ${totalReferencedRows} veces`,
+      );
+    return this.crudService.delete(this.tableName, { id });
   }
 
   async getColors(id: number) {
