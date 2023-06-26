@@ -44,12 +44,19 @@ export class SambasResolver {
     return this.sambasService.findOne(id);
   }
 
-  @Query(() => Samba, { name: 'samba' })
-  getSambasByEscola(
+  @Query(() => SambaPaginationType, { name: 'sambaByEscola' })
+  async getSambasByEscola(
     @Args('pagination', { type: () => PaginationArgs }) pagination: PaginationArgs,
     @Args('id', { type: () => Int }) id: number
     ) {
-    return this.sambasService.getSambas(pagination,id);
+      const [items] = await Promise.all([
+        this.sambasService.getSambas(pagination,id),
+      ]);
+      const count = items.length; 
+      return {
+        items,
+        numberOfPages: getNumberOfPages(pagination, count),
+      };
   }
 
   @Mutation(() => Samba)
