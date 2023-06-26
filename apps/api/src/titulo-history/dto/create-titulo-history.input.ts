@@ -17,6 +17,7 @@ export class CreateTituloHistoryInput {
 
   @IsInt()
   @IsPositive()
+  @Field(() => Int)
   id_escuela: number;
 
   @IsPositive()

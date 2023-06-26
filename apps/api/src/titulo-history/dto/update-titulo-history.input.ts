@@ -19,6 +19,7 @@ export class UpdateTituloHistoryInput extends PartialType(
 
   @IsInt()
   @IsPositive()
+  @Field(() => Int)
   id_escuela: number;
 
   @IsPositive()
