@@ -88,6 +88,8 @@ export class PatrociniosService {
       `id_patroc = id`,
     )
 
+      console.log(referencedRows)
+
     if (referencedRows>0) throw new BadRequestException(
       'No se puede eliminar el historico porque tiene donaciones asociadas',
     );
