@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreatePremioInput } from './dto/create-premio.input';
 import { UpdatePremioInput } from './dto/update-premio.input';
 import { QueryService } from 'src/common/services/query.service';
@@ -19,7 +19,7 @@ export class PremiosService {
     return this.crudService.create(this.tableName, createPremioInput);
   }
 
-  async findAll(pagination: PaginationArgs): Promise<Premio[]> {
+  async findAll(pagination?: PaginationArgs): Promise<Premio[]> {
     return this.crudService.findAll(this.tableName, pagination);
   }
 
@@ -36,7 +36,15 @@ export class PremiosService {
     return this.queryService.count(this.tableName);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} premio`;
+  async remove(id: number) {
+    const referencedRows = await this.queryService.count(
+      'ganadores',
+      `id_premio = ${id}`,
+    );
+    if (referencedRows > 0)
+      throw new BadRequestException(
+        'No se puede eliminar un premio que tiene ganadores registrados',
+      );
+    return this.crudService.delete(this.tableName, { id });
   }
 }

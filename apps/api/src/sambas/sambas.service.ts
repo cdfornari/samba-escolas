@@ -36,7 +36,8 @@ export class SambasService {
     return this.crudService.updateOne(this.tableName, id, dto);
   }
 
-  remove(id: number) {
-    return this.crudService.remove(this.tableName, id);
+  async remove(id: number) {
+    await this.crudService.delete('autores', { id_samba: id });
+    return this.crudService.delete(this.tableName, { id });
   }
 }

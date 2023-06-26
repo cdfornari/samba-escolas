@@ -73,4 +73,16 @@ export class QueryService {
       )
     )[0].count;
   }
+
+  async delete(table: string, where?: string): Promise<boolean> {
+    return (
+      (
+        await this.dataSource.query(
+          `DELETE FROM ${this.tablesPrefix + table} ${
+            where ? `WHERE ${where}` : ''
+          }`,
+        )
+      ).affected > 0
+    );
+  }
 }

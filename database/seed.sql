@@ -179,42 +179,42 @@ INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (7,1,'01-20-
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (7,1,'01-20-2002',5000);
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (8,9,'09-06-2019',22000);
 
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2013',4,'UESP-2',12000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2014',4,'UESP-1',15000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2017',3,'Especial',90000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2023',2,'Especial',90000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1980',1,'Grupo 1A',5000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1981',1,'Grupo 1A',7500);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1989',1,'Grupo 1',20000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1994',1,'Especial',20000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1995',1,'Especial',20000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1999',1,'Especial',30000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2000',1,'Especial',30000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2001',1,'Especial',30000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2020',1,'Serie A',40000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2023',1,'Especial',90000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1965',5,'Grupo 1',5000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1966',5,'Grupo 1',5000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1967',5,'Grupo 1',5000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1981',5,'Grupo 2',3000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2008',5,'Acceso',10000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2015',5,'Acceso',15000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1976',6,'Grupo 1',5000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1977',6,'Grupo 1',5000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1978',6,'Grupo 1',5000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1980',6,'Grupo 1A',5000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1983',6,'Grupo 1A',5000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-1998',6,'Especial',30000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2003',6,'Especial',30000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2004',6,'Especial',30000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2005',6,'Especial',30000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2007',6,'Especial',50000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2008',6,'Especial',50000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2011',6,'Especial',50000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2015',6,'Especial',90000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2018',6,'Especial',90000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2000',8,'Especial',30000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('03-01-2017',8,'Acesso',40000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2013',4,'UESP-2',12000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2014',4,'UESP-1',15000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2017',3,'Especial',90000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2023',2,'Especial',90000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1980',1,'Grupo 1A',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1981',1,'Grupo 1A',7500);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1989',1,'Grupo 1',20000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1994',1,'Especial',20000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1995',1,'Especial',20000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1999',1,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2000',1,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2001',1,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2020',1,'Serie A',40000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2023',1,'Especial',90000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1965',5,'Grupo 1',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1966',5,'Grupo 1',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1967',5,'Grupo 1',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1981',5,'Grupo 2',3000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2008',5,'Acceso',10000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2015',5,'Acceso',15000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1976',6,'Grupo 1',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1977',6,'Grupo 1',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1978',6,'Grupo 1',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1980',6,'Grupo 1A',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1983',6,'Grupo 1A',5000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1998',6,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2003',6,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2004',6,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2005',6,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2007',6,'Especial',50000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2008',6,'Especial',50000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2011',6,'Especial',50000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2015',6,'Especial',90000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2018',6,'Especial',90000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2000',8,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2017',8,'Acesso',40000);
 
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Dirección','Sabe dirigir, organizar y coordinar a un grupo de personas');
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Danza','Domina el movimiento de su cuerpo al ritmo de la música');
@@ -493,127 +493,127 @@ INSERT INTO csd_roles(nombre,descripcion) VALUES ('Passista','Se encarga de conq
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Musa','Lidera al grupo de passistas y desfila con ellos');
 INSERT INTO csd_roles(nombre,descripcion) VALUES ('Mestre-Sala','Baila junto a la Porta-Bandeira y lleva el estandarte de la escuela');
 
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (1,'01-29-2015',2,2,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (2,'09-21-2021',2,2,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (3,'12-01-2022',2,1,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (4,'03-01-2012',2,1,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (5,'05-01-2021',2,1,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (6,'01-13-2013',2,4,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (7,'02-25-2020',2,1,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (8,'02-02-2019',2,9,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (9,'02-26-2019',2,1,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (10,'11-28-2017',3,6,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (12,'04-19-2011',3,8,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'03-01-2020');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'03-01-2019');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'03-01-2018');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'03-01-2017');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'03-01-2016');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'03-01-2015');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'03-01-2014');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'03-01-2013');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'03-01-2012');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'03-01-2011');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'03-01-2010');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'03-01-2020');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'03-01-2019');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'03-01-2018');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'03-01-2017');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'03-01-2016');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (15,'05-02-2022',4,3,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (16,'11-30-2013',3,7,'03-01-2014');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (17,'12-02-2011',4,7,'03-01-2014');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (18,'12-15-2013',3,7,'03-01-2014');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (19,'01-15-2020',1,4,'03-01-2020');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (19,'01-15-2020',1,4,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (19,'01-15-2020',1,4,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (20,'01-15-2022',1,10,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,1,'03-01-2016');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,1,'03-01-2017');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,11,'03-01-2018');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,11,'03-01-2019');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,11,'03-01-2020');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,11,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,11,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'03-01-2016');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'03-01-2016');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'03-01-2017');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'03-01-2017');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'03-01-2018');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'03-01-2018');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'03-01-2019');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'03-01-2019');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'03-01-2020');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'03-01-2020');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'03-01-2000');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'03-01-2001');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'03-01-2002');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'03-01-2003');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'03-01-2004');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'03-01-2005');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'03-01-2006');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'03-01-2007');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'03-01-2008');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'03-01-2009');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'03-01-2010');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'03-01-2016');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'03-01-2016');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'03-01-2017');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'03-01-2017');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'03-01-2018');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'03-01-2018');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'03-01-2019');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'03-01-2019');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'03-01-2020');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'03-01-2020');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'03-01-1996');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'03-01-2002');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'03-01-2005');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'03-01-2006');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'03-01-2015');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'03-01-2016');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'03-01-2017');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'03-01-2018');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'03-01-2019');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'03-01-2020');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (27,'01-10-2011',1,13,'03-01-2012');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (27,'01-10-2011',1,13,'03-01-2013');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (27,'01-10-2011',1,13,'03-01-2014');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (27,'01-10-2011',1,13,'03-01-2015');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (27,'01-18-2023',1,13,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (28,'01-22-2014',5,6,'03-01-2014');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (28,'01-22-2014',5,6,'03-01-2015');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (28,'01-22-2014',5,6,'03-01-2016');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (28,'01-22-2014',5,6,'03-01-2017');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (28,'01-22-2014',5,6,'03-01-2018');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (28,'01-22-2014',5,6,'03-01-2019');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'03-01-2014');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'03-01-2015');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'03-01-2016');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'03-01-2017');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'03-01-2018');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'03-01-2019');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'03-01-2020');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'03-01-2022');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (36,'03-17-2009',8,6,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (37,'08-07-2011',8,9,'03-01-2023');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (38,'01-22-1984',8,3,'03-01-1995');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (43,'09-10-1999',1,7,'03-01-2000');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (1,'01-29-2015',2,2,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (2,'09-21-2021',2,2,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (3,'12-01-2022',2,1,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (4,'03-01-2012',2,1,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (5,'05-01-2021',2,1,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (6,'01-13-2013',2,4,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (7,'02-25-2020',2,1,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (8,'02-02-2019',2,9,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (9,'02-26-2019',2,1,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (10,'11-28-2017',3,6,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (12,'04-19-2011',3,8,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'01-01-2020');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'01-01-2019');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'01-01-2018');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'01-01-2017');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'01-01-2016');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'01-01-2015');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'01-01-2014');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'01-01-2013');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'01-01-2012');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'01-01-2011');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (13,'10-13-2010',4,5,'01-01-2010');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'01-01-2020');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'01-01-2019');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'01-01-2018');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'01-01-2017');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (14,'01-15-2016',4,1,'01-01-2016');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (15,'05-02-2022',4,3,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (16,'11-30-2013',3,7,'01-01-2014');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (17,'12-02-2011',4,7,'01-01-2014');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (18,'12-15-2013',3,7,'01-01-2014');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (19,'01-15-2020',1,4,'01-01-2020');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (19,'01-15-2020',1,4,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (19,'01-15-2020',1,4,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (20,'01-15-2022',1,10,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,1,'01-01-2016');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,1,'01-01-2017');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,11,'01-01-2018');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,11,'01-01-2019');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,11,'01-01-2020');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,11,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (21,'07-19-2015',6,11,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'01-01-2016');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'01-01-2016');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'01-01-2017');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'01-01-2017');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'01-01-2018');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'01-01-2018');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'01-01-2019');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'01-01-2019');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'01-01-2020');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'01-01-2020');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,11,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (22,'05-04-1977',6,9,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'01-01-2000');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'01-01-2001');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'01-01-2002');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'01-01-2003');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'01-01-2004');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'01-01-2005');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'01-01-2006');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'01-01-2007');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'01-01-2008');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'01-01-2009');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,6,'01-01-2010');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'01-01-2016');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'01-01-2016');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'01-01-2017');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'01-01-2017');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'01-01-2018');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'01-01-2018');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'01-01-2019');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'01-01-2019');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'01-01-2020');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'01-01-2020');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,9,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (23,'05-04-1991',6,12,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'01-01-1996');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'01-01-2002');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'01-01-2005');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'01-01-2006');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'01-01-2015');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'01-01-2016');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'01-01-2017');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'01-01-2018');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'01-01-2019');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'01-01-2020');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (26,'01-08-1990',6,13,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (27,'01-10-2011',1,13,'01-01-2012');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (27,'01-10-2011',1,13,'01-01-2013');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (27,'01-10-2011',1,13,'01-01-2014');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (27,'01-10-2011',1,13,'01-01-2015');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (27,'01-18-2023',1,13,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (28,'01-22-2014',5,6,'01-01-2014');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (28,'01-22-2014',5,6,'01-01-2015');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (28,'01-22-2014',5,6,'01-01-2016');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (28,'01-22-2014',5,6,'01-01-2017');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (28,'01-22-2014',5,6,'01-01-2018');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (28,'01-22-2014',5,6,'01-01-2019');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'01-01-2014');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'01-01-2015');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'01-01-2016');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'01-01-2017');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'01-01-2018');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'01-01-2019');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'01-01-2020');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'01-01-2022');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (29,'01-06-2003',5,13,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (36,'03-17-2009',8,6,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (37,'08-07-2011',8,9,'01-01-2023');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (38,'01-22-1984',8,3,'01-01-1995');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (43,'09-10-1999',1,7,'01-01-2000');
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Pernambucópolis','Eita saudade danada
 Vim das estrelas com meu ziriguidum
@@ -647,7 +647,7 @@ Da pioneira, ergo a bandeira
 Louco de paixão, sempre vou te amar
 Luz da emoção no meu cantar
 Independente na identidade
-Com muito orgulho, "eu sou Mocidade"!','03-01-2014','enredo');
+Com muito orgulho, "eu sou Mocidade"!','01-01-2014','enredo');
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Canção Paulistana','Fonte de inspiração da minha canção
 e de tantos artistas imortais
@@ -681,7 +681,7 @@ Sou Independente de coração.
 Carrego no peito amor e paixão.
 Traduzo em versos pra te exaltar.
 São Paulo para sempre vou te amar.
-(Bis)','03-01-2014','enredo');
+(Bis)','01-01-2014','enredo');
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Samba No Pé, Lança Na Mão, Isso É Uma Invasão','Um guerreiro valente eu sou
 Se preciso for eu vou
@@ -722,7 +722,7 @@ Avante minha escola
 Rumo à vitória
 Este é nosso lugar
 Conquiste a avenida
-A invasão vai começar','03-01-2023','enredo');
+A invasão vai começar','01-01-2023','enredo');
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Joao e Marias', 'Maria uma princesa
 Também sonhava
@@ -754,7 +754,7 @@ Onde imperam Marias e Joãos
 Vem brincar nesse trem amor
 Que vai parar na estação do coração
 Faz brilhar no céu Imperatriz
-As onze estrelas do teu pavilhão','03-01-2008','enredo');
+As onze estrelas do teu pavilhão','01-01-2008','enredo');
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Áfricas: Do Berço Real À Corte Brasiliana', 'Calunga cruzou o mar
 Nobreza a desembarcar na Bahia
@@ -798,7 +798,7 @@ Sou quilombola, Beija-Flor
 Sangue de Rei, comunidade
 Obatalá anunciou
 Já raiou o Sol da liberdade
-', '03-01-2007', 'enredo');
+', '01-01-2007', 'enredo');
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('100 anos de samba, minha vida, minha raiz', '
 Firma o pandeiro e o tan tan
@@ -830,7 +830,7 @@ Se tem o banjo e o repique, vamos sambar no cacique
 Fazer do enredo uma canção
 Eu sou Peruche, "não leve a mal"
 "A grande campeã do carnaval"
-', '03-01-2016', 'enredo');
+', '01-01-2016', 'enredo');
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Me Dá Um Dinheiro Aí','Ei, você aí
 Me dá um dinheiro aí
@@ -882,7 +882,7 @@ Não vai dar? Não vai dar não?
 Você vai ver a grande confusão
 Que eu vou fazer, bebendo até cair
 Me dá, me dá, me dá, oi
-Me dá um dinheiro aí','03-01-2019','enredo');
+Me dá um dinheiro aí','01-01-2019','enredo');
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Quem Descobriu o Brasil, Foi Seu Cabral','Eu quero é mais
 Viver feliz
@@ -914,7 +914,7 @@ No encontro, a origem da nação
 E hoje minha escola é toda raça
 Convida a "massa" e conta a nossa história
 São 500 anos vivos na memória
-De luta, esperança, amor e paz','03-01-2000','enredo');
+De luta, esperança, amor e paz','01-01-2000','enredo');
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Cana-caiana, Cana Roxa, Cana Fita, Cana Preta, Amarela, Pernambuco... Quero Vê Descê o Suco, Na Pancada do Ganzá!','Cana-caiana,
 Cultura que o árabe propagou
@@ -945,7 +945,7 @@ Taí a verde-e-rosa em meu carnaval
 Vem provar minha cachaça, amor ôôôô
 O sabor é verde-e-branco
 Passa a régua e dá pro santo
-Que a Imperatriz chegou','03-01-2001','enredo');
+Que a Imperatriz chegou','01-01-2001','enredo');
 
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (16,'11-30-2013',3,1);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (18,'12-15-2013',3,1);
@@ -973,52 +973,52 @@ INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Es
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estrela do Carnaval (Mestre-Sala)','integrante','Mejor mestre-sala',7);
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estrela do Carnaval (Porta-Bandeira)','integrante','Mejor porta-bandeira',7);
 
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2023',2,3);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-1978',1,6);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-1986',1,6);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-1989',1,6);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2001',1,6);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2001',5,6);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2007',1,6);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2007',4,6);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2023',1,6);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2017',4,6);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2016',6,6);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2005',4,6);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-1999',4,6);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-1996',1,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2015',1,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2020',3,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2023',5,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2015',4,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2010',4,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2008',4,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2008',5,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2006',9,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2000',9,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-1997',9,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-1996',4,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-1993',9,1);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-1991',1,3);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-1999',1,3);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2018',4,3);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-1996',5,3);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2016',11,5);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('03-01-2016',12,5);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2009',8,6,23,'05-04-1991');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2005',8,6,23,'05-04-1991');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2002',8,6,23,'05-04-1991');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2000',8,6,23,'05-04-1991');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-1998',8,6,23,'05-04-1991');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-1996',7,6,26,'01-08-1990');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2002',7,6,26,'01-08-1990');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2005',7,6,26,'01-08-1990');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2006',7,6,26,'01-08-1990');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2015',7,6,26,'01-08-1990');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2023',7,6,26,'01-08-1990');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2013',7,1,27,'01-10-2011');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2014',7,1,27,'01-10-2011');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2018',14,5,28,'01-22-2014');
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('03-01-2018',13,5,29,'01-06-2003');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2023',2,3);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1978',1,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1986',1,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1989',1,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2001',1,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2001',5,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2007',1,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2007',4,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2023',1,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2017',4,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2016',6,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2005',4,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1999',4,6);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1996',1,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2015',1,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2020',3,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2023',5,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2015',4,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2010',4,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2008',4,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2008',5,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2006',9,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2000',9,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1997',9,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1996',4,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1993',9,1);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1991',1,3);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1999',1,3);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2018',4,3);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1996',5,3);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2016',11,5);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2016',12,5);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2009',8,6,23,'05-04-1991');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2005',8,6,23,'05-04-1991');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2002',8,6,23,'05-04-1991');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2000',8,6,23,'05-04-1991');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-1998',8,6,23,'05-04-1991');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-1996',7,6,26,'01-08-1990');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2002',7,6,26,'01-08-1990');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2005',7,6,26,'01-08-1990');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2006',7,6,26,'01-08-1990');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2015',7,6,26,'01-08-1990');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2023',7,6,26,'01-08-1990');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2013',7,1,27,'01-10-2011');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2014',7,1,27,'01-10-2011');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2018',14,5,28,'01-22-2014');
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2018',13,5,29,'01-06-2003');
 
 COMMIT;

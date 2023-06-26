@@ -19,9 +19,13 @@ export class PremiosResolver {
   }
 
   @Query(() => PremiosPaginationType, { name: 'premios' })
-  async findAll(@Args() pagination: PaginationArgs) {
+  async findAll(
+    @Args() pagination: PaginationArgs,
+    @Args('paginate', { type: () => Boolean, defaultValue: true })
+    paginate: boolean,
+  ) {
     const [items, count] = await Promise.all([
-      this.premiosService.findAll(pagination),
+      this.premiosService.findAll(paginate ? pagination : null),
       this.premiosService.count(),
     ]);
     return {
@@ -47,7 +51,7 @@ export class PremiosResolver {
     return this.premiosService.update(updatePremioInput);
   }
 
-  @Mutation(() => Premio)
+  @Mutation(() => Boolean)
   removePremio(@Args('id', { type: () => Int }) id: number) {
     return this.premiosService.remove(id);
   }

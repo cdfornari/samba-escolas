@@ -1,4 +1,12 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import {
+  Resolver,
+  Query,
+  Mutation,
+  Args,
+  Int,
+  ResolveField,
+  Parent,
+} from '@nestjs/graphql';
 import { IntegrantesService } from './integrantes.service';
 import { Integrante } from './entities/integrante.entity';
 import { CreateIntegranteInput } from './dto/create-integrante.input';
@@ -6,6 +14,7 @@ import { UpdateIntegranteInput } from './dto/update-integrante.input';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { IntegrantesPaginationType } from './types/integrantes-pagination.type';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
+import { Habilidad } from 'src/habilidades/entities/habilidad.entity';
 
 @Resolver(() => Integrante)
 export class IntegrantesResolver {
@@ -19,9 +28,13 @@ export class IntegrantesResolver {
   }
 
   @Query(() => IntegrantesPaginationType, { name: 'integrantes' })
-  async findAll(@Args() pagination: PaginationArgs) {
+  async findAll(
+    @Args() pagination: PaginationArgs,
+    @Args('paginate', { type: () => Boolean, defaultValue: true })
+    paginate: boolean,
+  ) {
     const [items, count] = await Promise.all([
-      this.integrantesService.findAll(pagination),
+      this.integrantesService.findAll(paginate ? pagination : null),
       this.integrantesService.count(),
     ]);
     return {
@@ -40,6 +53,11 @@ export class IntegrantesResolver {
     return this.integrantesService.findOne(id);
   }
 
+  @Query(() => [Integrante], { name: 'integrantesElegibles' })
+  getIntegrantesElegibles() {
+    return this.integrantesService.getIntegrantesElegibles();
+  }
+
   @Mutation(() => Integrante)
   updateIntegrante(
     @Args('updateIntegranteInput') updateIntegranteInput: UpdateIntegranteInput,
@@ -47,8 +65,13 @@ export class IntegrantesResolver {
     return this.integrantesService.update(updateIntegranteInput);
   }
 
-  @Mutation(() => Integrante)
+  @Mutation(() => Boolean)
   removeIntegrante(@Args('id', { type: () => Int }) id: number) {
     return this.integrantesService.remove(id);
+  }
+
+  @ResolveField(() => [Habilidad], { name: 'habilidades' })
+  async getHabilidades(@Parent() integrante: Integrante): Promise<Habilidad[]> {
+    return this.integrantesService.getHabilidades(integrante.id);
   }
 }

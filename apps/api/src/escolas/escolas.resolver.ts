@@ -16,6 +16,7 @@ import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { Lugar } from 'src/lugares/entities/lugar.entity';
 import { LugaresService } from '../lugares/lugares.service';
+import { Color } from 'src/colores/entities/color.entity';
 
 @Resolver(() => Escola)
 export class EscolasResolver {
@@ -62,7 +63,7 @@ export class EscolasResolver {
     return this.escolasService.update(updateEscolaInput);
   }
 
-  @Mutation(() => Escola)
+  @Mutation(() => Boolean)
   removeEscola(@Args('id', { type: () => Int }) id: number) {
     return this.escolasService.remove(id);
   }
@@ -70,5 +71,10 @@ export class EscolasResolver {
   @ResolveField(() => Lugar, { name: 'ciudad' })
   async getCity(@Parent() escola: Escola): Promise<Lugar> {
     return this.lugaresService.findOne(escola.id_ciudad);
+  }
+
+  @ResolveField(() => [Color], { name: 'colores' })
+  async getColors(@Parent() escola: Escola): Promise<Color[]> {
+    return this.escolasService.getColors(escola.id);
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CRUDService } from 'src/common/services/crud.service';
 import { QueryService } from 'src/common/services/query.service';
 import { Natural } from './entities/naturales.entity';
@@ -36,7 +36,16 @@ export class NaturalesService {
         return this.crudService.updateOne(this.tableName, id, dto);
       }
     
-      remove(id: number) {
-        return this.crudService.remove(this.tableName, id);
-      }w
+      async remove(id: number) {
+        const referencedRows = await this.queryService.count(
+          'historicos_patrocinios',
+          `id_nat = ${id}`,
+        );
+        if (referencedRows > 0)
+          throw new BadRequestException(
+            'No se puede eliminar un patrocinador que tiene historicos de patrocinios',
+          );
+        await this.queryService.delete('telefonos', `id_nat = ${id}`);
+        return this.crudService.delete(this.tableName, { id });
+      }
 }

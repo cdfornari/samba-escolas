@@ -12,10 +12,14 @@ import { IntegrantesModule } from './integrantes/integrantes.module';
 import { RolesModule } from './roles/roles.module';
 import { PremiosModule } from './premios/premios.module';
 import { HabilidadesModule } from './habilidades/habilidades.module';
+import { TelefonosModule } from './telefonos/telefonos.module';
 import { ColoresModule } from './colores/colores.module';
 import { JuridicosModule } from './patroc_juridicos/juridico.module';
+import { EventosModule } from './eventos/eventos.module';
 import { NaturalesModule } from './patroc_naturales/naturales.module';
 import { PatrociniosModule } from './patrocinios/patrocinios.module';
+import { GanadoresModule } from './ganadores/ganadores.module';
+import { TituloHistoryModule } from './titulo-history/titulo-history.module';
 
 @Module({
   imports: [
@@ -41,10 +45,14 @@ import { PatrociniosModule } from './patrocinios/patrocinios.module';
     RolesModule,
     PremiosModule,
     HabilidadesModule,
+    TelefonosModule,
     ColoresModule,
     JuridicosModule,
+    EventosModule,
     NaturalesModule,
     PatrociniosModule,
+    GanadoresModule,
+    TituloHistoryModule,
   ],
   controllers: [],
   providers: [],

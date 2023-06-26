@@ -71,7 +71,39 @@ export const CREATE_INTEGRANTE_HISTORY = gql`
     createIntegranteHistory(
       createHistoricoIntegranteInput: $createHistoricoIntegranteInput
     ) {
-      id
+      autoridad
     }
+  }
+`;
+
+export const UPDATE_INTEGRANTE_HISTORY = gql`
+  mutation UPDATE_INTEGRANTE_HISTORY(
+    $updateHistoricoIntegranteInput: UpdateHistoricoIntegranteInput!
+  ) {
+    updateIntegranteHistory(
+      updateHistoricoIntegranteInput: $updateHistoricoIntegranteInput
+    ) {
+      autoridad
+    }
+  }
+`;
+
+export const REMOVE_INTEGRANTE_HISTORY = gql`
+  mutation REMOVE_INTEGRANTE_HISTORY(
+    $idEscuela: Int!
+    $idIntegrante: Int!
+    $fechaInicio: Date!
+  ) {
+    removeIntegranteHistory(
+      id_escuela: $idEscuela
+      id_integrante: $idIntegrante
+      fecha_inicio: $fechaInicio
+    )
+  }
+`;
+
+export const REMOVE_TITULO = gql`
+  mutation REMOVE_TITULO($year: Int!, $idEscuela: Int!) {
+    removeTituloHistory(year: $year, id_escuela: $idEscuela)
   }
 `;

@@ -30,18 +30,21 @@ export class IntegranteHistoryService {
       throw new BadRequestException(
         'El integrante ya tiene un historico activo',
       );
-    return this.crudService.create(this.tableName, input);
+    const history = await this.crudService.create<any, any>(this.tableName, {
+      ...input,
+      autoridad: input.autoridad ? 'si' : 'no',
+    });
+    return {
+      ...history,
+      autoridad: history.autoridad === 'si',
+    };
   }
 
   async findAll(
-    pagination: PaginationArgs,
     filter: HistoricoIntegranteFilterArgs,
+    pagination?: PaginationArgs,
   ) {
-    return this.crudService.findAll(
-      this.tableName,
-      pagination,
-      filter,
-    );
+    return this.crudService.findAll(this.tableName, pagination, filter);
   }
 
   async count(filter?: HistoricoIntegranteFilterArgs): Promise<number> {
@@ -66,16 +69,42 @@ export class IntegranteHistoryService {
 
   async update(input: UpdateHistoricoIntegranteInput) {
     const { fecha_inicio, id_escuela, id_integrante, ...dto } = input;
-    return (
-      await this.queryService.update(
+    const history = (
+      await this.queryService.update<any>(
         this.tableName,
-        dto,
+        {
+          ...dto,
+          autoridad: !!dto.autoridad ? 'si' : 'no',
+        },
         `fecha_inicio = '${fecha_inicio}' AND id_escuela = ${id_escuela} AND id_integrante = ${id_integrante}`,
       )
     )[0][0];
+    return {
+      ...history,
+      autoridad: history?.autoridad === 'si',
+    };
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} escola`;
+  async remove(id: HistoricoIntegranteIdArgs) {
+    const referencedRows = await Promise.all([
+      this.queryService.count(
+        'ganadores',
+        `id_integrante = ${id.id_integrante} AND id_escuela_integrante = ${id.id_escuela} AND fecha_inicio = '${id.fecha_inicio}'`,
+      ),
+      this.queryService.count(
+        'autores',
+        `id_integrante = ${id.id_integrante} AND id_escuela = ${id.id_escuela} AND fecha_inicio = '${id.fecha_inicio}'`,
+      ),
+      this.queryService.count(
+        'org_carnavales',
+        `id_integrante = ${id.id_integrante} AND id_escuela = ${id.id_escuela} AND fecha_inicio = '${id.fecha_inicio}'`,
+      ),
+    ]);
+    const total = referencedRows.reduce((acc, curr) => acc + curr, 0);
+    if (total > 0)
+      throw new BadRequestException(
+        'No se puede eliminar el historico porque tiene premios, autoría y/o participaciones asociadas',
+      );
+    return this.crudService.delete(this.tableName, id);
   }
 }

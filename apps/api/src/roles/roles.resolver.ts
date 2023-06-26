@@ -17,9 +17,13 @@ export class RolesResolver {
   }
 
   @Query(() => RolesPaginationType, { name: 'roles' })
-  async findAll(@Args() pagination: PaginationArgs) {
+  async findAll(
+    @Args() pagination: PaginationArgs,
+    @Args('paginate', { type: () => Boolean, defaultValue: true })
+    paginate: boolean,
+  ) {
     const [items, count] = await Promise.all([
-      this.rolesService.findAll(pagination),
+      this.rolesService.findAll(paginate ? pagination : null),
       this.rolesService.count(),
     ]);
     return {
@@ -43,7 +47,7 @@ export class RolesResolver {
     return this.rolesService.update(updateRoleInput);
   }
 
-  @Mutation(() => Role)
+  @Mutation(() => Boolean)
   removeRole(@Args('id', { type: () => Int }) id: number) {
     return this.rolesService.remove(id);
   }

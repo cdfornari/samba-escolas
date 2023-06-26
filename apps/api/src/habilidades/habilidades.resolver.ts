@@ -19,9 +19,13 @@ export class HabilidadesResolver {
   }
 
   @Query(() => HabilidadPaginationType, { name: 'habilidades' })
-  async findAll(@Args() pagination: PaginationArgs) {
+  async findAll(
+    @Args() pagination: PaginationArgs,
+    @Args('paginate', { type: () => Boolean, defaultValue: true })
+    paginate: boolean,
+  ) {
     const [items, count] = await Promise.all([
-      this.habilidadService.findAll(pagination),
+      this.habilidadService.findAll(paginate ? pagination : null),
       this.habilidadService.count(),
     ]);
     return {
@@ -47,7 +51,7 @@ export class HabilidadesResolver {
     return this.habilidadService.update(updateHabilidadInput);
   }
 
-  @Mutation(() => Habilidad)
+  @Mutation(() => Boolean)
   removeHabilidad(@Args('id', { type: () => Int }) id: number) {
     return this.habilidadService.remove(id);
   }

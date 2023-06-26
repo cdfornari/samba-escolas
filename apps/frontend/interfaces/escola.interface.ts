@@ -1,3 +1,4 @@
+import { Color } from './color.interface';
 import { Place } from './place.interface';
 
 export interface Escola {
@@ -11,4 +12,5 @@ export interface Escola {
   resumen_historico: string;
   gres: boolean;
   ciudad: Place;
+  colores: Color[];
 }

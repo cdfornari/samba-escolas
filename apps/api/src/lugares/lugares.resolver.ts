@@ -31,9 +31,11 @@ export class LugaresResolver {
   async findAll(
     @Args() pagination: PaginationArgs,
     @Args() filter: LugaresFilterArgs,
+    @Args('paginate', { type: () => Boolean, defaultValue: true })
+    paginate: boolean,
   ) {
     const [items, count] = await Promise.all([
-      this.lugaresService.findAll(pagination, filter),
+      this.lugaresService.findAll(paginate ? pagination : null, filter),
       this.lugaresService.count(),
     ]);
     return {
@@ -59,7 +61,7 @@ export class LugaresResolver {
     return this.lugaresService.update(updateLugaresInput);
   }
 
-  @Mutation(() => Lugar)
+  @Mutation(() => Boolean)
   removeLugar(@Args('id', { type: () => Int }) id: number) {
     return this.lugaresService.remove(id);
   }

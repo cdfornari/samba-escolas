@@ -1,11 +1,18 @@
 'use client';
 import { FC, useEffect, useState } from 'react';
-import { Button, Checkbox, Input, Loading, Textarea } from '@nextui-org/react';
+import {
+  Button,
+  Checkbox,
+  Dropdown,
+  Input,
+  Loading,
+  Textarea,
+} from '@nextui-org/react';
 import { useQuery } from '@apollo/client';
 import { useForm } from 'react-hook-form';
-import { Escola, Place } from '../../interfaces';
+import { Color, Escola, Place } from '../../interfaces';
 import { Select } from '../ui/Select';
-import { LUGARES } from '../../graphql';
+import { COLORS, LUGARES } from '../../graphql';
 import { PaginationType } from '../../types';
 
 interface DTO {
@@ -19,6 +26,7 @@ interface DTO {
   resumen_historico: string;
   gres: boolean;
   id_ciudad: number;
+  id_colores: number[];
 }
 
 interface Props {
@@ -32,9 +40,19 @@ export const EscolaForm: FC<Props> = ({
   initialValues,
   buttonText,
 }) => {
+  const { data: colorsData, loading: loadingColors } = useQuery<{
+    colores: PaginationType<Color>;
+  }>(COLORS, {
+    variables: {
+      paginate: false,
+    },
+  });
   const [gres, setGres] = useState<boolean>(initialValues?.gres ?? false);
   const [ciudad, setCiudad] = useState<string>(
     initialValues?.ciudad?.id.toString() ?? null
+  );
+  const [colors, setColors] = useState<any>(
+    new Set(initialValues?.colores.map((c) => c.id.toString()) ?? [])
   );
   const {
     setError,
@@ -50,9 +68,9 @@ export const EscolaForm: FC<Props> = ({
       direccion_sede: initialValues?.direccion_sede ?? '',
       numero: initialValues?.numero,
       cep: initialValues?.cep ?? '',
-      fecha_fundacion:
-        initialValues?.fecha_fundacion.toString() ??
-        new Date().toISOString().split('T')[0],
+      fecha_fundacion: initialValues?.fecha_fundacion
+        ? new Date(initialValues.fecha_fundacion).toISOString().split('T')[0]
+        : new Date().toISOString().split('T')[0],
       resumen_historico: initialValues?.resumen_historico ?? '',
     },
   });
@@ -61,6 +79,9 @@ export const EscolaForm: FC<Props> = ({
   useEffect(() => {
     if (ciudad?.length > 0) clearErrors('id_ciudad');
   }, [ciudad]);
+  useEffect(() => {
+    if (Array.from(colors).length > 0) clearErrors('id_colores');
+  }, [colors]);
   useEffect(() => {
     if (!numero) return;
     if (Number(numero)) clearErrors('numero');
@@ -85,6 +106,7 @@ export const EscolaForm: FC<Props> = ({
     {
       variables: {
         tipo: 'ciudad',
+        paginate: false,
       },
     }
   );
@@ -96,11 +118,19 @@ export const EscolaForm: FC<Props> = ({
       });
       return;
     }
+    if (Array.from(colors).length === 0) {
+      setError('id_colores', {
+        type: 'manual',
+        message: 'Seleccione al menos un color',
+      });
+      return;
+    }
     await action({
       ...data,
       id_ciudad: Number(ciudad),
       numero: Number(numero),
       gres,
+      id_colores: Array.from(colors).map((c) => Number(c)),
     });
   };
   return (
@@ -156,13 +186,45 @@ export const EscolaForm: FC<Props> = ({
             maxLength={600}
             initialValue={initialValues?.resumen_historico ?? ''}
           />
+          {loadingColors ? (
+            <Loading />
+          ) : (
+            <div>
+              <Dropdown>
+                <Dropdown.Button flat css={{ tt: 'capitalize' }}>
+                  Colores
+                </Dropdown.Button>
+                <Dropdown.Menu
+                  aria-label="Multiple selection actions"
+                  disallowEmptySelection
+                  selectionMode="multiple"
+                  selectedKeys={colors}
+                  onSelectionChange={setColors}
+                >
+                  {colorsData.colores.items.map((color) => (
+                    <Dropdown.Item key={color.id}>{color.nombre}</Dropdown.Item>
+                  ))}
+                </Dropdown.Menu>
+              </Dropdown>
+              {errors.id_colores && (
+                <span className="text-error">
+                  {(errors.id_colores.message as string) ?? ''}
+                </span>
+              )}
+            </div>
+          )}
+        </div>
+        <div className="flex flex-col gap-10 px-10">
           <Input
             bordered
             labelPlaceholder="Fecha de fundación"
             type="date"
             initialValue={
-              initialValues?.fecha_fundacion.toString() ??
-              new Date().toISOString().split('T')[0]
+              initialValues?.fecha_fundacion
+                ? new Date(initialValues.fecha_fundacion)
+                    .toISOString()
+                    .split('T')[0]
+                : new Date().toISOString().split('T')[0]
             }
             color={errors.fecha_fundacion ? 'error' : 'primary'}
             {...register('fecha_fundacion', { required: true })}
@@ -173,8 +235,6 @@ export const EscolaForm: FC<Props> = ({
             }
             helperColor="error"
           />
-        </div>
-        <div className="flex flex-col gap-10 px-10">
           <Input
             bordered
             labelPlaceholder="Dirección"

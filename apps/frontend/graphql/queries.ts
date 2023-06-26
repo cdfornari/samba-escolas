@@ -1,10 +1,12 @@
 import { gql } from '@apollo/client';
 import {
+  ColorFragment,
   EscolaFragment,
   IntegranteFragment,
   IntegranteHistoryFragment,
   LugaresFragment,
   RolesFragment,
+  TituloFragment,
 } from './fragments';
 
 export const ESCOLAS = gql`
@@ -33,14 +35,23 @@ export const ESCOLA = gql`
         id
         nombre
       }
+      colores {
+        ...ColorFragment
+      }
     }
   }
   ${EscolaFragment}
+  ${ColorFragment}
 `;
 
 export const LUGARES = gql`
-  query LUGARES($page: Int, $perPage: Int, $tipo: PlaceType) {
-    lugares(page: $page, perPage: $perPage, tipo: $tipo) {
+  query LUGARES(
+    $page: Int
+    $perPage: Int
+    $tipo: PlaceType
+    $paginate: Boolean
+  ) {
+    lugares(page: $page, perPage: $perPage, tipo: $tipo, paginate: $paginate) {
       items {
         ...LugaresFragment
         padre {
@@ -76,6 +87,15 @@ export const INTEGRANTES = gql`
       numberOfPages
     }
     integrantesCount
+  }
+  ${IntegranteFragment}
+`;
+
+export const INTEGRANTES_ELEGIBLES = gql`
+  query INTEGRANTES_ELEGIBLES {
+    integrantesElegibles {
+      ...IntegranteFragment
+    }
   }
   ${IntegranteFragment}
 `;
@@ -126,4 +146,40 @@ export const HISTORICOS_INTEGRANTES = gql`
     integranteHistoriesCount(id_escuela: $idEscuela)
   }
   ${IntegranteHistoryFragment}
+`;
+
+export const COLORS = gql`
+  query COLORS($page: Int, $perPage: Int, $paginate: Boolean) {
+    colores(page: $page, perPage: $perPage, paginate: $paginate) {
+      items {
+        ...ColorFragment
+      }
+      numberOfPages
+    }
+    colorCount
+  }
+  ${ColorFragment}
+`;
+
+export const TITULOS = gql`
+  query TITULOS(
+    $idEscuela: Int!
+    $page: Int
+    $perPage: Int
+    $paginate: Boolean!
+  ) {
+    titulos(
+      id_escuela: $idEscuela
+      page: $page
+      perPage: $perPage
+      paginate: $paginate
+    ) {
+      items {
+        ...TituloFragment
+      }
+      numberOfPages
+    }
+    titulosCount(id_escuela: $idEscuela)
+  }
+  ${TituloFragment}
 `;
