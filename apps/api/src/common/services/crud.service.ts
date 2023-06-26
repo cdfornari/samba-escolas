@@ -58,7 +58,7 @@ export class CRUDService {
         ? `
         ${Object.keys(filter)
           .map((key) => `${key} = '${filter[key]}'`)
-          .join('AND')}
+          .join(' AND ')}
       `
         : null,
     );
