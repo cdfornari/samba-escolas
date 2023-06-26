@@ -24,7 +24,7 @@ export class TituloHistoryService {
       id_escuela,
       anual: `${year}-01-01`,
     });
-    return { result, year };
+    return { ...result, year };
   }
 
   async findAll(filter: TituloHistoryFilterArgs, pagination?: PaginationArgs) {
@@ -49,10 +49,12 @@ export class TituloHistoryService {
         `anual = '${year}-01-01' AND id_escuela = ${id_escuela}`,
       )
     )[0];
-    return {
-      ...result,
-      year: new Date(result.anual).getFullYear(),
-    };
+    return result
+      ? {
+          ...result,
+          year: new Date(result.anual).getFullYear(),
+        }
+      : null;
   }
 
   async count(filter?: TituloHistoryFilterArgs): Promise<number> {
