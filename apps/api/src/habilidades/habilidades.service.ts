@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CRUDService } from 'src/common/services/crud.service';
 import { QueryService } from 'src/common/services/query.service';
 import { Habilidad } from './entities/habilidad.entity';
@@ -36,8 +36,17 @@ export class HabilidadesService {
     return this.crudService.updateOne(this.tableName, id, dto);
   }
 
-  remove(id: number) {
-    
+  async remove(id: number) {
+    const referencedRows = await this.queryService.count(
+      'integrantes_habilidades',
+      `WHERE id_habilidad = ${id}`,
+    );
+    if (referencedRows > 0)
+      throw new BadRequestException(
+        `No se puede eliminar la habilidad porque está siendo usada por ${referencedRows} integrante${
+          referencedRows > 1 ? 's' : ''
+        }}`,
+      );
+    return this.crudService.delete(this.tableName, { id });
   }
-
 }
