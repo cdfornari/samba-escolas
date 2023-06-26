@@ -15,6 +15,7 @@ import { HabilidadesModule } from './habilidades/habilidades.module';
 import { TelefonosModule } from './telefonos/telefonos.module';
 import { ColoresModule } from './colores/colores.module';
 import { JuridicosModule } from './patroc_juridicos/juridico.module';
+import { NaturalesModule } from './patroc_naturales/naturales.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { JuridicosModule } from './patroc_juridicos/juridico.module';
     TelefonosModule,
     ColoresModule,
     JuridicosModule,
+    NaturalesModule,
   ],
   controllers: [],
   providers: [],

@@ -5,6 +5,7 @@ import { QueryService } from 'src/common/services/query.service';
 import { Integrante } from './entities/integrante.entity';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { CRUDService } from 'src/common/services/crud.service';
+import { Habilidad } from 'src/habilidades/entities/habilidad.entity';
 
 @Injectable()
 export class IntegrantesService {
@@ -34,6 +35,60 @@ export class IntegrantesService {
   update(input: UpdateIntegranteInput) {
     const { id, ...dto } = input;
     return this.crudService.updateOne(this.tableName, id, dto);
+  }
+
+  async getIntegrantesElegibles() {
+    const integrantesInactivos = await this.queryService.executeRawQuery<
+      Integrante[]
+    >(
+      `SELECT
+        *
+      FROM
+        csd_integrantes
+        JOIN (
+          SELECT id_integrante, MAX(fecha_inicio) as max_date
+          FROM csd_historicos_integrantes
+          GROUP BY id_integrante
+        ) max_date ON id = max_date.id_integrante
+        JOIN csd_historicos_integrantes h 
+          ON h.id_integrante = id 
+            AND h.fecha_inicio = max_date 
+            AND not(h.fecha_fin ISNULL)
+      `,
+    );
+    const integrantesSinHistorico = await this.queryService.executeRawQuery<
+      Integrante[]
+    >(
+      `SELECT * FROM csd_integrantes
+        LEFT JOIN csd_historicos_integrantes h ON id = h.id_integrante
+        WHERE h ISNULL
+      `,
+    );
+    return integrantesSinHistorico.concat(integrantesInactivos);
+  }
+
+  async getHabilidades(id: number) {
+    return this.queryService.executeRawQuery<Habilidad[]>(
+      `SELECT * FROM csd_integrantes_habilidades
+        JOIN csd_habilidades ON csd_integrantes_habilidades.id_habilidad = csd_habilidades.id
+        WHERE id_integrante = ${id}
+      `,
+    );
+  }
+
+  async addHabilidad(id: number, id_habilidad: number) {
+    return this.crudService.create('integrantes_habilidades', {
+      id_integrante: id,
+      id_habilidad,
+    });
+  }
+
+  async removeHabilidad(id: number, id_habilidad: number) {
+    return this.crudService.delete('integrantes_habilidades', {
+      id_integrante: id,
+      id_habilidad,
+      type: 'AND',
+    });
   }
 
   remove(id: number) {

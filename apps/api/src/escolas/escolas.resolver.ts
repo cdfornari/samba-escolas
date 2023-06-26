@@ -16,6 +16,8 @@ import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { Lugar } from 'src/lugares/entities/lugar.entity';
 import { LugaresService } from '../lugares/lugares.service';
+import { Color } from 'src/colores/entities/color.entity';
+import { ToggleEscolaColorInput } from './dto/toggle-escola-color.input';
 
 @Resolver(() => Escola)
 export class EscolasResolver {
@@ -67,8 +69,39 @@ export class EscolasResolver {
     return this.escolasService.remove(id);
   }
 
+  @Mutation(() => Boolean)
+  async addColorToEscola(
+    @Args('toggleEscolaColorInput')
+    { id_color, id_escuela }: ToggleEscolaColorInput,
+  ) {
+    try {
+      this.escolasService.addColor(id_escuela, id_color);
+      return true;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  @Mutation(() => Boolean)
+  async removeColorFromEscola(
+    @Args('toggleEscolaColorInput')
+    { id_color, id_escuela }: ToggleEscolaColorInput,
+  ) {
+    try {
+      this.escolasService.removeColor(id_escuela, id_color);
+      return true;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
   @ResolveField(() => Lugar, { name: 'ciudad' })
   async getCity(@Parent() escola: Escola): Promise<Lugar> {
     return this.lugaresService.findOne(escola.id_ciudad);
+  }
+
+  @ResolveField(() => [Color], { name: 'colores' })
+  async getColors(@Parent() escola: Escola): Promise<Color[]> {
+    return this.escolasService.getColors(escola.id);
   }
 }

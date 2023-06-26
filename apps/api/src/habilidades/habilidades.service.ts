@@ -23,20 +23,21 @@ export class HabilidadesService {
     return this.crudService.findAll(this.tableName, pagination);
   }
 
-      async count(): Promise<number> {
-        return this.queryService.count(this.tableName);
-      }
+  async count(): Promise<number> {
+    return this.queryService.count(this.tableName);
+  }
+
+  findOne(id: number) {
+    return this.crudService.findOne(this.tableName, id);
+  }
+
+  update(input: UpdateHabilidadesInput) {
+    const { id, ...dto } = input;
+    return this.crudService.updateOne(this.tableName, id, dto);
+  }
+
+  remove(id: number) {
     
-      findOne(id: number) {
-        return this.crudService.findOne(this.tableName, id);
-      }
-    
-      update(input: UpdateHabilidadesInput) {
-        const { id, ...dto } = input;
-        return this.crudService.updateOne(this.tableName, id, dto);
-      }
-    
-      remove(id: number) {
-        return this.crudService.remove(this.tableName, id);
-      }
+  }
+
 }

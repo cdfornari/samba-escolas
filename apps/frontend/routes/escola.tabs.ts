@@ -9,17 +9,17 @@ export const escolaTabs = (id: string, pathname: string) => [
   },
   {
     name: 'Integrantes',
-    href: `/${id}/integrantes`,
+    href: `/escola/${id}/integrantes`,
     active: pathname.includes('integrantes'),
   },
   {
     name: 'Titulos',
-    href: `/${id}/titulos`,
+    href: `/escola/${id}/titulos`,
     active: pathname.includes('titulos'),
   },
   {
     name: 'Patrocinios',
-    href: `/${id}/sponsorships`,
+    href: `/escola/${id}/sponsorships`,
     active: pathname.includes('sponsorships'),
   },
 ];

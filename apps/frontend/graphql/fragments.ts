@@ -42,3 +42,15 @@ export const IntegranteFragment = gql`
     rg
   }
 `;
+
+export const IntegranteHistoryFragment = gql`
+  fragment IntegranteHistoryFragment on HistoricoIntegrante {
+    fecha_inicio
+    fecha_fin
+    autoridad
+    integrante {
+      ...IntegranteFragment
+    }
+  }
+  ${IntegranteFragment}
+`;

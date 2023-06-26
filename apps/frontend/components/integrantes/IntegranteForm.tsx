@@ -43,7 +43,9 @@ export const IntegranteForm: FC<Props> = ({
       apellido1: initialValues?.apellido1,
       apellido2: initialValues?.apellido2,
       apodo: initialValues?.apodo,
-      fecha_nacimiento: initialValues?.fecha_nacimiento.toString(),
+      fecha_nacimiento: new Date(initialValues?.fecha_nacimiento)
+        .toISOString()
+        .split('T')[0],
       nacionalidad: initialValues?.nacionalidad,
       rg: initialValues?.rg,
     },
@@ -64,7 +66,10 @@ export const IntegranteForm: FC<Props> = ({
   }, [fecha]);
   useEffect(() => {
     if (!rg) return;
-    if (rg.length !== 10 || !new RegExp(/[a-zA-Z0-9]{8}[-]{1}[0-9|X|x]{1}$/).test(rg)) {
+    if (
+      rg.length !== 10 ||
+      !new RegExp(/[a-zA-Z0-9]{8}[-]{1}[0-9|X|x]{1}$/).test(rg)
+    ) {
       setError('rg', {
         type: 'manual',
         message:
@@ -104,6 +109,7 @@ export const IntegranteForm: FC<Props> = ({
         return;
       }
     }
+    console.log(data)
     await action({
       ...data,
       genero,
@@ -222,8 +228,9 @@ export const IntegranteForm: FC<Props> = ({
             labelPlaceholder="Fecha de nacimiento"
             type="date"
             initialValue={
-              initialValues?.fecha_nacimiento.toString() ??
-              new Date().toISOString().split('T')[0]
+              new Date(initialValues?.fecha_nacimiento)
+                .toISOString()
+                .split('T')[0]
             }
             color={errors.fecha_nacimiento ? 'error' : 'primary'}
             {...register('fecha_nacimiento', { required: true })}

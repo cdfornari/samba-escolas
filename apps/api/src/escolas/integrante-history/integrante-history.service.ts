@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { CRUDService } from 'src/common/services/crud.service';
 import { QueryService } from 'src/common/services/query.service';
-import { CreateHistorcoIntegranteInput } from './dto/create-integrante-history.input';
+import { CreateHistoricoIntegranteInput } from './dto/create-integrante-history.input';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { HistoricoIntegrante } from './entities/integrante-history.entity';
 import { UpdateHistoricoIntegranteInput } from './dto/update-integrante-history.input';
@@ -17,7 +17,7 @@ export class IntegranteHistoryService {
 
   private tableName = 'historicos_integrantes';
 
-  async create(input: CreateHistorcoIntegranteInput) {
+  async create(input: CreateHistoricoIntegranteInput) {
     if (
       (
         await this.queryService.select<HistoricoIntegrante[]>(
@@ -30,18 +30,21 @@ export class IntegranteHistoryService {
       throw new BadRequestException(
         'El integrante ya tiene un historico activo',
       );
-    return this.crudService.create(this.tableName, input);
+    const history = await this.crudService.create<any, any>(this.tableName, {
+      ...input,
+      autoridad: input.autoridad ? 'si' : 'no',
+    });
+    return {
+      ...history,
+      autoridad: history.autoridad === 'si',
+    };
   }
 
   async findAll(
     pagination: PaginationArgs,
     filter: HistoricoIntegranteFilterArgs,
   ) {
-    return this.crudService.findAll(
-      this.tableName,
-      pagination,
-      filter,
-    );
+    return this.crudService.findAll(this.tableName, pagination, filter);
   }
 
   async count(filter?: HistoricoIntegranteFilterArgs): Promise<number> {
@@ -66,13 +69,20 @@ export class IntegranteHistoryService {
 
   async update(input: UpdateHistoricoIntegranteInput) {
     const { fecha_inicio, id_escuela, id_integrante, ...dto } = input;
-    return (
-      await this.queryService.update(
+    const history = (
+      await this.queryService.update<any>(
         this.tableName,
-        dto,
+        {
+          ...dto,
+          autoridad: !!dto.autoridad ? 'si' : 'no',
+        },
         `fecha_inicio = '${fecha_inicio}' AND id_escuela = ${id_escuela} AND id_integrante = ${id_integrante}`,
       )
     )[0][0];
+    return {
+      ...history,
+      autoridad: history?.autoridad === 'si',
+    };
   }
 
   remove(id: number) {

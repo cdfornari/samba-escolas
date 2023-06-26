@@ -1,25 +1,25 @@
 import { Injectable } from '@nestjs/common';
 import { CRUDService } from 'src/common/services/crud.service';
 import { QueryService } from 'src/common/services/query.service';
-import { Juridico } from './entities/juridico.entity';
-import { CreateJuridicoInput } from './dto/create-juridico.input';
+import { Naturales } from './entities/naturales.entity';
+import { CreateNaturalesInput } from './dto/create-naturales.input';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
-import { UpdateJuridicoInput } from './dto/update-juridico.input';
+import { UpdateNaturalesInput } from './dto/update-naturales.input';
 
 @Injectable()
-export class JuridicosService {
+export class NaturalesService {
     constructor(
         private readonly queryService: QueryService,
         private readonly crudService: CRUDService,
       ) {}
 
-      private tableName = 'patroc_juridicos';
+      private tableName = 'patroc_naturales';
 
-      async create(input: CreateJuridicoInput): Promise<Juridico> {
+      async create(input: CreateNaturalesInput): Promise<Naturales> {
         return this.crudService.create(this.tableName, input);
       }
 
-      async findAll(pagination: PaginationArgs): Promise<Juridico[]> {
+      async findAll(pagination: PaginationArgs): Promise<Naturales[]> {
         return this.crudService.findAll(this.tableName, pagination);
       }
 
@@ -31,7 +31,7 @@ export class JuridicosService {
         return this.crudService.findOne(this.tableName, id);
       }
     
-      update(input: UpdateJuridicoInput) {
+      update(input: UpdateNaturalesInput) {
         const { id, ...dto } = input;
         return this.crudService.updateOne(this.tableName, id, dto);
       }

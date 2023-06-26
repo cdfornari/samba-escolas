@@ -16,7 +16,7 @@ export class CRUDService {
 
   async findAll<T, F extends { [key: string]: any; type?: 'OR' | 'AND' }>(
     tableName: string,
-    pagination: PaginationArgs,
+    pagination?: PaginationArgs,
     filter?: F,
   ): Promise<T[]> {
     return this.queryService.select<T[]>(
@@ -48,7 +48,19 @@ export class CRUDService {
     )[0][0];
   }
 
-  remove(tableName: string, id: number) {
-    return `This action removes a #${id} entity`;
+  delete<F extends { [key: string]: any; type?: 'OR' | 'AND' }>(
+    tableName: string,
+    filter: F,
+  ) {
+    return this.queryService.delete(
+      tableName,
+      filter && Object.keys(filter).length > 0
+        ? `
+        ${Object.keys(filter)
+          .map((key) => `${key} = '${filter[key]}'`)
+          .join(` ${filter?.type || ''} `)}
+      `
+        : null,
+    );
   }
 }

@@ -37,6 +37,6 @@ export class RolesService {
   }
 
   remove(id: number) {
-    return this.crudService.remove(this.tableName, id);
+    
   }
 }

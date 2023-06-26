@@ -9,7 +9,7 @@ import {
 import { DateScalar } from 'src/common/scalars/date.scalar';
 
 @InputType()
-export class CreateHistorcoIntegranteInput {
+export class CreateHistoricoIntegranteInput {
   @IsDateString()
   @Field(() => DateScalar)
   fecha_inicio: Date;

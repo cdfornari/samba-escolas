@@ -12,7 +12,7 @@ export class ColoresResolver {
   constructor(private readonly colorService: ColoresService) {}
 
   @Mutation(() => Color)
-  createIntegrante(
+  createColor(
     @Args('createColorInput') createColorInput: CreateColorInput,
   ) {
     return this.colorService.create(createColorInput);
@@ -41,14 +41,14 @@ export class ColoresResolver {
   }
 
   @Mutation(() => Color)
-  updateIntegrante(
+  updateColor(
     @Args('updateColorInput') updateColorInput: UpdateColorInput,
   ) {
     return this.colorService.update(updateColorInput);
   }
 
   @Mutation(() => Color)
-  removeIntegrante(@Args('id', { type: () => Int }) id: number) {
+  removeColor(@Args('id', { type: () => Int }) id: number) {
     return this.colorService.remove(id);
   }
 }

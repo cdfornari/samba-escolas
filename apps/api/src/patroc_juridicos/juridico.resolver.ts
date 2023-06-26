@@ -12,7 +12,7 @@ export class JuridicosResolver {
   constructor(private readonly juridicosService: JuridicosService) {}
 
   @Mutation(() => Juridico)
-  createIntegrante(
+  createJuridico(
     @Args('createJuridicoInput') createJuridicoInput: CreateJuridicoInput,
   ) {
     return this.juridicosService.create(createJuridicoInput);
@@ -41,14 +41,14 @@ export class JuridicosResolver {
   }
 
   @Mutation(() => Juridico)
-  updateIntegrante(
+  updateJuridico(
     @Args('updateJuridicoInput') updateJuridicoInput: UpdateJuridicoInput,
   ) {
     return this.juridicosService.update(updateJuridicoInput);
   }
 
   @Mutation(() => Juridico)
-  removeIntegrante(@Args('id', { type: () => Int }) id: number) {
+  removeJuridico(@Args('id', { type: () => Int }) id: number) {
     return this.juridicosService.remove(id);
   }
 }

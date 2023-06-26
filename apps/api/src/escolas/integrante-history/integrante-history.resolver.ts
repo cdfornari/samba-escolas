@@ -8,7 +8,7 @@ import {
   Parent,
 } from '@nestjs/graphql';
 import { HistoricoIntegrante } from './entities/integrante-history.entity';
-import { CreateHistorcoIntegranteInput } from './dto/create-integrante-history.input';
+import { CreateHistoricoIntegranteInput } from './dto/create-integrante-history.input';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { IntegranteHistoryPaginationType } from './types/integrante-history-pagination.type';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
@@ -29,7 +29,7 @@ export class IntegranteHistoryResolver {
   @Mutation(() => HistoricoIntegrante)
   createIntegranteHistory(
     @Args('createHistoricoIntegranteInput')
-    createHistoricoIntegranteInput: CreateHistorcoIntegranteInput,
+    createHistoricoIntegranteInput: CreateHistoricoIntegranteInput,
   ) {
     return this.integranteHistoryService.create(createHistoricoIntegranteInput);
   }
@@ -68,7 +68,7 @@ export class IntegranteHistoryResolver {
 
   @Mutation(() => HistoricoIntegrante)
   updateIntegranteHistory(
-    @Args('updateIntegranteHistoryInput')
+    @Args('updateHistoricoIntegranteInput')
     updateIntegranteHistoryInput: UpdateHistoricoIntegranteInput,
   ) {
     return this.integranteHistoryService.update(updateIntegranteHistoryInput);

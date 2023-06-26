@@ -10,3 +10,10 @@ export interface Integrante {
   nacionalidad: string;
   rg?: string;
 }
+
+export interface IntegranteHistory {
+  fecha_inicio: string;
+  fecha_fin?: string;
+  autoridad: boolean;
+  integrante: Integrante;
+}

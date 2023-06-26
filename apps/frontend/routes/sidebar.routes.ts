@@ -18,7 +18,7 @@ export const sidebarRoutes = (pathname: string) => [
     name: 'Integrantes',
     icon: UserIcon,
     href: '/integrantes',
-    active: pathname.includes('integrantes'),
+    active: pathname.includes('integrantes') && !pathname.includes('escola'),
   },
   {
     name: 'Premios',
