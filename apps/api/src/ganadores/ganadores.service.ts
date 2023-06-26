@@ -15,16 +15,16 @@ export class GanadoresService {
 
   private tableName = 'ganadores';
 
-  async create(input: CreateGanadoresInput) {
-    if (await this.findOne(input.year, input.id_premio))
+  async create({ year, ...input }: CreateGanadoresInput) {
+    if (await this.findOne(year, input.id_premio))
       throw new BadRequestException(
         'Ya existe un ganador con ese año y premio',
       );
-    const result = await this.crudService.create<Ganador, CreateGanadoresInput>(
-      this.tableName,
-      input,
-    );
-    return { ...result, year: input.year };
+    const result = await this.crudService.create<Ganador, any>(this.tableName, {
+      ...input,
+      anual: `${year}-01-01`,
+    });
+    return { ...result, year };
   }
 
   async findAll(filter: GanadoresFilterArgs) {
@@ -33,6 +33,9 @@ export class GanadoresService {
         ...(filter.id_escuela && { id_escuela: filter.id_escuela }),
         ...(filter.id_integrante && { id_integrante: filter.id_integrante }),
         ...(filter.fecha_inicio && { fecha_inicio: filter.fecha_inicio }),
+        ...(filter.id_escuela_integrante && {
+          id_escuela_integrante: filter.id_escuela_integrante,
+        }),
       })
     ).map((ganador) => ({
       ...ganador,
@@ -45,7 +48,7 @@ export class GanadoresService {
       await this.queryService.select(
         this.tableName,
         null,
-        `year = ${year} AND id_premio = ${id_premio}`,
+        `anual = '${year}-01-01' AND id_premio = ${id_premio}`,
       )
     )[0];
   }

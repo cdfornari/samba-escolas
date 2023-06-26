@@ -25,4 +25,10 @@ export class GanadoresFilterArgs {
   @IsOptional()
   @Field(() => DateScalar, { nullable: true })
   fecha_inicio?: Date;
+
+  @IsInt()
+  @IsPositive()
+  @IsOptional()
+  @Field(() => Int, { nullable: true })
+  id_escuela_integrante?: number;
 }

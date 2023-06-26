@@ -9,6 +9,8 @@ export class Ganador {
 
   id_escuela?: number;
 
+  id_escuela_integrante?: number;
+
   fecha_inicio?: Date;
 
   id_integrante?: number;

@@ -11,8 +11,7 @@ export class CreateGanadoresInput {
 
   @IsInt()
   @IsPositive()
-  @IsOptional()
-  @Field(() => Int, { nullable: true })
+  @Field(() => Int)
   id_premio: number;
 
   @IsInt()
@@ -20,6 +19,12 @@ export class CreateGanadoresInput {
   @IsOptional()
   @Field(() => Int, { nullable: true })
   id_escuela?: number;
+
+  @IsInt()
+  @IsPositive()
+  @IsOptional()
+  @Field(() => Int, { nullable: true })
+  id_escuela_integrante?: number;
 
   @IsDateString()
   @IsOptional()
