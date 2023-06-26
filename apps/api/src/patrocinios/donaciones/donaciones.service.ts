@@ -29,9 +29,9 @@ export class DonacionesService {
     )
     )[0]
 
-      if(fecha_inicio.getDate > input.fecha.getDate)
+      if(new Date(fecha_inicio) > new Date(input.fecha))
       throw new BadRequestException(
-        'Fecha no válida',
+        'Fecha no válida, la fecha de la donacion no puede ser menor que la que inició el patrocinio',
       );
 
       if ( fecha_fin )
