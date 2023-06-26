@@ -42,7 +42,7 @@ export const sidebarRoutes = (pathname: string) => [
   {
     name: 'Patrocinadores',
     icon: CurrencyDollarIcon,
-    href: '/sponsors',
+    href: '/sponsors/juridicos',
     active: pathname.includes('sponsors'),
   },
   {
