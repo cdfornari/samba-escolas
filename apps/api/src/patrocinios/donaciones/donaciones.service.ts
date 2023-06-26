@@ -18,7 +18,7 @@ export class DonacionesService {
     private readonly crudService: CRUDService,
   ) {}
 
-  private tableName = 'donacion';
+  private tableName = 'donaciones';
 
   async create(input: CreateDonacionInput) {
     
