@@ -11,6 +11,7 @@ import { Role } from 'src/roles/entities/role.entity';
 import { OrgCarnavalFilterEscuelaArgs } from './types/org_carnavales-filter-escuela.args';
 import { Integrante } from 'src/integrantes/entities/integrante.entity';
 import { IntegrantesService } from 'src/integrantes/integrantes.service';
+import { OrgCarnavalIdArgs } from './types/org_carnavales-id.args';
 
 
 @Resolver(() => OrgCarnaval)
@@ -43,7 +44,7 @@ export class OrgCarnavalesResolver {
   }
 
   @Query(() => OrgCarnaval, { name: 'org_carnaval' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
+  findOne(@Args() id: OrgCarnavalIdArgs) {
     return this.orgCarnavalesService.findOne(id);
   }
 
