@@ -86,7 +86,11 @@ export class DonacionesService {
 
   async total(input: TotalDonacionInput) {
     
-    return this.queryService.executeRawQuery(`SELECT SUM(monto) FROM csd_donaciones WHERE id_patroc = ${input.id_patroc} AND id_escuela = ${input.id_escuela}`)[0].sum;
+    const suma = this.queryService.executeRawQuery(`SELECT SUM(monto) FROM csd_donaciones WHERE id_patroc = ${input.id_patroc} AND id_escuela = ${input.id_escuela}`);
+
+    console.log(suma);
+
+    return suma[0].sum;
 
   }
 
