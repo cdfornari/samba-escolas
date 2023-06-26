@@ -11,7 +11,7 @@ import { NaturalesPaginationType } from './types/naturales-pagination.type';
 export class NaturalesResolver {
   constructor(private readonly naturalesService: NaturalesService) {}
 
-  @Mutation(() => Naturales)
+  @Mutation(() => Natural)
   createNatural(
     @Args('createNaturalesInput') createNaturalesInput: CreateNaturalesInput,
   ) {
@@ -40,7 +40,7 @@ export class NaturalesResolver {
     return this.naturalesService.findOne(id);
   }
 
-  @Mutation(() => Naturales)
+  @Mutation(() => Natural)
   updateNatural(
     @Args('updateNaturalesInput') updateNaturalesInput: UpdateNaturalesInput,
   ) {
