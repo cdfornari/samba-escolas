@@ -197,3 +197,12 @@ export const EVENTS = gql`
   }
   ${EventFragment}
 `;
+
+export const EVENT = gql`
+  query EVENT($eventoId: Int!) {
+    evento(id: $eventoId) {
+      ...EventFragment
+    }
+  }
+  ${EventFragment}
+`;
