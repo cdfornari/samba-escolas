@@ -82,7 +82,16 @@ export class PatrociniosService {
     )[0][0]
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} escola`;
-  }
+  async remove(id: PatrocinioIdArgs) {
+    const referencedRows = await this.queryService.count(
+      'donaciones',
+      `id_patroc = id`,
+    )
+
+    if (referencedRows>0) throw new BadRequestException(
+      'No se puede eliminar el historico porque tiene donaciones asociadas',
+    );
+
+    return this.crudService.delete(this.tableName, id);
+}
 }

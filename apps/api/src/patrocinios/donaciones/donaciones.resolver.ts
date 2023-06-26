@@ -17,6 +17,7 @@ import {
   import { PatrociniosService } from '../patrocinios.service';  
   import { DonacionFilterHistoricoArgs } from './types/donacion-filter-historico.args';
 import { Patrocinio } from '../entities/patrocinio.entity';
+import { DonacionIdArgs } from './types/donacion-id.args';
   
   @Resolver(() => Donacion)
   export class DonacionesResolver {
@@ -67,7 +68,7 @@ import { Patrocinio } from '../entities/patrocinio.entity';
     }
   
     @Mutation(() => Donacion)
-    removeDonacion(@Args('id', { type: () => Int }) id: number) {
+    removeDonacion(@Args() id: DonacionIdArgs) {
       return this.donacionesService.remove(id);
     }
   

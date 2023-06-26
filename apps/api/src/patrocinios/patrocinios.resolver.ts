@@ -74,8 +74,7 @@ export class PatrociniosResolver {
   }
 
   @Mutation(() => Patrocinio)
-  removePatrocinio(@Args() idArgs: PatrocinioIdArgs) {
-    const {id} = idArgs
+  removePatrocinio(@Args() id: PatrocinioIdArgs) {
     return this.patrociniosService.remove(id);
   }
 
