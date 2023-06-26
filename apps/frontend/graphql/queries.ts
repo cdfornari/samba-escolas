@@ -179,6 +179,7 @@ export const TITULOS = gql`
       }
       numberOfPages
     }
+    titulosCount(id_escuela: $idEscuela)
   }
   ${TituloFragment}
 `;

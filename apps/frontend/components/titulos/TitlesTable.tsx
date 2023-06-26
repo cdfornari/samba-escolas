@@ -58,7 +58,7 @@ export const TitlesTable: FC<Props> = ({ escola }) => {
   const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>();
   const { data, loading, error, refetch } = useQuery<{
     titulos: PaginationType<Titulo>;
-    integranteHistoriesCount: number;
+    titulosCount: number;
   }>(TITULOS, {
     variables: {
       page,
@@ -151,13 +151,13 @@ export const TitlesTable: FC<Props> = ({ escola }) => {
             )}
           </Table.Body>
         </Table>
-        {/*         <Pagination
+        <Pagination
           page={page}
-          perPage={page === 1 ? data?.integranteHistories.items.length : 15}
+          perPage={page === 1 ? data?.titulos.items.length : 15}
           setPage={setPage}
-          totalPages={data?.integranteHistories.numberOfPages ?? 0}
-          totalItems={data?.integranteHistoriesCount ?? 0}
-        /> */}
+          totalPages={data?.titulos.numberOfPages ?? 0}
+          totalItems={data?.titulosCount ?? 0}
+        />
       </div>
     </div>
   );
