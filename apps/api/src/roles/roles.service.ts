@@ -19,7 +19,7 @@ export class RolesService {
     return this.crudService.create(this.tableName, createRoleInput);
   }
 
-  async findAll(pagination: PaginationArgs): Promise<Role[]> {
+  async findAll(pagination?: PaginationArgs): Promise<Role[]> {
     return this.crudService.findAll(this.tableName, pagination);
   }
 

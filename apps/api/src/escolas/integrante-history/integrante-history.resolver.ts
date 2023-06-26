@@ -38,9 +38,14 @@ export class IntegranteHistoryResolver {
   async findAll(
     @Args() pagination: PaginationArgs,
     @Args() filter: HistoricoIntegranteFilterArgs,
+    @Args('paginate', { type: () => Boolean, defaultValue: true })
+    paginate: boolean,
   ): Promise<IntegranteHistoryPaginationType> {
     const [items, count] = await Promise.all([
-      this.integranteHistoryService.findAll(pagination, filter) as Promise<any>,
+      this.integranteHistoryService.findAll(
+        filter,
+        paginate ? pagination : null,
+      ) as Promise<any>,
       this.integranteHistoryService.count(filter),
     ]);
     return {

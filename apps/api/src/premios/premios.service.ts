@@ -19,7 +19,7 @@ export class PremiosService {
     return this.crudService.create(this.tableName, createPremioInput);
   }
 
-  async findAll(pagination: PaginationArgs): Promise<Premio[]> {
+  async findAll(pagination?: PaginationArgs): Promise<Premio[]> {
     return this.crudService.findAll(this.tableName, pagination);
   }
 

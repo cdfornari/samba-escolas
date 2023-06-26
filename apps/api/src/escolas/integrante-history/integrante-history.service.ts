@@ -41,8 +41,8 @@ export class IntegranteHistoryService {
   }
 
   async findAll(
-    pagination: PaginationArgs,
     filter: HistoricoIntegranteFilterArgs,
+    pagination?: PaginationArgs,
   ) {
     return this.crudService.findAll(this.tableName, pagination, filter);
   }

@@ -1,4 +1,12 @@
-import { Resolver, Query, Mutation, Args, Int, ResolveField, Parent } from '@nestjs/graphql';
+import {
+  Resolver,
+  Query,
+  Mutation,
+  Args,
+  Int,
+  ResolveField,
+  Parent,
+} from '@nestjs/graphql';
 import { IntegrantesService } from './integrantes.service';
 import { Integrante } from './entities/integrante.entity';
 import { CreateIntegranteInput } from './dto/create-integrante.input';
@@ -21,9 +29,13 @@ export class IntegrantesResolver {
   }
 
   @Query(() => IntegrantesPaginationType, { name: 'integrantes' })
-  async findAll(@Args() pagination: PaginationArgs) {
+  async findAll(
+    @Args() pagination: PaginationArgs,
+    @Args('paginate', { type: () => Boolean, defaultValue: true })
+    paginate: boolean,
+  ) {
     const [items, count] = await Promise.all([
-      this.integrantesService.findAll(pagination),
+      this.integrantesService.findAll(paginate ? pagination : null),
       this.integrantesService.count(),
     ]);
     return {
@@ -89,5 +101,4 @@ export class IntegrantesResolver {
   async getHabilidades(@Parent() integrante: Integrante): Promise<Habilidad[]> {
     return this.integrantesService.getHabilidades(integrante.id);
   }
-
 }

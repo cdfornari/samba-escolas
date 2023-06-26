@@ -20,7 +20,7 @@ export class IntegrantesService {
     return this.crudService.create(this.tableName, input);
   }
 
-  async findAll(pagination: PaginationArgs): Promise<Integrante[]> {
+  async findAll(pagination?: PaginationArgs): Promise<Integrante[]> {
     return this.crudService.findAll(this.tableName, pagination);
   }
 

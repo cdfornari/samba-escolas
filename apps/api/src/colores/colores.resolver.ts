@@ -1,7 +1,7 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { ColoresService } from './colores.service';
 import { Color } from './entities/color.entity';
-import { CreateColorInput} from './dto/create-color.input';
+import { CreateColorInput } from './dto/create-color.input';
 import { UpdateColorInput } from './dto/update-color.input';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
@@ -12,16 +12,18 @@ export class ColoresResolver {
   constructor(private readonly colorService: ColoresService) {}
 
   @Mutation(() => Color)
-  createColor(
-    @Args('createColorInput') createColorInput: CreateColorInput,
-  ) {
+  createColor(@Args('createColorInput') createColorInput: CreateColorInput) {
     return this.colorService.create(createColorInput);
   }
 
   @Query(() => ColorPaginationType, { name: 'colores' })
-  async findAll(@Args() pagination: PaginationArgs) {
+  async findAll(
+    @Args() pagination: PaginationArgs,
+    @Args('paginate', { type: () => Boolean, defaultValue: true })
+    paginate: boolean,
+  ) {
     const [items, count] = await Promise.all([
-      this.colorService.findAll(pagination),
+      this.colorService.findAll(paginate ? pagination : null),
       this.colorService.count(),
     ]);
     return {
@@ -41,9 +43,7 @@ export class ColoresResolver {
   }
 
   @Mutation(() => Color)
-  updateColor(
-    @Args('updateColorInput') updateColorInput: UpdateColorInput,
-  ) {
+  updateColor(@Args('updateColorInput') updateColorInput: UpdateColorInput) {
     return this.colorService.update(updateColorInput);
   }
 

@@ -19,7 +19,7 @@ export class ColoresService {
     return this.crudService.create(this.tableName, input);
   }
 
-  async findAll(pagination: PaginationArgs): Promise<Color[]> {
+  async findAll(pagination?: PaginationArgs): Promise<Color[]> {
     return this.crudService.findAll(this.tableName, pagination);
   }
 

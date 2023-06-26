@@ -19,9 +19,13 @@ export class PremiosResolver {
   }
 
   @Query(() => PremiosPaginationType, { name: 'premios' })
-  async findAll(@Args() pagination: PaginationArgs) {
+  async findAll(
+    @Args() pagination: PaginationArgs,
+    @Args('paginate', { type: () => Boolean, defaultValue: true })
+    paginate: boolean,
+  ) {
     const [items, count] = await Promise.all([
-      this.premiosService.findAll(pagination),
+      this.premiosService.findAll(paginate ? pagination : null),
       this.premiosService.count(),
     ]);
     return {
