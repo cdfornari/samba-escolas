@@ -14,7 +14,7 @@ export class CRUDService {
     return (await this.queryService.insert<T>(tableName, fields, values))[0];
   }
 
-  async findAll<T, F extends { [key: string]: any; type?: 'OR' | 'AND' }>(
+  async findAll<T, F extends { [key: string]: any }>(
     tableName: string,
     pagination?: PaginationArgs,
     filter?: F,
@@ -25,8 +25,8 @@ export class CRUDService {
       filter && Object.keys(filter).length > 0
         ? `
         ${Object.keys(filter)
-          .map((key) => `${key} = '${filter[key]}'`)
-          .join(` ${filter?.type || ''} `)}
+          .map((key) => key !== 'type' && `${key} = '${filter[key]}'`)
+          .join('AND')}
       `
         : null,
       null,
