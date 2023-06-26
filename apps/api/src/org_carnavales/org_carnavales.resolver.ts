@@ -48,7 +48,7 @@ export class OrgCarnavalesResolver {
   }
 
   @Query(() => Int, { name: 'org_carnavalesCount' })
-  count(@Args() filter: OrgCarnavalFilterEscuelaArgs) {
+  count(@Args('filter') filter: OrgCarnavalFilterEscuelaArgs) {
     return this.orgCarnavalesService.count(filter);
   }
 
