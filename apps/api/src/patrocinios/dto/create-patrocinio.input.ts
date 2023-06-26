@@ -2,6 +2,7 @@ import { InputType, Int, Field } from '@nestjs/graphql';
 import {
   IsDateString,
   IsNumber,
+  IsOptional,
   IsPositive,
 } from 'class-validator';
 import { DateScalar } from 'src/common/scalars/date.scalar';
@@ -19,15 +20,18 @@ export class CreatePatrocinioInput {
 
   @IsNumber()
   @IsPositive()
+  @IsOptional()
   @Field(() => Int)
   id_jur?:number;
 
+  @IsOptional()
   @IsNumber()
   @IsPositive()
   @Field(() => Int)
   id_nat?:number;
 
   @IsDateString()
+  @IsOptional()
   @Field(() => DateScalar)
   fin?: Date;
 }
