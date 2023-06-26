@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateIntegranteInput } from './dto/create-integrante.input';
 import { UpdateIntegranteInput } from './dto/update-integrante.input';
 import { QueryService } from 'src/common/services/query.service';
@@ -103,7 +103,25 @@ export class IntegrantesService {
     });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} integrante`;
+  async remove(id: number) {
+    const referencedRows = await this.queryService.count(
+      'historicos_integrantes',
+      `id_integrante = ${id}`,
+    );
+    if (referencedRows > 0)
+      throw new BadRequestException(
+        `No se puede eliminar el integrante porque tiene ${referencedRows} historico${
+          referencedRows > 1 ? 's' : ''
+        } asociados`,
+      );
+    await this.queryService.delete(
+      'integrantes_habilidades',
+      `id_integrante = ${id}`,
+    );
+    await this.queryService.delete(
+      'integrantes_habilidades',
+      `id_integrante_1 = ${id} OR id_integrante_2 = ${id}`,
+    );
+    return this.crudService.delete(this.tableName, { id });
   }
 }
