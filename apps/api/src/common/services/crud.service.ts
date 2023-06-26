@@ -48,7 +48,7 @@ export class CRUDService {
     )[0][0];
   }
 
-  delete<F extends { [key: string]: any; type?: 'OR' | 'AND' }>(
+  delete<F extends { [key: string]: any }>(
     tableName: string,
     filter: F,
   ) {
@@ -58,7 +58,7 @@ export class CRUDService {
         ? `
         ${Object.keys(filter)
           .map((key) => `${key} = '${filter[key]}'`)
-          .join(` ${filter?.type || ''} `)}
+          .join('AND')}
       `
         : null,
     );

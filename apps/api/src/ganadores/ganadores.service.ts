@@ -55,7 +55,10 @@ export class GanadoresService {
 
   update(input: UpdateGanadoresInput) {}
 
-  remove(id: number) {
-    return `This action removes a #${id} ganadore`;
+  remove(year: number, id_premio: number) {
+    return this.crudService.delete(this.tableName, {
+      anual: `${year}-01-01`,
+      id_premio,
+    });
   }
 }

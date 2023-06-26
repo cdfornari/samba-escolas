@@ -46,9 +46,12 @@ export class GanadoresResolver {
     return this.ganadoresService.update(updateGanadoresInput);
   } */
 
-  @Mutation(() => Ganador)
-  removeGanador(@Args('id', { type: () => Int }) id: number) {
-    return this.ganadoresService.remove(id);
+  @Mutation(() => Boolean)
+  removeGanador(
+    @Args('idPremio', { type: () => Int }) idPremio: number,
+    @Args('year', { type: () => Int }) year: number,
+  ) {
+    return this.ganadoresService.remove(year, idPremio);
   }
 
   @ResolveField(() => Premio, { name: 'premio' })

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateRoleInput } from './dto/create-role.input';
 import { UpdateRoleInput } from './dto/update-role.input';
 import { CRUDService } from 'src/common/services/crud.service';
@@ -36,7 +36,15 @@ export class RolesService {
     return this.crudService.updateOne(this.tableName, id, dto);
   }
 
-  remove(id: number) {
-    
+  async remove(id: number) {
+    const referencedRows = await this.queryService.count(
+      'org_carnavales',
+      `id_rol = ${id}`,
+    );
+    if (referencedRows > 0)
+      throw new BadRequestException(
+        'No se puede eliminar un rol que tiene referencias en organizaciones de carnaval',
+      );
+    return this.crudService.delete(this.tableName, { id });
   }
 }

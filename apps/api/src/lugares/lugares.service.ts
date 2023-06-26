@@ -43,7 +43,32 @@ export class LugaresService {
     return this.crudService.updateOne(this.tableName, id, dto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} lugare`;
+  async remove(id: number) {
+    const childrenPlaces = await this.queryService.count(
+      'integrantes',
+      `id_padre_lugar = ${id}`,
+    );
+    if (childrenPlaces > 0)
+      throw new BadRequestException(
+        'No se puede eliminar un lugar que tiene lugares hijos',
+      );
+    const referencedRows = await Promise.all([
+      this.queryService.count('escuelas_samba', `id_ciudad = ${id}`),
+      this.queryService.count('premios_especiales', `id_lugar = ${id}`),
+      this.queryService.count('patroc_juridicos', `id_lugar = ${id}`),
+    ]);
+    const totalReferencedRows = referencedRows.reduce(
+      (acc, curr) => acc + curr,
+      0,
+    );
+    if (totalReferencedRows > 0)
+      throw new BadRequestException(
+        `No se puede eliminar el lugar porque tiene ${totalReferencedRows} referencia${
+          totalReferencedRows > 1 ? 's' : ''
+        } en otra${totalReferencedRows > 1 ? 's' : ''}  tabla${
+          totalReferencedRows > 1 ? 's' : ''
+        } `,
+      );
+    return this.crudService.delete(this.tableName, { id });
   }
 }

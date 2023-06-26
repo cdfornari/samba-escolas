@@ -51,7 +51,7 @@ export class HabilidadesResolver {
     return this.habilidadService.update(updateHabilidadInput);
   }
 
-  @Mutation(() => Habilidad)
+  @Mutation(() => Boolean)
   removeHabilidad(@Args('id', { type: () => Int }) id: number) {
     return this.habilidadService.remove(id);
   }

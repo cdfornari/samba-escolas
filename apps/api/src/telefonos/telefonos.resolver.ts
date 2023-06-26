@@ -38,7 +38,7 @@ export class TelefonosResolver {
     return this.telefonosService.count();
   }
 
-  @Mutation(() => Telefono)
+  @Mutation(() => Boolean)
   removeTelefono(
     @Args('cod_int', { type: () => Int }) cod_int: number,
     @Args('cod_area', { type: () => Int }) cod_area: number,

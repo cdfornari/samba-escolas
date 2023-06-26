@@ -51,7 +51,7 @@ export class PremiosResolver {
     return this.premiosService.update(updatePremioInput);
   }
 
-  @Mutation(() => Premio)
+  @Mutation(() => Boolean)
   removePremio(@Args('id', { type: () => Int }) id: number) {
     return this.premiosService.remove(id);
   }

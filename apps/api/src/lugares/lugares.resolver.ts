@@ -66,7 +66,7 @@ export class LugaresResolver {
     return this.lugaresService.remove(id);
   }
 
-  @ResolveField(() => Lugar, { name: 'padre', nullable: true })
+  @ResolveField(() => Boolean, { name: 'padre', nullable: true })
   async getParent(@Parent() lugar: Lugar) {
     return lugar.id_padre_lugar
       ? this.lugaresService.findOne(lugar.id_padre_lugar)

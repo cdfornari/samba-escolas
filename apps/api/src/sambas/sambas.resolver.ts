@@ -47,7 +47,7 @@ export class SambasResolver {
     return this.sambasService.update(updateSambaInput);
   }
 
-  @Mutation(() => Samba)
+  @Mutation(() => Boolean)
   removeIntegrante(@Args('id', { type: () => Int }) id: number) {
     return this.sambasService.remove(id);
   }

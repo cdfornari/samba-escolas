@@ -47,7 +47,7 @@ export class RolesResolver {
     return this.rolesService.update(updateRoleInput);
   }
 
-  @Mutation(() => Role)
+  @Mutation(() => Boolean)
   removeRole(@Args('id', { type: () => Int }) id: number) {
     return this.rolesService.remove(id);
   }

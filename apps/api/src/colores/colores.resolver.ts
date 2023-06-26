@@ -47,7 +47,7 @@ export class ColoresResolver {
     return this.colorService.update(updateColorInput);
   }
 
-  @Mutation(() => Color)
+  @Mutation(() => Boolean)
   removeColor(@Args('id', { type: () => Int }) id: number) {
     return this.colorService.remove(id);
   }

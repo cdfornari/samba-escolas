@@ -28,8 +28,8 @@ export class EventosService {
   }
 
   update(updateEventoInput: UpdateEventoInput) {
-    const {id, ...dto} = updateEventoInput;
-    return this.crudService.updateOne(this.tableName,id,dto);
+    const { id, ...dto } = updateEventoInput;
+    return this.crudService.updateOne(this.tableName, id, dto);
   }
 
   async count(): Promise<number> {
@@ -37,6 +37,6 @@ export class EventosService {
   }
 
   remove(id: number) {
-    return `This action removes a #${id} evento`;
+    return this.crudService.delete(this.tableName, { id });
   }
 }

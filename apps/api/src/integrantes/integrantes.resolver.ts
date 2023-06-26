@@ -65,7 +65,7 @@ export class IntegrantesResolver {
     return this.integrantesService.update(updateIntegranteInput);
   }
 
-  @Mutation(() => Integrante)
+  @Mutation(() => Boolean)
   removeIntegrante(@Args('id', { type: () => Int }) id: number) {
     return this.integrantesService.remove(id);
   }

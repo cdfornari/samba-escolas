@@ -68,9 +68,9 @@ export const EscolaForm: FC<Props> = ({
       direccion_sede: initialValues?.direccion_sede ?? '',
       numero: initialValues?.numero,
       cep: initialValues?.cep ?? '',
-      fecha_fundacion: new Date(initialValues?.fecha_fundacion)
-        .toISOString()
-        .split('T')[0],
+      fecha_fundacion: initialValues?.fecha_fundacion
+        ? new Date(initialValues.fecha_fundacion).toISOString().split('T')[0]
+        : new Date().toISOString().split('T')[0],
       resumen_historico: initialValues?.resumen_historico ?? '',
     },
   });
@@ -79,6 +79,9 @@ export const EscolaForm: FC<Props> = ({
   useEffect(() => {
     if (ciudad?.length > 0) clearErrors('id_ciudad');
   }, [ciudad]);
+  useEffect(() => {
+    if (Array.from(colors).length > 0) clearErrors('id_colores');
+  }, [colors]);
   useEffect(() => {
     if (!numero) return;
     if (Number(numero)) clearErrors('numero');
@@ -112,6 +115,13 @@ export const EscolaForm: FC<Props> = ({
       setError('id_ciudad', {
         type: 'manual',
         message: 'Seleccione una ciudad',
+      });
+      return;
+    }
+    if (Array.from(colors).length === 0) {
+      setError('id_colores', {
+        type: 'manual',
+        message: 'Seleccione al menos un color',
       });
       return;
     }
@@ -179,22 +189,29 @@ export const EscolaForm: FC<Props> = ({
           {loadingColors ? (
             <Loading />
           ) : (
-            <Dropdown>
-              <Dropdown.Button flat css={{ tt: 'capitalize' }}>
-                Colores
-              </Dropdown.Button>
-              <Dropdown.Menu
-                aria-label="Multiple selection actions"
-                disallowEmptySelection
-                selectionMode="multiple"
-                selectedKeys={colors}
-                onSelectionChange={setColors}
-              >
-                {colorsData.colores.items.map((color) => (
-                  <Dropdown.Item key={color.id}>{color.nombre}</Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
+            <div>
+              <Dropdown>
+                <Dropdown.Button flat css={{ tt: 'capitalize' }}>
+                  Colores
+                </Dropdown.Button>
+                <Dropdown.Menu
+                  aria-label="Multiple selection actions"
+                  disallowEmptySelection
+                  selectionMode="multiple"
+                  selectedKeys={colors}
+                  onSelectionChange={setColors}
+                >
+                  {colorsData.colores.items.map((color) => (
+                    <Dropdown.Item key={color.id}>{color.nombre}</Dropdown.Item>
+                  ))}
+                </Dropdown.Menu>
+              </Dropdown>
+              {errors.id_colores && (
+                <span className="text-error">
+                  {(errors.id_colores.message as string) ?? ''}
+                </span>
+              )}
+            </div>
           )}
         </div>
         <div className="flex flex-col gap-10 px-10">
@@ -203,9 +220,11 @@ export const EscolaForm: FC<Props> = ({
             labelPlaceholder="Fecha de fundación"
             type="date"
             initialValue={
-              new Date(initialValues?.fecha_fundacion)
-                .toISOString()
-                .split('T')[0]
+              initialValues?.fecha_fundacion
+                ? new Date(initialValues.fecha_fundacion)
+                    .toISOString()
+                    .split('T')[0]
+                : new Date().toISOString().split('T')[0]
             }
             color={errors.fecha_fundacion ? 'error' : 'primary'}
             {...register('fecha_fundacion', { required: true })}
