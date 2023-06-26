@@ -32,6 +32,9 @@ export class DonacionesService {
       console.log(input.fecha)
       console.log(fecha_inicio)
 
+      console.log(input.fecha < fecha_inicio)
+      console.log(input.fecha > fecha_inicio)
+
     if ( input.fecha < fecha_inicio )
       throw new BadRequestException(
         'Esa fecha no es válida',
