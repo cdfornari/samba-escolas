@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args, Int, ResolveField, Parent } from '@nestjs/graphql';
 import { SambasService } from './sambas.service';
 import { Samba } from './entities/samba.entity';
 import { CreateSambaInput } from './dto/create-samba.input';
@@ -6,6 +6,8 @@ import { UpdateSambaInput } from './dto/update-samba.input';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { SambaPaginationType } from './types/sambas-pagination.type';
+import { ToggleSambaHistIntegranteInput } from './dto/toggle-samba-histintegrante.input';
+import { HistoricoIntegrante } from 'src/escolas/integrante-history/entities/integrante-history.entity';
 
 @Resolver(() => Samba)
 export class SambasResolver {
@@ -51,4 +53,36 @@ export class SambasResolver {
   removeIntegrante(@Args('id', { type: () => Int }) id: number) {
     return this.sambasService.remove(id);
   }
+
+    @Mutation(() => Boolean)
+  async addSambaToHistoricoIntegrante(
+    @Args('toggleSambaHistIntegranteInput')
+    { id_integrante, fecha_inicio, id_escuela, id_samba }: ToggleSambaHistIntegranteInput,
+  ) {
+    try {
+      this.sambasService.addAutor(id_samba, id_integrante, fecha_inicio, id_escuela);
+      return true;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  @Mutation(() => Boolean)
+  async removeSambaFromHistoricoIntegrante(
+    @Args('toggleSambaHistIntegranteInput')
+    { id_integrante, fecha_inicio, id_escuela, id_samba }: ToggleSambaHistIntegranteInput,
+  ) {
+    try {
+      this.sambasService.removeAutor(id_samba, id_integrante, fecha_inicio, id_escuela);
+      return true;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  @ResolveField(() => [HistoricoIntegrante], { name: 'autores' })
+  async getAutores(@Parent() samba: Samba): Promise<HistoricoIntegrante[]> {
+    return this.sambasService.getAutores(samba.id);
+  }
+
 }

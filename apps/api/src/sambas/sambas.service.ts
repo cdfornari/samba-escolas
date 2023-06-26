@@ -5,6 +5,7 @@ import { QueryService } from 'src/common/services/query.service';
 import { CRUDService } from 'src/common/services/crud.service';
 import { Samba } from './entities/samba.entity';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
+import { HistoricoIntegrante } from 'src/escolas/integrante-history/entities/integrante-history.entity';
 
 @Injectable()
 export class SambasService {
@@ -38,5 +39,33 @@ export class SambasService {
 
   remove(id: number) {
    
+  }
+
+  async getAutores(id: number) {
+    return this.queryService.executeRawQuery<HistoricoIntegrante[]>(
+      `SELECT * FROM csd_autores
+      JOIN csd_historicos_integrantes ON csd_autores.id_integrante = csd_historicos_integrantes.id_escuela AND csd_autores.id_escuela = csd_historicos_integrantes.id_escuela AND csd_autores.fecha_inicio = csd_historicos_integrantes.fecha_inicio
+      WHERE id_samba = ${id}
+      `,
+    );
+  }
+
+  async addAutor(id: number, id_integrante: number, fecha_inicio: Date, id_escuela: number) {
+    return this.crudService.create('autores', {
+      id_integrante,
+      fecha_inicio,
+      id_escuela,
+      id_samba: id,
+    });
+  }
+
+  async removeAutor(id: number, id_integrante: number, fecha_inicio: Date, id_escuela: number) {
+    return this.crudService.delete('autores', {
+      id_integrante,
+      fecha_inicio,
+      id_escuela,
+      id_samba: id,
+      type: 'AND',
+    });
   }
 }
