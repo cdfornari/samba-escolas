@@ -23,7 +23,7 @@ export default function Page({ params }) {
         <Loading />
       </div>
     );
-  if (error) return <p>Error</p>;
+  if (error) return <p>{error.message}</p>;
   return (
     <EventForm
       action={async (data) =>

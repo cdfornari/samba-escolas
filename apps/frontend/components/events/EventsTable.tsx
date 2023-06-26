@@ -78,7 +78,7 @@ export const EventsTable: FC<Props> = ({ escola }) => {
         <Loading size="lg" />
       </div>
     );
-  if (error) return <p>Error</p>;
+  if (error) return <p>{error.message}</p>;
   return (
     <div className="flex h-full flex-col">
       <div className="flex justify-end py-6 px-10">

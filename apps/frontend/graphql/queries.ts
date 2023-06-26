@@ -186,14 +186,14 @@ export const TITULOS = gql`
 `;
 
 export const EVENTS = gql`
-  query EVENTS($page: Int, $perPage: Int) {
-    eventos(page: $page, perPage: $perPage) {
+  query EVENTS($idEscuela: Int!, $perPage: Int, $page: Int) {
+    eventos(id_escuela: $idEscuela, perPage: $perPage, page: $page) {
       items {
         ...EventFragment
       }
       numberOfPages
     }
-    eventoCount
+    eventoCount(id_escuela: $idEscuela)
   }
   ${EventFragment}
 `;
