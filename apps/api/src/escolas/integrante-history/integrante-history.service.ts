@@ -85,7 +85,26 @@ export class IntegranteHistoryService {
     };
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} escola`;
+  async remove(id: HistoricoIntegranteIdArgs) {
+    const referencedRows = await Promise.all([
+      this.queryService.count(
+        'ganadores',
+        `id_integrante = ${id.id_integrante} AND id_escuela_integrante = ${id.id_escuela} AND fecha_inicio = '${id.fecha_inicio}'`,
+      ),
+      this.queryService.count(
+        'autores',
+        `id_integrante = ${id.id_integrante} AND id_escuela = ${id.id_escuela} AND fecha_inicio = '${id.fecha_inicio}'`,
+      ),
+      this.queryService.count(
+        'org_carnavales',
+        `id_integrante = ${id.id_integrante} AND id_escuela = ${id.id_escuela} AND fecha_inicio = '${id.fecha_inicio}'`,
+      ),
+    ]);
+    const total = referencedRows.reduce((acc, curr) => acc + curr, 0);
+    if (total > 0)
+      throw new BadRequestException(
+        'No se puede eliminar el historico porque tiene premios, autoría y/o participaciones asociadas',
+      );
+    return this.crudService.delete(this.tableName, id);
   }
 }

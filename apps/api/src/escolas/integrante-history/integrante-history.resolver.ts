@@ -79,8 +79,8 @@ export class IntegranteHistoryResolver {
     return this.integranteHistoryService.update(updateIntegranteHistoryInput);
   }
 
-  @Mutation(() => HistoricoIntegrante)
-  removeIntegranteHistory(@Args('id', { type: () => Int }) id: number) {
+  @Mutation(() => Boolean)
+  removeIntegranteHistory(@Args() id: HistoricoIntegranteIdArgs) {
     return this.integranteHistoryService.remove(id);
   }
 
