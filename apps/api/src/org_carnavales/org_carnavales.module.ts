@@ -8,13 +8,20 @@ import { IntegranteHistoryService } from 'src/escolas/integrante-history/integra
 import { RolesModule } from 'src/roles/roles.module';
 import { RolesResolver } from 'src/roles/roles.resolver';
 import { RolesService } from 'src/roles/roles.service';
+import { IntegrantesModule } from 'src/integrantes/integrantes.module';
+import { IntegrantesResolver } from 'src/integrantes/integrantes.resolver';
+import { IntegrantesService } from 'src/integrantes/integrantes.service';
+import { EscolasResolver } from 'src/escolas/escolas.resolver';
+import { EscolasService } from 'src/escolas/escolas.service';
 
 @Module({
-    imports: [CommonModule,EscolasModule,RolesModule],
+    imports: [CommonModule,EscolasModule,IntegrantesModule,RolesModule],
     providers: [
         OrgCarnavalesResolver,OrgCarnavalesService,
         IntegranteHistoryResolver,IntegranteHistoryService,
-        RolesResolver,RolesService
+        RolesResolver,RolesService,
+        IntegrantesResolver,IntegrantesService,
+        EscolasResolver,EscolasService
     ]
   })
 
