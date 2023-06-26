@@ -41,14 +41,14 @@ export class NaturalesResolver {
   }
 
   @Mutation(() => Natural)
-  updateIntegrante(
+  updateNatural(
     @Args('updateNaturalesInput') updateNaturalesInput: UpdateNaturalesInput,
   ) {
     return this.naturalesService.update(updateNaturalesInput);
   }
 
   @Mutation(() => Natural)
-  removeIntegrante(@Args('id', { type: () => Int }) id: number) {
+  removeNatural(@Args('id', { type: () => Int }) id: number) {
     return this.naturalesService.remove(id);
   }
 }
