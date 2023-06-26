@@ -20,7 +20,7 @@ export class OrgCarnavalesService {
   }
 
   async findAll(pagination: PaginationArgs,filter:number): Promise<OrgCarnaval[]> {
-    return this.crudService.findAll(this.tableName, pagination,{id_escola:filter});
+    return this.crudService.findAll(this.tableName, pagination,{id_escuela:filter});
   }
 
   findOne(id: number) {

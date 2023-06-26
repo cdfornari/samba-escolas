@@ -30,11 +30,11 @@ export class OrgCarnavalesResolver {
   @Query(() => OrgCarnavalesPaginationType, { name: 'org_carnavales' })
   async findAll(
     @Args() pagination: PaginationArgs,
-    @Args('id_escola', { type: () => Int }) id_escola: number,
+    @Args('id_escuela', { type: () => Int }) id_escuela: number,
   ) : Promise<OrgCarnavalesPaginationType>{
     const [items, count] = await Promise.all([
-      this.orgCarnavalesService.findAll(pagination,id_escola)as Promise<any>,
-      this.orgCarnavalesService.count(id_escola),
+      this.orgCarnavalesService.findAll(pagination,id_escuela)as Promise<any>,
+      this.orgCarnavalesService.count(id_escuela),
     ]);
     return {
       items,
@@ -48,8 +48,8 @@ export class OrgCarnavalesResolver {
   }
 
   @Query(() => Int, { name: 'org_carnavalesCount' })
-  count(@Args('id_escola', { type: () => Int }) id_escola: number,) {
-    return this.orgCarnavalesService.count(id_escola);
+  count(@Args('id_escuela', { type: () => Int }) id_escuela: number,) {
+    return this.orgCarnavalesService.count(id_escuela);
   }
 
   @Mutation(() => Boolean)
@@ -57,7 +57,7 @@ export class OrgCarnavalesResolver {
     return this.orgCarnavalesService.remove(id);
   }
 
-  @ResolveField(() => Integrante, { name: 'historico_integrante' })
+  @ResolveField(() => Integrante, { name: 'integrante' })
   getIntegrante(@Parent() orgCarnaval: OrgCarnaval) {
     return this.integranteService.findOne(orgCarnaval.id_integrante);
   }
