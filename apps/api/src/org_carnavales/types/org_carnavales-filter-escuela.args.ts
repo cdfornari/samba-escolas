@@ -3,7 +3,7 @@ import { IsDateString, IsInt, IsPositive} from 'class-validator';
 import { DateScalar } from 'src/common/scalars/date.scalar';
 
 @InputType()
-export class OrgCarnavalIdArgs{
+export class OrgCarnavalFilterEscuelaArgs{
 
   @IsInt()
   @IsPositive()

@@ -4,6 +4,7 @@ import { QueryService } from 'src/common/services/query.service';
 import { CRUDService } from 'src/common/services/crud.service';
 import { OrgCarnaval } from './entities/org_carnaval.entity';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
+import { OrgCarnavalFilterEscuelaArgs } from './types/org_carnavales-filter-escuela.args';
 
 @Injectable()
 export class OrgCarnavalesService {
@@ -18,8 +19,8 @@ export class OrgCarnavalesService {
     return this.crudService.create(this.tableName, createOrgCarnavalInput);
   }
 
-  async findAll(pagination?: PaginationArgs): Promise<OrgCarnaval[]> {
-    return this.crudService.findAll(this.tableName, pagination);
+  async findAll(pagination: PaginationArgs,filter:OrgCarnavalFilterEscuelaArgs): Promise<OrgCarnaval[]> {
+    return this.crudService.findAll(this.tableName, pagination,filter);
   }
 
   findOne(id: number) {
