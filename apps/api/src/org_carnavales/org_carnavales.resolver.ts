@@ -6,17 +6,18 @@ import { OrgCarnavalesService } from './org_carnavales.service';
 import { OrgCarnavalesPaginationType } from './types/org_carnavales-pagination.type';
 import { CreateOrgCarnavalInput } from './dto/create-org_canarval.input';
 import { RolesService } from 'src/roles/roles.service';
-import { HistoricoIntegrante } from 'src/escolas/integrante-history/entities/integrante-history.entity';
 import { IntegranteHistoryService } from 'src/escolas/integrante-history/integrante-history.service';
 import { Role } from 'src/roles/entities/role.entity';
 import { OrgCarnavalFilterEscuelaArgs } from './types/org_carnavales-filter-escuela.args';
+import { Integrante } from 'src/integrantes/entities/integrante.entity';
+import { IntegrantesService } from 'src/integrantes/integrantes.service';
 
 
 @Resolver(() => OrgCarnaval)
 export class OrgCarnavalesResolver {
   constructor(private readonly orgCarnavalesService: OrgCarnavalesService,
               private readonly rolesService: RolesService,
-              private readonly integranteHistoryService: IntegranteHistoryService
+              private readonly integranteService: IntegrantesService
     ) {}
 
   @Mutation(() => OrgCarnaval)
@@ -56,9 +57,9 @@ export class OrgCarnavalesResolver {
     return this.orgCarnavalesService.remove(id);
   }
 
-  @ResolveField(() => HistoricoIntegrante, { name: 'historico_integrante' })
-  getHistoricoIntegrante(@Parent() orgCarnaval: OrgCarnaval) {
-    return this.integranteHistoryService.findOne(orgCarnaval);
+  @ResolveField(() => Integrante, { name: 'historico_integrante' })
+  getIntegrante(@Parent() orgCarnaval: OrgCarnaval) {
+    return this.integranteService.findOne(orgCarnaval.id_integrante);
   }
 
   @ResolveField(() => Role, { name: 'rol' })
