@@ -18,6 +18,7 @@ import { JuridicosModule } from './patroc_juridicos/juridico.module';
 import { EventosModule } from './eventos/eventos.module';
 import { NaturalesModule } from './patroc_naturales/naturales.module';
 import { GanadoresModule } from './ganadores/ganadores.module';
+import { TituloHistoryModule } from './titulo-history/titulo-history.module';
 
 @Module({
   imports: [
@@ -49,6 +50,7 @@ import { GanadoresModule } from './ganadores/ganadores.module';
     EventosModule,
     NaturalesModule,
     GanadoresModule,
+    TituloHistoryModule,
   ],
   controllers: [],
   providers: [],
