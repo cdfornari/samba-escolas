@@ -17,34 +17,42 @@ export class TituloHistoryService {
   private tableName = 'historicos_titulos';
 
   async create({ year, id_escuela, ...input }: CreateTituloHistoryInput) {
-    if (await this.findOne({year, id_escuela}))
-      throw new BadRequestException(
-        'Ya existe ese titulo',
-      );
+    if (await this.findOne({ year, id_escuela }))
+      throw new BadRequestException('Ya existe ese titulo');
     const result = await this.crudService.create<any, any>(this.tableName, {
       ...input,
       id_escuela,
       anual: `${year}-01-01`,
     });
-    return {result} ;
+    return { result, year };
   }
 
-  async findAll(
-    filter: TituloHistoryFilterArgs,
-    pagination?: PaginationArgs,
-  ) {
-    return this.crudService.findAll(this.tableName, pagination, filter);
+  async findAll(filter: TituloHistoryFilterArgs, pagination?: PaginationArgs) {
+    return (
+      await this.crudService.findAll<any, TituloHistoryFilterArgs>(
+        this.tableName,
+        pagination,
+        filter,
+      )
+    ).map((history) => ({
+      ...history,
+      year: new Date(history.anual).getFullYear(),
+    }));
   }
 
   async findOne(input: TituloHistoryIdArgs) {
-    const { id_escuela, year} = input;
-    return (
+    const { id_escuela, year } = input;
+    const result = await (
       await this.queryService.select(
         this.tableName,
         null,
         `anual = '${year}-01-01' AND id_escuela = ${id_escuela} }`,
       )
     )[0];
+    return {
+      ...result,
+      year: new Date(result.anual).getFullYear(),
+    };
   }
 
   async count(filter?: TituloHistoryFilterArgs): Promise<number> {
@@ -74,14 +82,9 @@ export class TituloHistoryService {
 
   async findEscola(idEscola: number) {
     return (
-      await this.queryService.select(
-        'escuelas_samba',
-        null,
-        `id = ${idEscola}`,
-      )
+      await this.queryService.select('escuelas_samba', null, `id = ${idEscola}`)
     )[0];
   }
-  
 
   remove(id: number) {
     return `This action removes a #${id} tituloHistory`;

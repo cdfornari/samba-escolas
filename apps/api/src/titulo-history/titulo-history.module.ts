@@ -5,6 +5,6 @@ import { CommonModule } from 'src/common/common.module';
 
 @Module({
   imports: [CommonModule],
-  providers: [TituloHistoryResolver, TituloHistoryService]
+  providers: [TituloHistoryResolver, TituloHistoryService],
 })
 export class TituloHistoryModule {}

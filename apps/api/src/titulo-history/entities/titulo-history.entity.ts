@@ -2,16 +2,14 @@ import { ObjectType, Field, Int, Float } from '@nestjs/graphql';
 
 @ObjectType()
 export class TituloHistory {
-  
-  @Field( () => Int)
+  @Field(() => Int)
   year: number;
 
   id_escuela: number;
 
-  @Field( () => Float, {nullable: true})
+  @Field(() => Float, { nullable: true })
   monto?: number;
 
-  @Field( () => String, {nullable: true})
+  @Field(() => String, { nullable: true })
   grupo: string;
-
 }
