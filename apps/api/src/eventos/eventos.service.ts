@@ -5,6 +5,7 @@ import { QueryService } from 'src/common/services/query.service';
 import { CRUDService } from 'src/common/services/crud.service';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { Evento } from './entities/evento.entity';
+import { EventosFilterArgs } from './types/eventos-filter.args';
 
 @Injectable()
 export class EventosService {
@@ -19,8 +20,11 @@ export class EventosService {
     return this.crudService.create(this.tableName, createEventoInput);
   }
 
-  async findAll(pagination: PaginationArgs): Promise<Evento[]> {
-    return this.crudService.findAll(this.tableName, pagination);
+  async findAll(
+    pagination: PaginationArgs,
+    filter: EventosFilterArgs,
+  ): Promise<Evento[]> {
+    return this.crudService.findAll(this.tableName, pagination, filter);
   }
 
   findOne(id: number) {
@@ -32,8 +36,11 @@ export class EventosService {
     return this.crudService.updateOne(this.tableName, id, dto);
   }
 
-  async count(): Promise<number> {
-    return this.queryService.count(this.tableName);
+  async count(filter: EventosFilterArgs): Promise<number> {
+    return this.queryService.count(
+      this.tableName,
+      `id_escuela = ${filter.id_escuela}`,
+    );
   }
 
   remove(id: number) {

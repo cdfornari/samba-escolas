@@ -6,6 +6,7 @@ import { UpdateEventoInput } from './dto/update-evento.input';
 import { EventosPaginationType } from './types/eventos-pagination.type';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
+import { EventosFilterArgs } from './types/eventos-filter.args';
 
 @Resolver(() => Evento)
 export class EventosResolver {
@@ -19,10 +20,13 @@ export class EventosResolver {
   }
 
   @Query(() => EventosPaginationType, { name: 'eventos' })
-  async findAll(@Args() pagination: PaginationArgs) {
+  async findAll(
+    @Args() pagination: PaginationArgs,
+    @Args() filter: EventosFilterArgs,
+  ) {
     const [items, count] = await Promise.all([
-      this.eventosService.findAll(pagination),
-      this.eventosService.count(),
+      this.eventosService.findAll(pagination, filter),
+      this.eventosService.count(filter),
     ]);
     return {
       items,
@@ -31,8 +35,8 @@ export class EventosResolver {
   }
 
   @Query(() => Int, { name: 'eventoCount' })
-  count() {
-    return this.eventosService.count();
+  count(@Args() filter: EventosFilterArgs) {
+    return this.eventosService.count(filter);
   }
 
   @Query(() => Evento, { name: 'evento' })
