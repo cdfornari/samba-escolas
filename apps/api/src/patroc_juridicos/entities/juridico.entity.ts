@@ -1,4 +1,4 @@
-import { ObjectType, Field, Int, ResolveField } from '@nestjs/graphql';
+import { ObjectType, Field, Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class Juridico {
@@ -22,7 +22,7 @@ export class Juridico {
   @Field(() => Int, { nullable: true })
   numero?: number;
 
-  @Field(() => Int, { nullable: true })
-  cep?: number;
+  @Field(() => String, { nullable: true })
+  cep?: string;
 
 }
