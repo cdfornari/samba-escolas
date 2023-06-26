@@ -91,7 +91,7 @@ export class QueryService {
             where ? `WHERE ${where}` : ''
           }`,
         )
-      ).affected > 0
+      )[1] > 0
     );
   }
 }
