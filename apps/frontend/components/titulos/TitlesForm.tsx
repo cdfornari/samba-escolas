@@ -1,16 +1,8 @@
 'use client';
 import { FC, useEffect } from 'react';
-import {
-  Button,
-  Checkbox,
-  Dropdown,
-  Input,
-  Loading,
-  Textarea,
-} from '@nextui-org/react';
+import { Button, Input } from '@nextui-org/react';
 import { useForm } from 'react-hook-form';
 import { Titulo } from '../../interfaces';
-import { Select } from '../ui/Select';
 
 interface DTO {
   year: number;

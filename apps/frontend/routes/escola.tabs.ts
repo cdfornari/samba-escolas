@@ -5,7 +5,9 @@ export const escolaTabs = (id: string, pathname: string) => [
     active:
       !pathname.includes('integrantes') &&
       !pathname.includes('titulos') &&
-      !pathname.includes('sponsorships'),
+      !pathname.includes('sponsorships') &&
+      !pathname.includes('events') &&
+      !pathname.includes('sambas'),
   },
   {
     name: 'Integrantes',

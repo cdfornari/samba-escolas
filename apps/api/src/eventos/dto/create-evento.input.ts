@@ -15,6 +15,10 @@ export class CreateEventoInput {
   @Field( () => DateScalar)
   fecha_inicio: Date;
 
+  @IsDateString()
+  @Field( () => DateScalar)
+  fecha_fin: Date;
+
   @IsIn(['n_samba', 'general'])
   @Field( () => EventoTypeEnum )
   tipo: EventoTypeEnum;

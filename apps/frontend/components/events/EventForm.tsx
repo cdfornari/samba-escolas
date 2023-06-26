@@ -32,12 +32,12 @@ export const EventForm: FC<Props> = ({ action, initialValues, buttonText }) => {
     formState: { errors },
   } = useForm<DTO>({
     defaultValues: {
-      fecha_inicio:
-        initialValues?.fecha_inicio.toString() ??
-        new Date().toISOString().split('T')[0],
-      fecha_fin:
-        initialValues?.fecha_fin?.toString() ??
-        new Date().toISOString().split('T')[0],
+      fecha_inicio: initialValues?.fecha_inicio
+        ? new Date(initialValues.fecha_inicio).toISOString().split('T')[0]
+        : new Date().toISOString().split('T')[0],
+      fecha_fin: initialValues?.fecha_fin
+        ? new Date(initialValues.fecha_fin).toISOString().split('T')[0]
+        : new Date().toISOString().split('T')[0],
       nombre: initialValues?.nombre ?? '',
       tipo: initialValues?.tipo,
       costo_unit: initialValues?.costo_unit,
@@ -51,8 +51,12 @@ export const EventForm: FC<Props> = ({ action, initialValues, buttonText }) => {
   const costo = watch('costo_unit');
   const asist = watch('asist_total');
   useEffect(() => {
-    if (!costo) return;
-    if (Number(costo)) clearErrors('costo_unit');
+    if (!costo)
+      setError('costo_unit', {
+        type: 'required',
+        message: 'El costo es requerido',
+      });
+    else if (Number(costo)) clearErrors('costo_unit');
     else
       setError('costo_unit', {
         type: 'manual',
@@ -60,7 +64,8 @@ export const EventForm: FC<Props> = ({ action, initialValues, buttonText }) => {
       });
   }, [costo]);
   useEffect(() => {
-    if (!asist || Number(asist)) clearErrors('asist_total');
+    if (!asist) return;
+    if (Number(asist)) clearErrors('asist_total');
     else
       setError('asist_total', {
         type: 'manual',
@@ -108,6 +113,9 @@ export const EventForm: FC<Props> = ({ action, initialValues, buttonText }) => {
     }
     await action({
       ...data,
+      tipo,
+      costo_unit: Number(data.costo_unit),
+      asist_total: data.asist_total ? Number(data.asist_total) : null,
     });
   };
   return (
@@ -200,7 +208,7 @@ export const EventForm: FC<Props> = ({ action, initialValues, buttonText }) => {
             clearable
             initialValue={initialValues?.costo_unit.toString()}
             color={errors.costo_unit ? 'error' : 'primary'}
-            {...register('costo_unit', { required: true })}
+            {...register('costo_unit')}
             helperText={
               errors.costo_unit?.type === 'required'
                 ? 'El costo es requerido'

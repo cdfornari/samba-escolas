@@ -50,6 +50,10 @@ const columns = [
     key: 'asist_total',
     label: 'Asistencia total',
   },
+  {
+    key: 'actions',
+    label: '',
+  }
 ];
 
 interface Props {
@@ -84,7 +88,7 @@ export const EventsTable: FC<Props> = ({ escola }) => {
       <div className="flex justify-end py-6 px-10">
         <Button
           auto
-          onClick={() => push(`/escola/${escola}/integrantes/create`)}
+          onClick={() => push(`/escola/${escola}/events/create`)}
         >
           Crear Evento
         </Button>
@@ -131,7 +135,7 @@ export const EventsTable: FC<Props> = ({ escola }) => {
                         <PencilIcon className="h-5 w-5" />
                       </Tooltip>
                       <Tooltip
-                        content="Borrar histórico"
+                        content="Borrar evento"
                         onClick={async () => {
                           try {
                             await firePromise(
