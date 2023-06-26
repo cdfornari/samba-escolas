@@ -84,7 +84,7 @@ export class IntegrantesService {
   }
 
   async removeHabilidad(id: number, id_habilidad: number) {
-    return this.crudService.delete('escuelas_colores', {
+    return this.crudService.delete('integrantes_habilidades', {
       id_integrante: id,
       id_habilidad,
       type: 'AND',
