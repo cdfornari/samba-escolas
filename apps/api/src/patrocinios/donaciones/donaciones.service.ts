@@ -65,11 +65,12 @@ export class DonacionesService {
     const { id, ...dto } = input;
 
     const {fecha_fin} = (await this.queryService.select<Patrocinio[]>(
-      this.tableName,
+      'historicos_patrocinios',
       null,
       `id = ${input.id_patroc}`,
     )
     )[0]
+
 
     if ( fecha_fin )
       throw new BadRequestException(
