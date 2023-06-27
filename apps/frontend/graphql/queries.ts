@@ -5,7 +5,9 @@ import {
   EventFragment,
   IntegranteFragment,
   IntegranteHistoryFragment,
+  JuridicoFragment,
   LugaresFragment,
+  NaturalFragment,
   PatrocinioFragment,
   RolesFragment,
   TituloFragment,
@@ -219,4 +221,30 @@ export const PATROCINIOS = gql`
     patrociniosCount(id_escuela: $idEscuela)
   }
   ${PatrocinioFragment}
+`;
+
+export const NATURALES = gql`
+  query NATURALES($page: Int, $perPage: Int, $paginate: Boolean!) {
+    naturales(page: $page, perPage: $perPage, paginate: $paginate) {
+      items {
+        ...NaturalFragment
+      }
+      numberOfPages
+    }
+    naturalesCount
+  }
+  ${NaturalFragment}
+`;
+
+export const JURIDICOS = gql`
+  query JURIDICOS($page: Int, $perPage: Int, $paginate: Boolean!) {
+    juridicos(page: $page, perPage: $perPage, paginate: $paginate) {
+      items {
+        ...JuridicoFragment
+      }
+      numberOfPages
+    }
+    juridicosCount
+  }
+  ${JuridicoFragment}
 `;

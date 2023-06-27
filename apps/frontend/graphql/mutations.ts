@@ -138,8 +138,16 @@ export const REMOVE_EVENT = gql`
   }
 `;
 
+export const CREATE_PATROCINIO = gql`
+  mutation CREATE_PATROCINIO($createPatrocinioInput: CreatePatrocinioInput!) {
+    createPatrocinio(createPatrocinioInput: $createPatrocinioInput) {
+      id
+    }
+  }
+`;
+
 export const UPDATE_PATROCINIO = gql`
-  mutation Mutation($updatePatricinioInput: UpdatePatrocinioInput!) {
+  mutation UPDATE_PATROCINIO($updatePatricinioInput: UpdatePatrocinioInput!) {
     updatePatrocinio(updatePatricinioInput: $updatePatricinioInput) {
       id
     }

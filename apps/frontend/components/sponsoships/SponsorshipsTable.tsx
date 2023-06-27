@@ -92,7 +92,7 @@ export const PatrociniosTable: FC<Props> = ({ escola }) => {
       <div className="flex justify-end py-6 px-10">
         <Button
           auto
-          onClick={() => push(`/escola/${escola}/integrantes/create`)}
+          onClick={() => push(`/escola/${escola}/sponsorships/create`)}
         >
           Nuevo histórico
         </Button>
