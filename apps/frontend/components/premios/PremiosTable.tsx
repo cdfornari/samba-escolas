@@ -15,7 +15,7 @@ export const habilidadesTableReducer = (columnKey: any, row:Premio) => {
     case 'descripcion':
       return `${row.descripcion}`;
       case 'tipo':
-        return `${row.tipo}`;
+        return `${row.tipo === 'escola' ? 'Escuela' : 'Integrante'}`;
         case 'lugar':
         return `${row.id_lugar === 3?'Rio de Janerio' : row.id_lugar === 7?'São Paulo':row.id_lugar === 8?'Betim':row.id_lugar === 9?'Contagem':''}`;
     default:
