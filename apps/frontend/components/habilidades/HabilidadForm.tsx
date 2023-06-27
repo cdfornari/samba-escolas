@@ -16,7 +16,7 @@ interface Props {
   buttonText: string;
 }
 
-export const RoleForm: FC<Props> = ({ action, initialValues, buttonText }) => {
+export const HabilidadForm: FC<Props> = ({ action, initialValues, buttonText }) => {
   const {
     register,
     handleSubmit,

@@ -1,16 +1,16 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { useMutation } from '@apollo/client';
-import { CREATE_ROL } from '../../../graphql';
+import { CREATE_HABILIDAD } from '../../../graphql';
 import { useNotifications } from '../../../hooks/useNotifications';
-import { RoleForm } from '../../../components/roles/RoleForm';
+import { HabilidadForm } from '../../../components/habilidades/HabilidadForm';
 
 export default function Page() {
   const { push } = useRouter();
   const { firePromise } = useNotifications();
-  const [createRole] = useMutation(CREATE_ROL);
+  const [createRole] = useMutation(CREATE_HABILIDAD);
   return (
-    <RoleForm
+    <HabilidadForm
       action={async (data) => {
         try {
           await firePromise(
@@ -19,7 +19,7 @@ export default function Page() {
                 createRoleInput: data,
               },
             }),
-            'Rol creado correctamente'
+            'Habilida creada correctamente'
           );
           push('/roles');
         } catch (error) {}

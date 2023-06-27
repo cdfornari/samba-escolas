@@ -1,17 +1,17 @@
 'use client';
 import { useMutation, useQuery } from '@apollo/client';
 import { Loading } from '@nextui-org/react';
-import { ROL, UPDATE_ROL } from '../../../graphql';
+import { HABILIDAD, UPDATE_HABILIDAD} from '../../../graphql';
 import { useNotifications } from '../../../hooks/useNotifications';
 import { Role } from '../../../interfaces';
 import { RoleForm } from '../../../components/roles/RoleForm';
 
 export default function Page({ params }) {
   const { firePromise } = useNotifications();
-  const [updateRole] = useMutation(UPDATE_ROL);
+  const [updateRole] = useMutation(UPDATE_HABILIDAD);
   const { data, loading, error } = useQuery<{
     rol: Role;
-  }>(ROL, {
+  }>(HABILIDAD, {
     variables: {
       id: Number(params.id),
     },
@@ -36,7 +36,7 @@ export default function Page({ params }) {
               },
             },
           }),
-          'Rol actualizado'
+          'Habilidad actualizada'
         )
       }
       initialValues={data?.rol}

@@ -1,5 +1,5 @@
-import { RolesTable } from '../../components/roles/RolesTable';
+import { HabilidadesTable } from '../../components/habilidades/HabilidadesTable';
 
 export default function Page() {
-  return <RolesTable />;
+  return <HabilidadesTable/>;
 }
