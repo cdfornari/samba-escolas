@@ -8,7 +8,7 @@ import { RoleForm } from '../../../components/roles/RoleForm';
 
 export default function Page({ params }) {
   const { firePromise } = useNotifications();
-  const [updateRole] = useMutation(UPDATE_HABILIDAD);
+  const [updateHabilidad] = useMutation(UPDATE_HABILIDAD);
   const { data, loading, error } = useQuery<{
     habilidad: Habilidad;
   }>(HABILIDAD, {
@@ -28,9 +28,9 @@ export default function Page({ params }) {
     <RoleForm
       action={async (data) =>
         firePromise(
-          updateRole({
+          updateHabilidad({
             variables: {
-              updateRoleInput: {
+              updateHabilidadInput: {
                 ...data,
                 id: Number(params.id),
               },
