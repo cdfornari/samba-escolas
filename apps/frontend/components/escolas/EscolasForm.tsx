@@ -74,6 +74,16 @@ export const EscolaForm: FC<Props> = ({
       resumen_historico: initialValues?.resumen_historico ?? '',
     },
   });
+  const cep = watch('cep');
+  useEffect(() => {
+    if (!cep) return;
+    if (cep.length !== 9 || !new RegExp(/[0-9]{5}-[\d]{3}/g).test(cep))
+      setError('cep', {
+        type: 'manual',
+        message: 'CEP inválido (00000-000)',
+      });
+    else clearErrors('cep');
+  }, [cep]);
   const numero = watch('numero');
   const fecha = watch('fecha_fundacion');
   useEffect(() => {
@@ -111,6 +121,13 @@ export const EscolaForm: FC<Props> = ({
     }
   );
   const onSubmit = async (data: DTO) => {
+    if (!data.cep) {
+      setError('cep', {
+        type: 'manual',
+        message: 'El CEP es requerido',
+      });
+      return;
+    }
     if (!ciudad) {
       setError('id_ciudad', {
         type: 'manual',
@@ -268,10 +285,8 @@ export const EscolaForm: FC<Props> = ({
             clearable
             initialValue={initialValues?.cep ?? ''}
             color={errors.cep ? 'error' : 'primary'}
-            {...register('cep', { required: true })}
-            helperText={
-              errors.cep?.type === 'required' && 'El CEP es requerido'
-            }
+            {...register('cep')}
+            helperText={errors.cep?.message}
             helperColor="error"
           />
           {loading ? (

@@ -62,6 +62,16 @@ export const JuridicosForm: FC<Props> = ({
       dir: initialValues?.dir,
     },
   });
+  const cep = watch('cep');
+  useEffect(() => {
+    if (!cep) return;
+    if (cep.length !== 9 || !new RegExp(/[0-9]{5}-[\d]{3}/g).test(cep))
+      setError('cep', {
+        type: 'manual',
+        message: 'CEP inválido (00000-000)',
+      });
+    else clearErrors('cep');
+  }, [cep]);
   const cnpj = watch('cnpj');
   useEffect(() => {
     if (!cnpj) return;
@@ -90,6 +100,13 @@ export const JuridicosForm: FC<Props> = ({
     clearErrors('email');
   }, [email]);
   const onSubmit = async (data: DTO) => {
+    if (!data.cep) {
+      setError('cep', {
+        type: 'manual',
+        message: 'El CEP es requerido',
+      });
+      return;
+    }
     if (!data.cnpj) {
       setError('cnpj', {
         type: 'manual',
@@ -191,7 +208,7 @@ export const JuridicosForm: FC<Props> = ({
             clearable
             initialValue={initialValues?.nombre ?? ''}
             color={errors.cep ? 'error' : 'primary'}
-            {...register('cep', { required: true })}
+            {...register('cep')}
             helperText={
               errors.cep?.type === 'required' && 'El CEP es requerido'
             }
