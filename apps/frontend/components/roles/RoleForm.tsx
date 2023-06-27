@@ -3,6 +3,10 @@ import { FC } from 'react';
 import { Button, Input, Textarea } from '@nextui-org/react';
 import { useForm } from 'react-hook-form';
 import { Role } from '../../interfaces';
+import { useNotifications } from '../../hooks/useNotifications';
+import { useRouter } from 'next/navigation';
+import { useMutation } from '@apollo/client';
+import { REMOVE_ROL } from '../../graphql';
 
 interface DTO {
   id?: number;
@@ -17,6 +21,22 @@ interface Props {
 }
 
 export const RoleForm: FC<Props> = ({ action, initialValues, buttonText }) => {
+  const { firePromise } = useNotifications();
+  const { push } = useRouter();
+  const [remove] = useMutation(REMOVE_ROL);
+  const handleDelete = async () => {
+    try {
+      await firePromise(
+        remove({
+          variables: {
+            removeRoleId: Number(initialValues.id),
+          },
+        }),
+        'Rol eliminado'
+      );
+      push('/roles');
+    } catch (error) {}
+  };
   const {
     register,
     handleSubmit,
@@ -65,6 +85,11 @@ export const RoleForm: FC<Props> = ({ action, initialValues, buttonText }) => {
         <Button type="submit" css={{ zIndex: 0 }}>
           {buttonText}
         </Button>
+        {initialValues && (
+          <Button color="error" flat css={{ zIndex: 0 }} onClick={handleDelete}>
+            Eliminar
+          </Button>
+        )}
       </div>
     </form>
   );

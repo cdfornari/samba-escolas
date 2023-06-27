@@ -42,8 +42,8 @@ export const PremioForm: FC<Props> = ({
         }),
         'Premio eliminado'
       );
+      push('/premios');
     } catch (error) {}
-    push('/premios');
   };
   const [typeP, setTypeP] = useState<string>(initialValues?.tipo ?? null);
   const [place, setPlace] = useState<string>(
