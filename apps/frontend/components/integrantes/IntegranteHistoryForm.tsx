@@ -26,6 +26,7 @@ export const IntegranteHistoryForm: FC<Props> = ({
   initialValues,
   buttonText,
 }) => {
+  const [abierto, setAbierto] = useState(true);
   const { data, loading, error } = useQuery<{
     integrantesElegibles: Integrante[];
   }>(INTEGRANTES_ELEGIBLES, {
@@ -68,14 +69,14 @@ export const IntegranteHistoryForm: FC<Props> = ({
       });
       return;
     }
-    if (new Date(fechaFin) > new Date()) {
+    if (!abierto && new Date(fechaFin) > new Date()) {
       setError('fecha_fin', {
         type: 'manual',
         message: 'La fecha de fin no puede ser mayor a la fecha actual',
       });
       return;
     }
-    if (new Date(fechaInicio) > new Date(fechaFin)) {
+    if (!abierto && new Date(fechaInicio) > new Date(fechaFin)) {
       setError('fecha_inicio', {
         type: 'manual',
         message: 'La fecha de inicio no puede ser mayor a la fecha de fin',
@@ -88,7 +89,7 @@ export const IntegranteHistoryForm: FC<Props> = ({
     }
     clearErrors('fecha_inicio');
     clearErrors('fecha_fin');
-  }, [fechaInicio, fechaFin]);
+  }, [fechaInicio, fechaFin, abierto]);
   const onSubmit = async (data: DTO) => {
     if (!integrante) {
       setError('id_integrante', {
@@ -101,6 +102,7 @@ export const IntegranteHistoryForm: FC<Props> = ({
       ...data,
       autoridad,
       id_integrante: Number(integrante),
+      fecha_fin: abierto ? null : data.fecha_fin,
     });
   };
   return (
@@ -119,31 +121,37 @@ export const IntegranteHistoryForm: FC<Props> = ({
               new Date().toISOString().split('T')[0]
             }
             color={errors.fecha_inicio ? 'error' : 'primary'}
-            {...register('fecha_inicio', { required: true })}
-            helperText={
-              errors.fecha_inicio?.type === 'required'
-                ? 'La fecha de inicio es requerida'
-                : errors.fecha_inicio?.message
-            }
+            {...register('fecha_inicio')}
+            helperText={errors.fecha_inicio?.message}
             helperColor="error"
           />
-          <Input
-            bordered
-            labelPlaceholder="Fecha de fin"
-            type="date"
-            initialValue={
-              initialValues?.fecha_fin?.toString() ??
-              new Date().toISOString().split('T')[0]
-            }
-            color={errors.fecha_fin ? 'error' : 'primary'}
-            {...register('fecha_fin')}
-            helperText={
-              errors.fecha_fin?.type === 'required'
-                ? 'La fecha de fin es requerida'
-                : errors.fecha_fin?.message
-            }
-            helperColor="error"
-          />
+          {!abierto && (
+            <Input
+              bordered
+              labelPlaceholder="Fecha de fin"
+              type="date"
+              initialValue={
+                initialValues?.fecha_fin?.toString() ??
+                new Date().toDateString()
+              }
+              color={errors.fecha_fin ? 'error' : 'primary'}
+              {...register('fecha_fin')}
+              helperText={
+                errors.fecha_fin?.type === 'required'
+                  ? 'La fecha de fin es requerida'
+                  : errors.fecha_fin?.message
+              }
+              helperColor="error"
+            />
+          )}
+          <div className="flex flex-end">
+            <Checkbox
+              label="Abierto"
+              isSelected={abierto}
+              onChange={setAbierto}
+              size="xs"
+            />
+          </div>
         </div>
         <div className="flex flex-col gap-10 px-10">
           <Checkbox
