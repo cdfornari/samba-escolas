@@ -48,6 +48,28 @@ export const UPDATE_INTEGRANTE = gql`
   }
 `;
 
+export const CREATE_HABILIDAD = gql`
+  mutation Mutation($createHabilidadInput: CreateHabilidadInput!) {
+    createHabilidad(createHabilidadInput: $createHabilidadInput) {
+      id
+  }
+}
+`;
+
+export const UPDATE_HABILIDAD = gql`
+  mutation Mutation($updateHabilidadInput: UpdateHabilidadesInput!) {
+    updateHabilidad(updateHabilidadInput: $updateHabilidadInput) {
+      id
+  }
+} 
+`;
+
+export const REMOVE_HABILIDAD = gql`
+  mutation Mutation($removeHabilidadId: Int!) {
+    removeHabilidad(id: $removeHabilidadId)
+}
+`;
+
 export const CREATE_ROL = gql`
   mutation CREATE_ROL($createRoleInput: CreateRoleInput!) {
     createRole(createRoleInput: $createRoleInput) {

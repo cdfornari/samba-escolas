@@ -20,6 +20,14 @@ export const LugaresFragment = gql`
   }
 `;
 
+export const HabilidadesFragment = gql`
+  fragment HabilidadesFragment on Habilidad {
+    id
+    nombre
+    descripcion
+  }
+`;
+
 export const RolesFragment = gql`
   fragment RolesFragment on Role {
     id

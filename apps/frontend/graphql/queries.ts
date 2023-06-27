@@ -3,6 +3,7 @@ import {
   ColorFragment,
   EscolaFragment,
   EventFragment,
+  HabilidadesFragment,
   IntegranteFragment,
   IntegranteHistoryFragment,
   JuridicoFragment,
@@ -133,6 +134,28 @@ export const ROL = gql`
     }
   }
   ${RolesFragment}
+`;
+
+export const HABILIDADES = gql`
+  query Query($page: Int, $perPage: Int) {
+    habilidades(page: $page, perPage: $perPage) {
+      items {
+        ...HabilidadesFragment
+    }
+    numberOfPages
+    }
+    habilidadesCount
+  }
+  ${HabilidadesFragment}
+`;
+
+export const HABILIDAD = gql`
+query Query($habilidadId: Int!) {
+    habilidad(id: $habilidadId) {
+      ...HabilidadesFragment
+    }
+  }
+  ${HabilidadesFragment}
 `;
 
 export const HISTORICOS_INTEGRANTES = gql`
