@@ -57,7 +57,7 @@ export const CREATE_HABILIDAD = gql`
 `;
 
 export const UPDATE_HABILIDAD = gql`
-  mutation Mutation($updateHabilidadInput: UpdateHabilidadesInput!) {
+  mutation Mutation($updateHabilidadInput: UpdateHabilidadInput!) {
     updateHabilidad(updateHabilidadInput: $updateHabilidadInput) {
       id
   }
