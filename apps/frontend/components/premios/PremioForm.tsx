@@ -24,7 +24,7 @@ interface Props {
 
 export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => {
   const [typeP, setTypeP] = useState<string>(initialValues?.tipo ?? null);
-  const [place, setPlace] = useState<string>(initialValues?.lugar?.id.toString() ?? null);
+  const [place, setPlace] = useState<string>(initialValues?.id_lugar?.toString() ?? null);
   const {
     setError,
     clearErrors,
