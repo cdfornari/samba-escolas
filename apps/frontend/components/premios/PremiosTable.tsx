@@ -8,7 +8,7 @@ import { PaginationType } from '../../types';
 import { Pagination } from '../ui/Pagination';
 import { Premio } from '../../interfaces';
 
-export const premiosTableReducer = (columnKey: any, row: Premio) => {
+/*export const premiosTableReducer = (columnKey: any, row: Premio) => {
   switch (columnKey) {
     case 'nombre':
       return `${row.nombre}`;
@@ -21,7 +21,7 @@ export const premiosTableReducer = (columnKey: any, row: Premio) => {
     default:
       return row[columnKey];
   }
-};
+};*/
 
 const columns = [
   {
@@ -56,7 +56,6 @@ export const PremiosTable = () => {
     variables: {
       page,
       perPage: 15,
-      paginate: true,
     },
     fetchPolicy: 'network-only',
   });
@@ -106,7 +105,7 @@ export const PremiosTable = () => {
               <Table.Row key={row.id}>
                 {(columnKey) => (
                   <Table.Cell css={{ cursor: 'pointer' }}>
-                    {premiosTableReducer(columnKey, row)}
+                     {row[columnKey]}
                   </Table.Cell>
                 )}
               </Table.Row>
