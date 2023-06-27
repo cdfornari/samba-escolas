@@ -1,22 +1,25 @@
 'use client';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Button, Input, Textarea } from '@nextui-org/react';
 import { useForm } from 'react-hook-form';
-import { Habilidad } from '../../interfaces';
+import { Premio } from '../../interfaces';
+import { Select } from '../ui/Select';
 
 interface DTO {
   id?: number;
   nombre: string;
+  tipo: string;
   descripcion: string;
+  id_lugar: number;
 }
 
 interface Props {
   action: (data: DTO) => Promise<any>;
-  initialValues?: Habilidad;
+  initialValues?: Premio;
   buttonText: string;
 }
 
-export const HabilidadForm: FC<Props> = ({ action, initialValues, buttonText }) => {
+export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => {
   const {
     register,
     handleSubmit,
@@ -24,7 +27,6 @@ export const HabilidadForm: FC<Props> = ({ action, initialValues, buttonText }) 
   } = useForm<DTO>({
     defaultValues: {
       nombre: initialValues?.nombre ?? '',
-      descripcion: initialValues?.descripcion ?? '',
     },
   });
   const onSubmit = async (data: DTO) => action(data);
