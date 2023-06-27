@@ -142,7 +142,7 @@ export const PremioFragment = gql`
     tipo
     descripcion
     lugar {
-        ...PlaceFragment
+        ...LugaresFragment
     }
   }
   ${LugaresFragment}
