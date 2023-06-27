@@ -23,27 +23,22 @@ export class PatrociniosService {
         await this.queryService.select<Patrocinio[]>(
           this.tableName,
           null,
-          input.id_jur? `id_escuela = ${input.id_escuela} AND fecha_fin IS NULL AND id_jur = ${input.id_jur} `
-          : `id_escuela = ${input.id_escuela} AND fecha_fin IS NULL AND id_nat = ${input.id_nat} `
-          )
+          input.id_jur
+            ? `id_escuela = ${input.id_escuela} AND fecha_fin IS NULL AND id_jur = ${input.id_jur} `
+            : `id_escuela = ${input.id_escuela} AND fecha_fin IS NULL AND id_nat = ${input.id_nat} `,
+        )
       ).length > 0
     )
-      throw new BadRequestException(
-        'La escuela ya tiene un patrocinio activo',
-      );
+      throw new BadRequestException('La escuela ya tiene un patrocinio activo');
 
-    return this.crudService.create(this.tableName,input);
+    return this.crudService.create(this.tableName, input);
   }
 
   async findAll(
     pagination: PaginationArgs,
-    filter: PatrocinioFilterArgs
-    ): Promise<Patrocinio[]> {
-    return this.crudService.findAll(
-      this.tableName,
-      pagination,
-      filter
-    );
+    filter: PatrocinioFilterArgs,
+  ): Promise<Patrocinio[]> {
+    return this.crudService.findAll(this.tableName, pagination, filter);
   }
 
   async count(filter?: PatrocinioFilterArgs): Promise<number> {
@@ -56,7 +51,7 @@ export class PatrociniosService {
   }
 
   async findOne(id: number) {
-    return this.crudService.findOne(this.tableName,id);
+    return this.crudService.findOne(this.tableName, id);
   }
 
   async update(input: UpdatePatrocinioInput) {
@@ -70,33 +65,20 @@ export class PatrociniosService {
         )
       ).length > 0
     )
-      throw new BadRequestException(
-        'Ya se ha cerrado este histórico',
-      );
+      throw new BadRequestException('Ya se ha cerrado este histórico');
     return (
-      await this.queryService.update(
-        this.tableName,
-        dto,
-        `id = ${id}`,
-      )
-    )[0][0]
+      await this.queryService.update(this.tableName, dto, `id = ${id}`)
+    )[0][0];
   }
 
   async remove(id: PatrocinioIdArgs) {
-
-    const patrocinio = await this.findOne(id.id)
-
-    if ( patrocinio.fecha_fin )
-    throw new BadRequestException(
-      'Patrocinio cerrado',
+    const patrocinio = await this.findOne(id.id);
+    if (patrocinio.fecha_fin)
+      throw new BadRequestException('Patrocinio cerrado');
+    await this.queryService.delete(
+      'donaciones',
+      `id_patroc = ${patrocinio.id}`,
     );
-
-    await this.queryService.delete('donaciones',`id_patroc = ${patrocinio.id}`)
-
-    const nose = this.crudService.delete(this.tableName, id);
-
-      console.log(nose);
-
-    return nose;
-}
+    return this.crudService.delete(this.tableName, id);
+  }
 }

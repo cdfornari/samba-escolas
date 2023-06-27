@@ -17,7 +17,10 @@ export default function Page({ params }) {
             createPatrocinio({
               variables: {
                 createPatrocinioInput: {
-                  ...data,
+                  fecha_inicio: data.fecha_inicio,
+                  fecha_fin: data.fecha_fin,
+                  id_jur: data.patroc_jur,
+                  id_nat: data.patroc_nat,
                   id_escuela: Number(params.id),
                 },
               },

@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { CRUDService } from 'src/common/services/crud.service';
 import { QueryService } from 'src/common/services/query.service';
-import { CreateDonacionInput} from './dto/create-donacion.input';
+import { CreateDonacionInput } from './dto/create-donacion.input';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { Donacion } from './entities/donacion.entity';
 import { UpdateDonacionInput } from './dto/update-donacion.input';
@@ -21,25 +21,21 @@ export class DonacionesService {
   private tableName = 'donaciones';
 
   async create(input: CreateDonacionInput) {
-    
-    const {fecha_inicio,fecha_fin} = (await this.queryService.select<Patrocinio[]>(
-      'historicos_patrocinios',
-      null,
-      `id = ${input.id_patroc}`,
-    )
-    )[0]
+    const { fecha_inicio, fecha_fin } = (
+      await this.queryService.select<Patrocinio[]>(
+        'historicos_patrocinios',
+        null,
+        `id = ${input.id_patroc}`,
+      )
+    )[0];
 
-    if ( fecha_fin )
-    throw new BadRequestException(
-      'Patrocinio cerrado',
-    );
+    if (fecha_fin) throw new BadRequestException('Patrocinio cerrado');
 
-      if(new Date(fecha_inicio) > new Date(input.fecha))
+    if (new Date(fecha_inicio) > new Date(input.fecha))
       throw new BadRequestException(
         'Fecha no válida, la fecha de la donacion no puede ser menor que la que inició el patrocinio',
       );
 
-    
     return this.crudService.create(this.tableName, input);
   }
 
@@ -52,7 +48,7 @@ export class DonacionesService {
       null,
       `id_patroc = ${filter.id_patroc} AND id_escuela = ${filter.id_escuela}`,
       null,
-      pagination
+      pagination,
     );
   }
 
@@ -60,7 +56,11 @@ export class DonacionesService {
     return this.queryService.count(
       this.tableName,
       `
-      ${filter ? `id_patroc = ${filter.id_patroc} AND id_escuela = ${filter.id_escuela} ` : ''}
+      ${
+        filter
+          ? `id_patroc = ${filter.id_patroc} AND id_escuela = ${filter.id_escuela} `
+          : ''
+      }
     `,
     );
   }
@@ -72,53 +72,45 @@ export class DonacionesService {
   async update(input: UpdateDonacionInput) {
     const { id, ...dto } = input;
 
-    const {fecha_inicio,fecha_fin} = (await this.queryService.select<Patrocinio[]>(
-      'historicos_patrocinios',
-      null,
-      `id = ${input.id_patroc}`,
-    )
-    )[0]
+    const { fecha_inicio, fecha_fin } = (
+      await this.queryService.select<Patrocinio[]>(
+        'historicos_patrocinios',
+        null,
+        `id = ${input.id_patroc}`,
+      )
+    )[0];
 
+    if (fecha_fin) throw new BadRequestException('Patrocinio cerrado');
 
-    if ( fecha_fin )
-      throw new BadRequestException(
-        'Patrocinio cerrado',
-    );
-
-    if(new Date(fecha_inicio) > new Date(input.fecha))
+    if (new Date(fecha_inicio) > new Date(input.fecha))
       throw new BadRequestException(
         'Fecha no válida, la fecha de la donacion no puede ser menor que la que inició el patrocinio',
       );
 
-    return this.crudService.updateOne(this.tableName,id,dto);
+    return this.crudService.updateOne(this.tableName, id, dto);
   }
 
   async total(input: TotalDonacionInput) {
-    
-    const suma = await this.queryService.executeRawQuery(`SELECT SUM(monto) FROM csd_donaciones WHERE id_patroc = ${input.id_patroc} AND id_escuela = ${input.id_escuela}`);
-
-    console.log(suma);
-
-    return suma[0].sum;
-
+    const suma = await this.queryService.executeRawQuery(
+      `SELECT SUM(monto) FROM csd_donaciones WHERE id_patroc = ${input.id_patroc} AND id_escuela = ${input.id_escuela}`,
+    );
+    return suma[0].sum ?? 0;
   }
 
   async remove(id: DonacionIdArgs) {
-    const {fecha_fin} = (await this.queryService.select<Patrocinio[]>(
-      'historicos_patrocinios',
-      null,
-      `id = ${id.id_patroc}`,
-    )
-    )[0]
+    const { fecha_fin } = (
+      await this.queryService.select<Patrocinio[]>(
+        'historicos_patrocinios',
+        null,
+        `id = ${id.id_patroc}`,
+      )
+    )[0];
 
-    if ( fecha_fin )
-    throw new BadRequestException(
-      'Patrocinio cerrado',
-    );
+    if (fecha_fin) throw new BadRequestException('Patrocinio cerrado');
 
     const nose = await this.crudService.delete(this.tableName, id);
 
-      console.log(nose);
+    console.log(nose);
 
     return nose;
   }

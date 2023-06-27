@@ -44,10 +44,10 @@ export class PatrociniosResolver {
   @Query(() => PatrocinioPaginationType, { name: 'patrocinios' })
   async findAll(
     @Args() pagination: PaginationArgs,
-    @Args() filter:PatrocinioFilterArgs,
+    @Args() filter: PatrocinioFilterArgs,
   ): Promise<PatrocinioPaginationType> {
     const [items, count] = await Promise.all([
-      this.patrociniosService.findAll(pagination,filter) as Promise<any>,
+      this.patrociniosService.findAll(pagination, filter) as Promise<any>,
       this.patrociniosService.count(filter),
     ]);
     return {
@@ -83,17 +83,17 @@ export class PatrociniosResolver {
     return this.escolasService.findOne(patrocinio.id_escuela);
   }
 
-  @ResolveField(() => Juridico, { name: 'patroc_juridico',nullable: true})
-  getJuridico(@Parent() patrocinio: Patrocinio){
+  @ResolveField(() => Juridico, { name: 'patroc_juridico', nullable: true })
+  getJuridico(@Parent() patrocinio: Patrocinio) {
     return this.juridicosService.findOne(patrocinio.id_jur);
   }
 
-  @ResolveField(() => Natural, { name: 'patroc_natural',nullable: true}  )
+  @ResolveField(() => Natural, { name: 'patroc_natural', nullable: true })
   getNatural(@Parent() patrocinio: Patrocinio) {
     return this.naturalesService.findOne(patrocinio.id_nat);
   }
 
-  @ResolveField(() => Int, { name: 'total_donaciones'}  )
+  @ResolveField(() => Int, { name: 'total_donaciones' })
   getTotal(@Parent() patrocinio: Patrocinio) {
     return this.donacionesService.total({
       id_patroc: patrocinio.id,
