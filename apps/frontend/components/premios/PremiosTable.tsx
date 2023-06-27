@@ -65,7 +65,10 @@ export const PremiosTable = () => {
         <Loading size="lg" />
       </div>
     );
-  if (error) return <p>Error</p>;
+  if (error) {
+    console.log(error.message)
+    return <p>Error</p>;
+  }
   return (
     <div className="flex h-full flex-col justify-between">
       <div className="flex justify-end py-6 px-10">
