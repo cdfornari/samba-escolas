@@ -13,7 +13,7 @@ export class SambasResolver {
   constructor(private readonly sambasService: SambasService) {}
 
   @Mutation(() => Samba)
-  createIntegrante(
+  createSamba(
     @Args('createSambaInput') createSambaInput: CreateSambaInput,
   ) {
     return this.sambasService.create(createSambaInput);
@@ -45,7 +45,7 @@ export class SambasResolver {
   }
 
   @Query(() => SambaPaginationType, { name: 'sambaByEscola' })
-  async getSambasByEscola(
+  async sambaByEscola(
     @Args('pagination', { type: () => PaginationArgs }) pagination: PaginationArgs,
     @Args('id', { type: () => Int }) id: number
     ) {
@@ -60,14 +60,14 @@ export class SambasResolver {
   }
 
   @Mutation(() => Samba)
-  updateIntegrante(
+  updateSamba(
     @Args('updateSambaInput') updateSambaInput: UpdateSambaInput,
   ) {
     return this.sambasService.update(updateSambaInput);
   }
 
   @Mutation(() => Boolean)
-  removeIntegrante(@Args('id', { type: () => Int }) id: number) {
+  removeSamba(@Args('id', { type: () => Int }) id: number) {
     return this.sambasService.remove(id);
   }
 }
