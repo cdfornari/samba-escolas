@@ -342,3 +342,18 @@ export const GANADORES = gql`
     )
   }
 `;
+
+export const PREMIOS = gql`
+  query Query($page: Int, $perPage: Int, $paginate: Boolean!) {
+    premios(page: $page, perPage: $perPage, paginate: $paginate) {
+      items {
+        descripcion
+        id
+        nombre
+        tipo
+      }
+      numberOfPages
+    }
+    premiosCount
+  }
+`;

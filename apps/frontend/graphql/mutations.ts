@@ -243,3 +243,11 @@ export const REMOVE_GANADOR = gql`
     removeGanador(idPremio: $idPremio, year: $year)
   }
 `;
+
+export const CREATE_GANADOR = gql`
+  mutation Mutation($createGanadoresInput: CreateGanadoresInput!) {
+    createGanador(createGanadoresInput: $createGanadoresInput) {
+      year
+    }
+  }
+`;
