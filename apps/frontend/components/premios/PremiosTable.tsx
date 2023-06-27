@@ -56,7 +56,7 @@ export const PremiosTable = () => {
     <div className="flex h-full flex-col justify-between">
       <div className="flex justify-end py-6 px-10">
         <Button auto onClick={() => push('/premios/create')}>
-          Crear Lugar
+          Crear Premio
         </Button>
       </div>
       <div className="flex h-full flex-col justify-between">
@@ -84,9 +84,7 @@ export const PremiosTable = () => {
             ))}
           </Table.Header>
           <Table.Body
-            items={data.premios.items.map((premio) => ({
-              ...premio,
-            }))}
+            items={data.premios.items}
           >
             {(row) => (
               <Table.Row key={row.id}>
