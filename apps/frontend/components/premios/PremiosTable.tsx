@@ -50,7 +50,7 @@ export const PremiosTable = () => {
   return (
     <div className="flex h-full flex-col justify-between">
       <div className="flex justify-end py-6 px-10">
-        <Button auto onClick={() => push('/places/create')}>
+        <Button auto onClick={() => push('/premios/create')}>
           Crear Lugar
         </Button>
       </div>
@@ -60,7 +60,7 @@ export const PremiosTable = () => {
           selectionMode="single"
           onSelectionChange={(selection) => {
             if (selection !== 'all' && selection.size > 0) {
-              push(`/places/${selection.values().next().value}`);
+              push(`/premios/${selection.values().next().value}`);
             }
           }}
         >
