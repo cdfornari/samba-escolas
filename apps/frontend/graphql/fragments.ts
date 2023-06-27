@@ -141,6 +141,9 @@ export const PremioFragment = gql`
     nombre
     tipo
     descripcion
-    id_lugar
+    lugar {
+        ...PlaceFragment
+    }
   }
+  ${LugaresFragment}
 `;
