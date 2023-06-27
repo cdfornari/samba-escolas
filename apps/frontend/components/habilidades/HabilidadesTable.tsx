@@ -39,7 +39,7 @@ export const HabilidadesTable = () => {
   const [page, setPage] = useState(1);
   const { data, loading, error } = useQuery<{
     habilidades: PaginationType<Habilidad>;
-    habilidadesCount: number;
+    habilidadCount: number;
   }>(HABILIDADES, {
     variables: {
       page,
@@ -102,7 +102,7 @@ export const HabilidadesTable = () => {
           perPage={page === 1 ? data?.habilidades.items.length : 15}
           setPage={setPage}
           totalPages={data?.habilidades.numberOfPages ?? 0}
-          totalItems={data?.habilidadesCount ?? 0}
+          totalItems={data?.habilidadCount ?? 0}
         />
       </div>
     </div>
