@@ -2,9 +2,9 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { Button, Loading, Table } from '@nextui-org/react';
-import { LUGARES } from '../../graphql';
+import { LUGARES, PREMIO } from '../../graphql';
 import { PaginationType } from '../../types';
-import { Place } from '../../interfaces';
+import { Place, Premio } from '../../interfaces';
 import { Pagination } from '../ui/Pagination';
 import { useRouter } from 'next/navigation';
 
@@ -31,9 +31,9 @@ export const PremiosTable = () => {
   const { push } = useRouter();
   const [page, setPage] = useState(1);
   const { data, loading, error } = useQuery<{
-    lugares: PaginationType<Place>;
-    lugaresCount: number;
-  }>(LUGARES, {
+    premios: PaginationType<Premio>;
+    premiosCount: number;
+  }>(PREMIO, {
     variables: {
       page,
       perPage: 15,
@@ -79,9 +79,8 @@ export const PremiosTable = () => {
             ))}
           </Table.Header>
           <Table.Body
-            items={data.lugares.items.map((lugar) => ({
-              ...lugar,
-              padre: lugar.padre?.nombre ?? 'Brasil',
+            items={data.premios.items.map((premio) => ({
+              ...premio,
             }))}
           >
             {(row) => (
@@ -97,10 +96,10 @@ export const PremiosTable = () => {
         </Table>
         <Pagination
           page={page}
-          perPage={page === 1 ? data?.lugares.items.length : 15}
+          perPage={page === 1 ? data?.premios.items.length : 15}
           setPage={setPage}
-          totalPages={data?.lugares.numberOfPages ?? 0}
-          totalItems={data?.lugaresCount ?? 0}
+          totalPages={data?.premios.numberOfPages ?? 0}
+          totalItems={data?.premiosCount ?? 0}
         />
       </div>
     </div>
