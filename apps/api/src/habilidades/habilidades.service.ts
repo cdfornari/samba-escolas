@@ -4,7 +4,7 @@ import { QueryService } from 'src/common/services/query.service';
 import { Habilidad } from './entities/habilidad.entity';
 import { CreateHabilidadInput } from './dto/create-habilidad.input';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
-import { UpdateHabilidadesInput } from './dto/update-habilidad.input';
+import { UpdateHabilidadInput } from './dto/update-habilidad.input';
 
 @Injectable()
 export class HabilidadesService {
@@ -31,7 +31,7 @@ export class HabilidadesService {
     return this.crudService.findOne(this.tableName, id);
   }
 
-  update(input: UpdateHabilidadesInput) {
+  update(input: UpdateHabilidadInput) {
     const { id, ...dto } = input;
     return this.crudService.updateOne(this.tableName, id, dto);
   }

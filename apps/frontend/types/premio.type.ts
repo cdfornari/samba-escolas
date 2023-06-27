@@ -1,0 +1,1 @@
+export type PremioType = 'integrante' | 'escola';

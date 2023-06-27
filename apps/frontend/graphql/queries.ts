@@ -4,12 +4,14 @@ import {
   DonacionFragment,
   EscolaFragment,
   EventFragment,
+  HabilidadesFragment,
   IntegranteFragment,
   IntegranteHistoryFragment,
   JuridicoFragment,
   LugaresFragment,
   NaturalFragment,
   PatrocinioFragment,
+  PremioFragment,
   RolesFragment,
   TituloFragment,
 } from './fragments';
@@ -138,6 +140,28 @@ export const ROL = gql`
     }
   }
   ${RolesFragment}
+`;
+
+export const HABILIDADES = gql`
+  query Query($page: Int, $perPage: Int) {
+    habilidades(page: $page, perPage: $perPage) {
+      items {
+        ...HabilidadesFragment
+    }
+    numberOfPages
+    }
+    habilidadCount
+  }
+  ${HabilidadesFragment}
+`;
+
+export const HABILIDAD = gql`
+query Query($habilidadId: Int!) {
+    habilidad(id: $habilidadId) {
+      ...HabilidadesFragment
+    }
+  }
+  ${HabilidadesFragment}
 `;
 
 export const HISTORICOS_INTEGRANTES = gql`
@@ -272,6 +296,27 @@ export const JURIDICOS = gql`
   ${JuridicoFragment}
 `;
 
+export const PREMIOS = gql`
+  query PREMIOS($page: Int, $perPage: Int, $paginate: Boolean!) {
+    premios(page: $page, perPage: $perPage, $paginate: $paginate) {
+      items {
+       ...PremioFragment 
+      }
+      numberOfPages
+    }
+    premiosCount
+  }
+  ${PremioFragment}
+`;
+
+export const PREMIO = gql`
+  query PREMIO($premioId: Int!) {
+    premio(id: $premioId) {
+    ...PremioFragment
+    }
+  }
+  ${PremioFragment}
+  
 export const HABILIDADES = gql`
   query HABILIDADES($page: Int, $perPage: Int, $paginate: Boolean!) {
     habilidades(page: $page, perPage: $perPage, paginate: $paginate) {
@@ -340,20 +385,5 @@ export const GANADORES = gql`
       fecha_inicio: $fechaInicio
       id_escuela_integrante: $idEscuelaIntegrante
     )
-  }
-`;
-
-export const PREMIOS = gql`
-  query Query($page: Int, $perPage: Int, $paginate: Boolean!) {
-    premios(page: $page, perPage: $perPage, paginate: $paginate) {
-      items {
-        descripcion
-        id
-        nombre
-        tipo
-      }
-      numberOfPages
-    }
-    premiosCount
   }
 `;

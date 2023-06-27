@@ -7,3 +7,6 @@ export * from './integrante.interface';
 export * from './role.interface';
 export * from './titulo.interface';
 export * from './sponsorship.interface';
+export * from './habilidad.interface';
+export * from './premio.interface';
+

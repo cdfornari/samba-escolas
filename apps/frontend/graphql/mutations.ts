@@ -54,6 +54,27 @@ export const UPDATE_INTEGRANTE = gql`
   }
 `;
 
+export const CREATE_HABILIDAD = gql`
+  mutation CREATE_HABILIDAD($createHabilidadInput: CreateHabilidadInput!) {
+    createHabilidad(createHabilidadInput: $createHabilidadInput) {
+      id
+  }
+}
+`;
+
+export const UPDATE_HABILIDAD = gql`
+  mutation UPDATE_HABILIDAD($updateHabilidadInput: UpdateHabilidadInput!) {
+    updateHabilidad(updateHabilidadInput: $updateHabilidadInput) {
+      id
+  }
+} 
+`;
+
+export const REMOVE_HABILIDAD = gql`
+  mutation REMOVE_HABILIDADn($removeHabilidadId: Int!) {
+    removeHabilidad(id: $removeHabilidadId)
+}
+
 export const REMOVE_INTEGRANTE = gql`
   mutation REMOVE_INTEGRANTE($removeIntegranteId: Int!) {
     removeIntegrante(id: $removeIntegranteId)
@@ -172,9 +193,25 @@ export const REMOVE_PATROCINIO = gql`
   }
 `;
 
+export const CREATE_PREMIO = gql`
+  mutation CREATE_PREMIO($createPremioInput: CreatePremioInput!) {
+    createPremio(createPremioInput: $createPremioInput) {
+      id
+    }
+  }
+`;
+
 export const CREATE_JURIDICO = gql`
   mutation CREATE_JURIDICO($createJuridicoInput: CreateJuridicoInput!) {
     createJuridico(createJuridicoInput: $createJuridicoInput) {
+      id
+    }
+  }
+`;
+
+export const UPDATE_PREMIO = gql`
+  mutation UPDATE_PREMIO($updatePremioInput: UpdatePremioInput!) {
+    updatePremio(updatePremioInput: $updatePremioInput) {
       id
     }
   }
@@ -185,6 +222,12 @@ export const UPDATE_JURIDICO = gql`
     updateJuridico(updateJuridicoInput: $updateJuridicoInput) {
       id
     }
+  }
+`;
+
+export const REMOVE_PREMIO = gql`
+  mutation REMOVE_PREMIO($removePremioId: Int!) {
+    removePremio(id: $removePremioId)
   }
 `;
 

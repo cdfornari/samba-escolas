@@ -20,6 +20,14 @@ export const LugaresFragment = gql`
   }
 `;
 
+export const HabilidadesFragment = gql`
+  fragment HabilidadesFragment on Habilidad {
+    id
+    nombre
+    descripcion
+  }
+`;
+
 export const RolesFragment = gql`
   fragment RolesFragment on Role {
     id
@@ -126,6 +134,16 @@ export const PatrocinioFragment = gql`
   }
   ${NaturalFragment}
   ${JuridicoFragment}
+`;
+
+export const PremioFragment = gql`
+  fragment PremioFragment on Premio {
+    id
+    nombre
+    tipo
+    descripcion
+    id_lugar
+  }
 `;
 
 export const DonacionFragment = gql`

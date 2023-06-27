@@ -3,7 +3,7 @@ import { CreateHabilidadInput } from './create-habilidad.input';
 import { InputType, Field, Int, PartialType } from '@nestjs/graphql';
 
 @InputType()
-export class UpdateHabilidadesInput extends PartialType(CreateHabilidadInput) {
+export class UpdateHabilidadInput extends PartialType(CreateHabilidadInput) {
   @Field(() => Int)
   @IsInt()
   @IsPositive()
