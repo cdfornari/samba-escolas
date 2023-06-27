@@ -31,7 +31,7 @@ export default function Page({ params }) {
         firePromise(
           updateHabilidad({
             variables: {
-              updateHabilidadInput: {
+              updateHabilidadesInput: {
                 ...data,
                 id: Number(params.id),
               },
