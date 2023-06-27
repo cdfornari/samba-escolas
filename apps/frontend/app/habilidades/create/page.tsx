@@ -8,20 +8,20 @@ import { HabilidadForm } from '../../../components/habilidades/HabilidadForm';
 export default function Page() {
   const { push } = useRouter();
   const { firePromise } = useNotifications();
-  const [createRole] = useMutation(CREATE_HABILIDAD);
+  const [createHabilidad] = useMutation(CREATE_HABILIDAD);
   return (
     <HabilidadForm
       action={async (data) => {
         try {
           await firePromise(
-            createRole({
+            createHabilidad({
               variables: {
-                createRoleInput: data,
+                createHabilidadInput: data,
               },
             }),
-            'Habilida creada correctamente'
+            'Habilidad creada correctamente'
           );
-          push('/roles');
+          push('/habilidades');
         } catch (error) {}
       }}
       buttonText="Crear"
