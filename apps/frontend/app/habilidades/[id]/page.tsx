@@ -13,7 +13,7 @@ export default function Page({ params }) {
     habilidad: Habilidad;
   }>(HABILIDAD, {
     variables: {
-      habilidadId: Number(params.habilidadId),
+      habilidadId: Number(params.id),
     },
     fetchPolicy: 'network-only',
   });
@@ -23,8 +23,11 @@ export default function Page({ params }) {
         <Loading />
       </div>
     );
-  console.log(error)
-  if (error) return <p>Error</p>;
+  
+  if (error) {
+    console.log(error)
+    return <p>Error</p>;
+  }
   return (
     <HabilidadForm
       action={async (data) =>
