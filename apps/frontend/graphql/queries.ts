@@ -274,8 +274,8 @@ export const JURIDICOS = gql`
 `;
 
 export const PREMIOS = gql`
-  query Query($page: Int, $perPage: Int) {
-    premios(page: $page, perPage: $perPage) {
+  query Query($page: Int, $perPage: Int, $paginate: Boolean!) {
+    premios(page: $page, perPage: $perPage, paginate: $paginate) {
       items {
        ...PremioFragment 
       }
