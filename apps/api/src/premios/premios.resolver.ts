@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Args, Int, ResolveField } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args, Int, ResolveField, Parent } from '@nestjs/graphql';
 import { PremiosService } from './premios.service';
 import { Premio } from './entities/premio.entity';
 import { CreatePremioInput } from './dto/create-premio.input';
@@ -60,8 +60,8 @@ export class PremiosResolver {
     return this.premiosService.remove(id);
   }
 
-  @ResolveField(() => Lugar)
-  getLugar(@Args('id', { type: () => Int }) id: number){
-    return this.lugarService.findOne(id);
+  @ResolveField(() => Lugar, { name: 'lugar'})
+  getNatural(@Parent() premio: Premio) {
+    return this.lugarService.findOne(premio.id);
   }
 }

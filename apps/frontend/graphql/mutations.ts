@@ -199,8 +199,8 @@ export const UPDATE_PREMIO = gql`
 `;
 
 export const REMOVE_PREMIO = gql`
-utation REMOVE_PREMIO($removePremioId: Int!) {
-  removePremio(id: $removePremioId)
-}
+  mutation REMOVE_PREMIO($removePremioId: Int!) {
+    removePremio(id: $removePremioId)
+  }
 `;
 
