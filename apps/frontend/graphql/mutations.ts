@@ -49,7 +49,7 @@ export const UPDATE_INTEGRANTE = gql`
 `;
 
 export const CREATE_HABILIDAD = gql`
-  mutation Mutation($createHabilidadInput: CreateHabilidadInput!) {
+  mutation CREATE_HABILIDAD($createHabilidadInput: CreateHabilidadInput!) {
     createHabilidad(createHabilidadInput: $createHabilidadInput) {
       id
   }
@@ -57,7 +57,7 @@ export const CREATE_HABILIDAD = gql`
 `;
 
 export const UPDATE_HABILIDAD = gql`
-  mutation Mutation($updateHabilidadInput: UpdateHabilidadInput!) {
+  mutation UPDATE_HABILIDAD($updateHabilidadInput: UpdateHabilidadInput!) {
     updateHabilidad(updateHabilidadInput: $updateHabilidadInput) {
       id
   }
@@ -65,7 +65,7 @@ export const UPDATE_HABILIDAD = gql`
 `;
 
 export const REMOVE_HABILIDAD = gql`
-  mutation Mutation($removeHabilidadId: Int!) {
+  mutation REMOVE_HABILIDADn($removeHabilidadId: Int!) {
     removeHabilidad(id: $removeHabilidadId)
 }
 `;
@@ -181,3 +181,26 @@ export const REMOVE_PATROCINIO = gql`
     removePatrocinio(id: $removePatrocinioId, id_escuela: $idEscuela)
   }
 `;
+
+export const CREATE_PREMIO = gql`
+  mutation CREATE_PREMIO($createPremioInput: CreatePremioInput!) {
+    createPremio(createPremioInput: $createPremioInput) {
+      id
+    }
+  }
+`;
+
+export const UPDATE_PREMIO = gql`
+  mutation UPDATE_PREMIO($updatePremioInput: UpdatePremioInput!) {
+    updatePremio(updatePremioInput: $updatePremioInput) {
+      id
+    }
+  }
+`;
+
+export const REMOVE_PREMIO = gql`
+utation REMOVE_PREMIO($removePremioId: Int!) {
+  removePremio(id: $removePremioId)
+}
+`;
+

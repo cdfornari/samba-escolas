@@ -10,6 +10,7 @@ import {
   LugaresFragment,
   NaturalFragment,
   PatrocinioFragment,
+  PremioFragment,
   RolesFragment,
   TituloFragment,
 } from './fragments';
@@ -270,4 +271,26 @@ export const JURIDICOS = gql`
     juridicosCount
   }
   ${JuridicoFragment}
+`;
+
+export const PREMIOS = gql`
+  query Query($page: Int, $perPage: Int) {
+    premios(page: $page, perPage: $perPage) {
+      numberOfPages
+      items {
+       ...PremioFragment 
+      }
+    }
+    premiosCount
+  }
+  ${PremioFragment}
+`;
+
+export const PREMIO = gql`
+  query Query($premioId: Int!) {
+    premio(id: $premioId) {
+    ...PremioFragment
+    }
+  }
+  ${PremioFragment}
 `;

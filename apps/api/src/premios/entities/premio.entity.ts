@@ -15,6 +15,5 @@ export class Premio {
   @Field()
   descripcion: string;
 
-  @Field(() => Int)
   id_lugar: number;
 }

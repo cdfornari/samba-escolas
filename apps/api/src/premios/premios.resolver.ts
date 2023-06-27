@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args, Int, ResolveField } from '@nestjs/graphql';
 import { PremiosService } from './premios.service';
 import { Premio } from './entities/premio.entity';
 import { CreatePremioInput } from './dto/create-premio.input';
@@ -6,10 +6,14 @@ import { UpdatePremioInput } from './dto/update-premio.input';
 import { PremiosPaginationType } from './types/premios-pagination.type';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
+import { Lugar } from 'src/lugares/entities/lugar.entity';
+import { LugaresService } from 'src/lugares/lugares.service';
 
 @Resolver(() => Premio)
 export class PremiosResolver {
-  constructor(private readonly premiosService: PremiosService) {}
+  constructor(private readonly premiosService: PremiosService,
+              private readonly lugarService: LugaresService
+    ) {}
 
   @Mutation(() => Premio)
   createPremio(
@@ -54,5 +58,10 @@ export class PremiosResolver {
   @Mutation(() => Boolean)
   removePremio(@Args('id', { type: () => Int }) id: number) {
     return this.premiosService.remove(id);
+  }
+
+  @ResolveField(() => Lugar)
+  getLugar(@Args('id', { type: () => Int }) id: number){
+    return this.lugarService.findOne(id);
   }
 }
