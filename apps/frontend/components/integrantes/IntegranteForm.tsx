@@ -60,9 +60,9 @@ export const IntegranteForm: FC<Props> = ({
       apellido1: initialValues?.apellido1,
       apellido2: initialValues?.apellido2,
       apodo: initialValues?.apodo,
-      fecha_nacimiento: new Date(initialValues?.fecha_nacimiento)
-        .toISOString()
-        .split('T')[0],
+      fecha_nacimiento: initialValues?.fecha_nacimiento
+        ? new Date(initialValues?.fecha_nacimiento).toISOString().split('T')[0]
+        : new Date().toISOString().split('T')[0],
       nacionalidad: initialValues?.nacionalidad,
       rg: initialValues?.rg,
     },
@@ -252,9 +252,11 @@ export const IntegranteForm: FC<Props> = ({
             labelPlaceholder="Fecha de nacimiento"
             type="date"
             initialValue={
-              new Date(initialValues?.fecha_nacimiento)
-                .toISOString()
-                .split('T')[0]
+              initialValues?.fecha_nacimiento
+                ? new Date(initialValues?.fecha_nacimiento)
+                    .toISOString()
+                    .split('T')[0]
+                : new Date().toISOString().split('T')[0]
             }
             color={errors.fecha_nacimiento ? 'error' : 'primary'}
             {...register('fecha_nacimiento', { required: true })}
