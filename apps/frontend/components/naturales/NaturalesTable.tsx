@@ -106,7 +106,7 @@ export const NaturalesTable = () => {
                       <Tooltip
                         content="Editar"
                         onClick={async () =>
-                          push(`/sponsors/juridicos/${row.id}`)
+                          push(`/sponsors/naturales/${row.id}`)
                         }
                       >
                         <PencilIcon className="h-5 w-5" />

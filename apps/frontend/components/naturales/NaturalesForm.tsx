@@ -31,7 +31,6 @@ export const NaturalForm: FC<Props> = ({
     register,
     handleSubmit,
     watch,
-    resetField,
     formState: { errors },
   } = useForm<DTO>({
     defaultValues: {

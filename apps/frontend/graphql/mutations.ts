@@ -174,6 +174,14 @@ export const CREATE_NATURAL = gql`
   }
 `;
 
+export const UPDATE_NATURAL = gql`
+  mutation UPDATE_NATURAL($updateNaturalesInput: UpdateNaturalesInput!) {
+    updateNatural(updateNaturalesInput: $updateNaturalesInput) {
+      id
+    }
+  }
+`;
+
 export const REMOVE_NATURAL = gql`
   mutation REMOVE_NATURAL($removeNaturalId: Int!) {
     removeNatural(id: $removeNaturalId)

@@ -223,6 +223,15 @@ export const PATROCINIOS = gql`
   ${PatrocinioFragment}
 `;
 
+export const NATURAL = gql`
+  query Query($naturalId: Int!) {
+    natural(id: $naturalId) {
+      ...NaturalFragment
+    }
+  }
+  ${NaturalFragment}
+`;
+
 export const NATURALES = gql`
   query NATURALES($page: Int, $perPage: Int, $paginate: Boolean!) {
     naturales(page: $page, perPage: $perPage, paginate: $paginate) {
