@@ -5,6 +5,7 @@ import { QueryService } from 'src/common/services/query.service';
 import { CRUDService } from 'src/common/services/crud.service';
 import { GanadoresFilterArgs } from './types/ganadores-filter.args';
 import { Ganador } from './entities/ganador.entity';
+import { PaginationArgs } from 'src/common/dto/args/pagination.args';
 
 @Injectable()
 export class GanadoresService {
@@ -27,9 +28,9 @@ export class GanadoresService {
     return { ...result, year };
   }
 
-  async findAll(filter: GanadoresFilterArgs) {
+  async findAll(pagination: PaginationArgs, filter: GanadoresFilterArgs) {
     return (
-      await this.crudService.findAll<any, any>(this.tableName, null, {
+      await this.crudService.findAll<any, any>(this.tableName, pagination, {
         ...(filter.id_escuela && { id_escuela: filter.id_escuela }),
         ...(filter.id_integrante && { id_integrante: filter.id_integrante }),
         ...(filter.fecha_inicio && { fecha_inicio: filter.fecha_inicio }),
@@ -41,6 +42,20 @@ export class GanadoresService {
       ...ganador,
       year: new Date(ganador.anual).getFullYear(),
     }));
+  }
+
+  async count(filter: GanadoresFilterArgs): Promise<number> {
+    return this.queryService.count(
+      this.tableName,
+      `
+      ${filter.id_escuela ? `id_escuela = ${filter.id_escuela}` : ''}
+      ${
+        !filter.id_escuela
+          ? `id_integrante = ${filter.id_integrante} AND fecha_inicio = '${filter.fecha_inicio}' AND id_escuela_integrante = ${filter.id_escuela_integrante}'`
+          : ''
+      }
+    `,
+    );
   }
 
   async findOne(year: number, id_premio: number) {
