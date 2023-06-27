@@ -62,6 +62,18 @@ export const JuridicosForm: FC<Props> = ({
       dir: initialValues?.dir,
     },
   });
+  const cnpj = watch('cnpj');
+  useEffect(() => {
+    if (!cnpj) return;
+    if (!new RegExp(/\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}/g).test(cnpj)) {
+      setError('cnpj', {
+        type: 'manual',
+        message: 'CNPJ inválido (00.000.000/0000-00)',
+      });
+      return;
+    }
+    clearErrors('cnpj');
+  }, [cnpj]);
   const email = watch('email');
   useEffect(() => {
     if (!email) return;
@@ -120,10 +132,8 @@ export const JuridicosForm: FC<Props> = ({
             clearable
             initialValue={initialValues?.cnpj ?? ''}
             color={errors.cnpj ? 'error' : 'primary'}
-            {...register('cnpj', { required: true })}
-            helperText={
-              errors.cnpj?.type === 'required' && 'El cnpj es requerido'
-            }
+            {...register('cnpj')}
+            helperText={errors.cnpj?.message}
             helperColor="error"
           />
           <Input
