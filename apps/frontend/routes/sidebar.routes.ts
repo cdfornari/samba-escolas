@@ -25,7 +25,7 @@ export const sidebarRoutes = (pathname: string) => [
     name: 'Premios',
     icon: TrophyIcon,
     href: '/premios',
-    active: pathname.includes('premios'),
+    active: pathname.includes('premios') && !pathname.includes('escola'),
   },
   {
     name: 'Roles',
@@ -43,7 +43,7 @@ export const sidebarRoutes = (pathname: string) => [
     name: 'Patrocinadores',
     icon: CurrencyDollarIcon,
     href: '/sponsors/juridicos',
-    active: pathname.includes('sponsors'),
+    active: pathname.includes('sponsors') && !pathname.includes('escola'),
   },
   {
     name: 'Lugares',
