@@ -19,6 +19,7 @@ export class CreatePatrocinioInput {
   fecha_inicio: Date;
 
   @IsDateString()
+  @IsOptional()
   @Field(() => DateScalar)
   fecha_fin: Date;
 
