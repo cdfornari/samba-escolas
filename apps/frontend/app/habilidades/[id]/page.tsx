@@ -4,7 +4,6 @@ import { Loading } from '@nextui-org/react';
 import { HABILIDAD, UPDATE_HABILIDAD} from '../../../graphql';
 import { useNotifications } from '../../../hooks/useNotifications';
 import { Habilidad } from '../../../interfaces';
-import { RoleForm } from '../../../components/roles/RoleForm';
 import { HabilidadForm } from '../../../components/habilidades/HabilidadForm';
 
 export default function Page({ params }) {
@@ -24,6 +23,7 @@ export default function Page({ params }) {
         <Loading />
       </div>
     );
+  console.log(error)
   if (error) return <p>Error</p>;
   return (
     <HabilidadForm
