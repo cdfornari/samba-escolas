@@ -112,7 +112,7 @@ export const NaturalesTable = () => {
                         <PencilIcon className="h-5 w-5" />
                       </Tooltip>
                       <Tooltip
-                        content="Borrar histórico"
+                        content="Borrar patrocinador"
                         onClick={async () => {
                           try {
                             await firePromise(
