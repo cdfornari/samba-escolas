@@ -166,6 +166,14 @@ export const REMOVE_JURIDICO = gql`
   }
 `;
 
+export const CREATE_NATURAL = gql`
+  mutation CREATE_NATURAL($createNaturalesInput: CreateNaturalesInput!) {
+    createNatural(createNaturalesInput: $createNaturalesInput) {
+      id
+    }
+  }
+`;
+
 export const REMOVE_NATURAL = gql`
   mutation REMOVE_NATURAL($removeNaturalId: Int!) {
     removeNatural(id: $removeNaturalId)
