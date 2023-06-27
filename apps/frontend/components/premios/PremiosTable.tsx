@@ -57,6 +57,7 @@ export const PremiosTable = () => {
     variables: {
       page,
       perPage: 15,
+      paginate: true,
     },
     fetchPolicy: 'network-only',
   });

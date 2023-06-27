@@ -143,8 +143,8 @@ export const ROL = gql`
 `;
 
 export const HABILIDADES = gql`
-  query Query($page: Int, $perPage: Int) {
-    habilidades(page: $page, perPage: $perPage) {
+  query Query($page: Int, $perPage: Int, $paginate: Boolean) {
+    habilidades(page: $page, perPage: $perPage, paginate: $paginate) {
       items {
         ...HabilidadesFragment
     }
@@ -298,7 +298,7 @@ export const JURIDICOS = gql`
 
 export const PREMIOS = gql`
   query PREMIOS($page: Int, $perPage: Int, $paginate: Boolean!) {
-    premios(page: $page, perPage: $perPage, $paginate: $paginate) {
+    premios(page: $page, perPage: $perPage, paginate: $paginate) {
       items {
        ...PremioFragment 
       }
@@ -316,18 +316,6 @@ export const PREMIO = gql`
     }
   }
   ${PremioFragment}
-  
-export const HABILIDADES = gql`
-  query HABILIDADES($page: Int, $perPage: Int, $paginate: Boolean!) {
-    habilidades(page: $page, perPage: $perPage, paginate: $paginate) {
-      items {
-        descripcion
-        id
-        nombre
-      }
-      numberOfPages
-    }
-  }
 `;
 
 export const DONACIONES = gql`

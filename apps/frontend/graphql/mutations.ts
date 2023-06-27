@@ -58,22 +58,23 @@ export const CREATE_HABILIDAD = gql`
   mutation CREATE_HABILIDAD($createHabilidadInput: CreateHabilidadInput!) {
     createHabilidad(createHabilidadInput: $createHabilidadInput) {
       id
+    }
   }
-}
 `;
 
 export const UPDATE_HABILIDAD = gql`
   mutation UPDATE_HABILIDAD($updateHabilidadInput: UpdateHabilidadInput!) {
     updateHabilidad(updateHabilidadInput: $updateHabilidadInput) {
       id
+    }
   }
-} 
 `;
 
 export const REMOVE_HABILIDAD = gql`
   mutation REMOVE_HABILIDADn($removeHabilidadId: Int!) {
     removeHabilidad(id: $removeHabilidadId)
-}
+  }
+`;
 
 export const REMOVE_INTEGRANTE = gql`
   mutation REMOVE_INTEGRANTE($removeIntegranteId: Int!) {
