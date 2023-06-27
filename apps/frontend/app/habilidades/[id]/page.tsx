@@ -5,6 +5,7 @@ import { HABILIDAD, UPDATE_HABILIDAD} from '../../../graphql';
 import { useNotifications } from '../../../hooks/useNotifications';
 import { Habilidad } from '../../../interfaces';
 import { RoleForm } from '../../../components/roles/RoleForm';
+import { HabilidadForm } from '../../../components/habilidades/HabilidadForm';
 
 export default function Page({ params }) {
   const { firePromise } = useNotifications();
@@ -25,7 +26,7 @@ export default function Page({ params }) {
     );
   if (error) return <p>Error</p>;
   return (
-    <RoleForm
+    <HabilidadForm
       action={async (data) =>
         firePromise(
           updateHabilidad({
