@@ -165,3 +165,9 @@ export const REMOVE_JURIDICO = gql`
     removeJuridico(id: $removeJuridicoId)
   }
 `;
+
+export const REMOVE_NATURAL = gql`
+  mutation REMOVE_NATURAL($removeNaturalId: Int!) {
+    removeNatural(id: $removeNaturalId)
+  }
+`;
