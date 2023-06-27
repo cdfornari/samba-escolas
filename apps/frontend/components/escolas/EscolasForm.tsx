@@ -239,7 +239,7 @@ export const EscolaForm: FC<Props> = ({
             bordered
             labelPlaceholder="Dirección"
             clearable
-            initialValue={initialValues?.nombre ?? ''}
+            initialValue={initialValues?.direccion_sede ?? ''}
             color={errors.direccion_sede ? 'error' : 'primary'}
             {...register('direccion_sede', { required: true })}
             helperText={
@@ -266,7 +266,7 @@ export const EscolaForm: FC<Props> = ({
             bordered
             labelPlaceholder="CEP"
             clearable
-            initialValue={initialValues?.nombre ?? ''}
+            initialValue={initialValues?.cep ?? ''}
             color={errors.cep ? 'error' : 'primary'}
             {...register('cep', { required: true })}
             helperText={
