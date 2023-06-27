@@ -160,6 +160,14 @@ export const REMOVE_PATROCINIO = gql`
   }
 `;
 
+export const CREATE_JURIDICO = gql`
+  mutation CREATE_JURIDICO($createJuridicoInput: CreateJuridicoInput!) {
+    createJuridico(createJuridicoInput: $createJuridicoInput) {
+      id
+    }
+  }
+`;
+
 export const REMOVE_JURIDICO = gql`
   mutation REMOVE_JURIDICO($removeJuridicoId: Int!) {
     removeJuridico(id: $removeJuridicoId)
