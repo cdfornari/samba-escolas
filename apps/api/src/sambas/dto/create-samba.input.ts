@@ -5,7 +5,9 @@ import {
   IsNotEmpty,
   IsPositive,
   IsString,
+  Max,
   MaxLength,
+  Min,
 } from 'class-validator';
 import { SambaTypeEnum } from '../enums/samba.enum';
 
@@ -23,6 +25,8 @@ export class CreateSambaInput {
   letra: string;
 
   @IsInt()
+  @Min(1920)
+  @Max(2023)
   @IsPositive()
   @Field(() => Int)
   anual_carnv: number;

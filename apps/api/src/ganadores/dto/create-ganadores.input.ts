@@ -1,10 +1,12 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
-import { IsDateString, IsInt, IsOptional, IsPositive } from 'class-validator';
+import { IsDateString, IsInt, IsOptional, IsPositive, Max, Min } from 'class-validator';
 import { DateScalar } from 'src/common/scalars/date.scalar';
 
 @InputType()
 export class CreateGanadoresInput {
   @IsInt()
+  @Min(1920)
+  @Max(2023)
   @IsPositive()
   @Field(() => Int)
   year: number;

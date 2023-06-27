@@ -6,11 +6,15 @@ import {
   IsPositive,
   IsString,
   MaxLength,
+  Max,
+  Min
 } from 'class-validator';
 
 @InputType()
 export class CreateTituloHistoryInput {
   @IsInt()
+  @Min(1920)
+  @Max(2023)
   @IsPositive()
   @Field(() => Int)
   year: number;
