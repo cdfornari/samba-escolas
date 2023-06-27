@@ -276,10 +276,10 @@ export const JURIDICOS = gql`
 export const PREMIOS = gql`
   query Query($page: Int, $perPage: Int) {
     premios(page: $page, perPage: $perPage) {
-      numberOfPages
       items {
        ...PremioFragment 
       }
+      numberOfPages
     }
     premiosCount
   }
