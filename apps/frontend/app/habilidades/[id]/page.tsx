@@ -13,7 +13,7 @@ export default function Page({ params }) {
     habilidad: Habilidad;
   }>(HABILIDAD, {
     variables: {
-      id: Number(params.habilidadId),
+      habilidadId: Number(params.habilidadId),
     },
     fetchPolicy: 'network-only',
   });
@@ -33,7 +33,7 @@ export default function Page({ params }) {
             variables: {
               updateHabilidadInput: {
                 ...data,
-                id: Number(params.habilidadId),
+                habilidadId: Number(params.habilidadId),
               },
             },
           }),
