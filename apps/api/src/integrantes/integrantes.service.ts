@@ -45,7 +45,7 @@ export class IntegrantesService {
   async update(input: UpdateIntegranteInput) {
     const { id, id_habilidades = [], ...dto } = input;
     if (id_habilidades.length > 0) {
-      this.queryService.executeRawQuery(
+      await this.queryService.executeRawQuery(
         `DELETE FROM csd_integrantes_habilidades WHERE id_integrante = ${id}`,
       );
       await Promise.all(
