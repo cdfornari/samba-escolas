@@ -64,7 +64,7 @@ export const JuridicosTable = () => {
   return (
     <div className="flex h-full flex-col justify-between">
       <div className="flex justify-end py-6 px-10">
-        <Button auto onClick={() => push('/integrantes/create')}>
+        <Button auto onClick={() => push('/sponsors/juridicos/create')}>
           Crear Patrocinador
         </Button>
       </div>
