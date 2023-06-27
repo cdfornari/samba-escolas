@@ -253,7 +253,8 @@ export const IntegranteForm: FC<Props> = ({
             type="date"
             initialValue={
               initialValues?.fecha_nacimiento
-                ? new Date(initialValues?.fecha_nacimiento)
+                ? 
+                new Date(initialValues?.fecha_nacimiento)
                     .toISOString()
                     .split('T')[0]
                 : new Date().toISOString().split('T')[0]
