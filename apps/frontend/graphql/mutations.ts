@@ -237,3 +237,9 @@ export const REMOVE_DONACION = gql`
     )
   }
 `;
+
+export const REMOVE_GANADOR = gql`
+  mutation REMOVE_GANADOR($idPremio: Int!, $year: Int!) {
+    removeGanador(idPremio: $idPremio, year: $year)
+  }
+`;

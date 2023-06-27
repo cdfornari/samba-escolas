@@ -34,9 +34,4 @@ export const escolaTabs = (id: string, pathname: string) => [
     href: `/escola/${id}/events`,
     active: pathname.includes('events'),
   },
-  {
-    name: 'Sambas',
-    href: `/escola/${id}/sambas`,
-    active: pathname.includes('sambas'),
-  },
 ];

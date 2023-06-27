@@ -286,9 +286,19 @@ export const HABILIDADES = gql`
 `;
 
 export const DONACIONES = gql`
-  query DONACIONES($idEscuela: Int!, $idPatroc: Int!, $page: Int, $perPage: Int) {
-    donaciones(id_escuela: $idEscuela, id_patroc: $idPatroc, page: $page, perPage: $perPage) {
-      items{
+  query DONACIONES(
+    $idEscuela: Int!
+    $idPatroc: Int!
+    $page: Int
+    $perPage: Int
+  ) {
+    donaciones(
+      id_escuela: $idEscuela
+      id_patroc: $idPatroc
+      page: $page
+      perPage: $perPage
+    ) {
+      items {
         ...DonacionFragment
       }
       numberOfPages
@@ -296,4 +306,39 @@ export const DONACIONES = gql`
     donacionesCount(id_escuela: $idEscuela, id_patroc: $idPatroc)
   }
   ${DonacionFragment}
+`;
+
+export const GANADORES = gql`
+  query Query(
+    $idEscuela: Int
+    $idIntegrante: Int
+    $fechaInicio: Date
+    $idEscuelaIntegrante: Int
+    $page: Int
+    $perPage: Int
+  ) {
+    ganadores(
+      id_escuela: $idEscuela
+      id_integrante: $idIntegrante
+      fecha_inicio: $fechaInicio
+      id_escuela_integrante: $idEscuelaIntegrante
+      page: $page
+      perPage: $perPage
+    ) {
+      items {
+        year
+        premio {
+          id
+          nombre
+        }
+      }
+      numberOfPages
+    }
+    ganadoresCount(
+      id_escuela: $idEscuela
+      id_integrante: $idIntegrante
+      fecha_inicio: $fechaInicio
+      id_escuela_integrante: $idEscuelaIntegrante
+    )
+  }
 `;

@@ -46,6 +46,11 @@ export class GanadoresResolver {
     };
   }
 
+  @Query(() => Int, { name: 'ganadoresCount' })
+  async count(@Args() filter: GanadoresFilterArgs) {
+    return this.ganadoresService.count(filter);
+  }
+
   /*   @Query(() => Ganador, { name: 'ganador' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     //return this.ganadoresService.findOne(id);
