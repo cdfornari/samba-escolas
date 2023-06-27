@@ -11,10 +11,10 @@ export class Patrocinio {
   @Field(() => DateScalar)
   fecha_inicio: Date;
 
-  id_jur?:number;
+  id_jur?: number;
 
-  id_nat?:number;
+  id_nat?: number;
 
-  @Field(() => DateScalar,{nullable:true})
+  @Field(() => DateScalar, { nullable: true })
   fecha_fin?: Date;
 }
