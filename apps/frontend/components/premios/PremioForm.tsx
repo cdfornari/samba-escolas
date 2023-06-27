@@ -95,6 +95,19 @@ export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => 
             <span className="text-error">El nombre es requerido</span>
           )}
         </div>
+        <div className="flex flex-col">
+          <Input
+            bordered
+            labelPlaceholder="Descripcion"
+            clearable
+            initialValue={initialValues?.nombre ?? ''}
+            color={errors.nombre ? 'error' : 'primary'}
+            {...register('nombre', { required: true })}
+          />
+          {errors.nombre?.type === 'required' && (
+            <span className="text-error">El nombre es requerido</span>
+          )}
+        </div>
         <div className="w-full flex justify-center gap-6">
           <div className="w-full flex flex-col">
             <Select
