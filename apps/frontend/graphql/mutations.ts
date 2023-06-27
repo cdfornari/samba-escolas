@@ -215,3 +215,17 @@ export const REMOVE_NATURAL = gql`
     removeNatural(id: $removeNaturalId)
   }
 `;
+
+export const REMOVE_DONACION = gql`
+  mutation REMOVE_DONACION(
+    $removeDonacionId: Int!
+    $idEscuela: Int!
+    $idPatroc: Int!
+  ) {
+    removeDonacion(
+      id: $removeDonacionId
+      id_escuela: $idEscuela
+      id_patroc: $idPatroc
+    )
+  }
+`;

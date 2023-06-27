@@ -127,3 +127,11 @@ export const PatrocinioFragment = gql`
   ${NaturalFragment}
   ${JuridicoFragment}
 `;
+
+export const DonacionFragment = gql`
+  fragment DonacionFragment on Donacion {
+    fecha
+    id
+    monto
+  }
+`;

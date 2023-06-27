@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import {
   ColorFragment,
+  DonacionFragment,
   EscolaFragment,
   EventFragment,
   IntegranteFragment,
@@ -282,4 +283,17 @@ export const HABILIDADES = gql`
       numberOfPages
     }
   }
+`;
+
+export const DONACIONES = gql`
+  query DONACIONES($idEscuela: Int!, $idPatroc: Int!, $page: Int, $perPage: Int) {
+    donaciones(id_escuela: $idEscuela, id_patroc: $idPatroc, page: $page, perPage: $perPage) {
+      items{
+        ...DonacionFragment
+      }
+      numberOfPages
+    }
+    donacionesCount(id_escuela: $idEscuela, id_patroc: $idPatroc)
+  }
+  ${DonacionFragment}
 `;
