@@ -1,12 +1,14 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useQuery } from '@apollo/client';
-import { Button, Loading, Table } from '@nextui-org/react';
-import { ESCOLAS } from '../../graphql';
+import { useMutation, useQuery } from '@apollo/client';
+import { Button, Loading, Table, Tooltip } from '@nextui-org/react';
+import { ESCOLAS, REMOVE_ESCOLA } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Escola } from '../../interfaces';
 import { Pagination } from '../ui/Pagination';
+import { useNotifications } from '../../hooks/useNotifications';
+import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 export const escolaTableReducer = (columnKey: any, row: Escola) => {
   switch (columnKey) {
@@ -23,10 +25,6 @@ export const escolaTableReducer = (columnKey: any, row: Escola) => {
 
 const columns = [
   {
-    key: 'id',
-    label: 'ID',
-  },
-  {
     key: 'nombre',
     label: 'Nombre',
   },
@@ -38,12 +36,17 @@ const columns = [
     key: 'direccion',
     label: 'Dirección',
   },
+  {
+    key: 'actions',
+    label: '',
+  },
 ];
 
 export const EscolasTable = () => {
+  const { firePromise } = useNotifications();
   const { push } = useRouter();
   const [page, setPage] = useState(1);
-  const { data, loading, error } = useQuery<{
+  const { data, loading, error, refetch } = useQuery<{
     escolas: PaginationType<Escola>;
     escolasCount: number;
   }>(ESCOLAS, {
@@ -53,6 +56,7 @@ export const EscolasTable = () => {
     },
     fetchPolicy: 'network-only',
   });
+  const [removeEscola] = useMutation(REMOVE_ESCOLA);
   if (loading)
     return (
       <div className="w-full flex justify-center pt-10">
@@ -68,15 +72,7 @@ export const EscolasTable = () => {
         </Button>
       </div>
       <div className="flex h-full flex-col justify-between">
-        <Table
-          bordered
-          selectionMode="single"
-          onSelectionChange={(selection) => {
-            if (selection !== 'all' && selection.size > 0) {
-              push(`/escola/${selection.values().next().value}`);
-            }
-          }}
-        >
+        <Table bordered>
           <Table.Header>
             {columns.map((column) => (
               <Table.Column
@@ -94,11 +90,47 @@ export const EscolasTable = () => {
           <Table.Body items={data.escolas.items}>
             {(row) => (
               <Table.Row key={row.id}>
-                {(columnKey) => (
-                  <Table.Cell css={{ cursor: 'pointer' }}>
-                    {escolaTableReducer(columnKey, row)}
-                  </Table.Cell>
-                )}
+                {(columnKey) =>
+                  columnKey !== 'actions' ? (
+                    <Table.Cell css={{ cursor: 'default' }}>
+                      {escolaTableReducer(columnKey, row)}
+                    </Table.Cell>
+                  ) : (
+                    <Table.Cell
+                      css={{
+                        cursor: 'default',
+                        d: 'flex',
+                        justifyContent: 'center',
+                        gap: 10,
+                      }}
+                    >
+                      <Tooltip
+                        content="Editar"
+                        onClick={async () => push(`/escola/${row.id}`)}
+                      >
+                        <PencilIcon className="h-5 w-5" />
+                      </Tooltip>
+                      <Tooltip
+                        content="Borrar escuela"
+                        onClick={async () => {
+                          try {
+                            await firePromise(
+                              removeEscola({
+                                variables: {
+                                  removeEscolaId: Number(row.id),
+                                },
+                              }),
+                              'Escuela eliminada'
+                            );
+                          } catch (error) {}
+                          refetch();
+                        }}
+                      >
+                        <TrashIcon className="h-5 w-5 text-red-500" />
+                      </Tooltip>
+                    </Table.Cell>
+                  )
+                }
               </Table.Row>
             )}
           </Table.Body>

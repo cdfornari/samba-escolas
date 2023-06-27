@@ -32,6 +32,12 @@ export const UPDATE_ESCOLA = gql`
   }
 `;
 
+export const REMOVE_ESCOLA = gql`
+  mutation Mutation($removeEscolaId: Int!) {
+    removeEscola(id: $removeEscolaId)
+  }
+`;
+
 export const CREATE_INTEGRANTE = gql`
   mutation CREATE_INTEGRANTE($createIntegranteInput: CreateIntegranteInput!) {
     createIntegrante(createIntegranteInput: $createIntegranteInput) {
