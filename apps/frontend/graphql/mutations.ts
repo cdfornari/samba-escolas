@@ -159,3 +159,9 @@ export const REMOVE_PATROCINIO = gql`
     removePatrocinio(id: $removePatrocinioId, id_escuela: $idEscuela)
   }
 `;
+
+export const REMOVE_JURIDICO = gql`
+  mutation REMOVE_JURIDICO($removeJuridicoId: Int!) {
+    removeJuridico(id: $removeJuridicoId)
+  }
+`;
