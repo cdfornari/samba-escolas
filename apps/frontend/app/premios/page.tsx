@@ -1,5 +1,5 @@
-import { PlacesTable } from '../../components/places/PlacesTable';
+import { PremiosTable } from '../../components/premios/PremiosTable';
 
 export default function Page() {
-  return <PlacesTable />;;
+  return <PremiosTable />;;
 }

@@ -27,7 +27,7 @@ const columns = [
   },
 ];
 
-export const PlacesTable = () => {
+export const PremiosTable = () => {
   const { push } = useRouter();
   const [page, setPage] = useState(1);
   const { data, loading, error } = useQuery<{

@@ -21,7 +21,7 @@ interface Props {
   buttonText: string;
 }
 
-export const PlaceForm: FC<Props> = ({ action, initialValues, buttonText }) => {
+export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => {
   const [type, setType] = useState<string>(initialValues?.tipo ?? null);
   const [parent, setParent] = useState<string>(initialValues?.padre?.id.toString() ?? null);
   const {
