@@ -8,6 +8,21 @@ import { Place, Premio } from '../../interfaces';
 import { Pagination } from '../ui/Pagination';
 import { useRouter } from 'next/navigation';
 
+export const habilidadesTableReducer = (columnKey: any, row:Premio) => {
+  switch (columnKey) {
+    case 'nombre':
+      return `${row.nombre}`;
+    case 'descripcion':
+      return `${row.descripcion}`;
+      case 'tipo':
+        return `${row.tipo}`;
+        case 'lugar':
+          return `${row.lugar.nombre}`;
+    default:
+      return row[columnKey];
+  }
+};
+
 const columns = [
   {
     key: 'id',
@@ -90,7 +105,7 @@ export const PremiosTable = () => {
               <Table.Row key={row.id}>
                 {(columnKey) => (
                   <Table.Cell css={{ cursor: 'pointer' }}>
-                    {row[columnKey]}
+                    {habilidadesTableReducer(columnKey, row)}
                   </Table.Cell>
                 )}
               </Table.Row>
