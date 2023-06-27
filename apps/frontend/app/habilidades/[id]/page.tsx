@@ -36,7 +36,7 @@ export default function Page({ params }) {
             variables: {
               updateHabilidadInput: {
                 ...data,
-                habilidadId: Number(params.id),
+                id: Number(params.id),
               },
             },
           }),
