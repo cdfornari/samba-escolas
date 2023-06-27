@@ -216,6 +216,14 @@ export const REMOVE_NATURAL = gql`
   }
 `;
 
+export const CREATE_DONACION = gql`
+  mutation CREATE_DONACION($createDonacionInput: CreateDonacionInput!) {
+    createDonacion(createDonacionInput: $createDonacionInput) {
+      id
+    }
+  }
+`;
+
 export const REMOVE_DONACION = gql`
   mutation REMOVE_DONACION(
     $removeDonacionId: Int!
