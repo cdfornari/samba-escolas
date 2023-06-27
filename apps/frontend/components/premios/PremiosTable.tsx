@@ -22,9 +22,14 @@ const columns = [
     label: 'Tipo',
   },
   {
-    key: 'padre',
-    label: 'Pertenece a',
+    key: 'descripcion',
+    label: 'Descripcion',
   },
+  {
+    key: 'lugar',
+    label: 'Lugar',
+  },
+  
 ];
 
 export const PremiosTable = () => {
@@ -36,7 +41,7 @@ export const PremiosTable = () => {
   }>(PREMIO, {
     variables: {
       page,
-      perPage: 15,
+      perPage: 9,
     },
     fetchPolicy: 'network-only',
   });

@@ -61,7 +61,7 @@ export class PremiosResolver {
   }
 
   @ResolveField(() => Lugar, { name: 'lugar'})
-  getNatural(@Parent() premio: Premio) {
+  getLugar(@Parent() premio: Premio) {
     return this.lugarService.findOne(premio.id);
   }
 }
