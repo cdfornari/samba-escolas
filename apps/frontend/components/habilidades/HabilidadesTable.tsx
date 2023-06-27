@@ -67,7 +67,7 @@ export const HabilidadesTable = () => {
           selectionMode="single"
           onSelectionChange={(selection) => {
             if (selection !== 'all' && selection.size > 0) {
-              push(`/habidades/${selection.values().next().value}`);
+              push(`/habilidades/${selection.values().next().value}`);
             }
           }}
         >
