@@ -87,6 +87,13 @@ export const JuridicosForm: FC<Props> = ({
     clearErrors('email');
   }, [email]);
   const onSubmit = async (data: DTO) => {
+    if (!data.cnpj) {
+      setError('cnpj', {
+        type: 'manual',
+        message: 'El CNPJ es requerido',
+      });
+      return;
+    }
     if (!data.email) {
       setError('email', {
         type: 'manual',
