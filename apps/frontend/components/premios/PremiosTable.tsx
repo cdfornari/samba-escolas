@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { Button, Loading, Table } from '@nextui-org/react';
-import { LUGARES, PREMIO } from '../../graphql';
+import { LUGARES, PREMIO, PREMIOS } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Place, Premio } from '../../interfaces';
 import { Pagination } from '../ui/Pagination';
@@ -38,7 +38,7 @@ export const PremiosTable = () => {
   const { data, loading, error } = useQuery<{
     premios: PaginationType<Premio>;
     premiosCount: number;
-  }>(PREMIO, {
+  }>(PREMIOS, {
     variables: {
       page,
       perPage: 9,
