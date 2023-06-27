@@ -1,30 +1,30 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import { useMutation } from '@apollo/client';
-import { CREATE_HABILIDAD } from '../../../graphql';
+import { PlaceForm } from '../../../components/places/PlaceForm';
+import { CREATE_PLACE } from '../../../graphql';
 import { useNotifications } from '../../../hooks/useNotifications';
-import { HabilidadForm } from '../../../components/habilidades/HabilidadForm';
+import { useRouter } from 'next/navigation';
 
 export default function Page() {
   const { push } = useRouter();
   const { firePromise } = useNotifications();
-  const [createHabilidad] = useMutation(CREATE_HABILIDAD);
+  const [createLugar] = useMutation(CREATE_PLACE);
   return (
-    <HabilidadForm
+    <PlaceForm
       action={async (data) => {
         try {
           await firePromise(
-            createHabilidad({
+            createLugar({
               variables: {
-                createHabilidadInput: data,
+                createLugaresInput: data,
               },
             }),
-            'Habilidad creada correctamente'
+            'Lugar creado correctamente'
           );
-          push('/habilidades');
+          push('/places');
         } catch (error) {}
       }}
-      buttonText="Crear"
+      buttonText='Crear'
     />
   );
 }

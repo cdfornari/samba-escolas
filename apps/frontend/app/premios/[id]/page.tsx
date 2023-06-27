@@ -1,19 +1,19 @@
 'use client';
 import { useMutation, useQuery } from '@apollo/client';
 import { Loading } from '@nextui-org/react';
-import { HABILIDAD, UPDATE_HABILIDAD} from '../../../graphql';
+import { PlaceForm } from '../../../components/places/PlaceForm';
+import { LUGAR, UPDATE_PLACE } from '../../../graphql';
+import { Place } from '../../../interfaces';
 import { useNotifications } from '../../../hooks/useNotifications';
-import { Habilidad } from '../../../interfaces';
-import { HabilidadForm } from '../../../components/habilidades/HabilidadForm';
 
 export default function Page({ params }) {
   const { firePromise } = useNotifications();
-  const [updateHabilidad] = useMutation(UPDATE_HABILIDAD);
+  const [updatePlace] = useMutation(UPDATE_PLACE);
   const { data, loading, error } = useQuery<{
-    habilidad: Habilidad;
-  }>(HABILIDAD, {
+    lugar: Place;
+  }>(LUGAR, {
     variables: {
-      habilidadId: Number(params.id),
+      id: Number(params.id),
     },
     fetchPolicy: 'network-only',
   });
@@ -23,28 +23,24 @@ export default function Page({ params }) {
         <Loading />
       </div>
     );
-  
-  if (error) {
-    console.log(error)
-    return <p>Error</p>;
-  }
+  if (error) return <p>Error</p>;
   return (
-    <HabilidadForm
+    <PlaceForm
       action={async (data) =>
         firePromise(
-          updateHabilidad({
+          updatePlace({
             variables: {
-              updateHabilidadInput: {
+              updateLugaresInput: {
                 ...data,
                 id: Number(params.id),
-              },
+              }
             },
           }),
-          'Habilidad actualizada'
+          'Lugar actualizado'
         )
       }
-      initialValues={data?.habilidad}
-      buttonText="Actualizar"
+      initialValues={data?.lugar}
+      buttonText='Actualizar'
     />
   );
 }
