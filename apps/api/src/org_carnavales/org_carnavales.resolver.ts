@@ -49,7 +49,7 @@ export class OrgCarnavalesResolver {
   }
 
   @Mutation(() => Boolean)
-  removeOrgCarnaval(@Args() id: OrgCarnavalIdArgs) {
+  removeOrgCarnaval(@Args('orgCarnavalIdArgs') id: OrgCarnavalIdArgs) {
     return this.orgCarnavalesService.remove(id);
   }
 
