@@ -58,7 +58,7 @@ export const HabilidadesTable = () => {
     <div className="flex h-full flex-col justify-between">
       <div className="flex justify-end py-6 px-10">
         <Button auto onClick={() => push('/habilidades/create')}>
-          Crear Rol
+          Crear Habilidad
         </Button>
       </div>
       <div className="flex h-full flex-col justify-between">

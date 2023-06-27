@@ -144,7 +144,7 @@ export const HABILIDADES = gql`
     }
     numberOfPages
     }
-    habilidadesCount
+    habilidadCount
   }
   ${HabilidadesFragment}
 `;
