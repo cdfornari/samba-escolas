@@ -295,3 +295,15 @@ export const CREATE_GANADOR = gql`
     }
   }
 `;
+
+export const REMOVE_LUGAR = gql`
+  mutation REMOVE_LUGAR($removeLugarId: Int!) {
+    removeLugar(id: $removeLugarId)
+  }
+`;
+
+export const REMOVE_ROL = gql`
+  mutation REMOVE_ROL($removeRoleId: Int!) {
+    removeRole(id: $removeRoleId)
+  }
+`;

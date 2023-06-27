@@ -1,19 +1,19 @@
 'use client';
 import { useMutation, useQuery } from '@apollo/client';
 import { Loading } from '@nextui-org/react';
-import { PlaceForm } from '../../../components/places/PlaceForm';
-import { LUGAR, UPDATE_PLACE } from '../../../graphql';
-import { Place } from '../../../interfaces';
+import { LUGAR, PREMIO, UPDATE_PREMIO } from '../../../graphql';
+import { Premio } from '../../../interfaces';
 import { useNotifications } from '../../../hooks/useNotifications';
+import { PremioForm } from '../../../components/premios/PremioForm';
 
 export default function Page({ params }) {
   const { firePromise } = useNotifications();
-  const [updatePlace] = useMutation(UPDATE_PLACE);
+  const [updatePlace] = useMutation(UPDATE_PREMIO);
   const { data, loading, error } = useQuery<{
-    lugar: Place;
-  }>(LUGAR, {
+    premio: Premio;
+  }>(PREMIO, {
     variables: {
-      id: Number(params.id),
+      premioId: Number(params.id),
     },
     fetchPolicy: 'network-only',
   });
@@ -25,21 +25,21 @@ export default function Page({ params }) {
     );
   if (error) return <p>Error</p>;
   return (
-    <PlaceForm
+    <PremioForm
       action={async (data) =>
         firePromise(
           updatePlace({
             variables: {
-              updateLugaresInput: {
+              updatePremioInput: {
                 ...data,
                 id: Number(params.id),
               }
             },
           }),
-          'Lugar actualizado'
+          'Premio actualizado'
         )
       }
-      initialValues={data?.lugar}
+      initialValues={data?.premio}
       buttonText='Actualizar'
     />
   );

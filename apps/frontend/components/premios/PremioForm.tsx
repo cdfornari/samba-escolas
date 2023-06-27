@@ -1,18 +1,20 @@
 'use client';
 import { FC, useEffect, useState } from 'react';
 import { Button, Input, Loading } from '@nextui-org/react';
-import { useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { useForm } from 'react-hook-form';
 import { Place, Premio } from '../../interfaces';
 import { Select } from '../ui/Select';
-import { LUGARES } from '../../graphql';
-import { PaginationType, PlaceType ,PremioType} from '../../types';
+import { LUGARES, REMOVE_PREMIO } from '../../graphql';
+import { PaginationType, PlaceType, PremioType } from '../../types';
+import { useNotifications } from '../../hooks/useNotifications';
+import { useRouter } from 'next/navigation';
 
 interface DTO {
   id?: number;
   nombre: string;
   tipo: string;
-  descripcion: string
+  descripcion: string;
   id_lugar: number;
 }
 
@@ -22,9 +24,31 @@ interface Props {
   buttonText: string;
 }
 
-export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => {
+export const PremioForm: FC<Props> = ({
+  action,
+  initialValues,
+  buttonText,
+}) => {
+  const { firePromise } = useNotifications();
+  const { push } = useRouter();
+  const [remove] = useMutation(REMOVE_PREMIO);
+  const handleDelete = async () => {
+    try {
+      await firePromise(
+        remove({
+          variables: {
+            removePremioId: Number(initialValues.id),
+          },
+        }),
+        'Premio eliminado'
+      );
+    } catch (error) {}
+    push('/premios');
+  };
   const [typeP, setTypeP] = useState<string>(initialValues?.tipo ?? null);
-  const [place, setPlace] = useState<string>(initialValues?.id_lugar?.toString() ?? null);
+  const [place, setPlace] = useState<string>(
+    initialValues?.id_lugar?.toString() ?? null
+  );
   const {
     setError,
     clearErrors,
@@ -40,7 +64,7 @@ export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => 
     LUGARES,
     {
       variables: {
-        tipo:'ciudad' ,
+        paginate: false,
       },
     }
   );
@@ -62,7 +86,7 @@ export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => 
       });
       return;
     }
-    if (place) {
+    if (!place) {
       setError('id_lugar', {
         type: 'manual',
         message: 'El lugar es requerido',
@@ -79,9 +103,9 @@ export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full h-full py-10 px-[25%] flex flex-col gap-4 justify-center"
+      className="w-full h-full py-10 px-[25%] flex flex-col gap-64 justify-center"
     >
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-10">
         <div className="flex flex-col">
           <Input
             bordered
@@ -100,12 +124,12 @@ export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => 
             bordered
             labelPlaceholder="Descripcion"
             clearable
-            initialValue={initialValues?.nombre ?? ''}
-            color={errors.nombre ? 'error' : 'primary'}
-            {...register('nombre', { required: true })}
+            initialValue={initialValues?.descripcion ?? ''}
+            color={errors.descripcion ? 'error' : 'primary'}
+            {...register('descripcion', { required: true })}
           />
           {errors.nombre?.type === 'required' && (
-            <span className="text-error">El nombre es requerido</span>
+            <span className="text-error">La descripcion es requerida</span>
           )}
         </div>
         <div className="w-full flex justify-center gap-6">
@@ -126,37 +150,40 @@ export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => 
               </span>
             )}
           </div>
-          {
-
-            (loading ? (
-              <Loading />
-            ) : error ? (
-              <span>Error</span>
-            ) : (
-              <div className="w-full flex flex-col">
-                <Select
-                  options={data.lugares.items.map((lugar) => ({
-                    label: lugar.nombre,
-                    value: lugar.id.toString(),
-                  }))}
-                  label="Lugar"
-                  selected={place}
-                  setSelected={setPlace}
-                  error={!!errors.id_lugar}
-                />
-                {errors.id_lugar && (
-                  <span className="text-error">
-                    {(errors.id_lugar.message as string) ?? ''}
-                  </span>
-                )}
-              </div>
-            ))}
+          {loading ? (
+            <Loading />
+          ) : error ? (
+            <span>Error</span>
+          ) : (
+            <div className="w-full flex flex-col">
+              <Select
+                options={data.lugares.items.map((lugar) => ({
+                  label: lugar.nombre,
+                  value: lugar.id.toString(),
+                }))}
+                label="Lugar"
+                selected={place}
+                setSelected={setPlace}
+                error={!!errors.id_lugar}
+              />
+              {errors.id_lugar && (
+                <span className="text-error">
+                  {(errors.id_lugar.message as string) ?? ''}
+                </span>
+              )}
+            </div>
+          )}
         </div>
       </div>
       <div className="flex justify-center">
         <Button type="submit" css={{ zIndex: 0 }}>
           {buttonText}
         </Button>
+        {initialValues && (
+          <Button color="error" flat css={{ zIndex: 0 }} onClick={handleDelete}>
+            Eliminar
+          </Button>
+        )}
       </div>
     </form>
   );

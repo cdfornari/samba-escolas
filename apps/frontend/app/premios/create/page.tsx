@@ -1,27 +1,28 @@
 'use client';
 import { useMutation } from '@apollo/client';
-import { PlaceForm } from '../../../components/places/PlaceForm';
-import { CREATE_PLACE } from '../../../graphql';
+import { CREATE_PREMIO } from '../../../graphql';
 import { useNotifications } from '../../../hooks/useNotifications';
 import { useRouter } from 'next/navigation';
+import { PremioForm } from '../../../components/premios/PremioForm';
 
 export default function Page() {
   const { push } = useRouter();
   const { firePromise } = useNotifications();
-  const [createLugar] = useMutation(CREATE_PLACE);
+  const [createLugar] = useMutation(CREATE_PREMIO);
   return (
-    <PlaceForm
+    <PremioForm
       action={async (data) => {
         try {
           await firePromise(
             createLugar({
               variables: {
-                createLugaresInput: data,
+                
+                createPremioInput: data,
               },
             }),
-            'Lugar creado correctamente'
+            'Premio creado correctamente'
           );
-          push('/places');
+          push('/premios');
         } catch (error) {}
       }}
       buttonText='Crear'
