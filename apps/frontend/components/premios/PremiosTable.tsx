@@ -56,7 +56,7 @@ export const PremiosTable = () => {
   }>(PREMIOS, {
     variables: {
       page,
-      perPage: 9,
+      perPage: 15,
     },
     fetchPolicy: 'network-only',
   });

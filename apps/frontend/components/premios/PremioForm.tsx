@@ -3,27 +3,28 @@ import { FC, useEffect, useState } from 'react';
 import { Button, Input, Loading } from '@nextui-org/react';
 import { useQuery } from '@apollo/client';
 import { useForm } from 'react-hook-form';
-import { Place } from '../../interfaces';
+import { Place, Premio } from '../../interfaces';
 import { Select } from '../ui/Select';
 import { LUGARES } from '../../graphql';
-import { PaginationType, PlaceType } from '../../types';
+import { PaginationType, PlaceType ,PremioType} from '../../types';
 
 interface DTO {
   id?: number;
   nombre: string;
   tipo: string;
-  id_padre_lugar?: number;
+  descripcion: string
+  id_lugar: number;
 }
 
 interface Props {
   action: (data: DTO) => Promise<any>;
-  initialValues?: Place;
+  initialValues?: Premio;
   buttonText: string;
 }
 
 export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => {
-  const [type, setType] = useState<string>(initialValues?.tipo ?? null);
-  const [parent, setParent] = useState<string>(initialValues?.padre?.id.toString() ?? null);
+  const [typeP, setTypeP] = useState<string>(initialValues?.tipo ?? null);
+  const [place, setPlace] = useState<string>(initialValues?.lugar?.id.toString() ?? null);
   const {
     setError,
     clearErrors,
@@ -38,41 +39,41 @@ export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => 
   const { data, loading, error } = useQuery<{ lugares: PaginationType<Place> }>(
     LUGARES,
     {
-      skip: !type || type === 'region',
       variables: {
-        tipo: type === 'ciudad' ? 'estado' : 'region',
+        tipo:'ciudad' ,
       },
     }
   );
   useEffect(() => {
-    if (type?.length > 0) {
+    if (typeP?.length > 0) {
       clearErrors('tipo');
     }
-  }, [type]);
+  }, [typeP]);
   useEffect(() => {
-    if (parent?.length > 0) {
-      clearErrors('id_padre_lugar');
+    if (place?.length > 0) {
+      clearErrors('id_lugar');
     }
-  }, [parent]);
-  const onSubmit = async (data: { nombre: string }) => {
-    if (!type) {
+  }, [place]);
+  const onSubmit = async (data: DTO) => {
+    if (!typeP) {
       setError('tipo', {
         type: 'manual',
         message: 'El tipo es requerido',
       });
       return;
     }
-    if (type !== 'region' && !parent) {
-      setError('id_padre_lugar', {
+    if (place) {
+      setError('id_lugar', {
         type: 'manual',
-        message: 'El padre es requerido',
+        message: 'El lugar es requerido',
       });
       return;
     }
     await action({
       nombre: data.nombre,
-      tipo: type as PlaceType,
-      id_padre_lugar: Number(parent),
+      descripcion: data.descripcion,
+      tipo: typeP as PremioType,
+      id_lugar: Number(place),
     });
   };
   return (
@@ -98,13 +99,12 @@ export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => 
           <div className="w-full flex flex-col">
             <Select
               options={[
-                { label: 'Región', value: 'region' },
-                { label: 'Estado', value: 'estado' },
-                { label: 'Ciudad', value: 'ciudad' },
+                { label: 'Integrante', value: 'integrante' },
+                { label: 'Escuela', value: 'escola' },
               ]}
               label="Tipo"
-              selected={type}
-              setSelected={setType}
+              selected={typeP}
+              setSelected={setTypeP}
               error={!!errors.tipo}
             />
             {errors.tipo && (
@@ -113,8 +113,8 @@ export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => 
               </span>
             )}
           </div>
-          {type &&
-            type !== 'region' &&
+          {
+
             (loading ? (
               <Loading />
             ) : error ? (
@@ -126,14 +126,14 @@ export const PremioForm: FC<Props> = ({ action, initialValues, buttonText }) => 
                     label: lugar.nombre,
                     value: lugar.id.toString(),
                   }))}
-                  label="Padre"
-                  selected={parent}
-                  setSelected={setParent}
-                  error={!!errors.id_padre_lugar}
+                  label="Lugar"
+                  selected={place}
+                  setSelected={setPlace}
+                  error={!!errors.id_lugar}
                 />
-                {errors.id_padre_lugar && (
+                {errors.id_lugar && (
                   <span className="text-error">
-                    {(errors.id_padre_lugar.message as string) ?? ''}
+                    {(errors.id_lugar.message as string) ?? ''}
                   </span>
                 )}
               </div>

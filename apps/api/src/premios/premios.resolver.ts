@@ -60,8 +60,8 @@ export class PremiosResolver {
     return this.premiosService.remove(id);
   }
 
-  @ResolveField(() => Lugar, { name: 'lugar'})
+  /*@ResolveField(() => Lugar, { name: 'lugar'})
   getLugar(@Parent() premio: Premio) {
     return this.lugarService.findOne(premio.id);
-  }
+  }*/
 }
