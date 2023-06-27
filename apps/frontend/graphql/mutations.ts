@@ -54,6 +54,12 @@ export const UPDATE_INTEGRANTE = gql`
   }
 `;
 
+export const REMOVE_INTEGRANTE = gql`
+  mutation REMOVE_INTEGRANTE($removeIntegranteId: Int!) {
+    removeIntegrante(id: $removeIntegranteId)
+  }
+`;
+
 export const CREATE_ROL = gql`
   mutation CREATE_ROL($createRoleInput: CreateRoleInput!) {
     createRole(createRoleInput: $createRoleInput) {

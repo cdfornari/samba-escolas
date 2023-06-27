@@ -1,12 +1,14 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useQuery } from '@apollo/client';
-import { Button, Loading, Table } from '@nextui-org/react';
-import { INTEGRANTES } from '../../graphql';
+import { useMutation, useQuery } from '@apollo/client';
+import { Button, Loading, Table, Tooltip } from '@nextui-org/react';
+import { INTEGRANTES, REMOVE_INTEGRANTE } from '../../graphql';
 import { PaginationType } from '../../types';
 import { Pagination } from '../ui/Pagination';
 import { Integrante } from '../../interfaces/integrante.interface';
+import { useNotifications } from '../../hooks/useNotifications';
+import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 export const integranteTableReducer = (columnKey: any, row: Integrante) => {
   switch (columnKey) {
@@ -27,10 +29,6 @@ export const integranteTableReducer = (columnKey: any, row: Integrante) => {
 
 const columns = [
   {
-    key: 'id',
-    label: 'ID',
-  },
-  {
     key: 'nombre',
     label: 'Nombre',
   },
@@ -50,12 +48,17 @@ const columns = [
     key: 'rg',
     label: 'RG',
   },
+  {
+    key: 'actions',
+    label: '',
+  },
 ];
 
 export const IntegrantesTable = () => {
+  const { firePromise } = useNotifications();
   const { push } = useRouter();
   const [page, setPage] = useState(1);
-  const { data, loading, error } = useQuery<{
+  const { data, loading, error, refetch } = useQuery<{
     integrantes: PaginationType<Integrante>;
     integrantesCount: number;
   }>(INTEGRANTES, {
@@ -65,6 +68,7 @@ export const IntegrantesTable = () => {
     },
     fetchPolicy: 'network-only',
   });
+  const [removeIntegrante] = useMutation(REMOVE_INTEGRANTE);
   if (loading)
     return (
       <div className="w-full flex justify-center pt-10">
@@ -80,15 +84,7 @@ export const IntegrantesTable = () => {
         </Button>
       </div>
       <div className="flex h-full flex-col justify-between">
-        <Table
-          bordered
-          selectionMode="single"
-          onSelectionChange={(selection) => {
-            if (selection !== 'all' && selection.size > 0) {
-              push(`/integrantes/${selection.values().next().value}`);
-            }
-          }}
-        >
+        <Table bordered>
           <Table.Header>
             {columns.map((column) => (
               <Table.Column
@@ -106,11 +102,47 @@ export const IntegrantesTable = () => {
           <Table.Body items={data.integrantes.items}>
             {(row) => (
               <Table.Row key={row.id}>
-                {(columnKey) => (
-                  <Table.Cell css={{ cursor: 'pointer' }}>
-                    {integranteTableReducer(columnKey, row)}
-                  </Table.Cell>
-                )}
+                {(columnKey) =>
+                  columnKey !== 'actions' ? (
+                    <Table.Cell css={{ cursor: 'pointer' }}>
+                      {integranteTableReducer(columnKey, row)}
+                    </Table.Cell>
+                  ) : (
+                    <Table.Cell
+                      css={{
+                        cursor: 'default',
+                        d: 'flex',
+                        justifyContent: 'center',
+                        gap: 10,
+                      }}
+                    >
+                      <Tooltip
+                        content="Editar"
+                        onClick={async () => push(`/integrantes/${row.id}`)}
+                      >
+                        <PencilIcon className="h-5 w-5" />
+                      </Tooltip>
+                      <Tooltip
+                        content="Borrar integrante"
+                        onClick={async () => {
+                          try {
+                            await firePromise(
+                              removeIntegrante({
+                                variables: {
+                                  removeIntegranteId: Number(row.id),
+                                },
+                              }),
+                              'Escuela eliminada'
+                            );
+                          } catch (error) {}
+                          refetch();
+                        }}
+                      >
+                        <TrashIcon className="h-5 w-5 text-red-500" />
+                      </Tooltip>
+                    </Table.Cell>
+                  )
+                }
               </Table.Row>
             )}
           </Table.Body>
