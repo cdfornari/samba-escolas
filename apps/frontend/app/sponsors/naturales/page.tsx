@@ -1,6 +1,6 @@
+import { NaturalesTable } from '../../../components/naturales/NaturalesTable';
+
 const Page = () => {
-    return (
-      <div>Naturales table</div>
-    )
-  }
-  export default Page;
+  return <NaturalesTable />;
+};
+export default Page;

@@ -1,8 +1,11 @@
 'use client';
 import { FC, useEffect, useMemo, useState } from 'react';
-import { Button, Input, Radio } from '@nextui-org/react';
+import { Button, Dropdown, Input, Loading, Radio } from '@nextui-org/react';
 import { useForm } from 'react-hook-form';
 import { Integrante } from '../../interfaces';
+import { PaginationType } from '../../types';
+import { HABILIDADES } from '../../graphql';
+import { useQuery } from '@apollo/client';
 
 interface DTO {
   id?: number;
@@ -15,6 +18,7 @@ interface DTO {
   genero: string;
   nacionalidad: string;
   rg?: string;
+  id_habilidades: number[];
 }
 
 interface Props {
@@ -28,6 +32,19 @@ export const IntegranteForm: FC<Props> = ({
   initialValues,
   buttonText,
 }) => {
+  const { data, loading } = useQuery<{
+    habilidades: PaginationType<{
+      id: number;
+      nombre: string;
+    }>;
+  }>(HABILIDADES, {
+    variables: {
+      paginate: false,
+    },
+  });
+  const [habilidades, setHabilidades] = useState<any>(
+    new Set(initialValues?.habilidades.map((c) => c.id.toString()) ?? [])
+  );
   const {
     setError,
     clearErrors,
@@ -109,10 +126,17 @@ export const IntegranteForm: FC<Props> = ({
         return;
       }
     }
-    console.log(data)
+    if (Array.from(habilidades).length === 0) {
+      setError('id_habilidades', {
+        type: 'manual',
+        message: 'Seleccione al menos una habilidad',
+      });
+      return;
+    }
     await action({
       ...data,
       genero,
+      id_habilidades: Array.from(habilidades).map((h) => Number(h)),
     });
   };
   return (
@@ -241,6 +265,33 @@ export const IntegranteForm: FC<Props> = ({
             }
             helperColor="error"
           />
+          {loading ? (
+            <Loading />
+          ) : (
+            <div className="flex justify-end">
+              <Dropdown>
+                <Dropdown.Button flat css={{ tt: 'capitalize' }}>
+                  Habilidades
+                </Dropdown.Button>
+                <Dropdown.Menu
+                  aria-label="Multiple selection actions"
+                  disallowEmptySelection
+                  selectionMode="multiple"
+                  selectedKeys={habilidades}
+                  onSelectionChange={setHabilidades}
+                >
+                  {data.habilidades.items.map((color) => (
+                    <Dropdown.Item key={color.id}>{color.nombre}</Dropdown.Item>
+                  ))}
+                </Dropdown.Menu>
+              </Dropdown>
+              {errors.id_habilidades && (
+                <span className="text-error">
+                  {(errors.id_habilidades.message as string) ?? ''}
+                </span>
+              )}
+            </div>
+          )}
         </div>
       </div>
       <div className="flex justify-center">

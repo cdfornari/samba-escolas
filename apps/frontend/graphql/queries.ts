@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import {
   ColorFragment,
+  DonacionFragment,
   EscolaFragment,
   EventFragment,
   HabilidadesFragment,
@@ -110,6 +111,10 @@ export const INTEGRANTE = gql`
   query INTEGRANTE($id: Int!) {
     integrante(id: $id) {
       ...IntegranteFragment
+      habilidades {
+        id
+        nombre
+      }
     }
   }
   ${IntegranteFragment}
@@ -247,6 +252,15 @@ export const PATROCINIOS = gql`
   ${PatrocinioFragment}
 `;
 
+export const NATURAL = gql`
+  query Query($naturalId: Int!) {
+    natural(id: $naturalId) {
+      ...NaturalFragment
+    }
+  }
+  ${NaturalFragment}
+`;
+
 export const NATURALES = gql`
   query NATURALES($page: Int, $perPage: Int, $paginate: Boolean!) {
     naturales(page: $page, perPage: $perPage, paginate: $paginate) {
@@ -258,6 +272,15 @@ export const NATURALES = gql`
     naturalesCount
   }
   ${NaturalFragment}
+`;
+
+export const JURIDICO = gql`
+  query JURIDICO($juridicoId: Int!) {
+    juridico(id: $juridicoId) {
+      ...JuridicoFragment
+    }
+  }
+  ${JuridicoFragment}
 `;
 
 export const JURIDICOS = gql`
@@ -274,8 +297,8 @@ export const JURIDICOS = gql`
 `;
 
 export const PREMIOS = gql`
-  query PREMIOS($page: Int, $perPage: Int) {
-    premios(page: $page, perPage: $perPage) {
+  query PREMIOS($page: Int, $perPage: Int, $paginate: Boolean!) {
+    premios(page: $page, perPage: $perPage, $paginate: $paginate) {
       items {
        ...PremioFragment 
       }
@@ -293,4 +316,74 @@ export const PREMIO = gql`
     }
   }
   ${PremioFragment}
+  
+export const HABILIDADES = gql`
+  query HABILIDADES($page: Int, $perPage: Int, $paginate: Boolean!) {
+    habilidades(page: $page, perPage: $perPage, paginate: $paginate) {
+      items {
+        descripcion
+        id
+        nombre
+      }
+      numberOfPages
+    }
+  }
+`;
+
+export const DONACIONES = gql`
+  query DONACIONES(
+    $idEscuela: Int!
+    $idPatroc: Int!
+    $page: Int
+    $perPage: Int
+  ) {
+    donaciones(
+      id_escuela: $idEscuela
+      id_patroc: $idPatroc
+      page: $page
+      perPage: $perPage
+    ) {
+      items {
+        ...DonacionFragment
+      }
+      numberOfPages
+    }
+    donacionesCount(id_escuela: $idEscuela, id_patroc: $idPatroc)
+  }
+  ${DonacionFragment}
+`;
+
+export const GANADORES = gql`
+  query Query(
+    $idEscuela: Int
+    $idIntegrante: Int
+    $fechaInicio: Date
+    $idEscuelaIntegrante: Int
+    $page: Int
+    $perPage: Int
+  ) {
+    ganadores(
+      id_escuela: $idEscuela
+      id_integrante: $idIntegrante
+      fecha_inicio: $fechaInicio
+      id_escuela_integrante: $idEscuelaIntegrante
+      page: $page
+      perPage: $perPage
+    ) {
+      items {
+        year
+        premio {
+          id
+          nombre
+        }
+      }
+      numberOfPages
+    }
+    ganadoresCount(
+      id_escuela: $idEscuela
+      id_integrante: $idIntegrante
+      fecha_inicio: $fechaInicio
+      id_escuela_integrante: $idEscuelaIntegrante
+    )
+  }
 `;

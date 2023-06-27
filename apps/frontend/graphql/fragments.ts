@@ -107,6 +107,7 @@ export const JuridicoFragment = gql`
   fragment JuridicoFragment on Juridico {
     cep
     ciudad {
+      id
       nombre
     }
     cnpj
@@ -142,5 +143,13 @@ export const PremioFragment = gql`
     tipo
     descripcion
     id_lugar
+  }
+`;
+
+export const DonacionFragment = gql`
+  fragment DonacionFragment on Donacion {
+    fecha
+    id
+    monto
   }
 `;

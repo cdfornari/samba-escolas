@@ -3,21 +3,19 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useMutation, useQuery } from '@apollo/client';
 import { Button, Loading, Table, Tooltip } from '@nextui-org/react';
-import { ESCOLAS, REMOVE_ESCOLA } from '../../graphql';
+import { NATURALES, REMOVE_NATURAL } from '../../graphql';
 import { PaginationType } from '../../types';
-import { Escola } from '../../interfaces';
 import { Pagination } from '../ui/Pagination';
-import { useNotifications } from '../../hooks/useNotifications';
+import { Natural } from '../../interfaces';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { useNotifications } from '../../hooks/useNotifications';
 
-export const escolaTableReducer = (columnKey: any, row: Escola) => {
+export const naturalesTableReducer = (columnKey: any, row: Natural) => {
   switch (columnKey) {
     case 'nombre':
-      return `${row.gres ? 'GRES' : ''} ${row.nombre}`;
-    case 'fecha_fundacion':
-      return new Date(row.fecha_fundacion).toLocaleDateString();
-    case 'direccion':
-      return `${row.direccion_sede}, ${row.numero}, ${row.ciudad.nombre}, ${row.cep}`;
+      return `${row.nombre1} ${row.nombre2 || ''} ${row.apellido1} ${
+        row.apellido2
+      }`;
     default:
       return row[columnKey];
   }
@@ -29,8 +27,8 @@ const columns = [
     label: 'Nombre',
   },
   {
-    key: 'fecha_fundacion',
-    label: 'Fecha de fundación',
+    key: 'email',
+    label: 'Email',
   },
   {
     key: 'direccion',
@@ -42,21 +40,22 @@ const columns = [
   },
 ];
 
-export const EscolasTable = () => {
+export const NaturalesTable = () => {
   const { firePromise } = useNotifications();
   const { push } = useRouter();
   const [page, setPage] = useState(1);
   const { data, loading, error, refetch } = useQuery<{
-    escolas: PaginationType<Escola>;
-    escolasCount: number;
-  }>(ESCOLAS, {
+    naturales: PaginationType<Natural>;
+    naturalesCount: number;
+  }>(NATURALES, {
     variables: {
       page,
-      perPage: 15,
+      perPage: 10,
+      paginate: true,
     },
     fetchPolicy: 'network-only',
   });
-  const [removeEscola] = useMutation(REMOVE_ESCOLA);
+  const [removeNatural] = useMutation(REMOVE_NATURAL);
   if (loading)
     return (
       <div className="w-full flex justify-center pt-10">
@@ -67,11 +66,11 @@ export const EscolasTable = () => {
   return (
     <div className="flex h-full flex-col justify-between">
       <div className="flex justify-end py-6 px-10">
-        <Button auto onClick={() => push('/escola/create')}>
-          Crear Escola
+        <Button auto onClick={() => push('/sponsors/naturales/create')}>
+          Crear Patrocinador
         </Button>
       </div>
-      <div className="flex h-full flex-col justify-between">
+      <div className="flex h-full flex-col">
         <Table bordered>
           <Table.Header>
             {columns.map((column) => (
@@ -87,13 +86,13 @@ export const EscolasTable = () => {
               </Table.Column>
             ))}
           </Table.Header>
-          <Table.Body items={data.escolas.items}>
+          <Table.Body items={data.naturales.items}>
             {(row) => (
               <Table.Row key={row.id}>
                 {(columnKey) =>
                   columnKey !== 'actions' ? (
-                    <Table.Cell css={{ cursor: 'default' }}>
-                      {escolaTableReducer(columnKey, row)}
+                    <Table.Cell css={{ cursor: 'pointer' }}>
+                      {naturalesTableReducer(columnKey, row)}
                     </Table.Cell>
                   ) : (
                     <Table.Cell
@@ -106,21 +105,23 @@ export const EscolasTable = () => {
                     >
                       <Tooltip
                         content="Editar"
-                        onClick={async () => push(`/escola/${row.id}`)}
+                        onClick={async () =>
+                          push(`/sponsors/naturales/${row.id}`)
+                        }
                       >
                         <PencilIcon className="h-5 w-5" />
                       </Tooltip>
                       <Tooltip
-                        content="Borrar escuela"
+                        content="Borrar patrocinador"
                         onClick={async () => {
                           try {
                             await firePromise(
-                              removeEscola({
+                              removeNatural({
                                 variables: {
-                                  removeEscolaId: Number(row.id),
+                                  removeNaturalId: Number(row.id),
                                 },
                               }),
-                              'Escuela eliminada'
+                              'Patrocinador eliminado'
                             );
                           } catch (error) {}
                           refetch();
@@ -137,10 +138,10 @@ export const EscolasTable = () => {
         </Table>
         <Pagination
           page={page}
-          perPage={page === 1 ? data?.escolas.items.length : 15}
+          perPage={page === 1 ? data?.naturales.items.length : 10}
           setPage={setPage}
-          totalPages={data?.escolas.numberOfPages ?? 0}
-          totalItems={data?.escolasCount ?? 0}
+          totalPages={data?.naturales.numberOfPages ?? 0}
+          totalItems={data?.naturalesCount ?? 0}
         />
       </div>
     </div>

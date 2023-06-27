@@ -1,6 +1,6 @@
+import { JuridicosTable } from '../../../components/juridicos/JuridicosTable';
+
 const Page = () => {
-  return (
-    <div>Juridicos table</div>
-  )
-}
+  return <JuridicosTable />;
+};
 export default Page;

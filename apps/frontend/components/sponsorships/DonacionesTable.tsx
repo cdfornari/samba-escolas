@@ -1,23 +1,24 @@
 'use client';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useMutation, useQuery } from '@apollo/client';
 import { Button, Loading, Table, Tooltip } from '@nextui-org/react';
-import { ESCOLAS, REMOVE_ESCOLA } from '../../graphql';
+import { DONACIONES, REMOVE_DONACION } from '../../graphql';
 import { PaginationType } from '../../types';
-import { Escola } from '../../interfaces';
 import { Pagination } from '../ui/Pagination';
+import { TrashIcon } from '@heroicons/react/24/outline';
 import { useNotifications } from '../../hooks/useNotifications';
-import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { Patrocinio } from '../../interfaces';
 
-export const escolaTableReducer = (columnKey: any, row: Escola) => {
+export const donacionTableReducer = (
+  columnKey: any,
+  row: { fecha: Date; monto: number; id: number }
+) => {
   switch (columnKey) {
-    case 'nombre':
-      return `${row.gres ? 'GRES' : ''} ${row.nombre}`;
-    case 'fecha_fundacion':
-      return new Date(row.fecha_fundacion).toLocaleDateString();
-    case 'direccion':
-      return `${row.direccion_sede}, ${row.numero}, ${row.ciudad.nombre}, ${row.cep}`;
+    case 'fecha':
+      return new Date(row.fecha).toLocaleDateString();
+    case 'monto':
+      return `${row.monto} R$`;
     default:
       return row[columnKey];
   }
@@ -25,16 +26,12 @@ export const escolaTableReducer = (columnKey: any, row: Escola) => {
 
 const columns = [
   {
-    key: 'nombre',
-    label: 'Nombre',
+    key: 'fecha',
+    label: 'Fecha',
   },
   {
-    key: 'fecha_fundacion',
-    label: 'Fecha de fundación',
-  },
-  {
-    key: 'direccion',
-    label: 'Dirección',
+    key: 'monto',
+    label: 'Monto',
   },
   {
     key: 'actions',
@@ -42,36 +39,48 @@ const columns = [
   },
 ];
 
-export const EscolasTable = () => {
-  const { firePromise } = useNotifications();
+interface Props {
+  escola: number;
+  patrocinio: number;
+}
+
+export const DonacionesTable: FC<Props> = ({ escola, patrocinio }) => {
   const { push } = useRouter();
+  const { firePromise } = useNotifications();
+  const [removeDonacion] = useMutation(REMOVE_DONACION);
   const [page, setPage] = useState(1);
   const { data, loading, error, refetch } = useQuery<{
-    escolas: PaginationType<Escola>;
-    escolasCount: number;
-  }>(ESCOLAS, {
+    donaciones: PaginationType<{ fecha: Date; monto: number; id: number }>;
+    donacionesCount: number;
+  }>(DONACIONES, {
     variables: {
       page,
-      perPage: 15,
+      perPage: 10,
+      idEscuela: Number(escola),
+      idPatroc: Number(patrocinio),
     },
     fetchPolicy: 'network-only',
   });
-  const [removeEscola] = useMutation(REMOVE_ESCOLA);
   if (loading)
     return (
       <div className="w-full flex justify-center pt-10">
         <Loading size="lg" />
       </div>
     );
-  if (error) return <p>Error</p>;
+  if (error) return <p>{error.message}</p>;
   return (
-    <div className="flex h-full flex-col justify-between">
+    <div className="flex h-full flex-col">
       <div className="flex justify-end py-6 px-10">
-        <Button auto onClick={() => push('/escola/create')}>
-          Crear Escola
+        <Button
+          auto
+          onClick={() =>
+            push(`/escola/${escola}/sponsorships/${patrocinio}/create`)
+          }
+        >
+          Nueva donacion
         </Button>
       </div>
-      <div className="flex h-full flex-col justify-between">
+      <div className="flex flex-col justify-between">
         <Table bordered>
           <Table.Header>
             {columns.map((column) => (
@@ -87,40 +96,36 @@ export const EscolasTable = () => {
               </Table.Column>
             ))}
           </Table.Header>
-          <Table.Body items={data.escolas.items}>
+          <Table.Body items={data.donaciones.items}>
             {(row) => (
               <Table.Row key={row.id}>
                 {(columnKey) =>
                   columnKey !== 'actions' ? (
                     <Table.Cell css={{ cursor: 'default' }}>
-                      {escolaTableReducer(columnKey, row)}
+                      {donacionTableReducer(columnKey, row)}
                     </Table.Cell>
                   ) : (
                     <Table.Cell
                       css={{
-                        cursor: 'default',
+                        cursor: 'pointer',
                         d: 'flex',
                         justifyContent: 'center',
                         gap: 10,
                       }}
                     >
                       <Tooltip
-                        content="Editar"
-                        onClick={async () => push(`/escola/${row.id}`)}
-                      >
-                        <PencilIcon className="h-5 w-5" />
-                      </Tooltip>
-                      <Tooltip
-                        content="Borrar escuela"
+                        content="Borrar donación"
                         onClick={async () => {
                           try {
                             await firePromise(
-                              removeEscola({
+                              removeDonacion({
                                 variables: {
-                                  removeEscolaId: Number(row.id),
+                                  removeDonacionId: Number(row.id),
+                                  idEscuela: Number(escola),
+                                  idPatroc: Number(patrocinio),
                                 },
                               }),
-                              'Escuela eliminada'
+                              'Donacion eliminada'
                             );
                           } catch (error) {}
                           refetch();
@@ -137,10 +142,10 @@ export const EscolasTable = () => {
         </Table>
         <Pagination
           page={page}
-          perPage={page === 1 ? data?.escolas.items.length : 15}
+          perPage={page === 1 ? data?.donaciones.items.length : 15}
           setPage={setPage}
-          totalPages={data?.escolas.numberOfPages ?? 0}
-          totalItems={data?.escolasCount ?? 0}
+          totalPages={data?.donaciones.numberOfPages ?? 0}
+          totalItems={data?.donacionesCount ?? 0}
         />
       </div>
     </div>

@@ -17,12 +17,12 @@ export default function RootLayout({
           {
             href: '/sponsors/juridicos',
             name: 'Jurídicos',
-            active: pathname === '/sponsors/juridicos',
+            active: pathname.includes('juridicos'),
           },
           {
             href: '/sponsors/naturales',
             name: 'Naturales',
-            active: pathname === '/sponsors/naturales',
+            active: pathname.includes('naturales'),
           },
         ]}
       />

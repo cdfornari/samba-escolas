@@ -32,6 +32,12 @@ export const UPDATE_ESCOLA = gql`
   }
 `;
 
+export const REMOVE_ESCOLA = gql`
+  mutation Mutation($removeEscolaId: Int!) {
+    removeEscola(id: $removeEscolaId)
+  }
+`;
+
 export const CREATE_INTEGRANTE = gql`
   mutation CREATE_INTEGRANTE($createIntegranteInput: CreateIntegranteInput!) {
     createIntegrante(createIntegranteInput: $createIntegranteInput) {
@@ -68,6 +74,11 @@ export const REMOVE_HABILIDAD = gql`
   mutation REMOVE_HABILIDADn($removeHabilidadId: Int!) {
     removeHabilidad(id: $removeHabilidadId)
 }
+
+export const REMOVE_INTEGRANTE = gql`
+  mutation REMOVE_INTEGRANTE($removeIntegranteId: Int!) {
+    removeIntegrante(id: $removeIntegranteId)
+  }
 `;
 
 export const CREATE_ROL = gql`
@@ -190,9 +201,25 @@ export const CREATE_PREMIO = gql`
   }
 `;
 
+export const CREATE_JURIDICO = gql`
+  mutation CREATE_JURIDICO($createJuridicoInput: CreateJuridicoInput!) {
+    createJuridico(createJuridicoInput: $createJuridicoInput) {
+      id
+    }
+  }
+`;
+
 export const UPDATE_PREMIO = gql`
   mutation UPDATE_PREMIO($updatePremioInput: UpdatePremioInput!) {
     updatePremio(updatePremioInput: $updatePremioInput) {
+      id
+    }
+  }
+`;
+
+export const UPDATE_JURIDICO = gql`
+  mutation UpdateJuridico($updateJuridicoInput: UpdateJuridicoInput!) {
+    updateJuridico(updateJuridicoInput: $updateJuridicoInput) {
       id
     }
   }
@@ -204,3 +231,66 @@ export const REMOVE_PREMIO = gql`
   }
 `;
 
+export const REMOVE_JURIDICO = gql`
+  mutation REMOVE_JURIDICO($removeJuridicoId: Int!) {
+    removeJuridico(id: $removeJuridicoId)
+  }
+`;
+
+export const CREATE_NATURAL = gql`
+  mutation CREATE_NATURAL($createNaturalesInput: CreateNaturalesInput!) {
+    createNatural(createNaturalesInput: $createNaturalesInput) {
+      id
+    }
+  }
+`;
+
+export const UPDATE_NATURAL = gql`
+  mutation UPDATE_NATURAL($updateNaturalesInput: UpdateNaturalesInput!) {
+    updateNatural(updateNaturalesInput: $updateNaturalesInput) {
+      id
+    }
+  }
+`;
+
+export const REMOVE_NATURAL = gql`
+  mutation REMOVE_NATURAL($removeNaturalId: Int!) {
+    removeNatural(id: $removeNaturalId)
+  }
+`;
+
+export const CREATE_DONACION = gql`
+  mutation CREATE_DONACION($createDonacionInput: CreateDonacionInput!) {
+    createDonacion(createDonacionInput: $createDonacionInput) {
+      id
+    }
+  }
+`;
+
+export const REMOVE_DONACION = gql`
+  mutation REMOVE_DONACION(
+    $removeDonacionId: Int!
+    $idEscuela: Int!
+    $idPatroc: Int!
+  ) {
+    removeDonacion(
+      id: $removeDonacionId
+      id_escuela: $idEscuela
+      id_patroc: $idPatroc
+    )
+  }
+`;
+
+export const REMOVE_GANADOR = gql`
+  mutation REMOVE_GANADOR($idPremio: Int!, $year: Int!) {
+    removeGanador(idPremio: $idPremio, year: $year)
+  }
+`;
+
+export const CREATE_GANADOR = gql`
+  mutation Mutation($createGanadoresInput: CreateGanadoresInput!) {
+    createGanador(createGanadoresInput: $createGanadoresInput) {
+      year
+    }
+  }
+`;

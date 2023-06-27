@@ -13,7 +13,7 @@ export class CreateJuridicoInput {
   @IsNotEmpty()
   @MaxLength(18)
   @Field()
-  cnpj: number;
+  cnpj: string;
 
   @IsString()
   @IsNotEmpty()

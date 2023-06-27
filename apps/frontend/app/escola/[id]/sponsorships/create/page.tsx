@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/navigation';
 import { CREATE_PATROCINIO } from '../../../../../graphql';
 import { useNotifications } from '../../../../../hooks/useNotifications';
-import { SponsorshipForm } from '../../../../../components/sponsoships/SponsorshipForm';
+import { SponsorshipForm } from '../../../../../components/sponsorships/SponsorshipForm';
 
 export default function Page({ params }) {
   const { push } = useRouter();
