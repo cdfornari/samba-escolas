@@ -99,6 +99,7 @@ export const JuridicoFragment = gql`
   fragment JuridicoFragment on Juridico {
     cep
     ciudad {
+      id
       nombre
     }
     cnpj

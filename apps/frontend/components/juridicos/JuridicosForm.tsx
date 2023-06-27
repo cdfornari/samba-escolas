@@ -14,7 +14,7 @@ interface DTO {
   cnpj: string;
   email: string;
   id_lugar: number;
-  numero: string;
+  numero: number;
   cep: string;
   dir: string;
 }
@@ -57,7 +57,7 @@ export const JuridicosForm: FC<Props> = ({
       nombre: initialValues?.nombre,
       email: initialValues?.email,
       cnpj: initialValues?.cnpj,
-      numero: initialValues?.numero.toString(),
+      numero: initialValues?.numero,
       cep: initialValues?.cep,
       dir: initialValues?.dir,
     },
@@ -111,6 +111,7 @@ export const JuridicosForm: FC<Props> = ({
     await action({
       ...data,
       id_lugar: Number(ciudad),
+      numero: Number(data.numero),
     });
   };
   return (
@@ -122,7 +123,7 @@ export const JuridicosForm: FC<Props> = ({
         <div className="flex flex-col gap-10 px-10">
           <Input
             bordered
-            labelPlaceholder="Primer nombre"
+            labelPlaceholder="nombre"
             clearable
             initialValue={initialValues?.nombre ?? ''}
             color={errors.nombre ? 'error' : 'primary'}
@@ -135,7 +136,7 @@ export const JuridicosForm: FC<Props> = ({
           />
           <Input
             bordered
-            labelPlaceholder="Primer apellido"
+            labelPlaceholder="CNPJ"
             clearable
             initialValue={initialValues?.cnpj ?? ''}
             color={errors.cnpj ? 'error' : 'primary'}
