@@ -19,7 +19,7 @@ export class NaturalesService {
         return this.crudService.create(this.tableName, input);
       }
 
-      async findAll(pagination: PaginationArgs): Promise<Natural[]> {
+      async findAll(pagination?: PaginationArgs): Promise<Natural[]> {
         return this.crudService.findAll(this.tableName, pagination);
       }
 

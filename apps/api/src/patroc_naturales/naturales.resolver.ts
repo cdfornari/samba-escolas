@@ -1,7 +1,7 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { NaturalesService } from './naturales.service';
 import { Natural } from './entities/naturales.entity';
-import { CreateNaturalesInput} from './dto/create-naturales.input';
+import { CreateNaturalesInput } from './dto/create-naturales.input';
 import { UpdateNaturalesInput } from './dto/update-naturales.input';
 import { getNumberOfPages } from 'src/common/pagination/getPaginationInfo';
 import { PaginationArgs } from 'src/common/dto/args/pagination.args';
@@ -19,9 +19,13 @@ export class NaturalesResolver {
   }
 
   @Query(() => NaturalesPaginationType, { name: 'naturales' })
-  async findAll(@Args() pagination: PaginationArgs) {
+  async findAll(
+    @Args() pagination: PaginationArgs,
+    @Args('paginate', { type: () => Boolean, defaultValue: true })
+    paginate: boolean,
+  ) {
     const [items, count] = await Promise.all([
-      this.naturalesService.findAll(pagination),
+      this.naturalesService.findAll(paginate ? pagination : null),
       this.naturalesService.count(),
     ]);
     return {

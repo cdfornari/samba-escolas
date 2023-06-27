@@ -1,4 +1,12 @@
-import { Resolver, Query, Mutation, Args, Int,ResolveField, Parent } from '@nestjs/graphql';
+import {
+  Resolver,
+  Query,
+  Mutation,
+  Args,
+  Int,
+  ResolveField,
+  Parent,
+} from '@nestjs/graphql';
 import { JuridicosService } from './juridico.service';
 import { Juridico } from './entities/juridico.entity';
 import { CreateJuridicoInput } from './dto/create-juridico.input';
@@ -13,8 +21,8 @@ import { Lugar } from 'src/lugares/entities/lugar.entity';
 export class JuridicosResolver {
   constructor(
     private readonly juridicosService: JuridicosService,
-    private readonly lugaresService: LugaresService
-    ) {}
+    private readonly lugaresService: LugaresService,
+  ) {}
 
   @Mutation(() => Juridico)
   createJuridico(
@@ -24,9 +32,13 @@ export class JuridicosResolver {
   }
 
   @Query(() => JuridicoPaginationType, { name: 'juridicos' })
-  async findAll(@Args() pagination: PaginationArgs) {
+  async findAll(
+    @Args() pagination: PaginationArgs,
+    @Args('paginate', { type: () => Boolean, defaultValue: true })
+    paginate: boolean,
+  ) {
     const [items, count] = await Promise.all([
-      this.juridicosService.findAll(pagination),
+      this.juridicosService.findAll(paginate ? pagination : null),
       this.juridicosService.count(),
     ]);
     return {

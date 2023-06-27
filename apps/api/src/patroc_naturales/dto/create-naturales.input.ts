@@ -1,5 +1,5 @@
 import { Field, InputType} from '@nestjs/graphql';
-import { IsNotEmpty, IsOptional, IsPositive, IsString, MaxLength } from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator';
 
 @InputType()
 export class CreateNaturalesInput {
