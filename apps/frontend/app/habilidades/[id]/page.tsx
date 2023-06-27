@@ -3,14 +3,14 @@ import { useMutation, useQuery } from '@apollo/client';
 import { Loading } from '@nextui-org/react';
 import { HABILIDAD, UPDATE_HABILIDAD} from '../../../graphql';
 import { useNotifications } from '../../../hooks/useNotifications';
-import { Role } from '../../../interfaces';
+import { Habilidad } from '../../../interfaces';
 import { RoleForm } from '../../../components/roles/RoleForm';
 
 export default function Page({ params }) {
   const { firePromise } = useNotifications();
   const [updateRole] = useMutation(UPDATE_HABILIDAD);
   const { data, loading, error } = useQuery<{
-    rol: Role;
+    habilidad: Habilidad;
   }>(HABILIDAD, {
     variables: {
       id: Number(params.id),
@@ -39,7 +39,7 @@ export default function Page({ params }) {
           'Habilidad actualizada'
         )
       }
-      initialValues={data?.rol}
+      initialValues={data?.habilidad}
       buttonText="Actualizar"
     />
   );
