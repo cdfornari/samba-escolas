@@ -17,7 +17,7 @@ export const habilidadesTableReducer = (columnKey: any, row:Premio) => {
       case 'tipo':
         return `${row.tipo}`;
         case 'lugar':
-          return `${row.lugar.nombre}`;
+        return `${row.id_lugar === 3?'Rio de Janerio' : row.id_lugar === 7?'São Paulo':row.id_lugar === 8?'Betim':row.id_lugar === 9?'Contagem':''}`;
     default:
       return row[columnKey];
   }
