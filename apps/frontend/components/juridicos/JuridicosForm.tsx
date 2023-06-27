@@ -13,7 +13,7 @@ interface DTO {
   nombre: string;
   cnpj: string;
   email: string;
-  id_lugar: string;
+  id_lugar: number;
   numero: string;
   cep: string;
   dir: string;
@@ -91,6 +91,7 @@ export const JuridicosForm: FC<Props> = ({
     }
     await action({
       ...data,
+      id_lugar: Number(ciudad),
     });
   };
   return (

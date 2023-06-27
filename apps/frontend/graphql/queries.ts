@@ -245,6 +245,15 @@ export const NATURALES = gql`
   ${NaturalFragment}
 `;
 
+export const JURIDICO = gql`
+  query JURIDICO($juridicoId: Int!) {
+    juridico(id: $juridicoId) {
+      ...JuridicoFragment
+    }
+  }
+  ${JuridicoFragment}
+`;
+
 export const JURIDICOS = gql`
   query JURIDICOS($page: Int, $perPage: Int, $paginate: Boolean!) {
     juridicos(page: $page, perPage: $perPage, paginate: $paginate) {

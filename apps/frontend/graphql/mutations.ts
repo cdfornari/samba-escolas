@@ -168,6 +168,14 @@ export const CREATE_JURIDICO = gql`
   }
 `;
 
+export const UPDATE_JURIDICO = gql`
+  mutation UpdateJuridico($updateJuridicoInput: UpdateJuridicoInput!) {
+    updateJuridico(updateJuridicoInput: $updateJuridicoInput) {
+      id
+    }
+  }
+`;
+
 export const REMOVE_JURIDICO = gql`
   mutation REMOVE_JURIDICO($removeJuridicoId: Int!) {
     removeJuridico(id: $removeJuridicoId)
