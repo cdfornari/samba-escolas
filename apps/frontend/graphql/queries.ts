@@ -108,6 +108,10 @@ export const INTEGRANTE = gql`
   query INTEGRANTE($id: Int!) {
     integrante(id: $id) {
       ...IntegranteFragment
+      habilidades {
+        id
+        nombre
+      }
     }
   }
   ${IntegranteFragment}
@@ -265,4 +269,17 @@ export const JURIDICOS = gql`
     juridicosCount
   }
   ${JuridicoFragment}
+`;
+
+export const HABILIDADES = gql`
+  query HABILIDADES($page: Int, $perPage: Int, $paginate: Boolean!) {
+    habilidades(page: $page, perPage: $perPage, paginate: $paginate) {
+      items {
+        descripcion
+        id
+        nombre
+      }
+      numberOfPages
+    }
+  }
 `;

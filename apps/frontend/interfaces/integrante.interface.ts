@@ -9,6 +9,11 @@ export interface Integrante {
   apodo?: string;
   nacionalidad: string;
   rg?: string;
+  habilidades: {
+    id: number;
+    nombre: string;
+    descripcion: string;
+  }[];
 }
 
 export interface IntegranteHistory {
