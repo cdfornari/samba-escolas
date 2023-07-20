@@ -281,10 +281,6 @@ INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (7,1,'01-20-
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (7,1,'01-20-2001',5000);
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (7,1,'01-20-2002',5000);
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (8,9,'09-06-2019',22000);
-INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (5,1,'11-11-2015',22240);
-INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (3,1,'06-07-2012',1250);
-INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (2,1,'08-05-2014',3500);
-INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (4,2,'06-07-2012',1250);
 
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2013',4,'UESP-2',12000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2014',4,'UESP-1',15000);
@@ -329,13 +325,13 @@ INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2018',3,'Especial',45000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2020',3,'Especial',35000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2002',4,'Acceso',12000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2014',4,'Especial',45000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2016',4,'Especial',45000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2023',4,'Especial',35000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2003',5,'Acceso',12000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2014',5,'Acceso',9000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2016',5,'Acceso',15000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2000',6,'Acceso',12000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2005',6,'Acceso',9000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2009',6,'Acceso',9000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2006',6,'Especial',35000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1989',7,'Acceso',12000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1992',7,'Acceso',9000);
@@ -765,7 +761,7 @@ INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anua
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (36,'03-17-2009',8,3,'01-01-2005');
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (37,'08-07-2011',8,3,'01-01-2007');
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (38,'01-22-1984',8,2,'01-01-2012');
-INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (41,'10-09-2010',8,6,'01-01-2019');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (41,'10-09-2010',9,6,'01-01-2019');
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Pernambucópolis','Eita saudade danada
 Vim das estrelas com meu ziriguidum
@@ -1416,8 +1412,11 @@ INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (43,'09-10-1999',1,9);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (7,'02-25-2020',2,11);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (33,'04-17-2012',7,12);
-INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (36,'03-17-2009',8,13);
-INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (39,'11-02-2011',9,14);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (35,'08-11-2011',7,13);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (36,'03-17-2009',8,14);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (38,'01-22-1984',8,15);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (39,'11-02-2011',9,16);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (40,'06-06-2012',9,17);
 
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Escuela)','escola','escola',3);
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Fernando Pamplona)','escola','Mejor uso de materiales baratos.',3);
@@ -1466,7 +1465,6 @@ INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2018',4,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1996',5,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2016',11,5);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2016',12,5);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2015',4,2);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2017',6,2);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2018',5,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2005',6,3);
@@ -1477,7 +1475,7 @@ INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1989',4,7);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2009',12,8);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2017',9,8);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1992',6,9);
-INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2016',6,9);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2016',2,9);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2009',8,6,23,'05-04-1991');
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2005',8,6,23,'05-04-1991');
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2002',8,6,23,'05-04-1991');
