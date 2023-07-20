@@ -83,6 +83,60 @@ INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombr
 VALUES (5, '07-01-2015', '11-29-2015', 'Shows', 'general', 'Shows realizados para financiar nuestro desfile del grupo especial del próximo año', 100, 852);
 INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
 VALUES (2, '03-21-2023', '04-21-2023', 'Celebraciones titulo 2023', 'general', 'Fiestas de celebración de nuestro titulo en 2023', 100, 400);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (1, '03-15-2001', '04-15-2001', 'Celebraciones titulo 2001', 'general', 'Fiestas de celebración de nuestro titulo en 2001', 150, 100);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (1, '02-07-1999', '03-07-1999', 'Celebraciones titulo 1999', 'general', 'Fiestas de celebración de nuestro titulo en 1999', 110, 103);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (1, '02-04-2018', '03-31-2018', 'Noches de samba carnaval 2018', 'n_samba', 'Noches de samba realizadas durante la época del Carnaval en 2018', 100, 348);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (1, '01-25-2017', '03-31-2017', 'Noches de samba 2017', 'n_samba', 'Noches de samba realizadas durante la época del Carnaval en 2017', 150, 897);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (2, '02-05-2014', '04-29-2014', 'Clases de baile', 'general', 'Clases de diferentes estilos de baile dadas a turistas y locales', 37, 179);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (2, '06-01-2016', '10-25-2016', 'Shows', 'general', 'Shows realizados para financiar nuestro desfile del grupo especial del próximo año', 165, 948);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (2, '01-11-2016', '03-31-2016', 'Noches de samba 2016', 'n_samba', 'Noches de samba realizadas durante la época del Carnaval en 2016', 160, 987);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (2, '01-17-2019', '03-31-2019', 'Noches de samba 2019', 'n_samba', 'Noches de samba realizadas durante la época del Carnaval en 2019', 110, 456);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (3, '02-04-2017', '03-29-2017', 'Celebración ascenso 2017', 'general', 'Celebraciones de nuestro titulo en 2017 ', 55, 117);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (3, '07-11-2010', '09-23-2010', 'Shows', 'general', 'Shows realizados para financiar nuestro desfile del grupo especial del próximo año', 74, 156);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (3, '04-21-1999', '05-20-1999', 'Celebraciones titulo 1999', 'general', 'Fiestas de celebración de nuestro titulo en 1999', 79, 123);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (4, '02-21-2013', '03-29-2013', 'Celebraciones por ascenso 2013 ', 'general', 'Fiestas de celebración de formar parte al grupo de UESP-2', 46, 456);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (4, '03-17-2014', '03-29-2014', 'Celebraciones por ascenso 2014 ', 'general', 'Fiestas de celebración de formar parte al grupo de UESP-1', 49, 565);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (4, '02-25-2007', '04-05-2007', 'Celebraciones titulo 2007', 'general', 'Fiestas de celebración de nuestro titulo en 2007', 71, 453);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (4, '01-24-2015', '03-31-2019', 'Noches de samba 2015', 'n_samba', 'Noches de samba realizadas durante la época del Carnaval en 2015', 76, 265);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (4, '01-22-2015', '03-31-2019', 'Noches de samba 2015', 'n_samba', 'Noches de samba realizadas durante la época del Carnaval en 2015', 67, 213);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (5, '08-09-2009', '09-29-2009', 'Shows', 'general', 'Shows realizados para financiar nuestro desfile del grupo especial del próximo año', 95, 433);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (5, '02-08-2019', '03-31-2019', 'Noches de samba carnaval 2019', 'n_samba', 'Noches de samba realizadas durante la época del Carnaval en 2019', 79, 132);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (7, '02-14-2018', '03-14-2018', 'Clases de baile', 'general', 'Clases de diferentes estilos de baile dadas a turistas y locales', 44, 89);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (7, '01-11-2014', '03-31-2014', 'Noches de samba carnaval 2014', 'n_samba', 'Noches de samba realizadas durante la época del Carnaval en 2014', 82, 154);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (7, '01-22-2015', '03-31-2015', 'Noches de samba carnaval 2015', 'n_samba', 'Noches de samba realizadas durante la época del Carnaval en 2015', 94, 132);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (8, '08-11-2018', '11-10-2018', 'Shows', 'general', 'Shows realizados para financiar nuestro desfile del grupo especial del próximo año', 77, 114);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (8, '09-17-2010', '11-25-2010', 'Shows', 'general', 'Shows realizados para financiar nuestro desfile del grupo especial del próximo año', 88, 54);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (8, '10-27-2002', '11-27-2002', 'Shows', 'general', 'Shows realizados para financiar nuestro desfile del grupo especial del próximo año', 68, 47);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (9, '06-01-2017', '08-29-2017', 'Clases de baile', 'general', 'Clases de diferentes estilos de baile dadas a turistas y locales', 98, 189);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (9, '08-19-2017', '09-23-2017', 'Shows', 'general', 'Shows realizados para financiar nuestro desfile del grupo especial del próximo año', 74, 156);
+INSERT INTO csd_eventos_anuales_sems (id_escuela, fecha_inicio, fecha_fin, nombre, tipo, descripcion, costo_unit, asist_total)
+VALUES (9, '09-27-2018', '11-27-2018', 'Shows', 'general', 'Shows realizados para financiar nuestro desfile del grupo especial del próximo año', 74, 156);
 
 INSERT INTO csd_patroc_juridicos(nombre,cnpj,email,id_lugar,dir,numero,cep)
 VALUES ('Caixa Economica Federal','00.360.305/0238-21','ag0238@caixa.gov.br',7,'Avenida Paulista, Bela Vista',1708,'01310-918');
@@ -113,23 +167,36 @@ INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) V
 INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Marcel',NULL,'Herrmann','Telles','Y25680O1-2','mhtelles@ambev.com.br');
 INSERT INTO csd_patroc_naturales(nombre1,nombre2,apellido1,apellido2,rg,email) VALUES ('Carlos',NULL,'Wizard','Martins','583ILO06-5','cwizard@wisereducacao.com.br');
 
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,11,244784128,1);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,31,994274064,2);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,21,33325823,3);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,11,959634746,4);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,11,982724128,5);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,21,484535797,6);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,31,991169687,7);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,11,29593377,8);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_escuela) VALUES (55,31,971109981,9);
 
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,11,31035900,1);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,21,44489000,2);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,21,21349000,3);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,11,71266911,4);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,21,38087500,5);
-INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,31,30162855,7);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,11,77730084,6);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,31,03016285,7);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,11,21189500,8);
 INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_jur) VALUES (55,11,56442800,9);
 
-INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,11,55417755,1);
-INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,21,992239955,3);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,11,555417755,1);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,21,002239944,2);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,11,993340055,3);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,21,992239955,4);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,11,001144965,5);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,11,112240922,6);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,21,222239245,7);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,21,911244900,8);
+INSERT INTO csd_telefonos(cod_int,cod_area,numero,id_nat) VALUES (55,11,111133955,3);
+
 
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (4,'06-01-2016',1,NULL);
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (2,'05-01-2020',2,NULL);
@@ -140,6 +207,42 @@ INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin)
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (1,'11-13-1989',5,'04-01-2002');
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (9,'07-03-2016',9,'02-05-2018');
 INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,fecha_fin) VALUES (6,'11-05-2013',5,'06-02-2014');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (1,'10-01-2015',NULL,5,'10-02-2017');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (1,'05-07-2012',NULL,3,'08-07-2015');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (1,'05-07-2014',NULL,2,'01-04-2018');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (1,'08-04-2012',NULL,2,'11-11-2012');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (2,'06-04-2014',NULL,4,'07-04-2016');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (2,'03-02-2011',NULL,1,'09-09-2016');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (2,'04-04-2018',NULL,1,'04-02-2019');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (2,'02-01-2011',NULL,6,'05-03-2013');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (3,'06-04-2014',NULL,9,'07-04-2016');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (3,'03-02-2011',NULL,8,'09-09-2016');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (3,'11-10-2013',NULL,7,'04-02-2019');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (3,'02-01-2011',NULL,7,'05-03-2013');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (4,'06-02-2012',NULL,6,'06-05-2013');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (4,'07-19-2010',NULL,6,'07-05-2011');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (4,'09-15-2002',NULL,5,'05-09-2013');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (4,'01-01-2015',NULL,5,'02-02-2015');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (5,'06-29-2012',NULL,8,'06-07-2014');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (5,'04-28-2015',NULL,8,'02-10-2016');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (5,'04-20-2011',NULL,2,'02-04-2017');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (5,'01-04-2022',NULL,1,NULL);
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (6,'05-08-2013',NULL,9,'09-09-2013');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (6,'09-21-2014',NULL,4,'03-11-2015');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (6,'04-28-2016',NULL,4,'01-09-2017');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (6,'01-04-2022',NULL,7,'07-11-2022');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (7,'11-22-2018',NULL,6,'05-11-2020');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (7,'04-13-2015',NULL,6,'04-05-2016');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (7,'02-22-2017',NULL,3,'02-10-2017');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (7,'06-07-2010',NULL,5,NULL);
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (8,'02-22-2015',NULL,9,'05-10-2018');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (8,'03-13-2016',NULL,6,'04-07-2017');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (8,'04-22-2017',NULL,6,'12-10-2017');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (8,'01-02-2021',NULL,4,'02-10-2021');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (9,'01-21-2014',NULL,8,'02-11-2017');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (9,'02-11-2014',NULL,5,'02-05-2016');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (9,'05-23-2018',NULL,4,'12-09-2019');
+INSERT INTO csd_historicos_patrocinios(id_escuela,fecha_inicio,id_jur,id_nat,fecha_fin) VALUES (9,'01-01-2019',NULL,2,'01-11-2020');
 
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (1,4,'08-03-2016',15000);
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (2,2,'06-10-2020',15000);
@@ -178,6 +281,10 @@ INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (7,1,'01-20-
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (7,1,'01-20-2001',5000);
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (7,1,'01-20-2002',5000);
 INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (8,9,'09-06-2019',22000);
+INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (5,1,'11-11-2015',22240);
+INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (3,1,'06-07-2012',1250);
+INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (2,1,'08-05-2014',3500);
+INSERT INTO csd_donaciones(id_patroc,id_escuela,fecha,monto) VALUES (4,2,'06-07-2012',1250);
 
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2013',4,'UESP-2',12000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2014',4,'UESP-1',15000);
@@ -214,7 +321,32 @@ INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2015',6,'Especial',90000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2018',6,'Especial',90000);
 INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2000',8,'Especial',30000);
-INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2017',8,'Acesso',40000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2017',8,'Acceso',40000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2015',2,'Especial',60000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2017',2,'Especial',30000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2019',2,'Especial',35000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2005',3,'Acceso',10000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2018',3,'Especial',45000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2020',3,'Especial',35000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2002',4,'Acceso',12000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2014',4,'Especial',45000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2023',4,'Especial',35000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2003',5,'Acceso',12000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2014',5,'Acceso',9000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2016',5,'Acceso',15000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2000',6,'Acceso',12000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2005',6,'Acceso',9000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2006',6,'Especial',35000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1989',7,'Acceso',12000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1992',7,'Acceso',9000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1995',7,'Acceso',15000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2003',8,'Acceso',12000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2009',8,'Especial',90000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2011',8,'Especial',95000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1987',9,'Acceso',10000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-1992',9,'Acceso',8000);
+INSERT INTO csd_historicos_titulos(anual,id_escuela,grupo,monto) VALUES ('01-01-2016',9,'Especial',45000);
+
 
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Dirección','Sabe dirigir, organizar y coordinar a un grupo de personas');
 INSERT INTO csd_habilidades (nombre,descripcion) VALUES ('Danza','Domina el movimiento de su cuerpo al ritmo de la música');
@@ -614,6 +746,26 @@ INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anua
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (37,'08-07-2011',8,9,'01-01-2023');
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (38,'01-22-1984',8,3,'01-01-1995');
 INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (43,'09-10-1999',1,7,'01-01-2000');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (32,'04-23-2015',5,6,'01-01-2003');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (10,'11-28-2017',3,4,'01-01-2009');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (10,'11-28-2017',3,4,'01-01-2011');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (11,'03-23-2023',3,3,'01-01-2015');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (11,'03-23-2023',3,3,'01-01-2017');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (11,'03-23-2023',3,3,'01-01-2018');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (12,'04-19-2011',3,2,'01-01-2013');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (33,'04-17-2012',7,5,'01-01-2011');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (34,'02-05-2014',7,2,'01-01-2011');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (34,'02-05-2014',7,2,'01-01-2014');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (35,'08-11-2011',7,1,'01-01-2011');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (35,'08-11-2011',7,1,'01-01-2012');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (39,'11-02-2011',9,4,'01-01-2010');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (39,'11-02-2011',9,4,'01-01-2014');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (40,'06-06-2012',9,1,'01-01-2017');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (41,'10-09-2010',9,5,'01-01-2018');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (36,'03-17-2009',8,3,'01-01-2005');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (37,'08-07-2011',8,3,'01-01-2007');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (38,'01-22-1984',8,2,'01-01-2012');
+INSERT INTO csd_org_carnavales(id_integrante,fecha_inicio,id_escuela,id_rol,anual) VALUES (41,'10-09-2010',8,6,'01-01-2019');
 
 INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Pernambucópolis','Eita saudade danada
 Vim das estrelas com meu ziriguidum
@@ -947,6 +1099,311 @@ O sabor é verde-e-branco
 Passa a régua e dá pro santo
 Que a Imperatriz chegou','01-01-2001','enredo');
 
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Clareia o céu, brilha a estrela','Cana-caiana,
+Clareia o céu, brilha a estrela
+No compasso do samba, a alegria se revela
+Em cada passo, a história a contar
+Na cadência do tambor, o amor a pulsar
+
+Na batida do surdo, ecoa a tradição
+No peito da escola, bate forte o coração
+Vem com a gente, vem sambar
+Nessa festa que não cansa de encantar
+
+Oh, Brasil, terra de encantos mil
+O samba é a nossa voz, é o nosso Brasil
+Com cores vibrantes, a nossa bandeira a brilhar
+Somos um só povo, a dançar e a cantar
+
+Do samba nasceu a cultura popular
+Das favelas às avenidas, um só lugar
+A arte se revela em cada passista
+Em cada verso, a poesia que não se desista
+
+Vem, meu povo, vem celebrar
+A alma do samba que não cansa de emocionar
+Somos a energia que contagia
+Nessa festa que é pura magia
+
+No ritmo da bateria, a emoção se faz presente
+A comunidade unida, samba envolvente
+Vem, sinta a batida, deixe-se levar
+No samba enredo, a paixão a transbordar
+
+É carnaval, é alegria no ar
+O samba é a nossa essência, é o nosso lugar
+Vamos juntos, numa só voz cantar
+A história do samba, que jamais vai se apagar
+
+No compasso do samba, a vida pulsa
+Na cadência do tambor, a alma se eleva
+Brilha, Estrela do Vale, mostra o teu valor
+No samba enredo, eternizamos o nosso amor!','01-01-2015','enredo');
+
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('A festa começa com alegria','No clarão da lua cheia,
+A festa começa com alegria,
+Na passarela, a escola desfila,
+Em cada verso, a história se revela.
+
+No batuque da bateria,
+O samba ecoa na avenida,
+É a magia do carnaval,
+Em cada nota, uma vida.
+
+Nas asas da imaginação,
+A escola voa em emoção,
+Contando a história do povo,
+Com garra e paixão.
+
+Das raízes africanas,
+Nasce a cultura que encanta,
+Samba no pé, ginga no corpo,
+A dança que nos levanta.
+
+Oh, Brasil, terra de encantos mil,
+O samba é a nossa voz, é o nosso Brasil,
+Com cores vivas e vibrantes,
+Nossa bandeira a brilhar sutil.
+
+Das favelas às mansões,
+O samba une os corações,
+É a força da comunidade,
+Na alegria e na superação.
+
+No ritmo da batucada,
+A multidão se agita,
+É pura energia contagiante,
+Que nos leva além da vida.
+
+Vem, meu povo, vem sambar,
+Na cadência do samba se entregar,
+Unidos pela emoção,
+Celebrando a nossa tradição.
+
+No compasso do samba,
+A felicidade se faz presente,
+É carnaval, é festa,
+Vem, sinta essa emoção ardente.
+
+Em cada passo, uma história,
+Que ecoa na memória,
+O samba enredo é poesia,
+Que encanta e emociona na avenida.
+
+Nessa festa de cores e brilho,
+O samba é o nosso trilho,
+Vamos juntos, cantar e dançar,
+A alegria do samba enredo no ar!
+
+Que ressoe o samba na avenida,
+E que a nossa escola seja aplaudida,
+Com amor e dedicação,
+Vamos viver essa paixão!
+
+No ritmo do samba, somos um só,
+Na harmonia e na emoção,
+Academêmicos de Venda Nova,
+Nossa escola, nossa paixão!','01-01-2015','enredo');
+
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Na cadência do samba, a alegria se espalha','No brilho das estrelas, a emoção se revela
+Na cadência do samba, a alegria se espalha
+Na passarela, a escola desfila com paixão
+Contando a história, num belo samba enredo
+
+Nas cores vibrantes, a nossa identidade
+Do samba nasce a nossa felicidade
+Com a batida do tambor, a energia se renova
+Em cada verso, a magia se comprova
+
+Oh, Brasil, terra de encantos mil
+O samba é a nossa voz, é o nosso Brasil
+Com ginga e emoção, mostramos nossa cultura
+Somos um só povo, unidos na alegria pura
+
+Das raízes negras, o samba se fez nascer
+No compasso do pandeiro, o ritmo a envolver
+É a herança dos ancestrais, que nos guia
+No samba enredo, a tradição se eterniza
+
+No bailado das passistas, a beleza se revela
+Na harmonia dos instrumentos, a festa se acende
+É o carnaval, a celebração da vida
+O samba enredo é a nossa maior guarida
+
+Unidos na avenida, a escola desfila com garra
+A comunidade se une, a emoção não para
+No sorriso de cada componente, a felicidade
+No samba enredo, a nossa verdade
+
+Vem, meu povo, vem sambar com emoção
+Na cadência do samba, juntos, numa só canção
+É a festa mais esperada do ano
+O carnaval, que nos enche de amor e encanto
+
+No ritmo do tambor, a nossa alma se agita
+Na passarela, a nossa história se grita
+Com alegria e samba no pé, vamos celebrar
+A cultura brasileira, que nunca vai se apagar
+
+Que ressoe o samba na avenida, com toda emoção
+E que a nossa escola seja aclamada com gratidão
+Acadêmicos do Samba, orgulho da nação
+Vamos viver intensamente essa paixão!','01-01-2015','enredo');
+
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Na passarela da vida, a escola desfila com beleza','Nas asas da imaginação, o sonho se desvela
+Na passarela da vida, a escola desfila com beleza
+No compasso do samba, a emoção se incendeia
+No enredo original, a história se entrelaça
+
+Das raízes da cultura, brota o encanto
+No gingado do corpo, a poesia se faz canto
+Com cores vivas e vibrantes, a alegria se espalha
+No samba enredo, a nossa alma se acalma
+
+Oh, Brasil, berço do samba e da diversidade
+Em cada verso, exaltamos a nossa identidade
+Com batuques e tambores, a festa se consagra
+No samba enredo, a emoção se propaga
+
+Unidos na avenida, a comunidade se abraça
+Na harmonia dos instrumentos, a paixão não se cansa
+Cantando e dançando, celebramos a tradição
+No samba enredo, vivemos a pura emoção
+
+Vem, meu povo, vem sambar com alegria
+Na cadência do samba, a felicidade contagia
+É o carnaval, a festa mais esperada do ano
+No samba enredo, encontramos nosso plano
+
+Que ressoe o samba na avenida, com toda intensidade
+E que a nossa escola seja aclamada na cidade
+Acadêmicos do Samba, orgulho da nação
+Vamos viver esse enredo com amor e devoção!','01-01-2015','enredo');
+
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('O samba enredo revela a magia','No reino encantado da fantasia
+O samba enredo revela a magia
+Nas asas da imaginação, voamos além
+Um enredo original que ninguém tem
+
+No jardim das flores, a alegria floresce
+Entre fadas e seres mágicos, a emoção aquece
+No compasso do samba, a dança encanta
+A escola desfila com garra e encanta
+
+Das lendas e mitos, a história se desvela
+Na cadência do batuque, a emoção se revela
+Com cores vivas e vibrantes, o sonho se colore
+No samba enredo, a fantasia se impõe
+
+Oh, Brasil, terra de encantos mil
+No samba enredo, a imaginação se abrilhanta
+Com criatividade e originalidade, mostramos quem somos
+Na avenida, brilhamos, encantamos, somos donos
+
+Unidos na avenida, a comunidade se une
+Com amor e paixão, o samba se constrói
+No sorriso de cada componente, a felicidade reluz
+No samba enredo, a nossa essência se traduz
+
+Vem, meu povo, vem sambar com emoção
+Na cadência do samba, vivamos essa ilusão
+É o carnaval, a festa da alma brasileira
+No samba enredo, a criatividade se faz inteira
+
+Que ressoe o samba na avenida, com toda intensidade
+E que a nossa escola seja aclamada na cidade
+Acadêmicos do Samba, orgulho da nação
+Vamos viver esse enredo, com amor e emoção!','01-01-2015','enredo');
+
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('Na harmonia dos instrumentos, a igualdade se faz laço','No brilho dos olhares, a mulher se faz presente
+No samba enredo, exaltamos sua força e sua mente
+Na cadência do tambor, sua essência se revela
+Mulheres guerreiras, donas dessa passarela
+
+Com gingado e elegância, elas encantam
+Na avenida, a sua presença reluz e se expande
+No samba enredo, a sua história se eterniza
+Mulheres empoderadas, a nossa maior riqueza
+
+Oh, Brasil, terra de mulheres de fibra
+No samba enredo, enaltecemos essa linda obra
+Com coragem e determinação, enfrentam desafios
+Mulheres fortes, verdadeiros raios de brilho
+
+Unidas na avenida, as mulheres se abraçam
+Na harmonia dos instrumentos, a igualdade se faz laço
+Cantando e dançando, celebramos a diversidade
+No samba enredo, exaltamos a sua dignidade
+
+Vem, mulherada, vem sambar com garra
+Na cadência do samba, a liberdade se amarra
+É o carnaval, a festa da igualdade e do respeito
+No samba enredo, as mulheres são o nosso leito
+
+Que ressoe o samba na avenida, com toda emoção
+E que a nossa escola seja aclamada com gratidão
+Mulheres do Samba, orgulho da nação
+Vamos viver intensamente essa celebração!','01-01-2015','enredo');
+
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('No samba enredo, exaltamos sua alma gigante e sua garra','No brilho do sorriso, o homem de estatura baixa
+No samba enredo, exaltamos sua alma gigante e sua garra
+Na cadência do pandeiro, sua presença se revela
+Homens de estatura pequena, donos dessa passarela
+
+Com charme e determinação, eles encantam
+Na avenida, sua presença se destaca e se expande
+No samba enredo, sua história se eterniza
+Homens de estatura baixa, nossa maior surpresa
+
+Oh, Brasil, terra de homens de grande coração
+No samba enredo, enaltecemos essa linda canção
+Com talento e superação, eles enfrentam desafios
+Homens de estatura baixa, verdadeiros raios de brilho
+
+Unidos na avenida, os homens se abraçam
+Na harmonia dos instrumentos, a igualdade se faz laço
+Cantando e dançando, celebramos a diversidade
+No samba enredo, exaltamos sua dignidade
+
+Vem, homenzinhos, vem sambar com garra
+Na cadência do samba, a autoestima se amarra
+É o carnaval, a festa da igualdade e do respeito
+No samba enredo, os homens baixos são o nosso leito
+
+Que ressoe o samba na avenida, com toda emoção
+E que a nossa escola seja aclamada com gratidão
+Homens do Samba, orgulho da nação','01-01-2015','enredo');
+
+INSERT INTO csd_sambas(titulo,letra,anual_carnv,tipo) VALUES ('No samba enredo, exaltamos esse laço que une','No aconchego do lar, a família se reúne
+No samba enredo, exaltamos esse laço que une
+Na cadência do pandeiro, a harmonia se faz presente
+A família, a base que nos mantém contentes
+
+Com amor e união, ela se fortalece
+Na avenida, sua presença se engrandece
+No samba enredo, sua história se eterniza
+Famílias unidas, nossa maior riqueza
+
+Oh, Brasil, berço de lares abençoados
+No samba enredo, enaltecemos esses momentos sagrados
+Com respeito e compreensão, enfrentam desafios
+Famílias unidas, verdadeiros raios de brilho
+
+Unidos na avenida, os laços se fortalecem
+Na harmonia dos instrumentos, o amor prevalece
+Cantando e dançando, celebramos a diversidade
+No samba enredo, exaltamos a felicidade
+
+Vem, minha família, vem sambar com alegria
+Na cadência do samba, a união se anuncia
+É o carnaval, a festa da cumplicidade e do afeto
+No samba enredo, a família é o nosso leito
+
+Que ressoe o samba na avenida, com toda emoção
+E que a nossa escola seja aclamada com gratidão
+Famílias do Samba, orgulho da nação
+Vamos viver intensamente essa celebração!','01-01-2015','enredo');
+
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (16,'11-30-2013',3,1);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (18,'12-15-2013',3,1);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (17,'12-02-2011',4,2);
@@ -957,6 +1414,10 @@ INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (42,'06-09-2018',1,7);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (43,'09-10-1999',1,8);
 INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (43,'09-10-1999',1,9);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (7,'02-25-2020',2,11);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (33,'04-17-2012',7,12);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (36,'03-17-2009',8,13);
+INSERT INTO csd_autores(id_integrante,fecha_inicio,id_escuela,id_samba) VALUES (39,'11-02-2011',9,14);
 
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Escuela)','escola','escola',3);
 INSERT INTO csd_premios_especiales(nombre,tipo,descripcion,id_lugar) VALUES ('Estandarte de Oro (Fernando Pamplona)','escola','Mejor uso de materiales baratos.',3);
@@ -1005,6 +1466,18 @@ INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2018',4,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1996',5,3);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2016',11,5);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2016',12,5);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2015',4,2);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2017',6,2);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2018',5,3);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2005',6,3);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2002',4,4);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2014',5,4);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1992',9,7);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1989',4,7);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2009',12,8);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2017',9,8);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-1992',6,9);
+INSERT INTO csd_ganadores(anual,id_premio,id_escuela) VALUES ('01-01-2016',6,9);
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2009',8,6,23,'05-04-1991');
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2005',8,6,23,'05-04-1991');
 INSERT INTO csd_ganadores(anual,id_premio,id_escuela_integrante, id_integrante, fecha_inicio) VALUES ('01-01-2002',8,6,23,'05-04-1991');
